@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+!!!NOTE: Images should be 504px x 256px
+-->
+<items>
+    <item>
+        <text>Milwaukee Health Report</text>
+        <type>image</type>
+        <file>images/bannerwidget/sample1.jpg</file>
+        <link>/news-events/news/milwaukees-public-health-hurt-by-socioeconomic-factors/1314</link>
+        <caption>University of Wisconsin School of Medicine and Public Health faculty have helped create the first comprehensive look at the state of health in Milwaukee.</caption>
+    </item>
+    <item>
+        <text>Alumni Connection</text>
+        <type>image</type>
+        <file>images/bannerwidget/sample2.jpg</file>
+        <link>/alumni/main/79</link>
+        <caption>The Wisconsin Medical Alumni Association helps alumni connect through student initiatives, Quarterly magazine, events and programs.</caption>
+    </item>
+    <item>
+        <text>RUSCH Program</text>
+        <type>image</type>
+        <file>images/bannerwidget/sample3.jpg</file>
+        <link>/news-events/news/undergrad-program-aimed-at-underserved-populations/1298</link>
+        <caption>Rural and Urban Scholars in Community Health (RUSCH) is a new undergraduate program that addresses the shortage of physicians in underserved areas.</caption>
+    </item>
+    <settings>
+        <param name="delay">8000</param>
+        <param name="captions">true</param>
+        <param name="navdirection">horizontal</param>
+        <param name="navposition">left</param>
+    </settings>
+</items>

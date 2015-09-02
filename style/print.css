@@ -1,0 +1,177 @@
+@charset "utf-8";
+/* CSS Document */
+/* Printer friendly css document */
+
+/* Clean up the body and html tags */
+body, html {
+	background-color: #ffffff;
+	background: none;
+	font-family: Verdana, Arial, Helvetica, sans-serifverdana;
+	font-size: 85%;
+}
+/* Let's hide some elements */
+iframe, #rightPod, #leftNavContainer, #topTabs, #navBar, #footer, #adjust, .leftNav, .skipToContent, #header {
+	display: none;
+}
+#pageHeader img {
+	display: none;
+}
+.footerCopyright {
+	margin-top: 25px;
+	border-top: 1px solid #000000;
+}
+.lastUpdated {
+	float: right;
+}
+/* Let's show some elements */
+.printLogo {
+	display: block;
+	margin-bottom: 20px;
+}
+#flashcontent {
+	display: block !important; /* This will show header text that is hidden instead of image banners */
+}
+/* Let's modify some elements */
+p {
+	margin:0;
+	padding:0;
+	line-height: 130%;
+}
+h1.sectionTitle {
+	font-size: 170%;
+	color: #000000;
+	padding: 0px;
+	margin: 0px 0px 10px 0px;
+	font-weight:bold;
+}
+h1 {
+	font-size:150%;
+	color: #000000;
+	padding: 0px;
+	margin: 0px 0px 10px 0px;
+	font-weight:bold;
+}
+h2 {
+	font-size:140%;
+	color:#604D25;
+	padding: 0px;
+	margin: 0px;
+	font-weight:bold;
+}
+h3 {
+	font-size:130%;
+	color:#604D25;
+	padding: 0px;
+	margin: 0px;
+	font-weight:bold;
+	display:inline;
+}
+h4 {
+	font-size:120%;
+	color:#604D25;
+	padding: 0px;
+	margin: 0px;
+	font-weight:bold;
+}
+h5 {
+	text-transform:capitalize;
+	font-size:110%;
+	color:#604D25;
+	padding: 0px 0px 5px 0px;
+	margin: 0px;
+	font-weight:bold;
+}
+h6 {
+	font-size:110%;
+	color:#604D25;
+	padding: 0px;
+	margin: 0px;
+	font-weight:bold;
+}
+* right in page related pods and sibling pods */ div.padPod {
+	padding:0px;
+} /* was 10px */
+div.padPodGoo {
+	padding:20px;
+}
+#rightPodPlaceholder {
+	float:right;
+	width:189px;
+	padding:0px;
+	margin: 0px;
+	display:none;
+}
+div.rightPod {
+	float: right;
+	width: 189px;
+	padding: 0px;
+}
+div.rightPod hr {
+	padding:0px;
+	margin:5px 0px 5px 0px;
+}
+div.rightPod div.innerRight {
+	border-color:#cec9ad;
+	border-style:solid;
+	border-width:1px;
+	padding:10px;
+	margin: 0px 0px 10px 10px;
+}
+div.rightPod div.innerRight p {
+	padding:0px 0px 4px 0px;
+}
+div.rightPod div.innerRight ul {
+	list-style:none;
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 1px 0px; /*needs 1px bottom apparently for IE glitch?*/
+}
+div.rightPod div.innerRight ul li {
+	margin:0px;
+	padding-bottom:5px;
+	line-height:105%;
+}
+div.primaryPod203 {
+	border:	1px solid #8f0505;
+	background: #EDE9D4;
+	width: 203px;
+	padding-bottom:10px;
+}
+div.primaryPod203 h1 {
+	font-size:13px;
+	/*text-transform:uppercase;*/
+	letter-spacing: 0px;
+	color: #ffffff;
+	background-color:#8f0505;
+	width: 203px;
+	line-height: 24px;
+	text-indent: 10px;
+	margin: 0px 0px 10px 0px;
+	font-weight:bold;
+	font-family:Arial Narrow, Arial, Helvetica;
+	padding:0px;
+}
+div.primaryPod203 p {
+	padding: 0px 10px 5px 10px;
+}
+div.primaryPod243 {
+	border: 1px solid #8f0505;
+	background: #EDE9D4;
+	width: 243px;
+	padding-bottom:10px;
+}
+div.primaryPod243 h1 {
+	font-size:13px;
+	letter-spacing: 0px;
+	color: #ffffff;
+	background-color: #8f0505;
+	width: 243px;
+	line-height: 24px;
+	text-indent: 10px;
+	margin: 0px 0px 10px 0px;
+	font-weight:bold;
+	font-family:Arial Narrow, Arial, Helvetica;
+	padding:0px;
+}
+div.primaryPod243 p {
+	padding: 0px 10px 4px 10px;
+}

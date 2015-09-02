@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Home Page, Your Department</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="title" content=""/>
+<meta http-equiv="keywords" content=""/>
+<meta http-equiv="description" content=""/>
+<script language="javascript" type="text/javascript" src="javascript/utility.js"></script>
+<script language="javascript" type="text/javascript" src="javascript/jquery-1.3.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="javascript/hoverIntent.js"></script>
+<link rel="stylesheet" href="style/stylesheet.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="style/print.css" type="text/css" media="print"/>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<!--[if IE 6]>
+	<style type="text/css">
+	/* IE6 specific styles to support PNG-24 Alpha Transparency */
+	/* Used for the subnav shadow effect */
+	#navBarShadow {background-image: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/bg_navbar_shadow.png'); }
+	#masterContainer {background-image: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/bg_shadow.png', sizingMethod='scale'); }
+    #navBar .navItem .navDrop {background-image: none;filter:progid:DXImageTransform.Microsoft.Shadow(color='#666666', Direction=135, Strength=3); }
+	</style>
+<![endif]-->
+</head>
+<body>
+<!-- Print Logo (invisible) -->
+<div class="printLogo"><img src="images/your_print_logo.gif" height="" width="" title="" alt="" /></div>
+<!-- End Print Logo -->
+<!-- Skip to Content Link (invisible) -->
+<div class="skipToContent"><a href="#contentContainer">Skip to Content</a></div>
+<!-- End Skip to Content Link -->
+<!-- Header -->
+<div id="header">
+  <!-- Top Links with Icons -->
+  <div class="topLinks"><a href="http://www.uwhealth.org/" class="uwhcLink" title="uwhealth.org" target="_blank">uwhealth.org</a><a href="http://med.wisc.edu/" class="smphLink" title="med.wisc.edu" target="_blank">med.wisc.edu</a></div>
+  <!-- End Top Links with Icons -->
+  <!-- Top Navigation List -->
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="#">Departments</a></li>
+    <li><a href="#">Our Campus</a></li>
+    <li><a href="#">Faculty Directory</a></li>
+    <li><a href="#">About Us</a></li>
+    <li class="last"><a href="#">Contact Us</a></li>
+  </ul>
+  <!-- End Navigation List -->
+</div>
+<!-- End Header -->
+<!-- Master Container - main navigation + page content + left nav + footer -->
+<div id="masterContainer">
+  <div class="margin10">
+    <div id="navBar">
+      <!-- Main Navigation List	(red bar) -->
+      <ul id="navMain">
+        <li class="navItem"><a href="#">Education &amp; Training</a></li>
+        <li class="navItem"><a href="#">Research</a></li>
+        <li class="navItem"><a href="#">Specialties</a></li>
+        <li class="navItem"><a href="#">Patients</a></li>
+      </ul>
+      <!-- End Main Navigation List -->
+      <!-- Search Box & Button -->
+      <div class="searchBox">
+        <form action="" onsubmit="return search(this.q.value);">
+          <label for="q">&nbsp;</label>
+          <input name="q" type="text" value="Search" class="searchText" id="q" />
+          <input type="image" src="images/btn_search.gif" name="sa" alt="Search Button" class="searchButton" />
+        </form>
+      </div>
+      <!-- End Search Box & Button -->
+    </div>
+    <div id="navBarShadow"></div>
+    <div id="pageHeader"><img src="images/bnr_dept_of_surgery_840.jpg" alt="Banner Image" /></div>
+    <div id="contentContainer">
+      <!--<div id="homeBox">
+        <h1>Heading</h1>
+        <p> <img src="images/bannerwidget/sample1.jpg" alt="&quot;&quot;" width="394" height="256" class="align_right" />Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo volutpat magna suscipit tempor. Sed lacinia risus sem, sed tempus nisi. Integer et venenatis massa. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi ullamcorper lectus vitae libero ornare vel rutrum risus dictum. Etiam dictum lorem sed quam vulputate sollicitudin. Suspendisse laoreet arcu risus. Aliquam commodo, nunc ac pretium tincidunt, nisi felis dictum eros, rutrum consectetur nisi neque dictum arcu. Vestibulum sollicitudin, quam vitae interdum imperdiet, lorem libero accumsan neque, sed malesuada mauris justo eget purus. Nulla et orci tellus, semper sagittis lorem. </p><p>&nbsp;</p><p>In tincidunt risus vitae nisl luctus a euismod massa fermentum. Mauris id purus est. Pellentesque non magna nec nisi varius aliquam a eget est. Donec quis nulla ac turpis porttitor adipiscing eu at mauris. Vivamus ultricies libero at lorem fermentum vel laoreet nisl porta. Nulla facilisi. Fusce non sapien a risus congue feugiat. Donec commodo eros quis ligula faucibus vel mollis dolor pulvinar. Curabitur luctus, lorem a semper sodales, metus augue malesuada tortor, sed tincidunt lacus tellus at purus. </p>
+        <p>&nbsp;</p>
+        <p> Aenean at eros orci, id varius nibh. Quisque lacinia lacinia tortor malesuada tempor. Integer sit amet mauris urna. Cras vel nibh cursus quam tempus tincidunt quis sit amet velit. Proin consequat urna non lectus tincidunt convallis. Nam justo enim, porttitor nec interdum at, vehicula vitae dolor. Nam vel risus odio, at hendrerit libero. Vivamus interdum feugiat magna sed tristique. Integer commodo porttitor massa, sit amet tempus dolor auctor id. Nam auctor mollis odio, et posuere ipsum fermentum eu. Aenean neque justo, rutrum nec ullamcorper eget, auctor in urna. Nam sed turpis lectus. Phasellus quis massa libero, ac vehicula magna. Etiam odio orci, posuere ut sagittis a, facilisis eu erat. Curabitur pulvinar suscipit leo, a hendrerit tellus porttitor nec. Fusce lacinia pretium mi at eleifend. Morbi vel sem nulla. Aenean hendrerit malesuada erat vel commodo. Pellentesque vel tortor justo.</p>
+      </div>-->
+      <table class="tableNarrowRight" border="0" width="800">
+        <tbody>
+          <tr>
+            <td class="tdMain" style="width: 471px;"><div>
+                <table cellpadding="3">
+                  <tr>
+                    <td valign="top"><a href="page.asp?contentid=20743"><img src='images/sample3.jpg' border='0' alt="Anthony M. D'Allessandro, MD" /></a></td>
+                    <td valign="top"><div>
+                        <h6>Anthony M. D'Allessandro, MD</h6>
+                        Dr. D'Allessandro is certified by the American Board of Surgery in general surgery and surgical critical care.  His clinical specialties are small bowel and multi-organ transplants. <a href="#">Read more...</a></div></td>
+                  </tr>
+                </table>
+                <br />
+              </div>
+              <div>
+                <table cellpadding="3">
+                  <tr>
+                    <td valign="top"><a href="page.asp?contentid=20742"><img src='images/sample4.jpg' border='0' alt="Lung Transplant Procedure" /></a></td>
+                    <td valign="top"><div>
+                        <h6>Lung Transplant Procedure</h6>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate nunc non lacus tincidunt eleifend. Sed ut risus velit. In urna dolor, tristique a pellentesque ut, porta ac felis. Integer ullamcorper, enim at luctus condimentum, nunc ligula placerat ligula, a viverra justo metus non diam. <a href="#">Read more...</a></div></td>
+                  </tr>
+                </table>
+                <br />
+              </div></td>
+            <td class="tdRight" style="padding: 0px 0px 0px 20px; width: 287px; text-align: right;"><div class="primaryPod243" style="width: 309px; text-align: right;">
+                <h2 style="width: 309px; text-align: left;">SAMPLE PAGES</h2>
+                <table style="margin:0px 0px 5px 5px;" border="0" cellspacing="0" cellpadding="0" width="304">
+                  <tbody>
+                    <tr>
+                      <td width="155" align="left" valign="top" style="padding-top:3px"><p><a href="home.htm">Home Page</a></p>
+                        <p><a href="home_widget.htm">Home Page w/Widget and News</a></p>
+                        <p><a href="landing.htm">Landing Page</a></p></td>
+                      <td width="149" align="left" valign="top" style="padding-top:3px"><p><a href="destination.htm">Destination Page</a></p>
+                        <p><a href="content.htm">Content Page</a></p>
+                        <p><a href="content_right_nav.htm">Content Page w/Pod</a></p>
+                        <p><a href="content_drop_menus.htm">Content Page w/Dropdown Menus</a></p></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- End Main Page Content Cotnainer -->
+  </div>
+  <!-- End Margin Div -->
+  <!-- Footer -->
+  <div id="footer">
+    <div class="footerColumn">
+      <ul>
+        <li class="header"><a href="#">Education</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+      </ul>
+      <ul>
+        <li class="header"><a href="#">Research</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+      </ul>
+    </div>
+    <div class="footerColumn">
+      <ul>
+        <li class="header"><a href="#">Specialties</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+      </ul>
+      <ul>
+        <li class="header"><a href="#">Patient Care</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+      </ul>
+    </div>
+    <div class="footerColumn">
+      <ul>
+        <li class="header"><a href="#">Education</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+      </ul>
+      <ul>
+        <li class="header"><a href="#">Graduate Programs</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+      </ul>
+    </div>
+    <div class="footerColumn footerColumn200"><a href="http://www.wisc.edu" target="_blank" class="linkImage uwLogo" title="University of Wisconsin - Madison">UW Madison</a><a href="http://www.uwhealth.org/" target="_blank" class="linkImage uwhealthLogo" title="UW Health">UW Health</a><br class="clearFloat"/>
+      <ul>
+        <li class="header"><a href="#">Departments, Institutes and Centers</a></li>
+        <li class="header"><a href="#">Faculty Directory</a></li>
+        <li class="header"><a href="#">Contact Us</a></li>
+        <li class="header"><a href="#">For Faculty and Staff</a></li>
+      </ul>
+      <ul>
+        <li class="header"><a href="#">Our Campus</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+      </ul>
+    </div>
+    <br class="clearFloat" />
+    <div class="footerCopyright"> <span class="lastUpdated"> Last updated: 01/01/1900<br />
+      <a href="mailto:">suppoprt@yoursite.wisc.edu</a></span>Copyright &copy; 2009 The Board of Regents of the University of Wisconsin System</div>
+  </div>
+</div>
+<!-- End Footer -->
+<!-- End Master Container -->
+<!-- Script for Initializing Search Box -->
+<script language="javascript" type="text/javascript">initSearch();</script>
+<!-- End Script for Initializing Search Box -->
+</body>
+</html>

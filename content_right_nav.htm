@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Content Page, Your Department</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="title" content=""/>
+<meta http-equiv="keywords" content=""/>
+<meta http-equiv="description" content=""/>
+<script language="javascript" type="text/javascript" src="javascript/utility.js"></script>
+<script language="javascript" type="text/javascript" src="javascript/jquery-1.3.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="javascript/hoverIntent.js"></script>
+<link rel="stylesheet" href="style/stylesheet.css" type="text/css" media="screen"/>
+<link rel="stylesheet" href="style/print.css" type="text/css" media="print"/>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<!--[if IE 6]>
+	<style type="text/css">
+	/* IE6 specific styles to support PNG-24 Alpha Transparency */
+	/* Used for the subnav shadow effect */
+	#navBarShadow {background-image: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/bg_navbar_shadow.png'); }
+	#masterContainer {background-image: none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/bg_shadow.png', sizingMethod='scale'); }
+    #navBar .navItem .navDrop {background-image: none;filter:progid:DXImageTransform.Microsoft.Shadow(color='#666666', Direction=135, Strength=3); }
+	</style>
+<![endif]-->
+</head>
+<body>
+<!-- Print Logo (invisible) -->
+<div class="printLogo"><img src="images/your_print_logo.gif" height="" width="" title="" alt="" /></div>
+<!-- End Print Logo -->
+<!-- Skip to Content Link (invisible) -->
+<div class="skipToContent"><a href="#contentContainer">Skip to Content</a></div>
+<!-- End Skip to Content Link -->
+<!-- Header -->
+<div id="header">
+  <!-- Top Links with Icons -->
+  <div class="topLinks"><a href="http://www.uwhealth.org/" class="uwhcLink" title="uwhealth.org" target="_blank">uwhealth.org</a><a href="http://med.wisc.edu/" class="smphLink" title="med.wisc.edu" target="_blank">med.wisc.edu</a></div>
+  <!-- End Top Links with Icons -->
+  <!-- Top Navigation List -->
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="#">Departments</a></li>
+    <li><a href="#">Our Campus</a></li>
+    <li><a href="#">Faculty Directory</a></li>
+    <li><a href="#">About Us</a></li>
+    <li class="last"><a href="#">Contact Us</a></li>
+  </ul>
+  <!-- End Navigation List -->
+</div>
+<!-- End Header -->
+<!-- Master Container - main navigation + page content + left nav + footer -->
+<div id="masterContainer">
+  <div class="margin10">
+    <div id="navBar">
+      <!-- Main Navigation List	(red bar) -->
+      <ul id="navMain">
+        <li class="navItem"><a href="#">Education &amp; Training</a></li>
+        <li class="navItem"><a href="#">Research</a></li>
+        <li class="navItem"><a href="#">Specialties</a></li>
+        <li class="navItem"><a href="#">Patients</a></li>
+      </ul>
+      <!-- End Main Navigation List -->
+      <!-- Search Box & Button -->
+      <div class="searchBox">
+        <form action="" onsubmit="return search(this.q.value);">
+          <label for="q">&nbsp;</label>
+          <input name="q" type="text" value="Search" class="searchText" id="q" />
+          <input type="image" src="images/btn_search.gif" name="sa" alt="Search Button" class="searchButton" />
+        </form>
+      </div>
+      <!-- End Search Box & Button -->
+    </div>
+    <div id="navBarShadow"></div>
+    <!-- Main Section Text - this can be an image too! -->
+    <div id="pageHeader">
+      <h1 class="sectionTitle" >Section Header</h1>
+    </div>
+    <!--<div id="pageHeader"><img src="images/bnr_dept_of_surgery_840.jpg" alt="&quot;&quot;" /></div>-->
+    <!-- End Main Section Text -->
+    <!-- Text Adjust - This allows the font size of the page to be adjusted dynamically -->
+    <!--<div id="adjust" align="right">
+    		<a href="http://www.addthis.com/bookmark.php?v=20" onmouseout="addthis_close()" ><img src="/smph/images/button_add_this.gif" alt="Bookmark and Share" 
+style="width:109px;height:16px;border:0;vertical-align: middle; margin-right: 10px;"/></a><b><a href="" onclick="setFontSize(defaultFontSize); return false;" title="Default Font Size">TEXT SIZE</a>&nbsp;&nbsp;<a href="" title="Increase Font Size" onclick="changeFontSize(6); return false;">+ A</a> <span class="textSizeAdjuster">|</span> <a href="" title="Decrease Font Size" onclick="changeFontSize(-6); return false;">-A</a></b>
+		 </div>-->
+    <!-- End Text Adjuster -->
+    <!-- Main Page Content Container (content + left nav) -->
+    <div id="contentContainer">
+      <div id="leftNavContainer">
+        <div id="leftNav">
+          <!-- Left Navigation List -->
+          <ul>
+            <li><a href="home.htm">Home Page</a></li>
+            <li><a href="home_widget.htm">Home Page w/Widget and News</a></li>
+            <li><a href="landing.htm">Landing Page</a></li>
+            <li><a href="destination.htm">Destination Page</a></li>
+            <li><a href="content.htm">Content Page</a></li>
+            <li class="hlnav"><a href="content_right_nav.htm">Content Page w/Pod</a></li>
+            <li><a href="content_drop_menus.htm">Content Page w/Dropdown Menus</a></li>
+          </ul>
+          <!-- End Left Navigation List -->
+        </div>
+      </div>
+      <div id="mainContainer">
+        <h1 class="pageTitle">Page Heading &lt;h1&gt;</h1>
+        <div id="rightPod" class="rightPod">
+          <div class="innerRight">
+            <p><strong>UW-Madison Office of Clinical Trials<br />
+              </strong></p>
+            <p><a href="#" target="_blank">www.clinicaltrials.wisc.edu</a></p>
+            <p><a href="#" target="_blank">How to Volunteer</a></p>
+            <p><a href="#" target="_blank">Frequently Asked Questions (FAQs) for Volunteers</a></p>
+            <p><a href="http://www.clinicaltrials.wisc.edu/public/pub_studies.htm" target="_blank">Currently Enrolling Studies<br />
+              </a><strong><br />
+              Cancer Clinical Trials</strong></p>
+            <p><a href="#" target="_blank">UW Carbone Cancer Center Clinical Trials</a></p>
+          </div>
+        </div>
+        <p>Aliquam vel massa metus, vitae laoreet sapien. Etiam mauris sapien,  blandit eu egestas a, venenatis eget nisl. Maecenas tortor neque,  faucibus quis auctor eu, luctus at nisl. <a href="#">Phasellus posuere</a>, elit rutrum  volutpat viverra, nunc turpis venenatis odio, placerat elementum mi  lacus congue felis.</p>
+        <p>&nbsp;</p>
+        <p><img src="images/sample_in_page.jpg" alt="Sample" width="150" height="182" class="imgLeft" />Suspendisse iaculis vulputate mauris non ullamcorper. In eu lectus  tortor. Vestibulum elit nunc, scelerisque interdum hendrerit eu, tempor  et nunc. Nulla facilisi. Vivamus laoreet facilisis euismod. Duis  interdum tellus orci. Suspendisse potenti. Pellentesque accumsan  dapibus enim, id rhoncus justo sollicitudin eu. Lorem ipsum dolor sit  amet, consectetur adipiscing elit. Aliquam erat volutpat. Praesent  venenatis diam ac ante pulvinar ultrices. Phasellus euismod interdum  augue non vehicula..</p>
+        <p>&nbsp;</p>
+        <p>Suspendisse iaculis vulputate mauris non ullamcorper. In eu lectus  tortor. Vestibulum elit nunc, scelerisque interdum hendrerit eu, tempor  et nunc. Nulla facilisi. Vivamus laoreet facilisis euismod. Duis  interdum tellus orci. Suspendisse potenti. Pellentesque accumsan  dapibus enim, id rhoncus justo sollicitudin eu. Lorem ipsum dolor sit  amet, consectetur adipiscing elit. Aliquam erat volutpat. Praesent  venenatis diam ac ante pulvinar ultrices. Phasellus euismod interdum  augue non vehicula..</p>
+        <p>&nbsp;</p>
+        <p><img src="images/sample_in_page.jpg" alt="Sample" width="150" height="182" class="imgRight" />Suspendisse iaculis vulputate mauris non ullamcorper. In eu lectus  tortor. Vestibulum elit nunc, scelerisque interdum hendrerit eu, tempor  et nunc. Nulla facilisi. Vivamus laoreet facilisis euismod. Duis  interdum tellus orci. Suspendisse potenti. Pellentesque accumsan  dapibus enim, id rhoncus justo sollicitudin eu. Lorem ipsum dolor sit  amet, consectetur adipiscing elit. Aliquam erat volutpat. Praesent  venenatis diam ac ante pulvinar ultrices. Phasellus euismod interdum  augue non vehicula..</p>
+        <p>&nbsp;</p>
+        <p>Nulla facilisi. Vivamus<a href="#"> laoreet facilisis</a> euismod.</p>
+      </div>
+      <br class="clearFloat" />
+    </div>
+    <!-- End Main Page Content Cotnainer -->
+  </div>
+  <!-- End Margin Div -->
+  <!-- Footer -->
+  <div id="footer">
+    <div class="footerColumn">
+      <ul>
+        <li class="header"><a href="#">Education</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+      </ul>
+      <ul>
+        <li class="header"><a href="#">Research</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+      </ul>
+    </div>
+    <div class="footerColumn">
+      <ul>
+        <li class="header"><a href="#">Specialties</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+      </ul>
+      <ul>
+        <li class="header"><a href="#">Patient Care</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+      </ul>
+    </div>
+    <div class="footerColumn">
+      <ul>
+        <li class="header"><a href="#">Education</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+      </ul>
+      <ul>
+        <li class="header"><a href="#">Graduate Programs</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+      </ul>
+    </div>
+    <div class="footerColumn footerColumn200"><a href="http://www.wisc.edu" target="_blank" class="linkImage uwLogo" title="University of Wisconsin - Madison">UW Madison</a><a href="http://www.uwhealth.org/" target="_blank" class="linkImage uwhealthLogo" title="UW Health">UW Health</a><br class="clearFloat"/>
+      <ul>
+        <li class="header"><a href="#">Departments, Institutes and Centers</a></li>
+        <li class="header"><a href="#">Faculty Directory</a></li>
+        <li class="header"><a href="#">Contact Us</a></li>
+        <li class="header"><a href="#">For Faculty and Staff</a></li>
+      </ul>
+      <ul>
+        <li class="header"><a href="#">Our Campus</a></li>
+        <li><a href="#">Link Example</a></li>
+        <li><a href="#">Link Example</a></li>
+      </ul>
+    </div>
+    <br class="clearFloat" />
+    <div class="footerCopyright"> <span class="lastUpdated"> Last updated: 01/01/1900<br />
+      <a href="mailto:">suppoprt@yoursite.wisc.edu</a></span>Copyright &copy; 2009 The Board of Regents of the University of Wisconsin System</div>
+  </div>
+  <!-- End Footer -->
+</div>
+<!-- End Master Container -->
+<!-- Script for Initializing Search Box -->
+<script language="javascript" type="text/javascript">initSearch();</script>
+<!-- End Script for Initializing Search Box -->
+</body>
+</html>

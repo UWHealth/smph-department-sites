@@ -24,6 +24,14 @@
   @return $string;
 }
 
+//String Append
+// Adds string to end of another string
+@function str-append($string, $insert) {
+	$string: if($string == null, "", $string);
+
+	@return str-insert($string, $insert, str-length($string) + 1);
+}
+
 //List Join
 //Convert a list to a string
 @function list-to-string($list, $separator: ",") {

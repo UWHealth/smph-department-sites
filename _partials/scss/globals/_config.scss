@@ -1,0 +1,59 @@
+//Typography
+$base-font-size:            11px;
+$base-line-height:          14px;
+
+//Base colors
+$badger-red: #970D0E;
+$uw-gold: #E7D9C1;
+$smph-gold: #EDE9D4;
+$smph-gold-dark: #C7AB4C;
+
+//Themes
+$color-main-bg: $smph-gold-dark;
+$color-main-nav: $badger-red;
+
+$breakpoints: (
+	// Everything up to 640px. Mostly phones.
+    'smalls':'(max-width:640px)',
+	// Up to 480px. Overrides Smalls. Small Phones, including iPhone.
+    'small':'(max-width: 480px)',
+	// Between 480 and 640px. Overrides Smalls. Large phones/phablets.
+    'smallish': '(min-width: 481px) and (max-width: 640px)',
+    // Everything larger than 640px. Tablets and Desktops.
+	'bigs': '(min-width: 641px)',
+	// 640-940px. Overrides Bigs. Mostly Tablets and small laptops.
+    'lap': '(min-width: 641px) and (max-width: 940px)',
+	// 940 and Up. Overrides Bigs. Large Tablets and Desktops.
+    'desk': '(min-width: 941px)'
+);
+
+$grid-columns:          12;
+$grid-gutter:           20px;
+$grid-silent-classes:	true;
+$grid-push:             true;
+$grid-pull:             true;
+
+//Setting this to true means there can be no whitespce
+// in your HTML markup between grid items.
+// Default: false
+$grid-markup-fix:        false;
+
+//Use a float-based grid?
+// Default: false
+// if false, grid items will be 'inline-block', requiring no clearing.
+$grid-floats:            false;
+
+//Grids default to using relative (right and left) for pushes and pulls.
+//Setting this to true will use margin-left.
+$grid-margin-adjustments: false;
+
+// Give grid-abilities to breakpoints.
+// The more breakpoints defined here will result in longer preprocessing times
+// and, in the case of non-silent classes, more css.
+$breakpoint-has-widths: ('smalls', 'small', 'smallish', 'bigs', 'lap', 'desk');
+$breakpoint-has-push:   ('smalls', 'small', 'smallish', 'bigs', 'lap', 'desk');
+$breakpoint-has-pull:   ('smalls', 'small', 'smallish', 'bigs', 'lap', 'desk');
+
+//Make IE8 compatible
+// by including pixel fallbacks to REM values.
+$rem-px-fallback: true;

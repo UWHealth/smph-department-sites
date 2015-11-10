@@ -1,3 +1,7 @@
+//========================================================
+// Sass Functions
+//========================================================
+
 // String contains check
 // Outputs true/false based on inputs
 @function str-contains($string, $value, $pos: 0) {
@@ -15,13 +19,13 @@
 //String replace
 // Replaces a value in a string with another
 @function str-replace($string, $search, $replace: '') {
-  $index: str-index($string, $search);
+	$index: str-index($string, $search);
 
-  @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-  }
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
 
-  @return $string;
+	@return $string;
 }
 
 //String Append
@@ -63,4 +67,24 @@
 	$pixels: ($pixels / $base-size) * 1rem;
 	@return $pixels;
 
+}
+
+//Strip values from a list
+@function remove($list, $value: 'and') {
+	$result: ();
+
+	@if type-of($list) == arglist {
+		$list: nth($list, 1);
+	}
+
+	@for $i from 1 through length($list) {
+
+		$test-value: to-lower-case(nth($list, $i));
+
+		@if $test-value != $value {
+			$result: append($result, nth($list, $i));
+		}
+	}
+
+	@return $result;
 }

@@ -1,3 +1,7 @@
+//========================================================
+// General Mixins
+//========================================================
+
 // REM generator
 // Used to create a property with a rem value and PX fallback
 @mixin rems($property, $sizes, $important:false, $base-font: $base-font-size) {
@@ -31,8 +35,10 @@
 
 }
 
+//Space and sizing mixin
+//Creates
 
-@mixin type-space($properties, $multipliers.../*$important*/) {
+@mixin type-space($properties, $multipliers.../*important*/) {
 
 	$important: false;
 	$multiplier: nth($multipliers, 1);
@@ -54,15 +60,33 @@
 	//If multiplier is only 1 value, then do expected stuff
 
 	@each $property in $properties {
+		@if length($multiplier) > 1 {
+			$values: null;
 
-		$value: $multiplier * $type-magic-number;
+			@each $multiple in $multiplier {
 
-		//if the value is for right or left spacing, use the gutter width for spacing.
-		@if str-contains($property, 'right') or str-contains($property, 'left'){
-			$value: $multiplier * $grid-gutter;
+				$value: $type-magic-number * $multiple;
+				//If it's the second or fourth value in a list, give it left/right treatment
+				// (multiply by gutter)
+				@if ((index($multiplier, $multiple) % 2) == 0) {
+					$value: $grid-gutter * $multiple;
+				}
+				$values: append($values, $value);
+			}
+
+			@include rems($property, $values, $important);
+
+
+		}@else {
+			//If multiplier is only 1 value, then do expected stuff
+			$value: $type-magic-number * $multiplier;
+
+			//if the value is for right or left spacing, use the gutter width for spacing.
+			@if str-contains($property, 'right') or str-contains($property, 'left'){
+				$value: $grid-gutter * $multiplier;
+			}
+
+			@include rems($property, $value, $important);
 		}
-
-		@include rems($property, $value, $important);
-
 	}
 }

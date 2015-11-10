@@ -1,6 +1,20 @@
-//Typography
+//========================================================
+// Sass Configuration
+//========================================================
+
+//---------------------
+// Typography
+//---------------------
+// Must be pixel values (will be compiled to relative units)
 $base-font-size:            11px;
 $base-line-height:          14px;
+
+//Make IE8 compatible by including pixel fallbacks for REM values
+$rem-px-fallback: true;
+
+//---------------------
+// Colors
+//---------------------
 
 //Base colors
 $badger-red: #970D0E;
@@ -12,6 +26,31 @@ $smph-gold-dark: #C7AB4C;
 $color-main-bg: $smph-gold-dark;
 $color-main-nav: $badger-red;
 
+//---------------------
+// Grid
+//---------------------
+//Number of columns
+$grid-columns:          12;
+//Space between columns
+$grid-gutter:           20px;
+$grid-silent-classes:	true;
+$grid-push:             true;
+$grid-pull:             true;
+
+//Use a float-based grid?
+// Default: false
+// if false, grid items will be 'inline-block', requiring no clearing.
+$grid-floats:            false;
+
+//Grids default to using relative (right and left) for pushes and pulls.
+//Setting this to true will use margin-left.
+$grid-margin-adjustments: false;
+
+//---------------------
+// Media Queries
+//---------------------
+
+//breakpoint values available via the media-query() mixin
 $breakpoints: (
 	// Everything up to 640px. Mostly phones.
     'smalls':'(max-width:640px)',
@@ -27,33 +66,9 @@ $breakpoints: (
     'desk': '(min-width: 941px)'
 );
 
-$grid-columns:          12;
-$grid-gutter:           20px;
-$grid-silent-classes:	true;
-$grid-push:             true;
-$grid-pull:             true;
-
-//Setting this to true means there can be no whitespce
-// in your HTML markup between grid items.
-// Default: false
-$grid-markup-fix:        false;
-
-//Use a float-based grid?
-// Default: false
-// if false, grid items will be 'inline-block', requiring no clearing.
-$grid-floats:            false;
-
-//Grids default to using relative (right and left) for pushes and pulls.
-//Setting this to true will use margin-left.
-$grid-margin-adjustments: false;
-
-// Give grid-abilities to breakpoints.
-// The more breakpoints defined here will result in longer preprocessing times
-// and, in the case of non-silent classes, more css.
+// Give grid ability to span breakpoints
+// If $grid-silent-classes is false, more css will be created as more breakpoints are defined.
+// (After gzip and minify this will add ~ 7kb for 6 breakpoints)
 $breakpoint-has-widths: ('smalls', 'small', 'smallish', 'bigs', 'lap', 'desk');
 $breakpoint-has-push:   ('smalls', 'small', 'smallish', 'bigs', 'lap', 'desk');
 $breakpoint-has-pull:   ('smalls', 'small', 'smallish', 'bigs', 'lap', 'desk');
-
-//Make IE8 compatible
-// by including pixel fallbacks to REM values.
-$rem-px-fallback: true;

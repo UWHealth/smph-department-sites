@@ -1,3 +1,7 @@
+//========================================================
+// Standard CSS resets
+//========================================================
+
 html {
 	/* Fix Firefox and Safari 'scrollbar jump' */
 	overflow-y: scroll;
@@ -13,7 +17,7 @@ a:hover {
 body {
 	margin: 0;
 	padding: 0;
-	height: 100%; /* this is the key! */
+	min-height: 100%; /* this is the key! */
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 62%;
 	/*background-color: #c6aa53;

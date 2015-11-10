@@ -6,6 +6,7 @@ var browserSync  = require('browser-sync');
 var chalk		 = utility.colors;
 var flatten 	 = require('gulp-flatten');
 var gFilter		 = require('gulp-filter');
+var gIf 		 = require('gulp-if');
 var include 	 = require('gulp-include');
 var kit 		 = require('gulp-kit');
 var notify       = require('gulp-notify');
@@ -14,7 +15,6 @@ var rename 		 = require('gulp-rename');
 var sass		 = require('gulp-sass');
 var size 		 = require('gulp-size');
 var uglify 		 = require('gulp-uglify');
-var _if 		 = require('gulp-if');
 
 //Set your browser support
 //See autoprefixer's documentation for notation style:
@@ -46,6 +46,7 @@ var paths = {
 	}
 };
 
+//Files to watch to keep browser preview up to date
 var browser_sync_watch = ['./style/*.css', './javascript/**', './*.html'];
 
 //Development variables
@@ -65,15 +66,16 @@ gulp.task('watch', function(){
 //Spins up local http server
 // and syncs actions across browsers
 gulp.task('browserSync', function() {
-    browserSync.init(browser_sync_watch,
-	{
+    browserSync.init({
+		files: browser_sync_watch,
+		port: 3000,
+		ui:{
+			port: 3030
+		},
 		server: {
             baseDir: ['./'],
 			directory: false
         },
-		ui:{
-			port: 3030
-		},
 		ghostMode: {
 			clicks: true,
 			location: true,
@@ -96,20 +98,13 @@ gulp.task('sass', function() {
 			errLogToConsole: true,
 			onError: function(err){
 				console.log(chalk.red("[Sass] ")+err);
-			},
-			onSuccess: function(css){
-				var file = _filename(this.file);
-				var duration = this.result.stats.duration+"ms";
-				var _message = chalk.magenta("[Sass] ")+ chalk.bold(file) + " Compiled in "+ duration;
-				console.log(_message);
-				browserSync.notify(file+" Compiled in "+duration, 20000);
 			}
 		}))
 		.pipe(autoprefixer({
 			browsers: autoprefixer_browsers
 		}))
 		.pipe(size({title: 'CSS', gzip: true, showFiles: true}))
-		.pipe(gulp.dest(paths.scss.dest))
+		.pipe(gulp.dest(paths.scss.dest));
 });
 
 //Javascript concatenating and renaming
@@ -118,10 +113,10 @@ gulp.task('js', function(){
 	return gulp.src(paths.js.watch)
 		.pipe(plumber({errorHandler: _error}))
 		.pipe(include())
-		.pipe(_if(minify, uglify({preserveComments: 'some'})))
+		.pipe(gIf(minify, uglify({preserveComments: 'some'})))
 		.pipe(rename(function(path){
-			path.dirname = path.dirname.replace("./_partials/js","");
-			path.basename = path.basename.replace("_","");
+			//remove underscores from the beginning of partials
+			path.basename = path.basename.replace(/^_/gi,"");
 		}))
 		.pipe(size({title: 'JS', showFiles: true, gzip: true}))
 		.pipe(gulp.dest(paths.js.dest));
@@ -138,13 +133,24 @@ gulp.task('kits', function(){
 		.pipe(gulp.dest(paths.kits.dest));
 });
 
-gulp.task('default', ['sass', 'js', 'kits', 'watch'], function(){
-	console.log('Gulp Started, Ctrl + C to stop.');
+//Default gulp task
+gulp.task('default', ['...', 'sass', 'js', 'kits', 'watch']);
+
+//Friendly message task
+gulp.task('...', function(){
+	console.log(
+		chalk.dim(' -------------------------------------') +
+		chalk.magenta('\n  Gulp Started \n') +
+		'  Ctrl + C to stop \n' +
+		chalk.dim(' -------------------------------------')
+	);
 });
 
-gulp.task('serve', ['default','browserSync'], function(){});
+//Start local server and watch files for changes
+gulp.task('serve', ['default', 'browserSync']);
 
-gulp.task('prod', ['switchVars', 'sass', 'js', 'kits'], function(){});
+//Compile and minify
+gulp.task('prod', ['switchVars', 'sass', 'js', 'kits']);
 
 //Production variable switch
 gulp.task('switchVars', function(){
@@ -160,8 +166,7 @@ function _filename(path) {
 
 //Error handler
 function _error(err) {
-	// console.log(chalk.red("["+err.plugin+"] Error\n")+err.message);
-	//
+
 	notify.onError({
 		title:    "Error",
 		subtitle: "<%= error.plugin %>",

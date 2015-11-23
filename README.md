@@ -4,13 +4,13 @@
 
 **Required Files**
 
-To implement the banner widget on your homepage you will need to make sure that the following JavaScript files are included on the page.  They can be found in the /javascript directory.
+To implement the banner widget on your homepage you will need to make sure that the following JavaScript files are included on the page.  They can be found in the `/javascript` directory.
 
 * `jquery-1.3.1.js`
 * `jquery.bannerwidget.js`
 * `jquery.ifixpng.js`
 
-They should be included using the standard <script> tag in the <head> section of the page.
+They should be included using the standard `<script>` tag in the `<head>` section of the page.
 
 ```html
 <script language="javascript" type="text/javascript" src="javascript/jquery-1.3.1.min.js"></script>
@@ -28,7 +28,7 @@ This file should be included using the `<link>` tag in the `<head>` section of t
 
 **Code**
 
-The following snippet of JavaScript code will need to be placed in the <head> section of the page.  This piece of code initializes the banner widget.
+The following snippet of JavaScript code will need to be placed in the `<head>` section of the page.  This piece of code initializes the banner widget.
 
 ```js
 <script type="text/javascript">
@@ -45,7 +45,7 @@ The following snippet of JavaScript code will need to be placed in the <head> se
 
 **Configuration**
 
-The home_widget.xml file, located in the /files directory, contains the text items, links and the image paths that will rotate through on the banner widget.  The banner widget can have a maximum of four items.  The numbered navigation boxes are auto generated depending on how many items are in the .xml file.  Each banner item is made up of five parts.
+The home_widget.xml file, located in the `/files` directory, contains the text items, links and the image paths that will rotate through on the banner widget.  The banner widget can have a maximum of four items.  The numbered navigation boxes are auto generated depending on how many items are in the .xml file.  Each banner item is made up of five parts.
 
 * text – the heading for the text
 * type – type of banner item (all items will be of type ‘image’)
@@ -75,25 +75,25 @@ The image for each banner item should be 504px wide and 256px tall.  This will e
 
 **Required Files**
 
-To implement the news ticker on your homepage you will need to make sure that the following JavaScript files are included on the page.  They can be found in the /javascript directory.
+To implement the news ticker on your homepage you will need to make sure that the following JavaScript files are included on the page.  They can be found in the `/javascript` directory.
 
 * jquery-1.3.1.js
 * newsTicker.js
 
 They should be included using the standard `<script>` tag in the `<head>` section of the page.
 
-```
+```html
 <script language="javascript" type="text/javascript" src="javascript/jquery-1.3.1.min.js"></script>
 <script language="javascript" type="text/javascript" src="javascript/newsTicker.js"></script>
 ```
 
 **Code**
 
-The following snippet of JavaScript code will need to be placed in the <head> section of the page.  This piece of code initializes the news ticker.
+The following snippet of JavaScript code will need to be placed in the `<head>` section of the page. This piece of code initializes the news ticker.
 
 ```html
 <script type="text/javascript">
-	//<![CDATA[
+//<![CDATA[
 	$(document).ready(function(){
 		// News Ticker Code
 		$.getJSON("files/news.json", function(data) {
@@ -106,13 +106,13 @@ The following snippet of JavaScript code will need to be placed in the <head> se
 		});
 		// End News Ticker Code
 	});
-	//]]>
+//]]>
 </script>
 ```
 
 **Configuration**
 
-The news.json file, located in the /files directory, contains the news items and links that will rotate through on the news ticker.  Each ticker item is made up of two parts.
+The news.json file, located in the `/files` directory, contains the news items and links that will rotate through on the news ticker.  Each ticker item is made up of two parts.
 
 * title – the text that is displayed in the news ticker
 * pageURL – the link (URL) for the title text
@@ -120,10 +120,10 @@ The news.json file, located in the /files directory, contains the news items and
 The following is an example of a news item in the .json file.
 
 ```json
-   {
-      "title":"UW Psychiatrist: Parents Shouldn't be Afraid to Take Charge",
-      "pageUrl":"test5.htm"
-   },
+{
+  "title":"UW Psychiatrist: Parents Shouldn't be Afraid to Take Charge",
+  "pageUrl":"test5.htm"
+},
 ```
 
 ---
@@ -132,12 +132,12 @@ The following is an example of a news item in the .json file.
 
 **Required Files**
 
-To implement dropdown menus on your pages you will need to make sure that the following JavaScript files are included on each page.  They can be found in the /javascript directory.
+To implement dropdown menus on your pages you will need to make sure that the following JavaScript files are included on each page.  They can be found in the `/javascript` directory.
 
 * jquery-1.3.1.js
 * hoverIntent.js
 
-They should be included using the standard <script> tag in the <head> section of the page.
+They should be included using the standard <script> tag in the `<head>` section of the page.
 
 ```html
 <script language="javascript" type="text/javascript" src="javascript/jquery-1.3.1.min.js"></script>
@@ -146,9 +146,9 @@ They should be included using the standard <script> tag in the <head> section of
 
 **Code**
 
-The following snippet of JavaScript code will need to be placed at the bottom of the each page just above the closing </body> tag.  This piece of code initializes the dropdown menus.
+The following snippet of JavaScript code will need to be placed at the bottom of the each page just above the closing `</body>` tag.  This piece of code initializes the dropdown menus.
 
-```js
+```html
 <script language="javascript" type="text/javascript">
 $(document).ready(function(){
 	dropDownMenu();
@@ -158,7 +158,7 @@ $(document).ready(function(){
 
 **Configuration**
 
-The `drop_menus.xml` file, located in the /files directory, contains the text items and links for the dropdown menus.  Each menu is made up of at least one item with two parts.
+The `drop_menus.xml` file, located in the `/files` directory, contains the text items and links for the dropdown menus.  Each menu is made up of at least one item with two parts.
 
 * item – an item in the menu
 * label – the link text for an item

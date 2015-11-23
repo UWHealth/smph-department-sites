@@ -1,10 +1,8 @@
-
-
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="lt-ie9 lt-ie8 lt-ie7" lang="en-US"> <![endif]-->
+<!--[if IE 7]>         <html class="lt-ie9 lt-ie8" lang="en-US"> <![endif]-->
+<!--[if IE 8]>         <html class="lt-ie9" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -18,11 +16,14 @@
 </head>
 <body>
 	<!-- Print Logo (invisible) -->
-	<div class="printLogo"><img src="images/your_print_logo.gif" height="" width="" title="" alt="" /></div>
+	<div class="printLogo">
+		<img src="images/your_print_logo.gif" height="" width="" title="" alt="" />
+	</div>
 	<!-- End Print Logo -->
 	<!-- Skip to Content Link (invisible) -->
 	<div class="skipToContent"><a href="#contentContainer">Skip to Content</a></div>
-<div id="header">
+
+	<div id="header">
   <!-- Top Links with Icons -->
   <div class="topLinks"><a href="http://www.uwhealth.org/" class="uwhcLink" title="uwhealth.org" target="_blank">uwhealth.org</a><a href="http://med.wisc.edu/" class="smphLink" title="med.wisc.edu" target="_blank">med.wisc.edu</a></div>
   <!-- End Top Links with Icons -->
@@ -38,46 +39,46 @@
   <!-- End Navigation List -->
 </div>
 
-	<div id="masterContainer"> <!-- Margin Div - used for content left/right margins and for background shadow -->
-		<div class="margin10">
-			<div id="navBar">
+		<div id="masterContainer"> <!-- Margin Div - used for content left/right margins and for background shadow -->
+			<div class="margin10">
+				<div id="navBar">
   <!-- Main Navigation List	(red bar) -->
   <ul id="navMain">
-	<li class="navItem"><a href="#">Education &amp; Training</a></li>
-	<li class="navItem"><a href="#">Research</a></li>
-	<li class="navItem"><a href="#">Specialties</a></li>
-	<li class="navItem"><a href="#">Patients</a></li>
+    <li class="navItem"><a href="#">Education &amp; Training</a></li>
+    <li class="navItem"><a href="#">Research</a></li>
+    <li class="navItem"><a href="#">Specialties</a></li>
+    <li class="navItem"><a href="#">Patients</a></li>
   </ul>
   <!-- End Main Navigation List -->
   <!-- Search Box & Button -->
   <div class="searchBox">
-	<form action="" onsubmit="return search(this.q.value);">
-	  <label for="q">&nbsp;</label>
-	  <input name="q" type="text" value="Search" class="searchText" id="q" />
-	  <input type="image" src="images/btn_search.gif" name="sa" alt="Search Button" class="searchButton" />
-	</form>
+  	<form action="" onsubmit="return search(this.q.value);">
+  	  <label for="q">&nbsp;</label>
+  	  <input name="q" type="text" value="Search" class="searchText" id="q" />
+  	  <input type="image" src="images/btn_search.gif" name="sa" alt="Search Button" class="searchButton" />
+  	</form>
   </div>
   <!-- End Search Box & Button -->
 </div>
 <div id="navBarShadow"></div>
 
-			<div id="leftNavContainer">
-  <div id="leftNav">
-	<!-- Left Navigation List -->
-	<ul>
-	  <li><a href="home.htm">Home Page</a></li>
-	  <li><a href="home_widget.htm">Home Page w/Widget and News</a></li>
-	  <li><a href="landing.htm">Landing Page</a></li>
-	  <li><a href="destination.htm">Destination Page</a></li>
-	  <li class="hlnav"><a href="content.htm">Content Page</a></li>
-	  <li><a href="content_right_nav.htm">Content Page w/Pod</a></li>
-	  <li><a href="content_drop_menus.htm">Content Page w/Dropdown Menus</a></li>
-	</ul>
-	<!-- End Left Navigation List -->
-  </div>
-</div>
+				    <div id="leftNavContainer">
+        <div id="leftNav">
+        <!-- Left Navigation List -->
+            <ul>
+                <li><a href="home.htm">Home Page</a></li>
+                <li><a href="home_widget.htm">Home Page w/Widget and News</a></li>
+                <li><a href="landing.htm">Landing Page</a></li>
+                <li><a href="destination.htm">Destination Page</a></li>
+                <li class="hlnav"><a href="content.htm">Content Page</a></li>
+                <li><a href="content_right_nav.htm">Content Page w/Pod</a></li>
+                <li><a href="content_drop_menus.htm">Content Page w/Dropdown Menus</a></li>
+            </ul>
+        <!-- End Left Navigation List -->
+        </div>
+    </div>
 
-			
+				
 <div class="primaryPod203">
 	<h2>RESEARCH&nbsp;NEWS</h2>
 	<p><a href='#'>New Approach to Wound Healing Easy on Skin, Tough on Bacteria</a></p>
@@ -118,9 +119,10 @@
     </table>
 </div>
 
-			<br class="clearFloat" />
-		</div> <!-- End Margin Div -->
-		<!-- Footer -->
+				<br class="clearFloat" />
+			</div> <!-- End Margin Div -->
+
+			<!-- Footer -->
 <div id="footer">
   <div class="footerColumn">
 	<ul>
@@ -192,7 +194,13 @@
 </div>
 <!-- End Footer -->
 </div>
-	</div><!-- End Master Container -->
 
-</body>
+		</div><!-- End Master Container -->
+
+		<script language="javascript" type="text/javascript" src="javascript/jquery-1.3.1.min.js"></script>
+		<script language="javascript" type="text/javascript" src="javascript/utility.js"></script>
+		<!-- Script for Initializing Search Box -->
+		<script language="javascript" type="text/javascript">initSearch();</script>
+		<!-- End Script for Initializing Search Box -->
+	</body>
 </html>

@@ -1,0 +1,36 @@
+{
+  "name": "smph-department-sites",
+  "version": "1.0.0",
+  "description": "Responsive templates and styles for the UW School of Medicine and Public Health department pages",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UWHealth/smph-department-sites.git"
+  },
+  "author": "e-Health Office of Innovation and Policy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UWHealth/smph-department-sites/issues"
+  },
+  "homepage": "https://github.com/UWHealth/smph-department-sites#readme",
+  "devDependencies": {
+    "browser-sync": "^2.9.4",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-filter": "^3.0.1",
+    "gulp-flatten": "^0.2.0",
+    "gulp-if": "^1.2.5",
+    "gulp-include": "^2.0.2",
+    "gulp-kit": "^0.1.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-size": "^2.0.0",
+    "gulp-uglify": "^1.4.0",
+    "gulp-util": "^3.0.6"
+  }
+}

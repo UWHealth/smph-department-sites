@@ -1,0 +1,178 @@
+//========================================================
+// Media-Query-management mixin
+//========================================================
+//Enclose a block of code with a media query as named in `$breakpoints`.
+// To create more consolodated code, most (if not all) media queries
+// should be called through this mixin.
+
+//Multiple media-queries can be defined, separated by a comma (small, big).
+// This will place your content into multiple separate media-queries at once.
+// This is useful if you need the same css at different breakpoints.
+
+//EXAMPLE
+
+//Sass(scss):
+// @media-query(small, desk) {
+//	.selector{color: #fff}
+// }
+
+//Compiled(css):
+// @media only screen and (max-width: 640px){
+//	.selector{color: #fff}
+// }
+// @media only screen and (min-width: 941px) {
+//	.selector{color: #fff}
+// }
+
+
+//Alternative Uses:
+//* Passing multiple media queries separated by an "and" (quoted) to combine them,
+//  compiles to @media screen and (min-width: 500px) and (max-width: 900px){}.
+
+//* The same can be achieved by passing "nested" as the final argument.
+
+//* Passing a value like (min-width 120em) or (max-height 30px) allows for arbitrary breakpoints.
+
+
+@mixin media-query($media-queries...) {
+
+	$breakpoint: null;
+	$operator: null;
+	$query: null;
+	$stored-breakpoints: ();
+	$end: false;
+	$nested: false;
+	$media-type: "screen";
+	$nest-args: ("nest","nested","combine");
+
+
+	//Check for 'and' arguments, and replace with 'nest' argument for simpler parsing
+	@if ( index(nth($media-queries, 1), 'and' ) ) or
+		( index(nth($media-queries, 1), 'AND' ) )
+	{
+		$media-queries: remove($media-queries);
+		$media-queries: join($media-queries, (nest));
+	}
+
+	$last-arg: nth($media-queries, -1);
+
+	//Determine if last argument is nest "directive"
+	$nested: if(index($nest-args, $last-arg), true, false);
+
+	//Loop through all arguments
+	@each $media-query in $media-queries {
+
+		//Grab first argument
+		$query: nth($media-query, 1);
+
+		//Check if nest argument matches a known value
+		@if index($nest-args, $media-query) {
+			$query: $media-query;
+			$end: true;
+		}
+
+		//Check if argument matches the name of a $breakpoint
+		$declaration: map-get($breakpoints, $query);
+
+		//if first value is recognized in $$breakpoints map, then save to $breakpoint
+		@if $declaration or $end {
+			$breakpoint: #{$declaration};
+		}
+		@else if index($media-query-devices, $query){
+			$media-type: $query;
+			$breakpoint: null;
+		}
+		@else {
+			$breakpoint: media-query-parse($media-query);
+		}
+
+		@if $breakpoint or $end {
+
+			//If not a nested media-query, just output the single value
+			@if not $nested {
+
+				@media only #{$media-type} and #{$breakpoint} {
+					@content;
+				}
+
+			}
+			//If we've reached the last argument, output the nested media-query
+			@else if $end {
+
+				$stored-breakpoints: list-to-string($stored-breakpoints, 'and');
+
+				@media only #{$media-type} and #{$stored-breakpoints} {
+					@content;
+				}
+
+			}
+			@else {
+				//if this is a nested media-query, store the value for later
+				$stored-breakpoints: append($stored-breakpoints, $breakpoint);
+			}
+		}
+	}
+}
+
+//Aliases: Same as above, but shorter
+@mixin media        ($mq...)	{ @include media-query($mq...) { @content; } }
+@mixin mq           ($mq...)    { @include media-query($mq...) { @content; } }
+@mixin breakpoint   ($mq...)	{ @include media-query($mq...) { @content; } }
+@mixin bp           ($mq...)	{ @include media-query($mq...) { @content; } }
+
+//-------------------------
+// Private media-query functions
+//-------------------------
+
+//Check for proper media-query arguments
+// Converting them to proper CSS values
+@function media-query-operator($operator) {
+
+	$operator-check: map-get($media-query-operators, $operator);
+
+	@if $operator-check {
+		@return $operator-check;
+	}
+	@else if not index($media-query-expressions, $operator) {
+		@warn "#{$operator} is not a valid argument for a media-query mixin.";
+	}
+
+	@return $operator;
+
+}
+
+//Check for media-query expressions (width/height/orientation/etc)
+// Convert them into proper CSS values
+@function media-query-declaration($operator, $value){
+
+	@if type-of($value) == number {
+		$value: if(unitless($value), $value * 1px, $value);
+	}
+
+	@if not index($media-query-expressions, $operator){
+		$operator: '#{media-query-operator($operator)}-width';
+	}
+
+	@return '(#{$operator}: #{$value})';
+}
+
+//Formats @media-query() arguments to real CSS values
+// by checking for $media-query-switch values
+@function media-query-parse($media-query) {
+	$operator: media-query-operator(nth($media-query, 1));
+	$value: nth($media-query, -1);
+
+	$declaration: map-get($breakpoints, '#{unquote($value)}');
+
+	@if $declaration {
+		@if not str-contains($declaration, $operator) {
+			$replace: map-get($media-query-switch, $operator);
+			$declaration: str-replace($declaration, $replace, $operator);
+		}
+	}
+	@else {
+		$declaration: media-query-declaration($operator, $value);
+	}
+
+	@return $declaration;
+}

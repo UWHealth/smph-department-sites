@@ -1,0 +1,89 @@
+//========================================================
+// General Mixins
+//========================================================
+
+// REM generator
+// Used to create a property with a rem value and PX fallback
+@mixin rems($property, $sizes, $important:false, $base-font: $base-font-size) {
+	$important_val: '';
+	$rem_sizes: null;
+	$px_sizes: null;
+
+	@if $important{
+		$important_val: ' !important';
+	}
+
+	@each $size in $sizes {
+
+		@if $size == '' or $size == null{
+			$size: null;
+			$px_sizes: join($px_sizes, $size, space);
+		}@else {
+			@if $size == 0px{
+				$size: 0;
+			}
+
+			$px_sizes: join($px_sizes, $size, space);
+			$size: px-to-rems($size, $base-font);
+		}
+		$rem_sizes: join($rem_sizes, $size, space);
+	}
+
+	@if $rem-px-fallback {
+		#{$property}: #{$px_sizes}#{$important_val};
+	}
+	#{$property}: #{$rem_sizes}#{$important_val};
+
+}
+
+//Space and sizing mixin
+//Creates
+
+@mixin type-space($properties, $multipliers.../*important*/) {
+
+	$important: false;
+	$multiplier: nth($multipliers, 1);
+	$m-length: length($multipliers);
+
+	//Check if multiple arguments have been passed
+	@if $m-length > 1 {
+		//If so, see if the last argument is $important
+		$important_check: nth($multipliers, -1);
+
+		//If last value is $important, then set the $multiplier and $important accordingly
+		@if type-of($important_check) == bool {
+			$important: $important_check;
+			$multiplier: nth($multipliers, 1);
+			$m-length: 1;
+		}
+	}
+
+	//If multiplier is only 1 value, then do expected stuff
+
+	@each $property in $properties {
+		$values: null;
+
+		@each $multiple in $multiplier {
+
+			$value: $type-magic-number * $multiple;
+			//If it's the second or fourth value in a list, give it left/right treatment
+			// (multiply by gutter)
+			@if ((index($multiplier, $multiple) % 2) == 0) or
+			(str-contains($property, 'right') or str-contains($property, 'left')) {
+				$value: $grid-gutter * $multiple;
+			}
+			$values: append($values, $value);
+		}
+
+		@include rems($property, $values, $important);
+
+	}
+}
+
+@mixin clearfix(){
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}

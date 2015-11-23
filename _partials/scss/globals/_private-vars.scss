@@ -1,0 +1,67 @@
+//========================================================
+// Private Variables
+//========================================================
+// Required variables for the grid and media-query mixins
+
+//Used for calculating spacing and keeping good vertial ryhthm
+$type-magic-number: 	$base-line-height;
+$type-magic-ratio:		$base-line-height / $base-font-size;
+$type-font-size: 		$base-font-size / 1px;
+
+//Whether grid columns should start at 100%
+$mobile-first: 			true;
+
+//Whether to create grid classes at each breakpoint
+$responsive:			true;
+
+//Setting this to true means there can be no whitespce
+// in your HTML markup between grid items.
+// Default: false
+$grid-markup-fix:        false;
+
+
+//Media Query mixin variables
+//-----------------------------
+// See globals/_media-quries.scss for more
+
+//Accepted media-query expression types
+$media-query-expressions: (
+	'width', 'height', 'device-width', 'orientation', 'aspect-ratio', 'device-aspect-ratio',
+	'color', 'color-index', 'monochrome', 'resolution', 'scan', 'grid'
+);
+//Accepted media-query device types
+$media-query-devices: (
+	'screen','all','print','tv','handheld','braille',
+	'embossed','projection','speech','tty'
+);
+//Accepted media-query operator arguments
+$media-query-operators: (
+	'max-width'	:	'max',
+	'max'		:	'max',
+	'<'			:	'max',
+	'<='		:	'max',
+	'min-width'	:	'min',
+	'min'		:	'min',
+	'>'			:	'min',
+	'>='		:	'min',
+	'nest'		: 	'nest'
+);
+
+//Used to switch a media-query from one type to another
+$media-query-switch: (
+	'max'		:	'min',
+	'min'		:	'max',
+	'height'	:	'width',
+	'width'		:	'height',
+	'landscape'	:	'portrait',
+	'portrait' 	:	'landscape'
+);
+
+//Values to increase media-queries by
+$media-query-intervals: (
+	'px'		: 	  1,
+	'em'		: 	.01,
+	'rem'		: 	.01,
+	'vh'		: 	.01,
+	'vw'		:	.01
+);

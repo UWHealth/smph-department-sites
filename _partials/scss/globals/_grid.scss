@@ -53,20 +53,17 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
 	    padding: 0;                      // [2]
 	    @include type-space(margin-left, -1);
 
-		@if $grid-markup-fix != true and $grid-floats != true{
+		@if $grid-markup-fix != true and $grid-floats != true {
 	        letter-spacing:-0.35em;
+
+			.o:-o-prefocus, //Opera hack
+			& {
+				word-spacing:-0.43em;
+			}
 	    }
 
-		@if $grid-floats == true {
-	        @extend %clearfix;
-	    }
-	}
-
-	@if $grid-markup-fix != true and $grid-floats != true {
-	    // Opera hack
-	    .opera:-o-prefocus,
-	    #{$grid-class-type}grid{
-	        word-spacing:-0.43em;
+		@if $grid-floats {
+	        @include clearfix();
 	    }
 	}
 
@@ -110,7 +107,7 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
 	//
 	#{$grid-class-type}grid_rev{
 	    @if $grid-floats == true {
-	        @extend %clearfix;
+	        @include clearfix();
 	    }
 	    @if $grid-floats != true {
 	        direction: rtl;
@@ -141,7 +138,7 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
 	        }
 	    }@else{
 	        float: right;
-	        @extend %clearfix;
+	        @include clearfix();
 
 	        > #{$grid-class-type}grid_item {
 	        float: right;
@@ -193,7 +190,7 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
 	    margin-left: 0;
 
 		@if $grid-floats == true {
-	        @extend %clearfix;
+	        @include clearfix();
 	    }
 
 	    > #{$grid-class-type}grid_item {

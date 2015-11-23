@@ -1,15 +1,15 @@
 //========================================================
 // Sass Configuration
 //========================================================
+// All length values should be defined in pixels. These will be converted to rems on compilation
 
 //---------------------
 // Typography
 //---------------------
-// Must be pixel values (will be compiled to relative units)
 $base-font-size:            11px;
 $base-line-height:          14px;
 
-//Make IE8 compatible by including pixel fallbacks for REM values
+//Make IE8 compatible by including pixel fallbacks for REM values?
 $rem-px-fallback: true;
 
 //---------------------
@@ -30,20 +30,23 @@ $color-main-nav: $badger-red;
 // Grid
 //---------------------
 //Number of columns
+// Default: 12
 $grid-columns:          12;
 //Space between columns
 $grid-gutter:           20px;
+//Silent grid (requires extending)
 $grid-silent-classes:	true;
+//Include push and pull classes?
 $grid-push:             true;
 $grid-pull:             true;
 
 //Use a float-based grid?
-// Default: false
 // if false, grid items will be 'inline-block', requiring no clearing.
+// Default: false
 $grid-floats:            false;
 
-//Grids default to using relative (right and left) for pushes and pulls.
-//Setting this to true will use margin-left.
+// Use margins for pushes and pulls (instead of left or right relative positioning)?
+// Default: false
 $grid-margin-adjustments: false;
 
 //---------------------
@@ -68,7 +71,7 @@ $breakpoints: (
 
 // Give grid ability to span breakpoints
 // If $grid-silent-classes is false, more css will be created as more breakpoints are defined.
-// (After gzip and minify this will add ~ 7kb for 6 breakpoints)
+// (After gzip and minify this will add ~ 7kb per 6 breakpoints)
 $breakpoint-has-widths: ('smalls', 'small', 'smallish', 'bigs', 'lap', 'desk');
 $breakpoint-has-push:   ('smalls', 'small', 'smallish', 'bigs', 'lap', 'desk');
 $breakpoint-has-pull:   ('smalls', 'small', 'smallish', 'bigs', 'lap', 'desk');

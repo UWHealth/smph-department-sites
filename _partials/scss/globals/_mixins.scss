@@ -14,7 +14,8 @@
 	}
 
 	@each $size in $sizes {
-		@if $size == ''{
+
+		@if $size == '' or $size == null{
 			$size: null;
 			$px_sizes: join($px_sizes, $size, space);
 		}@else {
@@ -26,7 +27,7 @@
 			$size: px-to-rems($size, $base-font);
 		}
 		$rem_sizes: join($rem_sizes, $size, space);
-	};
+	}
 
 	@if $rem-px-fallback {
 		#{$property}: #{$px_sizes}#{$important_val};
@@ -60,33 +61,29 @@
 	//If multiplier is only 1 value, then do expected stuff
 
 	@each $property in $properties {
-		@if length($multiplier) > 1 {
-			$values: null;
+		$values: null;
 
-			@each $multiple in $multiplier {
+		@each $multiple in $multiplier {
 
-				$value: $type-magic-number * $multiple;
-				//If it's the second or fourth value in a list, give it left/right treatment
-				// (multiply by gutter)
-				@if ((index($multiplier, $multiple) % 2) == 0) {
-					$value: $grid-gutter * $multiple;
-				}
-				$values: append($values, $value);
+			$value: $type-magic-number * $multiple;
+			//If it's the second or fourth value in a list, give it left/right treatment
+			// (multiply by gutter)
+			@if ((index($multiplier, $multiple) % 2) == 0) or
+			(str-contains($property, 'right') or str-contains($property, 'left')) {
+				$value: $grid-gutter * $multiple;
 			}
-
-			@include rems($property, $values, $important);
-
-
-		}@else {
-			//If multiplier is only 1 value, then do expected stuff
-			$value: $type-magic-number * $multiplier;
-
-			//if the value is for right or left spacing, use the gutter width for spacing.
-			@if str-contains($property, 'right') or str-contains($property, 'left'){
-				$value: $grid-gutter * $multiplier;
-			}
-
-			@include rems($property, $value, $important);
+			$values: append($values, $value);
 		}
+
+		@include rems($property, $values, $important);
+
+	}
+}
+
+@mixin clearfix(){
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
 	}
 }

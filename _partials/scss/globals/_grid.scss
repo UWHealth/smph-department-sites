@@ -3,15 +3,9 @@
 //========================================================
 // Creates classes or silent classes for the grid
 
-$grid-push-type: 			unquote('left');
-$grid-pull-type: 			unquote('right');
-$grid-pulls: 				unquote('');
-
-@if $grid-margin-adjustments {
-	$grid-push-type: 		unquote('margin-left');
-	$grid-pull-type: 		unquote('margin-left');
-	$grid-pulls: 			unquote('-'); //Using negative margins for pulls
-}
+$grid-push-type: 			if($grid-margin-adjustments, unquote('margin-left'), unquote('left'));
+$grid-pull-type: 			if($grid-margin-adjustments, unquote('margin-left'), unquote('right'));
+$grid-pulls: 				if($grid-margin-adjustments, unquote(''), unquote('-'));
 
 $grid-class-type:           if($grid-silent-classes, unquote("%"), unquote("."));
 
@@ -47,6 +41,7 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
 	 // 2. Remove any margins and paddings that might affect the grid system.
 	 // 3. Apply a negative `margin-left` to negate the columns’ gutters.
 	 //
+
 	#{$grid-class-type}grid {
 	    list-style: none;                // [1]
 	    margin: 0;                       // [2]
@@ -54,7 +49,7 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
 	    @include type-space(margin-left, -1);
 
 		@if $grid-markup-fix != true and $grid-floats != true {
-	        letter-spacing:-0.35em;
+	        letter-spacing:-0.4em;
 
 			.o:-o-prefocus, //Opera hack
 			& {
@@ -235,14 +230,7 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
 @mixin width-setup($namespace:"") {
 
     //
-    // Automatic Grids.
-	// @author: Chris Lee, based on css-wizardry grids.
-    // If columns are defined as anything other than 12, then we must calculate our grids.
-    // Ultimately, these loops limit themselves upon iteration.
-    // This makes it so there can only be one fewer versions of the denominator (e.g. one_third, two_thirds).
-    //
-    // Just FOR REFERENCE: A numerator is the first (top) number in a fraction. The denominator is the second (bottom) number.
-    //
+    // Automatic Grids
     // [1] Loop through the $grid-columns.
     // [2] Loop through $divisor (same number as $grid-columns). This acts as the second number in our column fraction.
     // [3a]Loop through $divisor before it decreases by 1 from the previous loop.
@@ -257,7 +245,7 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
 		$class-name: '';
 		$class-name-list: ();
 
-        @for $i from 1 to $grid-columns {                                               // [1]
+        @for $i from 1 to $grid-columns {                                          // [1]
 
             @while $divisor > 0 {                                                  // [2]
 
@@ -326,13 +314,13 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
 
                     @if $numerator == 1{                                          // [5]
 
-                        #{$grid-class-type}push_#{$namespace}#{$numerators}_#{$denominator} {
+                        #{$grid-class-type}#{$namespace}push_#{$numerators}_#{$denominator} {
                             #{$grid-push-type}: $width; @include silent-relative();
                         }
 
                     }@else{                                                        // [6]
 
-                        #{$grid-class-type}push_#{$namespace}#{$numerators}_#{$denominator}s {
+                        #{$grid-class-type}#{$namespace}push_#{$numerators}_#{$denominator}s {
                             #{$grid-push-type}: $width; @include silent-relative();
                         }
 
@@ -341,18 +329,20 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
                 $divisor: $divisor - 1; //[3b]
             }
         }
-
-        #{$grid-class-type}push_#{$namespace}one_whole {
+		#{$grid-class-type}#{$namespace}push_zero {
+			#{$grid-push-type}: 0;
+		}
+        #{$grid-class-type}#{$namespace}push_one_whole {
 			#{$grid-push-type}: 100%; @include silent-relative();
 		}
-        #{$grid-class-type}push_#{$namespace}one_fourth {
-			@extend #{$grid-class-type}push_#{$namespace}one_quarter;
+        #{$grid-class-type}#{$namespace}push_one_fourth {
+			@extend #{$grid-class-type}#{$namespace}push_one_quarter;
 		}
-        #{$grid-class-type}push_#{$namespace}two_fourths {
-			@extend #{$grid-class-type}push_#{$namespace}two_quarters;
+        #{$grid-class-type}#{$namespace}push_two_fourths {
+			@extend #{$grid-class-type}#{$namespace}push_two_quarters;
 		}
-        #{$grid-class-type}push_#{$namespace}three_fourths {
-			@extend #{$grid-class-type}push_#{$namespace}three_quarters;
+        #{$grid-class-type}#{$namespace}push_three_fourths {
+			@extend #{$grid-class-type}#{$namespace}push_three_quarters;
 		}
 }
 
@@ -363,7 +353,7 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
 @mixin pull-setup($namespace: ""){
         $divisor: $grid-columns;
 
-        @for $i from 1 to $grid-columns {                                               // [1]
+        @for $i from 1 to $grid-columns {                                          // [1]
 
             @while $divisor > 0 {                                                  // [2]
 

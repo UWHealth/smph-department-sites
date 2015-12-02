@@ -15,10 +15,12 @@
 
 	@each $size in $sizes {
 
-		@if $size == '' or $size == null{
+		@if $size == '' or $size == null {
 			$size: null;
 			$px_sizes: join($px_sizes, $size, space);
+
 		}@else {
+
 			@if $size == 0px{
 				$size: 0;
 			}
@@ -83,6 +85,7 @@
 @mixin clearfix(){
 	&:after {
 		content: "";
+		height: 0.1px;
 		display: table;
 		clear: both;
 	}

@@ -47,6 +47,7 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
 	 // 2. Remove any margins and paddings that might affect the grid system.
 	 // 3. Apply a negative `margin-left` to negate the columns’ gutters.
 	 //
+
 	#{$grid-class-type}grid {
 	    list-style: none;                // [1]
 	    margin: 0;                       // [2]
@@ -54,7 +55,7 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
 	    @include type-space(margin-left, -1);
 
 		@if $grid-markup-fix != true and $grid-floats != true {
-	        letter-spacing:-0.35em;
+	        letter-spacing:-0.4em;
 
 			.o:-o-prefocus, //Opera hack
 			& {
@@ -235,14 +236,7 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
 @mixin width-setup($namespace:"") {
 
     //
-    // Automatic Grids.
-	// @author: Chris Lee, based on css-wizardry grids.
-    // If columns are defined as anything other than 12, then we must calculate our grids.
-    // Ultimately, these loops limit themselves upon iteration.
-    // This makes it so there can only be one fewer versions of the denominator (e.g. one_third, two_thirds).
-    //
-    // Just FOR REFERENCE: A numerator is the first (top) number in a fraction. The denominator is the second (bottom) number.
-    //
+    // Automatic Grids
     // [1] Loop through the $grid-columns.
     // [2] Loop through $divisor (same number as $grid-columns). This acts as the second number in our column fraction.
     // [3a]Loop through $divisor before it decreases by 1 from the previous loop.
@@ -257,7 +251,7 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
 		$class-name: '';
 		$class-name-list: ();
 
-        @for $i from 1 to $grid-columns {                                               // [1]
+        @for $i from 1 to $grid-columns {                                          // [1]
 
             @while $divisor > 0 {                                                  // [2]
 
@@ -363,7 +357,7 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
 @mixin pull-setup($namespace: ""){
         $divisor: $grid-columns;
 
-        @for $i from 1 to $grid-columns {                                               // [1]
+        @for $i from 1 to $grid-columns {                                          // [1]
 
             @while $divisor > 0 {                                                  // [2]
 

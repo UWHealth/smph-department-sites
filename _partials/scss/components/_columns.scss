@@ -1,1 +1,60 @@
-@include grid-init();
+@include grid-init(); //Create silent classes
+
+.row {
+	@extend %grid;
+	box-sizing: border-box;
+}
+
+.row-middle {
+	@extend %grid_middle;
+	box-sizing: border-box;
+}
+
+.row-skinny {
+	@extend %grid_narrow;
+}
+
+.column {
+	@extend %grid_item;
+	box-sizing: border-box;
+}
+
+.c-1 {
+	@extend %one_eleventh;
+}
+
+.c-2 {
+	@extend %two_elevenths;
+}
+
+.c-3 {
+	@extend %three_elevenths;
+}
+
+.c-4 {
+	@extend %four_elevenths;
+}
+
+.c-5 {
+	@extend %five_elevenths;
+}
+
+.c-6 {
+	@extend %six_elevenths;
+}
+
+.c-7 {
+	@extend %seven_elevenths;
+}
+
+.c-8 {
+	@extend %eight_elevenths;
+}
+
+.c-9 {
+	@extend %nine_elevenths;
+}
+
+.c-10 {
+	@extend %ten_elevenths;
+}

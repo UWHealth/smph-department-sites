@@ -1,0 +1,162 @@
+html {
+  /* Fix Firefox and Safari 'scrollbar jump' */
+  overflow-y: scroll;
+  font-size: 62.5%; }
+
+a {
+  color: #970D0E;
+  text-decoration: underline;
+  outline: none;
+  /* FireFox link outline fix */ }
+
+a:hover {
+  text-decoration: none; }
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  /* this is the key! */
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-size: 1rem;
+  line-height: 1.4;
+  /*background-color: #c6aa53;*/
+  background-image: url("../images/bg_diagonal.gif"); }
+
+p {
+  margin: 0;
+  padding: 0; }
+
+img {
+  border: 0; }
+
+h1 {
+  font-size: 140%;
+  color: #000000;
+  padding: 0;
+  margin: 0 0 10px 0;
+  font-weight: bold; }
+
+h2 {
+  font-size: 130%;
+  color: #604D25;
+  padding: 0;
+  margin: 0;
+  font-weight: bold; }
+
+h3 {
+  font-size: 120%;
+  color: #000000;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  display: inline; }
+
+h4 {
+  font-size: 110%;
+  color: #604D25;
+  padding: 0;
+  margin: 0;
+  font-weight: bold; }
+
+h5 {
+  text-transform: capitalize;
+  font-size: 110%;
+  color: #604D25;
+  padding: 0 0 5px 0;
+  margin: 0;
+  font-weight: bold; }
+
+h6 {
+  font-size: 110%;
+  /*color:#604D25;*/
+  color: #000000;
+  padding: 0;
+  margin: 0;
+  font-weight: bold; }
+
+h6 a {
+  text-decoration: none; }
+
+h6 a:hover {
+  text-decoration: underline; }
+
+.row {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: -20px;
+  margin-left: -2rem;
+  letter-spacing: -0.4em; }
+  .row .o:-o-prefocus, .row {
+    word-spacing: -0.43em; }
+
+.column {
+  display: inline-block;
+  padding-left: 20px;
+  padding-left: 2rem;
+  vertical-align: top;
+  width: 100%;
+  letter-spacing: normal;
+  word-spacing: normal; }
+
+.row-middle > .column {
+  vertical-align: middle; }
+
+.row-skinny {
+  margin-left: -10px;
+  margin-left: -1rem; }
+  .row-skinny > .column {
+    padding-left: 10px;
+    padding-left: 1rem; }
+
+.c-1 {
+  width: 9.09091%; }
+
+.c-2 {
+  width: 18.18182%; }
+
+.c-3 {
+  width: 27.27273%; }
+
+.c-4 {
+  width: 36.36364%; }
+
+.c-5 {
+  width: 45.45455%; }
+
+.c-6 {
+  width: 54.54545%; }
+
+.c-7 {
+  width: 63.63636%; }
+
+.c-8 {
+  width: 72.72727%; }
+
+.c-9 {
+  width: 81.81818%; }
+
+.c-10 {
+  width: 90.90909%; }
+
+.row {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box; }
+
+.row-middle {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box; }
+
+.column {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box; }
+
+[class*="primaryPod"] {
+  -moz-border-radius: 5px;
+       border-radius: 5px;
+  overflow: hidden; }

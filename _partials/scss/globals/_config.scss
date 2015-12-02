@@ -6,7 +6,7 @@
 //---------------------
 // Typography
 //---------------------
-$base-font-size:            11px;
+$base-font-size:            10px;
 $base-line-height:          14px;
 
 //Make IE8 compatible by including pixel fallbacks for REM values?
@@ -31,7 +31,7 @@ $color-main-nav: $badger-red;
 //---------------------
 //Number of columns
 // Default: 12
-$grid-columns:          12;
+$grid-columns:          11;
 //Space between columns
 $grid-gutter:           20px;
 //Silent grid (requires extending)

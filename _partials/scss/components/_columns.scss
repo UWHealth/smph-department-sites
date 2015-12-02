@@ -1,24 +1,32 @@
 @include grid-init(); //Create silent classes
 
+%border-box {
+	box-sizing: border-box;
+}
+
 .row {
 	@extend %grid;
-	box-sizing: border-box;
+	@extend %border-box;
 }
 
 .row-middle {
 	@extend %grid_middle;
-	box-sizing: border-box;
+	@extend %border-box;
 }
 
 .row-skinny {
 	@extend %grid_narrow;
+	@extend %border-box;
 }
 
+//Columns default to 100% width
 .column {
 	@extend %grid_item;
-	box-sizing: border-box;
+	@extend %border-box;
 }
 
+// Column widths
+// All numbers are a fraction of 11
 .c-1 {
 	@extend %one_eleventh;
 }
@@ -57,4 +65,145 @@
 
 .c-10 {
 	@extend %ten_elevenths;
+}
+
+.c-11 {
+	@extend %eleven_elevenths;
+}
+
+@include media-query('smalls') {
+	.smalls-c-1 {
+		@extend %smalls_one_eleventh;
+	}
+
+	.smalls-c-2 {
+		@extend %smalls_two_elevenths;
+	}
+
+	.smalls-c-3 {
+		@extend %smalls_three_elevenths;
+	}
+
+	.smalls-c-4 {
+		@extend %smalls_four_elevenths;
+	}
+
+	.smalls-c-5 {
+		@extend %smalls_five_elevenths;
+	}
+
+	.smalls-c-6 {
+		@extend %smalls_six_elevenths;
+	}
+
+	.smalls-c-7 {
+		@extend %smalls_seven_elevenths;
+	}
+
+	.smalls-c-8 {
+		@extend %smalls_eight_elevenths;
+	}
+
+	.smalls-c-9 {
+		@extend %smalls_nine_elevenths;
+	}
+
+	.smalls-c-10 {
+		@extend %smalls_ten_elevenths;
+	}
+
+	.smalls-c-11 {
+		@extend %smalls_one_whole;
+	}
+}
+
+// Push widths
+.p-0 {
+	@extend %push_zero;
+}
+
+.p-1 {
+	@extend %push_one_eleventh;
+}
+
+.p-2 {
+	@extend %push_two_elevenths;
+}
+
+.p-3 {
+	@extend %push_three_elevenths;
+}
+
+.p-4 {
+	@extend %push_four_elevenths;
+}
+
+.p-5 {
+	@extend %push_five_elevenths;
+}
+
+.p-6 {
+	@extend %push_six_elevenths;
+}
+
+.p-7 {
+	@extend %push_seven_elevenths;
+}
+
+.p-8 {
+	@extend %push_eight_elevenths;
+}
+
+.p-9 {
+	@extend %push_nine_elevenths;
+}
+
+.p-10 {
+	@extend %push_ten_elevenths;
+}
+
+@include media-query('smalls') {
+	.smalls-p-0 {
+		@extend %smalls_push_zero;
+	}
+
+	.smalls-p-1 {
+		@extend %smalls_push_one_eleventh;
+	}
+
+	.smalls-p-2 {
+		@extend %smalls_push_two_elevenths;
+	}
+
+	.smalls-p-3 {
+		@extend %smalls_push_three_elevenths;
+	}
+
+	.smalls-p-4 {
+		@extend %smalls_push_four_elevenths;
+	}
+
+	.smalls-p-5 {
+		@extend %smalls_push_five_elevenths;
+	}
+
+	.smalls-p-6 {
+		@extend %smalls_push_six_elevenths;
+	}
+
+	.smalls-p-7 {
+		@extend %smalls_push_seven_elevenths;
+	}
+
+	.smalls-p-8 {
+		@extend %smalls_push_eight_elevenths;
+	}
+
+	.smalls-p-9 {
+		@extend %smalls_push_nine_elevenths;
+	}
+
+	.smalls-p-10 {
+		@extend %smalls_push_ten_elevenths;
+	}
 }

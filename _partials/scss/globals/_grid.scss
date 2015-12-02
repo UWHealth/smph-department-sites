@@ -3,15 +3,9 @@
 //========================================================
 // Creates classes or silent classes for the grid
 
-$grid-push-type: 			unquote('left');
-$grid-pull-type: 			unquote('right');
-$grid-pulls: 				unquote('');
-
-@if $grid-margin-adjustments {
-	$grid-push-type: 		unquote('margin-left');
-	$grid-pull-type: 		unquote('margin-left');
-	$grid-pulls: 			unquote('-'); //Using negative margins for pulls
-}
+$grid-push-type: 			if($grid-margin-adjustments, unquote('margin-left'), unquote('left'));
+$grid-pull-type: 			if($grid-margin-adjustments, unquote('margin-left'), unquote('right'));
+$grid-pulls: 				if($grid-margin-adjustments, unquote(''), unquote('-'));
 
 $grid-class-type:           if($grid-silent-classes, unquote("%"), unquote("."));
 
@@ -320,13 +314,13 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
 
                     @if $numerator == 1{                                          // [5]
 
-                        #{$grid-class-type}push_#{$namespace}#{$numerators}_#{$denominator} {
+                        #{$grid-class-type}#{$namespace}push_#{$numerators}_#{$denominator} {
                             #{$grid-push-type}: $width; @include silent-relative();
                         }
 
                     }@else{                                                        // [6]
 
-                        #{$grid-class-type}push_#{$namespace}#{$numerators}_#{$denominator}s {
+                        #{$grid-class-type}#{$namespace}push_#{$numerators}_#{$denominator}s {
                             #{$grid-push-type}: $width; @include silent-relative();
                         }
 
@@ -335,18 +329,20 @@ $human-readable-denominators: whole, half, third, quarter, fifth, sixth, seventh
                 $divisor: $divisor - 1; //[3b]
             }
         }
-
-        #{$grid-class-type}push_#{$namespace}one_whole {
+		#{$grid-class-type}#{$namespace}push_zero {
+			#{$grid-push-type}: 0;
+		}
+        #{$grid-class-type}#{$namespace}push_one_whole {
 			#{$grid-push-type}: 100%; @include silent-relative();
 		}
-        #{$grid-class-type}push_#{$namespace}one_fourth {
-			@extend #{$grid-class-type}push_#{$namespace}one_quarter;
+        #{$grid-class-type}#{$namespace}push_one_fourth {
+			@extend #{$grid-class-type}#{$namespace}push_one_quarter;
 		}
-        #{$grid-class-type}push_#{$namespace}two_fourths {
-			@extend #{$grid-class-type}push_#{$namespace}two_quarters;
+        #{$grid-class-type}#{$namespace}push_two_fourths {
+			@extend #{$grid-class-type}#{$namespace}push_two_quarters;
 		}
-        #{$grid-class-type}push_#{$namespace}three_fourths {
-			@extend #{$grid-class-type}push_#{$namespace}three_quarters;
+        #{$grid-class-type}#{$namespace}push_three_fourths {
+			@extend #{$grid-class-type}#{$namespace}push_three_quarters;
 		}
 }
 

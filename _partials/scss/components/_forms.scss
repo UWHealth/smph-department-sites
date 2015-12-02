@@ -1,0 +1,16 @@
+.form-grid > .column {
+	@include type-space((padding-top, padding-bottom), .5);
+	vertical-align: middle;
+}
+
+.form-grid input,
+.form-grid textarea,
+.form-grid select {
+	width: 100%;
+	@extend %border-box;
+}
+
+#form_body{
+	@include type-space(margin, 0 0 2 0);
+	padding: 0;
+}

@@ -1,6 +1,9 @@
 html {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  /* Edge 12+, Internet Explorer 11- */
   overflow-y: scroll;
-  /* Fix Firefox and Safari 'scrollbar jump' */
+  /* All browsers without overlaying scrollbars */
+  -webkit-text-size-adjust: 100%;
   font-size: 62.5%; }
 
 a {
@@ -100,7 +103,8 @@ h1 {
   font-size: 140%;
   color: #000000;
   padding: 0;
-  margin: 0 0 10px 0;
+  margin: 0 0 12px 0;
+  margin: 0 0 1.2rem 0;
   font-weight: bold; }
 
 h2 {
@@ -129,13 +133,12 @@ h5 {
   text-transform: capitalize;
   font-size: 110%;
   color: #604D25;
-  padding: 0 0 5px 0;
-  margin: 0;
+  margin: 0 0 6px 0;
+  margin: 0 0 0.6rem 0;
   font-weight: bold; }
 
 h6 {
   font-size: 110%;
-  /*color:#604D25;*/
   color: #000000;
   padding: 0;
   margin: 0;
@@ -146,6 +149,10 @@ h6 a {
 
 h6 a:hover {
   text-decoration: underline; }
+
+.row > * {
+  letter-spacing: normal;
+  word-spacing: normal; }
 
 .row {
   list-style: none;
@@ -314,18 +321,46 @@ h6 a:hover {
      -moz-box-sizing: border-box;
           box-sizing: border-box; }
 
-[class*="primaryPod"] {
-  -moz-border-radius: 4px 4px 0 0;
-       border-radius: 4px 4px 0 0;
-  overflow: hidden; }
+.primaryPod {
+  clear: both;
+  overflow: auto;
+  -moz-border-radius: 4px;
+       border-radius: 4px;
+  overflow: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0 2px 2px -1px rgba(85, 66, 33, 0.4);
+     -moz-box-shadow: 0 2px 2px -1px rgba(85, 66, 33, 0.4);
+          box-shadow: 0 2px 2px -1px rgba(85, 66, 33, 0.4);
+  margin-bottom: 24px;
+  margin-bottom: 2.4rem; }
 
-.date-grid {
-  padding: 0 5px;
-  padding: 0 0.5rem; }
+.primaryPod-head {
+  color: #fff;
+  font-size: 12px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #970D0E;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#eacfcf), color-stop(5%, #b65656), color-stop(40%, #970D0E));
+  background-image: -webkit-linear-gradient(top, #eacfcf, #b65656 5%, #970D0E 40%);
+  background-image: linear-gradient(to bottom, #eacfcf, #b65656 5%, #970D0E 40%);
+  padding: 9px 10px;
+  padding: 0.9rem 1rem;
+  -moz-border-radius: 4px 4px 0 0;
+       border-radius: 4px 4px 0 0; }
+
+.primaryPod-body {
+  padding: 12px 10px 18px;
+  padding: 1.2rem 1rem 1.8rem;
+  margin: 0;
+  list-style: none;
+  background-color: #EDE9D4; }
 
 .date-grid > .column {
-  padding: 3px 0 3px 10px;
-  padding: 0.3rem 0 0.3rem 1rem;
+  padding-bottom: 12px;
+  padding-bottom: 1.2rem;
   vertical-align: middle; }
 
 .form-grid > .column {

@@ -10,7 +10,7 @@
 	@extend %border-box;
 }
 
-#form_body{
+#form_body {
 	@include type-space(margin, 0 0 2 0);
 	padding: 0;
 }

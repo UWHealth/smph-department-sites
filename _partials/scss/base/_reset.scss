@@ -3,7 +3,9 @@
 //========================================================
 
 html {
-	overflow-y: scroll; /* Fix Firefox and Safari 'scrollbar jump' */
+	-ms-overflow-style: -ms-autohiding-scrollbar; /* Edge 12+, Internet Explorer 11- */
+	overflow-y: scroll; /* All browsers without overlaying scrollbars */
+	-webkit-text-size-adjust: 100%;
 	font-size: percentage($type-font-size/16);
 }
 a {

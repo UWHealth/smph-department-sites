@@ -19,11 +19,11 @@ $rem-px-fallback: true;
 //Base colors
 $badger-red: #970D0E;
 $uw-gold: #E7D9C1;
-$smph-gold: #EDE9D4;
-$smph-gold-dark: #C7AB4C;
+$smph-tan: #EDE9D4;
+$smph-gold: #C7AB4C;
 
 //Themes
-$color-main-bg: $smph-gold-dark;
+$color-main-bg: $smph-gold;
 $color-main-nav: $badger-red;
 
 //---------------------
@@ -70,8 +70,8 @@ $breakpoints: (
 );
 
 // Give grid ability to span breakpoints
-// If $grid-silent-classes is false, more css will be created as more breakpoints are defined.
-// (After gzip and minify this will add ~ 7kb per 6 breakpoints)
+// If $grid-silent-classes = false, more css will be created as more breakpoints are defined.
+// (After gzip and minify this will add ~7kb per 6 breakpoints)
 $breakpoint-has-widths: ('smalls', 'small', 'smallish', 'bigs', 'lap', 'desk');
 $breakpoint-has-push:   ('smalls', 'small', 'smallish', 'bigs', 'lap', 'desk');
 $breakpoint-has-pull:   ('smalls', 'small', 'smallish', 'bigs', 'lap', 'desk');

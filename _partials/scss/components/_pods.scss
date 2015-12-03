@@ -1,0 +1,41 @@
+.primaryPod {
+	clear: both;
+	overflow: auto;
+	border-radius: 4px;
+	overflow: auto;
+	box-sizing: border-box;
+	box-shadow: 0 2px 2px -1px rgba(darken($uw-gold, 60%), .4);
+	@include type-space(margin-bottom, 2);
+}
+
+.primaryPod-head {
+	color: #fff;
+	@include type-space(font-size, 1);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	background-color: $badger-red;
+	background-image: linear-gradient(
+		to bottom,
+		mix($badger-red, white, 20%),
+		mix($badger-red, white, 70%) 5%,
+		$badger-red 40%
+	);
+	@include type-space(padding, .75 .5);
+	border-radius: 4px 4px 0 0;
+}
+
+.primaryPod-body {
+	@include type-space(padding, 1 .5 1.5);
+	margin: 0;
+	list-style: none;
+	background-color: $smph-tan;
+}
+
+.date-grid {
+	@extend %grid_narrow;
+}
+
+.date-grid > .column {
+	@include type-space(padding-bottom, 1);
+	vertical-align: middle;
+}

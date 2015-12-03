@@ -137,7 +137,7 @@ To implement dropdown menus on your pages you will need to make sure that the fo
 * jquery-1.3.1.js
 * hoverIntent.js
 
-They should be included using the standard <script> tag in the `<head>` section of the page.
+They should be included using the standard `<script>` tag in the `<head>` section of the page.
 
 ```html
 <script language="javascript" type="text/javascript" src="javascript/jquery-1.3.1.min.js"></script>
@@ -187,7 +187,7 @@ Each menu in the .xml file will line up with its associated main navigation (red
 
 ```xml
 <menu>
-<item>empty</item>
+	<item>empty</item>
 </menu>
 ```
 

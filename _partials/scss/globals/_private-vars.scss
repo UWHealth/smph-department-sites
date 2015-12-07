@@ -8,6 +8,9 @@ $type-magic-number: 	$base-line-height;
 $type-magic-ratio:		$base-line-height / $base-font-size;
 $type-font-size: 		$base-font-size / 1px;
 
+//Condensed font-family
+$font-condensed: "oswald", Helvetica, Arial, sans-serif;
+
 //Whether grid columns should start at 100%
 $mobile-first: 			true;
 
@@ -19,6 +22,12 @@ $responsive:			true;
 // Default: false
 $grid-markup-fix:        false;
 
+//Number of columns
+// Creates exponentially larger column options, since they're based on fractions
+// For instance, 12 columns creates 67 combinations
+// (e.g. one_whole, one_half, two_thirds, etc.)
+// Default: 12
+$grid-columns:          12;
 
 //Media Query mixin variables
 //-----------------------------

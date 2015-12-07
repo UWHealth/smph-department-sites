@@ -1,0 +1,88 @@
+.navBar {
+	background-color: $badger-red;
+	box-shadow: inset 0 3px 2px rgba(#000, 0.2);
+	@include clearfix();
+	@include rems(padding-left, 10px);
+}
+
+.navBar-items {
+	float: left;
+	display: table;
+	table-layout: auto;
+	@extend %eight_elevenths;
+	letter-spacing: -0.4em;
+}
+
+.navBar-item {
+	position: relative;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.navDrop {
+	background-color: $badger-red;
+	position: absolute;
+	top: 100%;
+	z-index: 2000;
+	min-width: 100%;
+
+	.with-js & {
+		display: none;
+	}
+}
+
+.navBar-item a {
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	@include rems(padding, 11px 8px 9px);
+	letter-spacing: 0.03em;
+
+	&:hover {
+		background-color: rgba(#fff, 0.2);
+	}
+}
+
+.navBar-item > a {
+	@include rems('font-size', 17.5px);
+	min-width: 110px;
+	font-family: $font-condensed;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.searchBox {
+	@include rems(padding, 10px 0);
+	@extend %three_elevenths;
+	float: left;
+	@extend %border-box;
+	position: relative;
+}
+
+.searchBox > input {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#q {
+	position: absolute;
+	@include rems('left', 8px);
+	@include rems('right', 44px);
+	padding: 2px;
+	@include type-space('font-size', .8);
+}
+
+.googlite {
+	color: #aaa;
+}
+
+.goog {
+	color: #000;
+}
+
+.searchButton {
+	border: 0;
+	padding: 1px 18px 0 0;
+	float: right;
+	width: auto;
+}

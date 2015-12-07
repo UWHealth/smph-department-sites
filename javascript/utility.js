@@ -8,15 +8,15 @@ Source: Webmonkey Code Library
 Author: Nadav Savio
 Author Email: nadav@wired.com
 
-Usage: 
-WM_setCookie('name', 'value'[, hours, 'path', 'domain', secure]); 
-where name, value, and path are strings, and secure is either true or null. Only name and value are required. Note: hours can be either a number of hours until the cookie expires or a GMT-formatted date string such as 'Fri, 13-Apr-1970 00:00:00 GMT'. 
+Usage:
+WM_setCookie('name', 'value'[, hours, 'path', 'domain', secure]);
+where name, value, and path are strings, and secure is either true or null. Only name and value are required. Note: hours can be either a number of hours until the cookie expires or a GMT-formatted date string such as 'Fri, 13-Apr-1970 00:00:00 GMT'.
 
-WM_readCookie('name'); 
-Returns the value associated with name. 
+WM_readCookie('name');
+Returns the value associated with name.
 
-WM_killCookie('name'[, 'path', 'domain']); 
-Remember that path and domain must be supplied if they were set with the cookie. 
+WM_killCookie('name'[, 'path', 'domain']);
+Remember that path and domain must be supplied if they were set with the cookie.
 */
 
 // This next little bit of code tests whether the user accepts cookies.
@@ -24,7 +24,7 @@ var WM_acceptsCookies = false;
 if(document.cookie == '') {
     document.cookie = 'WM_acceptsCookies=yes'; // Try to set a cookie.
     if(document.cookie.indexOf('WM_acceptsCookies=yes') != -1) {
-	WM_acceptsCookies = true; 
+	WM_acceptsCookies = true;
     }// If it succeeds, set variable
 } else { // there was already a cookie
   WM_acceptsCookies = true;
@@ -32,9 +32,9 @@ if(document.cookie == '') {
 
 function WM_setCookie (name, value, hours, path, domain, secure) {
     if (WM_acceptsCookies) { // Don't waste your time if the browser doesn't accept cookies.
-	var not_NN2 = (navigator && navigator.appName 
-		       && (navigator.appName == 'Netscape') 
-		       && navigator.appVersion 
+	var not_NN2 = (navigator && navigator.appName
+		       && (navigator.appName == 'Netscape')
+		       && navigator.appVersion
 		       && (parseInt(navigator.appVersion) == 2))?false:true;
 
 	if(hours && not_NN2) { // NN2 cannot handle Dates, so skip this part
@@ -50,7 +50,7 @@ function WM_setCookie (name, value, hours, path, domain, secure) {
 
 function WM_readCookie(name) {
     if(document.cookie == '') { // there's no cookie, so go no further
-	return false; 
+	return false;
     } else { // there is a cookie
 	var firstChar, lastChar;
 	var theBigCookie = document.cookie;
@@ -64,7 +64,7 @@ function WM_readCookie(name) {
 	} else { // If there was no cookie of that name, return false.
 	    return false;
 	}
-    }	
+    }
 } // WM_readCookie
 
 function WM_killCookie(name, path, domain) {
@@ -106,7 +106,7 @@ function setFontSize(pct){
 	//one year
 	WM_setCookie("fontSize",pct,8760,"/",".yourdomain",false);
 	}
-	
+
 }
 
 // Fill search box code.
@@ -121,7 +121,7 @@ function setFontSize(pct){
 		var q = document.getElementsByName("q")[0];
 		q.className="googlite";
 		q.value="Search";
-	}		
+	}
 	function checkGoogle(){
 		var q = document.getElementsByName("q")[0];
 		if(q.value == "" && q.className=="goog" ){
@@ -134,7 +134,7 @@ function setFontSize(pct){
 		var q = document.getElementsByName("q")[0];
 		q.onfocus=checkGoogle;
 		q.onblur=checkGoogle;
-		fillGoogle();	
+		fillGoogle();
 	}
 
 // Check for search box
@@ -148,14 +148,16 @@ function search(value) {
 }
 
 // Dropdown menu code
-function dropDownMenu() {						   
-	$("#navBar .navItem").hoverIntent({
+function dropDownMenu(navItems) {
+    navItems = navItems || '#navBar .navItem';
+    var $element = $(navItems);
+
+	$element.hoverIntent({
 		interval: 50, // milliseconds delay before onMouseOver
-		over: drops_show, 
+		over: drops_show,
 		timeout: 150, // milliseconds delay before onMouseOut
 		out: drops_hide
 	});
-	$("#navBar .navItem").addClass('with-js');
 
 	$.ajax({
     	type: "GET",
@@ -163,18 +165,21 @@ function dropDownMenu() {
     	dataType: "xml",
     	success: parseMenu
 	});
-	
+
   	var menuCounter = -1;
-	
+
   	function parseMenu(xml) {
 		$(xml).find("menu").each(function(i) {
+
 			if ($(this).find("item").text() != "empty") {
-				$("#navBar .navItem:eq("+i+")").append("<div class='navDrop'></div>");
+                $element.filter(":eq("+i+")")
+                    .addClass('with-js')
+				    .append("<div class='navDrop'></div>");
 				menuCounter = menuCounter + 1
-				}
-				else {
-					return true;
-				}
+			}
+            else {
+				return true;
+			}
 			$(this).find("item").each(function(j) {
 				var label = $(this).find("label").text();
 				var linky = $(this).find("link").text();
@@ -182,9 +187,9 @@ function dropDownMenu() {
   			});
 	  	});
 	}
+
 	function drops_show(){ $(this).addClass('show'); $(this).removeClass('with-js'); }
 	function drops_hide(){ $(this).removeClass('show'); $(this).addClass('with-js'); }
 }
 
 // -->
-

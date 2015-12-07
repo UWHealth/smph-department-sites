@@ -2,15 +2,15 @@
 	clear: both;
 	overflow: auto;
 	border-radius: 4px;
-	overflow: auto;
 	box-sizing: border-box;
 	box-shadow: 0 2px 2px -1px rgba(darken($uw-gold, 60%), .4);
-	@include type-space(margin-bottom, 2);
+	@include type-space(margin-bottom, 1);
 }
 
 .primaryPod-head {
 	color: #fff;
-	@include type-space(font-size, 1);
+	font-family: $font-condensed;
+	@include rems(font-size, 14px);
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	background-color: $badger-red;

@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'oswald';
+  src: url("fonts/oswald.eot");
+  src: url("fonts/oswald.eot?#iefix") format("embedded-opentype"), url("fonts/oswald.woff2") format("woff2"), url("fonts/oswald.woff") format("woff"), url("fonts/oswald.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
 html {
   -ms-overflow-style: -ms-autohiding-scrollbar;
   /* Edge 12+, Internet Explorer 11- */
@@ -20,7 +27,7 @@ body {
   padding: 0;
   min-height: 100%;
   /* this is the key! */
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
   font-size: 10px;
   font-size: 1rem;
   line-height: 1.2;
@@ -39,7 +46,7 @@ textarea {
   -webkit-border-radius: 0;
   /* iOS 8+ */
   border: 1px solid #999999;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
   font-size: 100%;
   vertical-align: middle;
   padding: 3px;
@@ -90,14 +97,21 @@ select::-ms-value {
   /* Edge 12+, Internet Explorer 11- */ }
 
 ul {
-  padding: 0;
+  list-style: none; }
+
+ul,
+li {
+  margin: 0;
+  padding: 0; }
+
+#mainContainer ul {
+  list-style: disc;
   margin: 12px 0 12px 30px;
   margin: 1.2rem 0 1.2rem 3rem; }
 
-li {
-  margin: 0;
-  padding: 0 0 3px;
-  padding: 0 0 0.3rem; }
+#mainContainer li {
+  padding: 0 0 6px;
+  padding: 0 0 0.6rem; }
 
 h1 {
   font-size: 140%;
@@ -150,6 +164,89 @@ h6 a {
 h6 a:hover {
   text-decoration: underline; }
 
+.navBar {
+  background-color: #970D0E;
+  -webkit-box-shadow: inset 0 3px 2px rgba(0, 0, 0, 0.2);
+     -moz-box-shadow: inset 0 3px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0 3px 2px rgba(0, 0, 0, 0.2);
+  padding-left: 10px;
+  padding-left: 1rem; }
+  .navBar:after {
+    content: "";
+    height: 0.1px;
+    display: table;
+    clear: both; }
+
+.navBar-items {
+  float: left;
+  display: table;
+  table-layout: auto;
+  letter-spacing: -0.4em; }
+
+.navBar-item {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle; }
+
+.navDrop {
+  background-color: #970D0E;
+  position: absolute;
+  top: 100%;
+  z-index: 2000;
+  min-width: 100%; }
+  .with-js .navDrop {
+    display: none; }
+
+.navBar-item a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 11px 8px 9px;
+  padding: 1.1rem 0.8rem 0.9rem;
+  letter-spacing: 0.03em; }
+  .navBar-item a:hover {
+    background-color: rgba(255, 255, 255, 0.2); }
+
+.navBar-item > a {
+  font-size: 17.5px;
+  font-size: 1.75rem;
+  min-width: 110px;
+  font-family: "oswald", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  text-align: center; }
+
+.searchBox {
+  padding: 10px 0;
+  padding: 1rem 0;
+  float: left;
+  position: relative; }
+
+.searchBox > input {
+  display: inline-block;
+  vertical-align: middle; }
+
+#q {
+  position: absolute;
+  left: 8px;
+  left: 0.8rem;
+  right: 44px;
+  right: 4.4rem;
+  padding: 2px;
+  font-size: 9.6px;
+  font-size: 0.96rem; }
+
+.googlite {
+  color: #aaa; }
+
+.goog {
+  color: #000; }
+
+.searchButton {
+  border: 0;
+  padding: 1px 18px 0 0;
+  float: right;
+  width: auto; }
+
 .row > * {
   letter-spacing: normal;
   word-spacing: normal; }
@@ -189,7 +286,7 @@ h6 a:hover {
 .c-2 {
   width: 18.18182%; }
 
-.c-3 {
+.searchBox, .c-3 {
   width: 27.27273%; }
 
 .c-4 {
@@ -204,7 +301,7 @@ h6 a:hover {
 .c-7 {
   width: 63.63636%; }
 
-.c-8 {
+.navBar-items, .c-8 {
   width: 72.72727%; }
 
 .c-9 {
@@ -314,7 +411,7 @@ h6 a:hover {
   .smalls-p-0 {
     left: 0; } }
 
-.row, .row-middle, .row-skinny, .column, .form-grid input,
+.searchBox, .row, .row-middle, .row-skinny, .column, .form-grid input,
 .form-grid textarea,
 .form-grid select {
   -webkit-box-sizing: border-box;
@@ -326,20 +423,20 @@ h6 a:hover {
   overflow: auto;
   -moz-border-radius: 4px;
        border-radius: 4px;
-  overflow: auto;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-box-shadow: 0 2px 2px -1px rgba(85, 66, 33, 0.4);
      -moz-box-shadow: 0 2px 2px -1px rgba(85, 66, 33, 0.4);
           box-shadow: 0 2px 2px -1px rgba(85, 66, 33, 0.4);
-  margin-bottom: 24px;
-  margin-bottom: 2.4rem; }
+  margin-bottom: 12px;
+  margin-bottom: 1.2rem; }
 
 .primaryPod-head {
   color: #fff;
-  font-size: 12px;
-  font-size: 1.2rem;
+  font-family: "oswald", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 1.4rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   background-color: #970D0E;

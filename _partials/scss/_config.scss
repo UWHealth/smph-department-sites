@@ -29,9 +29,6 @@ $color-main-nav: $badger-red;
 //---------------------
 // Grid
 //---------------------
-//Number of columns
-// Default: 12
-$grid-columns:          11;
 //Space between columns
 $grid-gutter:           20px;
 //Silent grid (requires extending)
@@ -64,9 +61,9 @@ $breakpoints: (
     // Everything larger than 640px. Tablets and Desktops.
 	'bigs': '(min-width: 641px)',
 	// 640-940px. Overrides Bigs. Mostly Tablets and small laptops.
-    'lap': '(min-width: 641px) and (max-width: 940px)',
+    'lap': '(min-width: 641px) and (max-width: 839px)',
 	// 940 and Up. Overrides Bigs. Large Tablets and Desktops.
-    'desk': '(min-width: 941px)'
+    'desk': '(min-width: 840px)'
 );
 
 // Give grid ability to span breakpoints

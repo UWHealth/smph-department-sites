@@ -11,6 +11,7 @@ var include 	 = require('gulp-include');
 var kit 		 = require('gulp-kit');
 var notify       = require('gulp-notify');
 var plumber		 = require('gulp-plumber');
+var prettify 	 = require('gulp-prettify');
 var rename 		 = require('gulp-rename');
 var sass		 = require('gulp-sass');
 var size 		 = require('gulp-size');
@@ -52,8 +53,8 @@ var browser_sync_watch = ['./style/*.css', './javascript/**', './*.html'];
 //Development variables
 var
 	sass_output = 'nested',
-	minify = true,
-	lint = true;
+	minify = false,
+	lint = false;
 
 //Watch file paths for changes (as defined in the paths variable)
 gulp.task('watch', function(){
@@ -128,6 +129,14 @@ gulp.task('kits', function(){
 	return gulp.src([paths.kits.watch, '!./_partials/**/*_*.kit'])
 		.pipe(plumber({errorHandler: _error}))
 		.pipe(kit())
+		.pipe(gIf(!minify,
+			prettify({
+				indent_char: ' ',
+				indent_size: 2,
+				indent_inner_html: false,
+				end_with_newline: false
+			})
+		))
 		.pipe(flatten()) //Force files into root folder regardless of nesting
 		.pipe(size({title: 'HTML', showFiles: true, gzip: true}))
 		.pipe(gulp.dest(paths.kits.dest));

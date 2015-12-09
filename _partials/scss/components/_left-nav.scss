@@ -1,0 +1,39 @@
+.leftNav {
+	@extend %three_elevenths;
+	@extend %smalls_one_whole;
+	@include type-space(padding-bottom, 2);
+	@include media-query(smalls) {
+		@include type-space(padding-right, 1);
+	}
+}
+
+.leftNav-items {
+	font-family: $font-secondary;
+	@include type-space(margin-left, 1);
+	border-top: 1px solid darken($smph-tan, 15%);
+}
+
+.leftNav-items > li {
+	border-bottom: 1px solid darken($smph-tan, 15%);
+}
+
+.leftNav-items a {
+	padding: .9em .25em;
+	display: block;
+	text-decoration: none;
+	font-weight: bold;
+	@include type-scale('font-size', 1.1);
+
+	&:hover {
+		background-color: lighten($smph-tan, 8%);
+	}
+}
+
+/*Current page Highlight
+ * Important BG color to prevent hover effects
+ * Default cursor to prevent indication of click-ability
+ */
+.hlnav a {
+	background-color: lighten($uw-gold, 9%) !important;
+	cursor: default;
+}

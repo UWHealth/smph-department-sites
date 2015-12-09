@@ -9,7 +9,10 @@ $type-magic-ratio:		$base-line-height / $base-font-size;
 $type-font-size: 		$base-font-size / 1px;
 
 //Condensed font-family
+$font-default: Verdana, Helvetica, Arial, sans-serif;
+$font-secondary: Helvetica, Arial, sans-serif;
 $font-condensed: "oswald", Helvetica, Arial, sans-serif;
+$font-serif: Times, serif;
 
 //Whether grid columns should start at 100%
 $mobile-first: 			true;

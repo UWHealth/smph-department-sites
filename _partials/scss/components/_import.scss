@@ -1,7 +1,14 @@
-@import 'header/top-nav';
-@import 'header/main-nav';
-
+//General layout
 @import 'columns';
+@import 'layouts';
+
+//General components
 @import 'left-nav';
 @import 'pods';
 @import 'forms';
+
+//Specific page sections
+@import 'header/top-nav';
+@import 'header/main-nav';
+@import 'header/page-header';
+@import 'footer';

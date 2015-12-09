@@ -20,7 +20,7 @@ a:hover {
 
 body {
 	margin: 0;
-	padding: 0;
+	@include type-space(padding, 0 .5);
 	min-height: 100%; /* this is the key! */
 	font-family: Verdana, Helvetica, Arial, sans-serif;
 	@include rems('font-size', $base-font-size);

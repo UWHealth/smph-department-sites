@@ -1,0 +1,4 @@
+.footer {
+	background-color: darken($color-main-bg, 11%);
+	@include type-space(padding, 1 1);
+}

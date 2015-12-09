@@ -39,7 +39,7 @@
 }
 
 //Space and sizing mixin
-//Creates
+//Creates rem values based on the base-line-height and the grid-gutters
 
 @mixin type-space($properties, $multipliers.../*important*/) {
 
@@ -64,22 +64,49 @@
 
 	@each $property in $properties {
 		$values: null;
+		$multiple-index: 1;
 
 		@each $multiple in $multiplier {
 
 			$value: $type-magic-number * $multiple;
 			//If it's the second or fourth value in a list, give it left/right treatment
 			// (multiply by gutter)
-			@if ((index($multiplier, $multiple) % 2) == 0) or
+			@if ($multiple-index % 2 == 0) or
 			(str-contains($property, 'right') or str-contains($property, 'left')) {
 				$value: $grid-gutter * $multiple;
 			}
 			$values: append($values, $value);
+			$multiple-index: $multiple-index + 1;
 		}
 
 		@include rems($property, $values, $important);
 
 	}
+}
+
+//Sizing mixin
+//Create multiples based on the base-font-size with an upper limit
+// Different from type-space() where all values are based on the grid
+@mixin type-scale($properties, $multipliers, $upper-limit: 0) {
+
+	@if unit($upper-limit) == "" {
+		$upper-limit: $base-font-size * $upper-limit;
+	}
+	$upper-limit: if($upper-limit = 0, 10000, $upper-limit);
+
+	@each $property in $properties {
+		$values: null;
+		$multiple-index: 1;
+
+		@each $multiple in $multipliers {
+			$value: $base-font-size * $multiple;
+			$value: min($upper-limit, $value);
+			$values: append($values, $value);
+			$multiple-index: $multiple-index + 1;
+		}
+		@include rems($property, $values);
+	}
+
 }
 
 @mixin clearfix(){

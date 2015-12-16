@@ -8,10 +8,11 @@
 }
 
 .page-header {
-	margin-top: -6px;
 	position: relative;
 	z-index: 1;
 	clear: both;
+	@include shadow(1, inset);
+
 }
 
 .sectionTitle {

@@ -1,0 +1,295 @@
+.printLogo {
+	display: none;
+}
+
+.skipToContent:focus {
+	position: absolute !important;
+	left: 0;
+	top: 0;
+	background-color: #fff;
+	@include type-space(padding, 2);
+	display: block !important;
+}
+
+/* Site header and "Utility" navigation */
+.top {
+	border-top: 1px solid #f0f0f0;
+	background-image: linear-gradient(to bottom,
+		#fff 50%, #efefef 90%,
+		#c0c0c0 100%);
+	@include type-space(padding, 1 1 0);
+	position: relative;
+	z-index: 3;
+
+	@include media-query('smalls') {
+		box-shadow: 0px 1px 4px rgba(#000, .2);
+	}
+}
+
+/* links to uwhealth.org and med.wisc.edu */
+.topLinks {
+	width: 100%;
+	text-align: right;
+	position: relative;
+	@include type-space(padding, .25 1 .5);
+	@include type-space(margin, -1 0 -.5 -1);
+
+	@include media-query('small'){
+		text-align: center;
+		@include type-space(margin-bottom, .75);
+		background-color: #eee;
+	}
+}
+
+.topLinks a {
+	text-decoration: none;
+	line-height: 2;
+	display: inline-block;
+	padding-left: 23px;
+
+	&:focus {
+		text-decoration: underline;
+	}
+}
+
+.smphLink {
+	background:url(../images/topLink_smph.png) left center no-repeat;
+	@include type-space(margin-left, .5);
+}
+
+.uwhcLink {
+	background:url(../images/topLink_uwhealth.png) left center no-repeat;
+}
+
+/* Main logo */
+/* Relies on .arrange-fit and .arrange-fill for layout */
+/* Uses relative font sizing to scale items together   */
+.logo {
+	font-size: 2.9em;
+	line-height: 1;
+	text-decoration: none;
+	position: relative;
+	top: .2em;
+	left: -5px;
+	z-index: 1;
+
+	&:hover,
+	&:focus {
+		opacity: 0.8;
+	}
+
+	@include media-query('smalls') {
+		left: -1%;
+		top: 0;
+		font-size: 2.54em;
+		@include type-space(margin, .5 0);
+	}
+
+	@include media-query('small') {
+		left: -4%;
+	}
+}
+
+.logo-crest,
+.logo-type {
+	vertical-align: middle;
+}
+
+.logo-crest-media {
+	display: block;
+	max-width: 2em;
+	height: auto;
+	position: relative;
+	top: -.05em; //optical alignment
+}
+
+/* Main Logo typography */
+.logo-type {
+	margin: 0;
+	padding-left: .4em;
+	color: $badger-red;
+	font-family: Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
+	font-size: 1em;
+	font-weight: normal;
+	letter-spacing: 1px;
+}
+
+.logo-type-addon {
+	text-indent: 0;
+	display: block;
+	text-transform: uppercase;
+	font-size: .34375em; //relative font-size to the base logo
+}
+
+.logo-type-top {
+	font-weight: bold;
+	letter-spacing: .5px;
+}
+
+.logo-type-bottom {
+	padding-top: .45em;
+	color: #444;
+	line-height: 1.1;
+	letter-spacing: .1em;
+}
+
+/* "Utility" Navigation, sits below logo */
+.top-nav {
+	width: 100%;
+	text-align: right;
+	@include type-space(padding, 0 1);
+	@include type-space(margin-left, -1);
+	border-top: 1px solid #fff;
+	background-color: rgba(white, .65);
+}
+
+.top-nav li a {
+	font-weight: bold;
+	color: darken($uw-gold, 55%);
+	@include type-space(padding, 1 .35);
+
+	&:hover {
+		color: $badger-red;
+	}
+	&:active {
+		color: darken($color-main-nav, 5%);
+	}
+	&:focus {
+		text-decoration: underline;
+	}
+}
+
+@include media-query('smalls') {
+	.top-nav {
+		box-shadow: inset 0 3px 4px rgba(#000, .2);
+		background-color: $color-main-nav;
+		border-bottom: 1px solid rgba(lighten($color-main-nav, 10%), 0.3);
+		text-align: center;
+	}
+
+	.top-nav-items {
+		border-top: 1px solid rgba(darken($color-main-nav, 10%), 0.5);
+		width: 100%;
+		@include type-space(padding, 0 1);
+		@include type-space(margin-left, -1);
+		@include type-space(margin-top, .5);
+		display: none;
+
+		&.active {
+			display: table;
+			table-layout: auto;
+		}
+	}
+
+	.top-nav-items > li {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.top-nav-items > li a {
+		color: #fff !important;
+		font-weight: normal;
+		@include type-space(padding, 1.5 .25);
+		word-wrap: break-all;
+		word-break: break-word;
+
+		&:hover {
+			background-color: rgba(white, 0.2);
+		}
+
+		&:active {
+			color: mix($color-main-nav, #fff, 20%);
+		}
+	}
+}
+
+/* Mobile-only buttons for toggling nav and search */
+.top-nav-buttons {
+	@include type-space(padding, .5 0);
+	letter-spacing: -0.4em;
+}
+
+.top-nav-button {
+	font-family: $font-condensed;
+	text-transform: uppercase;
+	font-size: 14px;
+	line-height: 1;
+	letter-spacing: 0.06em;
+	font-weight: normal;
+	padding: .9em 1.5%;
+	margin: 0 4%;
+	text-decoration: none;
+	color: rgba(#fff, 0.9);
+	display: inline-block;
+	background: transparent;
+	border: 2px solid rgba(#fff, 0.35);
+	border-radius: 4px;
+	width: 45%;
+	max-width: 125px;
+	position: relative;
+	box-shadow: inset 0 15px 0 rgba(#fff, 0.1);
+	transition: box-shadow .1s ease-out;
+
+	&:hover,
+	&:focus {
+		color: #fff;
+		outline: none;
+    	background-color: rgba(#fff, 0.15);
+		box-shadow: inset 0 13px 3px -1px rgba(255, 255, 255, 0.15),
+			0 2px 3px -1px rgba(0, 0, 0, 0.2),
+			0 4px 4px 0px rgba(0, 0, 0, 0.1);
+	}
+
+	&[aria-expanded="true"],
+	&:active {
+		color: rgba(255, 255, 255, 0.5);
+		background-color: darken($color-main-nav, 5%);
+		border-color: lighten($color-main-nav, 1%);
+		box-shadow: inset 0 10px 10px rgba(64, 63, 63, 0.2);
+	}
+}
+
+/* Icons within buttons */
+.icon-search {
+	position: absolute;
+	left: .5em;
+	width: 1em;
+}
+
+/* "Hamburger" menu icon
+ * Created with 3 box-shadows for crispness at all resolutions
+ * SVG or icon-fonts create blurred edges when scaled
+ */
+.icon-menu {
+	font-size: percentage(10/14);
+    color: currentColor;
+    position: relative;
+    margin-top: .55em;
+    margin-bottom: .55em;
+    user-select: none;
+    position: absolute;
+    top: 1.15em;
+}
+
+.icon-menu,
+.icon-menu:before,
+.icon-menu:after {
+	display: block;
+	width: 2em;
+	height: .3em;
+	background-color: currentColor;
+	border-radius: 1px;
+	transition-property: background-color, transform;
+	transition-duration: 0.3s;
+}
+.icon-menu:before,
+.icon-menu:after {
+  position: absolute;
+  content: "";
+}
+.icon-menu:before {
+  top: -.55em;
+}
+.icon-menu:after {
+  top: .6em;
+}

@@ -1,6 +1,5 @@
 .navBar {
-	background-color: $badger-red;
-	box-shadow: inset 0 3px 2px rgba(#000, 0.2);
+	background-color: $color-main-nav;
 	@include clearfix();
 }
 
@@ -10,23 +9,52 @@
 	table-layout: auto;
 	@extend %eight_elevenths;
 	letter-spacing: -0.4em;
+
+	@include media-query('lap') {
+		float: none;
+		@include type-space(padding, 0 1);
+		margin: auto;
+		min-width: 85%;
+	}
+
+	@include media-query('smalls') {
+		display: none;
+		@include type-space(padding, .5 1);
+	}
+
+}
+
+.navBar-items.active {
+	display: table;
 }
 
 .navBar-item {
 	position: relative;
 	display: table-cell;
 	vertical-align: middle;
+
+	@include media-query('lap') {
+		display: inline-block;
+		width: 50%;
+	}
 }
 
 .navDrop {
-	background-color: $badger-red;
+	background-color: $color-main-nav;
 	position: absolute;
+	@include type-space(padding, .25 0 .5);
 	top: 100%;
 	z-index: 2000;
 	min-width: 100%;
+	@include shadow(1.2);
+	border-radius: 0 0 3px 3px;
 
 	.with-js & {
 		display: none;
+	}
+
+	@include media-query(('smalls', 'lap')) {
+		display: none !important;
 	}
 }
 
@@ -40,10 +68,18 @@
 	&:hover {
 		background-color: rgba(#fff, 0.2);
 	}
+
+	&:active {
+		background-color: darken($badger-red, 5%);
+	}
+
+	@include media-query('smalls') {
+		@include type-space(padding, .75);
+	}
 }
 
 .navBar-item > a {
-	@include rems('font-size', 17.5px);
+	font-size: 1.5em;
 	min-width: 110px;
 	font-family: $font-condensed;
 	text-transform: uppercase;
@@ -51,11 +87,24 @@
 }
 
 .searchBox {
-	@include rems(padding, 10px 0);
+	@include rems(padding, 10px);
 	@extend %three_elevenths;
 	float: left;
 	@extend %border-box;
 	position: relative;
+
+	@include media-query('lap') {
+		@include type-space(padding, 1 1);
+		width: 100%;
+	}
+
+	@include media-query('smalls') {
+		display: none;
+	}
+}
+
+.searchBox.active {
+	display: block;
 }
 
 .searchBox > input {
@@ -63,12 +112,15 @@
 	vertical-align: middle;
 }
 
-#q {
+.searchBox label {
 	position: absolute;
-	@include rems('left', 8px);
-	@include rems('right', 44px);
+}
+
+#q {
+	width: 100%;
 	padding: 2px;
 	@include type-space('font-size', .8);
+	border: 1px solid darken($color-main-nav, 5%);
 }
 
 .googlite {
@@ -81,7 +133,14 @@
 
 .searchButton {
 	border: 0;
-	padding: 1px 18px 0 0;
-	float: right;
+	right: 0;
+	bottom: 0;
+	@include rems(padding, 10px $grid-gutter 12px 10px);
+	position: absolute;
+	background-color: $color-main-nav !important; //make sure active state keeps background color
 	width: auto;
+
+	@include media-query('lap') {
+		@include type-space(padding-bottom, 1.2);
+	}
 }

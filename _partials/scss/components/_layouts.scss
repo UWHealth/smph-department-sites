@@ -1,34 +1,92 @@
+//========================================================
+// Common Layouts
+//========================================================
+// While the row-column grid is useful for general compositions,
+// the following are meant for more specific, but still re-useable layouts
+
+/* Responsive wrapper */
 .wrapper {
-	max-width: 840px;
+	max-width: $site-width;
 	margin: 0 auto;
 }
 
+/* Page wrapper for side shadows and white background */
 .page {
 	@extend %border-box;
 	background-color: #fff;
-	box-shadow: 0 5px 6px rgba(0,0,0,.35);
+	@include shadow();
 }
 
+/* Standard padding for content sections */
 .content {
 	@include type-space(padding, 0 1 1 0);
 }
 
+/* Main article content, used next to a left nav */
 .content-main {
 	@extend %eight_elevenths;
 	@extend %smalls_one_whole;
 	@include type-space(padding, 0 1 2 1);
-	@include media-query(smalls) {
+
+	@include media-query('smalls') {
 		@include type-space(padding-left, 2);
 	}
 }
 
+/* Main article content for use next to a right sidebar */
 .content-article {
 	@extend %seven_elevenths;
 	@extend %smalls_one_whole;
 	@include type-space(padding-bottom, 2);
 }
 
+/* Sidebar content (usually filled with primaryPods)*/
 .content-aside {
 	@extend %four_elevenths;
 	@extend %smalls_one_whole;
+}
+
+/* Media object
+ * Keeps media and adjoining text from wrapping, while staying connected
+ * Useful for bios, icons, or comment formatting
+ * example:
+ * +---+
+ * |___| text text text text text
+ *       text text text text
+ */
+.media,
+.media-body {
+	overflow: hidden;
+	_overflow: visible;
+	zoom: 1;
+}
+
+.media-img {
+	float: left;
+}
+
+/* Arrangement object
+ * Advanced media object that allows vertical alignment(top, middle, bottom)
+ * Useful for logos and columns of unequal width.
+ * .arrange-fit scales to the width of its content (cannot be absolutely positioned).
+ * .arrange-fill takes up the remaining space left over from other -fit modules.
+ * vertical-align: middle|bottom|top; must be applied to -fit and -fill modules.
+ * example:
+ * +---+
+ * |   | text text text text text
+ * +---+
+**/
+
+.arrange {
+	display: table;
+	table-layout: auto;
+}
+
+.arrange-fit,
+.arrange-fill {
+	display: table-cell;
+}
+
+.arrange-fill {
+	width: 100%;
 }

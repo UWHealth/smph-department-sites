@@ -8,10 +8,21 @@ html {
 	-webkit-text-size-adjust: 100%;
 	font-size: percentage($type-font-size/16);
 }
+
 a {
 	color: $badger-red;
 	text-decoration: underline;
 	outline: none; /* FireFox link outline fix */
+
+	&:hover,
+	&:focus {
+		text-decoration: none;
+		color: lighten($badger-red, 8%);
+	}
+
+	&:active {
+		color: darken($badger-red, 5%);
+	}
 }
 
 a:hover {
@@ -26,6 +37,10 @@ body {
 	@include rems('font-size', $base-font-size);
 	line-height: ($base-line-height / $base-font-size);
 	background: #c6aa53 url("../images/bg_diagonal.gif");
+
+	@include media-query('small') {
+		padding: 0;
+	}
 }
 
 p {
@@ -93,15 +108,15 @@ select::-ms-value {
 	color: currentColor;/* Edge 12+, Internet Explorer 11- */
 }
 
-ul {
-	list-style: none;
-}
-
-ul,
-li {
-	margin: 0;
-	padding: 0;
-}
+//ul {
+//	list-style: none;
+//}
+//
+//ul,
+//li {
+//	margin: 0;
+//	padding: 0;
+//}
 
 #mainContainer ul {
 	list-style: disc;

@@ -38,11 +38,11 @@ var paths = {
 		dest:  	'./style'
 	},
 	js: {
-		watch:	'./_partials/**/*.js',
+		watch:	'./_partials/js/**/*.js',
 		dest:  	'./javascript'
 	},
 	kits: {
-		watch:	'./_partials/**/*.kit',
+		watch:	'./_partials/kits/**/*.kit',
 		dest:  	'./'
 	}
 };

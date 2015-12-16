@@ -1,6 +1,6 @@
 <div class="navBar">
   <!-- Main Navigation List	(red bar) -->
-  <ul class="navBar-items">
+  <ul id="main-nav" class="navBar-items list-nav" role="navigation">
     <li class="navBar-item"><a href="#">Education &amp; Training</a></li>
     <li class="navBar-item"><a href="#">Research</a></li>
     <li class="navBar-item"><a href="#">Specialties</a></li>
@@ -8,13 +8,12 @@
   </ul>
   <!-- End Main Navigation List -->
   <!-- Search Box & Button -->
-  <div class="searchBox">
+  <div id="searchBox" class="searchBox">
   	<form action="" onsubmit="return search(this.q.value);">
   	  <label for="q">&nbsp;</label>
   	  <input name="q" type="text" value="Search" class="searchText" id="q" />
-  	  <input type="image" src="images/btn_search.gif" name="sa" alt="Search Button" class="searchButton" />
+  	  <input type="image" src="images/btn_search.gif" name="sa" role="button" alt="Search Button" class="searchButton" />
   	</form>
   </div>
   <!-- End Search Box & Button -->
 </div>
-<div id="navBarShadow"></div>

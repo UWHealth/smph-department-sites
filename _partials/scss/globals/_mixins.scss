@@ -109,11 +109,31 @@
 
 }
 
+//Modern clearfix
 @mixin clearfix(){
+
 	&:after {
 		content: "";
 		height: 0.1px;
 		display: table;
 		clear: both;
 	}
+}
+
+//Standard theme box-shadow
+@mixin shadow($z: 1, $inset: false) {
+	$inset: 	if($inset, 'inset', null);
+	$base:		if($inset, 5, 3);
+	$offset: 	$base * $z * 1px;
+	$blur: 		if($inset, (abs($offset) * 1.1), (abs($offset) * 2));
+	$spread: 	if($inset, ($offset * -.75), ((abs($z)/5) + .1px));
+	$darkness: 	if($inset, ($z * .25) + ($z * .1), ($z * .15) + ($z * .1));
+	$darkness: 	rgba(0,0,0, $darkness);
+
+	box-shadow: #{$inset}
+		0
+		#{$offset}
+		#{$blur}
+		#{$spread}
+		#{$darkness};
 }

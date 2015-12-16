@@ -25,10 +25,17 @@ $smph-gold: #C7AB4C;
 //Themes
 $color-main-bg: $smph-gold;
 $color-main-nav: $badger-red;
+$color-pod-top: $badger-red;
 
 //---------------------
 // Grid
 //---------------------
+
+//Maximum width of your site
+// If you make heavy-use of image headers, 840px is recommended
+// Recommendation: Wider sites should use a larger base-font-size for a better reading experience
+$site-width: 			840px;
+
 //Space between columns
 $grid-gutter:           20px;
 //Silent grid (requires extending)
@@ -52,18 +59,18 @@ $grid-margin-adjustments: false;
 
 //breakpoint values available via the media-query() mixin
 $breakpoints: (
-	// Everything up to 640px. Mostly phones.
-    'smalls':'(max-width:640px)',
+	// Everything up to 674px. Mostly phones.
+    'smalls':'(max-width:674px)',
 	// Up to 480px. Overrides Smalls. Small Phones, including iPhone.
     'small':'(max-width: 480px)',
-	// Between 480 and 640px. Overrides Smalls. Large phones/phablets.
-    'smallish': '(min-width: 481px) and (max-width: 640px)',
-    // Everything larger than 640px. Tablets and Desktops.
-	'bigs': '(min-width: 641px)',
-	// 640-940px. Overrides Bigs. Mostly Tablets and small laptops.
-    'lap': '(min-width: 641px) and (max-width: 839px)',
+	// Between 480 and 675px. Overrides Smalls. Large phones/phablets.
+    'smallish': '(min-width: 481px) and (max-width: 674px)',
+	// 675-940px. Overrides Bigs. Mostly Tablets and small laptops.
+    'lap': '(max-width: 775px)',
 	// 940 and Up. Overrides Bigs. Large Tablets and Desktops.
-    'desk': '(min-width: 840px)'
+    'desk': '(min-width: 840px)',
+	// Everything larger than 675px. Tablets and Desktops.
+	'bigs': '(min-width: 675px)'
 );
 
 // Give grid ability to span breakpoints

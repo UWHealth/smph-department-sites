@@ -22,29 +22,48 @@
   <!-- Print Logo (invisible) -->
   <div class="printLogo"> <img src="images/your_print_logo.gif" alt=""> </div>
   <!-- End Print Logo -->
-  <!-- Skip to Content Link (invisible) -->
-  <div class="skipToContent"><a href="#contentContainer">Skip to Content</a></div>
-  <div id="header" class="wrapper">
+  <!-- Skip to Content Link (invisible) --><a class="skipToContent visuallyHidden focusable" href="#mainContent">Skip to Content</a>
+  <div id="//header" class="wrapper top page">
     <!-- Top Links with Icons -->
-    <div class="topLinks"><a href="http://www.uwhealth.org/" class="uwhcLink" title="uwhealth.org" target="_blank">uwhealth.org</a><a href="http://med.wisc.edu/" class="smphLink" title="med.wisc.edu" target="_blank">med.wisc.edu</a></div>
+    <div class="topLinks"> <a href="http://www.uwhealth.org/" class="uwhcLink" title="UW Health" target="_blank">uwhealth.org</a> <a href="http://med.wisc.edu/" class="smphLink" title="School of Medicine and Public Health" target="_blank">med.wisc.edu</a> </div>
     <!-- End Top Links with Icons -->
+    <a class="logo arrange" href="/" title="Your Department Home">
+      <div class="logo-crest arrange-fit"> <img class="logo-crest-media" src="/images/nav_shield.png" role="presentation"> </div>
+      <h1 class="logo-type arrange-fill">
+        <span class="logo-type-top logo-type-addon">
+          Department of
+        </span>
+        Department Name
+        <small class="logo-type-bottom logo-type-addon">
+          University Of Wisconsin<br>School of Medicine and Public Health
+        </small>
+      </h1> </a>
     <!-- Top Navigation List -->
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="#">Departments</a></li>
-      <li><a href="#">Our Campus</a></li>
-      <li><a href="#">Faculty Directory</a></li>
-      <li><a href="#">About Us</a></li>
-      <li class="last"><a href="#">Contact Us</a></li>
-    </ul>
+    <div class="top-nav">
+      <div class="top-nav-buttons bigs-hide"> <a class="top-nav-button" href="#top-nav" role="button" aria-controls="top-nav main-nav" aria-expanded="false">
+              Menu
+              <span class="icon-menu"></span>
+          </a> <a class="top-nav-button" href="#searchBox" role="button" aria-controls="searchBox" aria-expanded="false">
+              Search
+              <img class="icon-search" src="/images/search.svg" role="presentation">
+          </a> </div>
+      <ul id="top-nav" class="top-nav-items list-inline list-nav" role="navigation">
+        <li><a class="smalls-hide" href="/">Home</a></li>
+        <li><a href="#">Departments</a></li>
+        <li><a href="#">Our Campus</a></li>
+        <li><a href="#">Faculty Directory</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
     <!-- End Navigation List -->
   </div>
   <div id="//masterContainer" class="page wrapper">
-    <div class="//margin10 row">
+    <div id="mainContent" class="//margin10 row">
       <div class="column">
         <div class="navBar">
           <!-- Main Navigation List	(red bar) -->
-          <ul class="navBar-items">
+          <ul id="main-nav" class="navBar-items list-nav" role="navigation">
             <li class="navBar-item"><a href="#">Education &amp; Training</a></li>
             <li class="navBar-item"><a href="#">Research</a></li>
             <li class="navBar-item"><a href="#">Specialties</a></li>
@@ -52,15 +71,15 @@
           </ul>
           <!-- End Main Navigation List -->
           <!-- Search Box & Button -->
-          <div class="searchBox">
+          <div id="searchBox" class="searchBox">
             <form action="" onsubmit="return search(this.q.value);">
               <label for="q">&nbsp;</label>
               <input name="q" type="text" value="Search" class="searchText" id="q" />
-              <input type="image" src="images/btn_search.gif" name="sa" alt="Search Button" class="searchButton" /> </form>
+              <input type="image" src="images/btn_search.gif" name="sa" role="button" alt="Search Button" class="searchButton" /> </form>
           </div>
           <!-- End Search Box & Button -->
         </div>
-        <div id="navBarShadow"></div>
+        <!--<div id="navBarShadow"></div>-->
         <div id="//pageHeader" class="page-header">
           <h1 class="sectionTitle">Section</h1> </div>
       </div>

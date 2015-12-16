@@ -1,0 +1,94 @@
+//========================================================
+// Override Classes
+//========================================================
+// Used for simpler responsive html authoring
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+.visuallyHidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+	transition: all 100ms ease-out;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyHidden.focusable:active,
+.visuallyHidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.hide,
+[aria-hidden="true"] {
+	display: none !important;
+}
+.inline {
+	display: inline !important;
+}
+.table {
+	display: table !important;
+}
+.block {
+	display: block !important;
+}
+.inline-block {
+	display: inline-block !important;
+}
+
+@include media-query('bigs') {
+	.bigs-hide {
+		display: none !important;
+	}
+	.bigs-inline {
+		display: inline !important;
+	}
+	.bigs-table {
+		display: table !important;
+	}
+	.bigs-block {
+		display: block !important;
+	}
+	.bigs-inline-block {
+		display: inline-block !important;
+	}
+}
+
+@include media-query('smalls') {
+	.smalls-hide {
+		display: none !important;
+	}
+	.smalls-inline {
+		display: inline !important;
+	}
+	.smalls-table {
+		display: table !important;
+	}
+	.smalls-block {
+		display: block !important;
+	}
+	.smalls-inline-block {
+		display: inline-block !important;
+	}
+}
+
+/* IE8- pollyfill*/
+.lt-ie9 .bigs-hide {
+	display: none !important;
+}

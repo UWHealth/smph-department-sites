@@ -55,7 +55,7 @@
 //Stripped REM generator
 //Useful if you just need the rem value
 @function px-to-rems($pixels, $base-size:$base-font-size) {
-	
+
 	@if (unitless($pixels)){
 		$pixels: $pixels * 1px;
 	}
@@ -72,6 +72,7 @@
 //Strip values from a list
 @function remove($list, $value: 'and') {
 	$result: ();
+	$test-value: '';
 
 	@if type-of($list) == arglist {
 		$list: nth($list, 1);
@@ -79,10 +80,14 @@
 
 	@for $i from 1 through length($list) {
 
-		$test-value: to-lower-case(nth($list, $i));
+		$item: nth($list, $i);
+
+		@if type-of($item) == 'string' {
+			$test-value: to-lower-case($item);
+		}
 
 		@if $test-value != $value {
-			$result: append($result, nth($list, $i));
+			$result: append($result, $item);
 		}
 	}
 

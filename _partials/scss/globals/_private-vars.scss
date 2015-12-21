@@ -38,7 +38,7 @@ $grid-columns:          12;
 
 //Accepted media-query expression types
 $media-query-expressions: (
-	'width', 'height', 'device-width', 'orientation', 'aspect-ratio', 'device-aspect-ratio',
+	'device-width', 'orientation', 'aspect-ratio', 'device-aspect-ratio',
 	'color', 'color-index', 'monochrome', 'resolution', 'scan', 'grid'
 );
 //Accepted media-query device types
@@ -48,25 +48,28 @@ $media-query-devices: (
 );
 //Accepted media-query operator arguments
 $media-query-operators: (
-	'max-width'	:	'max',
-	'max'		:	'max',
-	'<'			:	'max',
-	'<='		:	'max',
-	'min-width'	:	'min',
-	'min'		:	'min',
-	'>'			:	'min',
-	'>='		:	'min',
-	'nest'		: 	'nest'
+	'max-width',
+	'max-height',
+	'min-width',
+	'min-height',
+	'device-width',
+	'min-device-width',
+	'max-device-width',
+	'min-device-height',
+	'max-device-height',
+	'aspect-ratio',
+	'device-aspect-ratio',
+	'resolution'
 );
 
 //Used to switch a media-query from one type to another
 $media-query-switch: (
-	'max'		:	'min',
-	'min'		:	'max',
-	'height'	:	'width',
-	'width'		:	'height',
-	'landscape'	:	'portrait',
-	'portrait' 	:	'landscape'
+	'max',
+	'min',
+	'height',
+	'width',
+	'landscape',
+	'portrait'
 );
 
 //Values to increase media-queries by

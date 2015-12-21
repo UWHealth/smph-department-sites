@@ -59,33 +59,31 @@
     <!-- End Navigation List -->
   </div>
   <div id="//masterContainer" class="page wrapper">
-    <div id="mainContent" class="//margin10 row">
-      <div class="column">
-        <div class="navBar">
-          <!-- Main Navigation List	(red bar) -->
-          <ul id="main-nav" class="navBar-items list-nav" role="navigation">
-            <li class="navBar-item"><a href="#">Education &amp; Training</a></li>
-            <li class="navBar-item"><a href="#">Research</a></li>
-            <li class="navBar-item"><a href="#">Specialties</a></li>
-            <li class="navBar-item"><a href="#">Patients</a></li>
-          </ul>
-          <!-- End Main Navigation List -->
-          <!-- Search Box & Button -->
-          <div id="searchBox" class="searchBox">
-            <form action="" onsubmit="return search(this.q.value);">
-              <label for="q">&nbsp;</label>
-              <input name="q" type="text" value="Search" class="searchText" id="q" />
-              <input type="image" src="images/btn_search.gif" name="sa" role="button" alt="Search Button" class="searchButton" /> </form>
-          </div>
-          <!-- End Search Box & Button -->
-        </div>
-        <!--<div id="navBarShadow"></div>-->
-        <div id="//pageHeader" class="page-header">
-          <h1 class="sectionTitle">Section</h1> </div>
+    <div class="navBar">
+      <!-- Main Navigation List	(red bar) -->
+      <ul id="main-nav" class="navBar-items list-nav" role="navigation">
+        <li class="navBar-item"><a href="#">Education &amp; Training</a></li>
+        <li class="navBar-item"><a href="#">Research</a></li>
+        <li class="navBar-item"><a href="#">Specialties</a></li>
+        <li class="navBar-item"><a href="#">Patients</a></li>
+      </ul>
+      <!-- End Main Navigation List -->
+      <!-- Search Box & Button -->
+      <div id="searchBox" class="searchBox">
+        <form action="" onsubmit="return search(this.q.value);">
+          <label for="q">&nbsp;</label>
+          <input name="q" type="text" value="Search" class="searchText" id="q" />
+          <input type="image" src="images/btn_search.gif" name="sa" role="button" alt="Search Button" class="searchButton" /> </form>
       </div>
+      <!-- End Search Box & Button -->
+    </div>
+    <div id="mainContent" class="//margin10 row">
+      <!--<div id="navBarShadow"></div>-->
+      <div id="//pageHeader" class="page-header column">
+        <h1 class="sectionTitle">Section</h1> </div>
       <div id="//leftNavContainer" class="leftNav column">
         <!-- Left Navigation List -->
-        <ul class="leftNav-items">
+        <ul class="leftNav-items list-nav">
           <li><a href="home.htm">Home Page</a></li>
           <li><a href="home_widget.htm">Home Page w/Widget and News</a></li>
           <li><a href="landing.htm">Landing Page</a></li>

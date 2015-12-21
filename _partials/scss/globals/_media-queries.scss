@@ -33,85 +33,26 @@
 
 //* Passing a value like (min-width 120em) or (max-height 30px) allows for arbitrary breakpoints.
 
+@mixin media-query($mq...) {
+	//format arglist into maps with key-value pairs
+	$media-query-map: arglist-to-map($mq);
 
-@mixin media-query($media-queries...) {
+	@each $media-query, $group in $media-query-map {
+		$operator: map-get($group, 'operator');
+		$value: map-get($group, 'value');
+		$device: map-get($group, 'device');
+		$device: if($device, $device, 'screen');
+		$logical-operator: unquote('#{$operator}#{$value}');
 
-	$breakpoint: null;
-	$operator: null;
-	$query: null;
-	$stored-breakpoints: ();
-	$end: false;
-	$nested: false;
-	$media-type: "screen";
-	$nest-args: ("nest","nested","combine");
-
-
-	//Check for 'and' arguments, and replace with 'nest' argument for simpler parsing
-	@if ( index(nth($media-queries, 1), 'and' ) ) or
-		( index(nth($media-queries, 1), 'AND' ) )
-	{
-		$media-queries: remove($media-queries);
-		$media-queries: join($media-queries, (nest));
+		@if $operator { //Only output media-queries with operators
+			@media only #{$device} and #{$logical-operator} {
+				@content;
+			}
+		}@else {
+			@warn "the media-query mixin requires a logical-operator and a value (min-width 2px). You will have to write your own media query if you'd like something else";
+		}
 	}
 
-	$last-arg: nth($media-queries, -1);
-
-	//Determine if last argument is nest "directive"
-	$nested: if(index($nest-args, $last-arg), true, false);
-
-	//Loop through all arguments
-	@each $media-query in $media-queries {
-
-		//Grab first argument
-		$query: nth($media-query, 1);
-
-		//Check if nest argument matches a known value
-		@if index($nest-args, $media-query) {
-			$query: $media-query;
-			$end: true;
-		}
-
-		//Check if argument matches the name of a $breakpoint
-		$declaration: map-get($breakpoints, $query);
-
-		//if first value is recognized in $$breakpoints map, then save to $breakpoint
-		@if $declaration or $end {
-			$breakpoint: #{$declaration};
-		}
-		@else if index($media-query-devices, $query){
-			$media-type: $query;
-			$breakpoint: null;
-		}
-		@else {
-			$breakpoint: media-query-parse($media-query);
-		}
-
-		@if $breakpoint or $end {
-
-			//If not a nested media-query, just output the single value
-			@if not $nested {
-
-				@media only #{$media-type} and #{$breakpoint} {
-					@content;
-				}
-
-			}
-			//If we've reached the last argument, output the nested media-query
-			@else if $end {
-
-				$stored-breakpoints: list-to-string($stored-breakpoints, 'and');
-
-				@media only #{$media-type} and #{$stored-breakpoints} {
-					@content;
-				}
-
-			}
-			@else {
-				//if this is a nested media-query, store the value for later
-				$stored-breakpoints: append($stored-breakpoints, $breakpoint);
-			}
-		}
-	}
 }
 
 //Aliases: Same as above, but shorter
@@ -126,53 +67,72 @@
 
 //Check for proper media-query arguments
 // Converting them to proper CSS values
-@function media-query-operator($operator) {
+@function arglist-to-map($arguments-list) {
+	$stored: ();
+	$arg-map: ();
+	$structure: ();
 
-	$operator-check: map-get($media-query-operators, $operator);
+	//For loop used because each loops produce different results in Ruby and LibSass
+	@for $i from 1 to (length($arguments-list)+1) {
+		$argument: nth($arguments-list, $i);
 
-	@if $operator-check {
-		@return $operator-check;
-	}
-	@else if not index($media-query-expressions, $operator) {
-		@warn "#{$operator} is not a valid argument for a media-query mixin.";
-	}
+		//Check all values in the argument for valid media-query arguments
+		$structure: map-merge($structure, parse-query-args($argument));
 
-	@return $operator;
-
-}
-
-//Check for media-query expressions (width/height/orientation/etc)
-// Convert them into proper CSS values
-@function media-query-declaration($operator, $value){
-
-	@if type-of($value) == number {
-		$value: if(unitless($value), $value * 1px, $value);
-	}
-
-	@if not index($media-query-expressions, $operator){
-		$operator: '#{media-query-operator($operator)}-width';
-	}
-
-	@return '(#{$operator}: #{$value})';
-}
-
-//Formats @media-query() arguments to real CSS values
-// by checking for $media-query-switch values
-@function media-query-parse($media-query) {
-	$operator: media-query-operator(nth($media-query, 1));
-	$value: nth($media-query, -1);
-
-	$declaration: map-get($breakpoints, '#{unquote($value)}');
-
-	@if $declaration {
-		@if not str-contains($declaration, $operator) {
-			$replace: map-get($media-query-switch, $operator);
-			$declaration: str-replace($declaration, $replace, $operator);
+		//Since value should be last, we can assume the grouping is done
+		@if (map-get($structure, 'value')) {
+			//Wrap arguments into an array-object-like structure (1:(key:value, key:value))
+			$arg-map: map-merge($arg-map, ($i: ($structure)));
+			//Empty the map so we can rewrite it
+			$structure: ();
 		}
 	}
+
+	@return $arg-map;
+}
+
+@function parse-query-args($argument, $call: 0, $check: null){
+	$query-map: ();
+	//Check global $breakpoints config variable for matches
+	@if	(map-get($breakpoints, $argument)){
+		$query-map: map-merge($query-map, ('operator': map-get($breakpoints, $argument)));
+		//Also set value to nothing since we already have it
+		$query-map: map-merge($query-map, ('value': ''));
+	}
+	//Check operators for matches
+	@elseif (index($media-query-operators, $argument)) {
+		//Format operator as the beginning of a parenthesis
+		$query-map: map-merge($query-map, ('operator': "(#{$argument}"));
+	}
+	//If its a number, assume its a value
+	@elseif(type-of($argument) == number){
+		//Format value with a colon and closing parenthesis
+		$query-map: map-merge($query-map, ('value': ":#{$argument})"));
+	}
+	//Check devices for matches
+	@elseif(index($media-query-devices, $argument)) {
+		$query-map: map-merge($query-map, ('device': $argument));
+	}
 	@else {
-		$declaration: media-query-declaration($operator, $value);
+		//if not a device, $breakpoint, value, or operator, it's probably a nested list
+		//We'll need to loop through that list and re-call this function until we get to the bottom
+		@for $i from 1 to (length($argument) + 1) {
+			$arg: nth($argument, $i);
+			//Set a reasonable number so we don't loop forever
+			//Only set if nothing has been set before
+			$check: if($check, $check, length($argument));
+			//If we've looped through this more times than the length of the argument,
+			//we can assume an error and return nothing.
+			@if $call > ($check + 1) {
+				@warn "#{$arg} is not valid argument for media-query mixin";
+				@return ();
+			}
+			//Add to the loop count
+			$call: $call + 1;
+			//Re-run this function through all arguments
+			$query-map: map-merge($query-map, parse-query-args($arg, $call, $check));
+		}
 	}
 
-	@return $declaration;
+	@return $query-map;
 }

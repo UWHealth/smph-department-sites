@@ -88,6 +88,11 @@
 	@include media-query('small') {
 		left: -4%;
 	}
+
+	@include media-query('max-width' 330px) {
+		left: -1.5em;
+		//Very small screens (iphone 4/old android) need a bit more room for the logo
+	}
 }
 
 .logo-crest,
@@ -101,6 +106,10 @@
 	height: auto;
 	position: relative;
 	top: -.05em; //optical alignment
+
+	@include media-query(max-width 330px) {
+		max-width: 2.15em;
+	}
 }
 
 /* Main Logo typography */
@@ -207,9 +216,11 @@
 .top-nav-buttons {
 	@include type-space(padding, .5 0);
 	letter-spacing: -0.4em;
+	white-space: nowrap;
 }
 
 .top-nav-button {
+	@extend %border-box;
 	font-family: $font-condensed;
 	text-transform: uppercase;
 	font-size: 14px;
@@ -225,7 +236,7 @@
 	border: 2px solid rgba(#fff, 0.35);
 	border-radius: 4px;
 	width: 45%;
-	max-width: 125px;
+	max-width: 130px;
 	position: relative;
 	box-shadow: inset 0 15px 0 rgba(#fff, 0.1);
 	transition: box-shadow .1s ease-out;
@@ -246,6 +257,10 @@
 		background-color: darken($color-main-nav, 5%);
 		border-color: lighten($color-main-nav, 1%);
 		box-shadow: inset 0 10px 10px rgba(64, 63, 63, 0.2);
+	}
+
+	@include media-query('small'){
+		margin: 0 2.5%;
 	}
 }
 

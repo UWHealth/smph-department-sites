@@ -1,4 +1,5 @@
 .leftNav {
+	display: inline-block;
 	@extend %three_elevenths;
 	@extend %smalls_one_whole;
 	@include type-space(padding-bottom, 2);
@@ -9,21 +10,69 @@
 
 .leftNav-items {
 	font-family: $font-secondary;
-	@include type-space(margin-left, 1);
-	border-top: 1px solid darken($smph-tan, 15%);
+	@include type-space(padding-left, 1);
+	@include media-query('smalls'){
+		display: flex;
+		align-items: top;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		flex-direction: row;
+	}
 }
 
 .leftNav-items > li {
 	border-bottom: 1px solid darken($smph-tan, 15%);
+	padding: 0;
+	margin: 0;
+
+	@include media-query('smalls') {
+		display: inline-block;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-items: center;
+		flex: 2 1 32.5%;
+		overflow: hidden;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		text-overflow: ellipsis;
+		max-width: 32.5%;
+		border-top: 1px solid darken($smph-tan, 15%);
+		margin-bottom: -1px;
+		min-height: 44px;
+	}
+
+	@include media-query('small') {
+		flex: 2 1 49%;
+		max-width: 49.5%;
+	}
+}
+
+.leftNav-items > li:first-child {
+	border-top: 1px solid darken($smph-tan, 15%);
 }
 
 .leftNav-items a {
 	padding: .9em .25em;
 	font-weight: bold;
-	@include type-scale('font-size', 1.1);
+	font-size: 1.1em;
+	@extend %border-box;
 
-	&:hover {
+	&:hover,
+	&:focus {
+		color: lighten($badger-red, 2%);
 		background-color: lighten($smph-tan, 8%);
+	}
+
+	&:active {
+		color: darken($badger-red, 3%);
+		background-color: lighten($smph-tan, 5%);
+	}
+
+	@include media-query('smalls'){
+		width: 100%;
+		min-height: 100%;
+		flex-grow: 1;
 	}
 }
 

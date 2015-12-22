@@ -65,12 +65,13 @@
 	@include rems(padding, 11px 8px 9px);
 	letter-spacing: 0.03em;
 
-	&:hover {
-		background-color: rgba(#fff, 0.2);
+	&:hover,
+	&:focus {
+		background-color: mix(white, $color-main-nav, 20%)
 	}
 
 	&:active {
-		background-color: darken($badger-red, 5%);
+		background-color: darken($color-main-nav, 5%);
 	}
 
 	@include media-query('smalls') {

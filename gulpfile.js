@@ -52,7 +52,7 @@ var browser_sync_watch = ['./style/*.css', './javascript/**', './*.html'];
 
 //Development variables
 var
-	sass_output = 'nested',
+	sass_output = 'expanded',
 	minify = false,
 	lint = false;
 

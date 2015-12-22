@@ -1,9 +1,18 @@
+/* Responsive grid
+ * While there may be many classes,
+ * sever compression (gzip), which uses repetition as a means of compression,
+ * will keep these from adding too many bytes to your overall css payload
+ */
+
 @include grid-init(); //Create silent classes
 
 %border-box {
 	box-sizing: border-box;
 }
 
+// Base wrapper to begin grid-system
+// All columns should be wrapped with a "row"-classed wrapper
+// example: <div class="row"><div class="column">...</div></div>
 .row {
 	@extend %grid;
 	@extend %border-box;
@@ -23,14 +32,22 @@
 	@extend %border-box;
 }
 
-//Columns default to 100% width
+// Columns
+// default to 100% width.
+// All column widths must be accompanied by the "column" class
+// example: <div class="column c-1">...</div>
+//
+
 .column {
 	@extend %grid_item;
 	@extend %border-box;
 }
 
 // Column widths
-// All numbers are a fraction of 11
+// All numbers are a fraction of 11, so c-3 is 3/11 (27.27%)
+// For extra flexibility, rows and columns can be nested.
+//
+
 .c-1 {
 	@extend %one_eleventh;
 }
@@ -74,6 +91,29 @@
 .c-11 {
 	@extend %eleven_elevenths;
 }
+
+// Specialty column widths for convenience
+.c-half {
+	@extend %one_half;
+}
+
+.c-quarter {
+	@extend %one_quarter;
+}
+
+.c-third {
+	@extend %one_third;
+}
+
+.c-three-quarters {
+	@extend %three_quarters;
+}
+
+.c-two-thirds {
+	@extend %two_thirds;
+}
+
+// Small view-port column widths
 
 @include media-query('smalls') {
 	.smalls-c-1 {
@@ -119,9 +159,29 @@
 	.smalls-c-11 {
 		@extend %smalls_one_whole;
 	}
+
+	.smalls-c-half {
+		@extend %smalls_one_half;
+	}
+
+	.smalls-c-quarter {
+		@extend %smalls_one_quarter;
+	}
+
+	.smalls-c-third {
+		@extend %smalls_one_third;
+	}
+
+	.smalls-c-three-quarters {
+		@extend %smalls_three_quarters;
+	}
+
+	.smalls-c-two-thirds {
+		@extend %smalls_two_thirds;
+	}
 }
 
-// Push widths
+// Push widths, for moving columns to the right
 .p-0 {
 	@extend %push_zero;
 }
@@ -164,6 +224,26 @@
 
 .p-10 {
 	@extend %push_ten_elevenths;
+}
+
+.p-half {
+	@extend %push_one_half;
+}
+
+.p-quarter {
+	@extend %push_one_quarter;
+}
+
+.p-third {
+	@extend %push_one_third;
+}
+
+.p-three-quarters {
+	@extend %push_three_quarters;
+}
+
+.p-two-thirds {
+	@extend %push_two_thirds;
 }
 
 @include media-query('smalls') {
@@ -209,5 +289,25 @@
 
 	.smalls-p-10 {
 		@extend %smalls_push_ten_elevenths;
+	}
+
+	.smalls-p-half {
+		@extend %smalls_push_one_half;
+	}
+
+	.smalls-p-quarter {
+		@extend %smalls_push_one_quarter;
+	}
+
+	.smalls-p-third {
+		@extend %smalls_push_one_third;
+	}
+
+	.smalls-p-three-quarters {
+		@extend %smalls-push_three_quarters;
+	}
+
+	.smalls-p-two-thirds {
+		@extend %smalls-push_two_thirds;
 	}
 }

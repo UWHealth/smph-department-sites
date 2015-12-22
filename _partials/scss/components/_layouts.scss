@@ -4,10 +4,18 @@
 // While the row-column grid is useful for general compositions,
 // the following are meant for more specific, but still re-useable layouts
 
-/* Responsive wrapper */
+/* Responsive wrapper
+ * Change max-width to increase your site's total width
+ * Only change if you have image headers that support a width higher than 840px
+ */
 .wrapper {
 	max-width: $site-width;
 	margin: 0 auto;
+	@extend %border_box;
+}
+
+.lt-ie9 .wrapper{
+	width: 840px;
 }
 
 /* Page wrapper for side shadows and white background */
@@ -68,6 +76,7 @@
 /* Arrangement object
  * Advanced media object that allows vertical alignment(top, middle, bottom)
  * Useful for logos and columns of unequal width.
+ * Can be used with multiple arrange -fit and -fill objects.
  * .arrange-fit scales to the width of its content (cannot be absolutely positioned).
  * .arrange-fill takes up the remaining space left over from other -fit modules.
  * vertical-align: middle|bottom|top; must be applied to -fit and -fill modules.

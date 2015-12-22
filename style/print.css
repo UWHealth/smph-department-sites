@@ -88,7 +88,8 @@ h6 {
 	margin: 0px;
 	font-weight:bold;
 }
-* right in page related pods and sibling pods */ div.padPod {
+/* right in page related pods and sibling pods */
+div.padPod {
 	padding:0px;
 } /* was 10px */
 div.padPodGoo {

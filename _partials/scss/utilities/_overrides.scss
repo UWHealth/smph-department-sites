@@ -16,7 +16,7 @@
     padding: 0;
     position: absolute;
     width: 1px;
-	transition: all 100ms ease-out;
+	transition: all .15s ease-out;
 }
 
 /*
@@ -33,6 +33,10 @@
     overflow: visible;
     position: static;
     width: auto;
+}
+
+.clearFloat {
+    clear: both !important;
 }
 
 .hide,

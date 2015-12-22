@@ -1,14 +1,15 @@
-.page-header {
+.pageHeader {
 	position: relative;
 	z-index: 1;
 	clear: both;
+	@include type-space(margin-left, 1);
+	@include shadow(1, inset);
 }
 
 .sectionTitle {
-	@include rems(font-size, 42px);
+	font-size: 3.8em;
 	@include type-space(padding, 2 1 0);
 	font-family: $font-serif;
 	color: $badger-red;
 	font-weight: normal;
-	@include shadow(1, inset);
 }

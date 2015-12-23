@@ -1,13 +1,13 @@
 var gulp		 = require('gulp');
 var utility 	 = require('gulp-util');
-
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync  = require('browser-sync');
-var chalk		 = utility.colors;
+var chalk        = utility.colors;
+var changed 	 = require('gulp-changed');
 var flatten 	 = require('gulp-flatten');
-var gFilter		 = require('gulp-filter');
 var gIf 		 = require('gulp-if');
 var include 	 = require('gulp-include');
+var imgmin       = require('gulp-imagemin');
 var kit 		 = require('gulp-kit');
 var notify       = require('gulp-notify');
 var plumber		 = require('gulp-plumber');
@@ -17,6 +17,11 @@ var sass		 = require('gulp-sass');
 var size 		 = require('gulp-size');
 var uglify 		 = require('gulp-uglify');
 
+
+/******************************/
+/******** Configuration *******/
+/******************************/
+
 //Set your browser support
 //See autoprefixer's documentation for notation style:
 // https://github.com/ai/browserslist#queries
@@ -24,59 +29,64 @@ var uglify 		 = require('gulp-uglify');
 var autoprefixer_browsers = [
 	'> 1%',
 	'last 2 version',
-	'ff 3.5',
 	'ff >= 16',
-	'ie >= 8',
-	'android >= 2.3'
+    'ff 3.5',
+	'android >= 2.3',
+    'ie >= 8'
 ];
 
 // Paths for watching and outputting
 var paths = {
 	scss: {
-		watch:	'./_partials/**/*.scss',
+		watch:	['./_partials/**/*.scss'],
 		main:	'./_partials/scss/*.scss',
 		dest:  	'./style'
 	},
 	js: {
-		watch:	'./_partials/js/**/*.js',
+		watch:	['./_partials/js/**/*.js'],
 		dest:  	'./javascript'
 	},
 	kits: {
-		watch:	'./_partials/kits/**/*.kit',
+		watch:	['./_partials/kits/**/*.kit'],
 		dest:  	'./'
+	},
+	images: {
+		watch: ['./_partials/images/**'],
+		dest: './images'
 	}
 };
 
 //Files to watch to keep browser preview up to date
 var browser_sync_watch = ['./style/*.css', './javascript/**', './*.html'];
 
-//Development variables
-var
-	sass_output = 'expanded',
-	minify = false,
-	lint = false;
 
+/******************************/
+/******** Gulp Tasks **********/
+/******************************/
+
+/** File Watch **/
 //Watch file paths for changes (as defined in the paths variable)
 gulp.task('watch', function(){
-	gulp.watch(paths.scss.watch, ['sass']);
-	gulp.watch(paths.js.watch, ['js']);
-	gulp.watch(paths.kits.watch, ['kits']);
+	gulp.watch(	paths.scss.watch,   ['sass']);
+	gulp.watch(	paths.js.watch,     ['js']);
+	gulp.watch(	paths.kits.watch,   ['kits']);
+	gulp.watch(	paths.images.watch, ['images']);
 });
 
-//Browser-sync
+/** Browser-sync **/
 //Spins up local http server
 // and syncs actions across browsers
 gulp.task('browserSync', function() {
-    browserSync.init({
+	browserSync.init({
 		files: browser_sync_watch,
 		port: 3000,
-		ui:{
+		ui: {
 			port: 3030
 		},
 		server: {
-            baseDir: ['./'],
+			baseDir: ['./'],
 			directory: false
-        },
+		},
 		ghostMode: {
 			clicks: true,
 			location: true,
@@ -85,17 +95,18 @@ gulp.task('browserSync', function() {
 		},
 		logPrefix: 'Browser',
 		scrollThrottle: 100,
-		open: false
+		open: false //True if you want the browser to automatically open
 	});
 });
 
-//Sass with Source maps
+/** Sass Processing **/
+// Converts sass to CSS, minifies, and adds vendor prefixes where necessary
 gulp.task('sass', function() {
 
 	return gulp.src(paths.scss.main)
 		.pipe(plumber({errorHandler: _error}))
 		.pipe(sass({
-			outputStyle: sass_output,
+			outputStyle: _sass_output,
 			errLogToConsole: true,
 			onError: function(err){
 				console.log(chalk.red("[Sass] ")+err);
@@ -108,44 +119,86 @@ gulp.task('sass', function() {
 		.pipe(gulp.dest(paths.scss.dest));
 });
 
-//Javascript concatenating and renaming
+/** Javascript Processing **/
+//Javascript concatenating, uglifying, minifying, and renaming
 gulp.task('js', function(){
 
-	return gulp.src(paths.js.watch)
+	//Files beginning with an underscore shouldn't be processed on their own
+	var _js_src = paths.js.watch.concat(['!./_partials/**/_*.js']);
+
+	return gulp.src(_js_src)
 		.pipe(plumber({errorHandler: _error}))
 		.pipe(include())
-		.pipe(gIf(minify, uglify({preserveComments: 'some'})))
-		.pipe(rename(function(path){
-			//remove underscores from the beginning of partials
-			path.basename = path.basename.replace(/^_/gi,"");
-		}))
+		//Check if files are changed only if minification is not required
+		.pipe(gIf(!_minify,
+			changed(paths.js.dest)
+		))
+		.pipe(gIf(_minify,
+			uglify({preserveComments: 'some'})
+		))
+		.pipe(gIf(_minify,
+			rename(function(path){
+				//Add -min to uglified files
+				path.basename = path.basename + '.min';
+			})
+		))
 		.pipe(size({title: 'JS', showFiles: true, gzip: true}))
 		.pipe(gulp.dest(paths.js.dest));
 });
 
+/** Kit Processing **/
 //Compile .kit files into html
 gulp.task('kits', function(){
 
-	return gulp.src([paths.kits.watch, '!./_partials/**/*_*.kit'])
+	//Files beginning with an underscore shouldn't be processed on their own
+	var _kits_src = paths.kits.watch.concat(['!./_partials/**/_*.kit']);
+
+	return gulp.src(_kits_src)
 		.pipe(plumber({errorHandler: _error}))
 		.pipe(kit())
-		.pipe(gIf(!minify,
-			prettify({
+		.pipe(prettify({
 				indent_char: ' ',
-				indent_size: 2,
+				indent_size: _indent_size,
 				indent_inner_html: false,
 				end_with_newline: false
 			})
-		))
+		)
 		.pipe(flatten()) //Force files into root folder regardless of nesting
 		.pipe(size({title: 'HTML', showFiles: true, gzip: true}))
 		.pipe(gulp.dest(paths.kits.dest));
 });
 
-//Default gulp task
-gulp.task('default', ['...', 'sass', 'js', 'kits', 'watch']);
+/** Image Optimization **/
+//Runs images through image-min and puts them into their destination folder
+gulp.task('images', function(){
 
-//Friendly message task
+	return gulp.src(paths.images.watch)
+		.pipe(plumber({errorHandler: _error}))
+		.pipe(imgmin({
+			progressive: true,
+			svgoPlugins:[
+				{ removeViewBox: false },
+				{ removeUselessStrokeAndFill: false },
+				{ removeEmptyAttrs: false },
+				{ removeEmptyContainers: false },
+				{ removeHiddenElemens: false },
+				{ removeStyleElement: false },
+				{ cleanupIDs: false },
+				{ removeDimensions: false },
+				{ removeRasterImages: false },
+				{ removeUselessDefs: false }
+			],
+			multipass: true
+		}))
+		.pipe(gulp.dest(paths.images.dest));
+});
+
+/** Default Task **/
+// Gulp watching and processing without the local server
+// This task is called by others, but can be called on its own by just using `gulp`
+gulp.task('default', ['...', 'images', 'sass', 'js', 'kits', 'watch']);
+
+/** Friendly message task **/
 gulp.task('...', function(){
 	console.log(
 		chalk.dim(' -------------------------------------') +
@@ -155,19 +208,35 @@ gulp.task('...', function(){
 	);
 });
 
-//Start local server and watch files for changes
+/** Start local server and watch files for changes **/
 gulp.task('serve', ['default', 'browserSync']);
 
-//Compile and minify
-gulp.task('prod', ['switchVars', 'sass', 'js', 'kits']);
+/** Compile and minify **/
+gulp.task('prod', ['switchVars', 'images', 'sass', 'js', 'kits']);
 
-//Production variable switch
+/** Production variable switch **/
+// Tells gulp tasks to minify output correctly
 gulp.task('switchVars', function(){
-	sass_output = 'compressed';
-	minify = true;
+	//Change sass output to compressed
+	_sass_output = 'compressed';
+	//Change html indent size to 1
+	_indent_size = 1;
+	//general minification indicator
+	_minify = true;
 });
 
-//Private function
+
+/******************************/
+/******** Private *************/
+/******************************/
+
+// Development variables
+// Changed via gulp tasks, shouldn't be changed by user
+var
+	_sass_output = 'expanded',
+	_minify = false,
+	_indent_size = 2;
+
 //Extracts filenames from a path
 function _filename(path) {
 	return path.substr(path.lastIndexOf('/') + 1);

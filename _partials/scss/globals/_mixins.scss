@@ -40,7 +40,8 @@
 
 //Space and sizing mixin
 //Creates rem values based on the base-line-height and the grid-gutters
-
+// $multipliers can be a space-separated list
+// adding
 @mixin type-space($properties, $multipliers.../*important*/) {
 
 	$important: false;
@@ -53,14 +54,12 @@
 		$important_check: nth($multipliers, -1);
 
 		//If last value is $important, then set the $multiplier and $important accordingly
-		@if type-of($important_check) == bool {
-			$important: $important_check;
+		@if (type-of($important_check) != number) {
+			$important: if($important_check, true, false);
 			$multiplier: nth($multipliers, 1);
 			$m-length: 1;
 		}
 	}
-
-	//If multiplier is only 1 value, then do expected stuff
 
 	@each $property in $properties {
 		$values: null;
@@ -87,6 +86,7 @@
 //Sizing mixin
 //Create multiples based on the base-font-size with an upper limit
 // Different from type-space() where all values are based on the grid
+// Upper limit used to prevent crazy scales for larger font-sizes
 @mixin type-scale($properties, $multipliers, $upper-limit: 0) {
 
 	@if unit($upper-limit) == "" {
@@ -111,6 +111,7 @@
 
 //Modern clearfix
 @mixin clearfix(){
+	*zoom: 1;
 
 	&:after {
 		content: "";
@@ -121,6 +122,8 @@
 }
 
 //Standard theme box-shadow
+//larger numbers imply more depth
+//$z accepts decimals for more incremental depth
 @mixin shadow($z: 1, $inset: false) {
 	$inset: 	if($inset, 'inset', null);
 	$base:		if($inset, 5, 3);

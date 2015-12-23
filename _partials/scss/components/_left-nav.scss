@@ -21,7 +21,7 @@
 }
 
 .leftNav-items > li {
-	border-bottom: 1px solid darken($smph-tan, 15%);
+	border-bottom: 1px solid $smph-tan-dark;
 	padding: 0;
 	margin: 0;
 
@@ -37,7 +37,7 @@
 		overflow-wrap: break-word;
 		text-overflow: ellipsis;
 		max-width: 32.5%;
-		border-top: 1px solid darken($smph-tan, 15%);
+		border-top: 1px solid $smph-tan-dark;
 		margin-bottom: -1px;
 		min-height: 44px;
 	}
@@ -49,7 +49,7 @@
 }
 
 .leftNav-items > li:first-child {
-	border-top: 1px solid darken($smph-tan, 15%);
+	border-top: 1px solid $smph-tan-dark;
 }
 
 .leftNav-items a {

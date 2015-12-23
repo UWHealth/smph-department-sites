@@ -57,7 +57,7 @@ var paths = {
 };
 
 //Files to watch to keep browser preview up to date
-var browser_sync_watch = ['./style/*.css', './javascript/**', './*.html'];
+var browser_sync_watch = ['./style/*.css', './javascript/**/*.js', './*.html'];
 
 
 /******************************/
@@ -130,15 +130,17 @@ gulp.task('js', function(){
 		.pipe(plumber({errorHandler: _error}))
 		.pipe(include())
 		//Check if files are changed only if minification is not required
-		.pipe(gIf(!_minify,
+		.pipe(gIf(! _minify,
 			changed(paths.js.dest)
 		))
-		.pipe(gIf(_minify,
+		.pipe(gIf( _minify,
 			uglify({preserveComments: 'some'})
 		))
-		.pipe(gIf(_minify,
+		.pipe(gIf( _minify,
 			rename(function(path){
-				//Add -min to uglified files
+				// Add .min to uglified files
+				// Make sure we don't duplicate .min
+				path.basename = path.basename.replace('.min', '');
 				path.basename = path.basename + '.min';
 			})
 		))

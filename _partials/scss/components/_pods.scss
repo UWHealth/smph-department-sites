@@ -39,3 +39,32 @@
 	@include type-space(padding-bottom, 1);
 	vertical-align: middle;
 }
+
+.rightPod {
+	@extend %border-box;
+	float: right;
+	min-width: 189px;
+	@extend %one_third;
+	@include type-space(margin, 0 0 1 .5);
+	@include type-space(padding, 1);
+	border: 1px solid $smph-tan-dark;
+
+	@include media-query('max-width' 330px) {
+		width: 100%;
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+		min-width: none;
+	}
+
+}
+
+.rightPod p,
+.rightPod li {
+	@include type-space(padding-bottom, .5);
+}
+
+.rightPod ul {
+	list-style: none;
+	margin: 0;
+}

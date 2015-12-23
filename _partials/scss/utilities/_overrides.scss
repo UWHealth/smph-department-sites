@@ -11,11 +11,11 @@
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
+    width: 1px;
     margin: -1px;
     overflow: hidden;
     padding: 0;
     position: absolute;
-    width: 1px;
 	transition: all .15s ease-out;
 }
 
@@ -33,6 +33,17 @@
     overflow: visible;
     position: static;
     width: auto;
+}
+
+
+.imgRight {
+    float: right;
+    @include type-space(margin-left, .5);
+}
+
+.imgLeft {
+    float: left;
+    @include type-space(margin-right, .5);
 }
 
 .clearFloat {
@@ -54,6 +65,24 @@
 }
 .inline-block {
 	display: inline-block !important;
+    *display: inline !important; /* IE 7 fix */
+    *zoom: 1;
+}
+
+.padL10 {
+	@include type-space(padding-left, 1, important);
+}
+.padR10 {
+    @include type-space(padding-right, 1, important);
+}
+.padT10 {
+    @include type-space(padding-top, 1, important);
+}
+.padB10 {
+    @include type-space(padding-bottom, 1, important);
+}
+.padN {
+    padding: 0 !important;
 }
 
 @include media-query('bigs') {
@@ -72,6 +101,22 @@
 	.bigs-inline-block {
 		display: inline-block !important;
 	}
+
+    .bigs-padL10 {
+    	@include type-space(padding-left, 1, important);
+    }
+    .bigs-padR10 {
+        @include type-space(padding-right, 1, important);
+    }
+    .bigs-padT10 {
+        @include type-space(padding-top, 1, important);
+    }
+    .bigs-padB10 {
+        @include type-space(padding-bottom, 1, important);
+    }
+    .bigs-padN {
+        padding: 0 !important;
+    }
 }
 
 @include media-query('smalls') {
@@ -90,9 +135,59 @@
 	.smalls-inline-block {
 		display: inline-block !important;
 	}
+
+    .smalls-padL10 {
+    	@include type-space(padding-left, 1, important);
+    }
+    .smalls-padR10 {
+        @include type-space(padding-right, 1, important);
+    }
+    .smalls-padT10 {
+        @include type-space(padding-top, 1, important);
+    }
+    .smalls-padB10 {
+        @include type-space(padding-bottom, 1, important);
+    }
+    .smalls-padN {
+        padding: 0 !important;
+    }
 }
 
-/* IE8- pollyfill*/
-.lt-ie9 .bigs-hide {
-	display: none !important;
+/* IE8 (and below) safeguards */
+.lt-ie9 {
+    .bigs-hide {
+		display: none !important;
+	}
+	.bigs-inline {
+		display: inline !important;
+	}
+	.bigs-table {
+		display: table !important;
+	}
+	.bigs-block {
+		display: block !important;
+	}
+	.bigs-inline-block {
+		display: inline-block !important;
+        *display: inline !important; /* IE 7 fix */
+        *zoom: 1;
+	}
+    .bigs-hide {
+    	display: none !important;
+    }
+    .bigs-padL10 {
+    	padding-left: $grid-gutter/2 !important;
+    }
+    .bigs-padR10 {
+        padding-right: $grid-gutter/2 !important;
+    }
+    .bigs-padT10 {
+        padding-top: $grid-gutter/2 !important;
+    }
+    .bigs-padB10 {
+        padding-bottom: $grid-gutter/2 !important;
+    }
+    .bigs-padN {
+        padding: 0 !important;
+    }
 }

@@ -108,6 +108,10 @@ select::-ms-value {
 	color: currentColor;/* Edge 12+, Internet Explorer 11- */
 }
 
+img {
+	max-width: 100%;
+}
+
 //ul {
 //	list-style: none;
 //}
@@ -117,12 +121,3 @@ select::-ms-value {
 //	margin: 0;
 //	padding: 0;
 //}
-
-#mainContainer ul {
-	list-style: disc;
-	@include type-space(margin, 1 0 1 1.5);
-}
-
-#mainContainer li {
-	@include type-space(padding, 0 0 .5);
-}

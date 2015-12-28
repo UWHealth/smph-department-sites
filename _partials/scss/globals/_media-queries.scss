@@ -36,6 +36,7 @@
 @mixin media-query($mq...) {
 	//format arglist into maps with key-value pairs
 	$media-query-map: arglist-to-map($mq);
+	$media-query-store: '';
 
 	@each $media-query, $group in $media-query-map {
 		$operator: map-get($group, 'operator');
@@ -44,12 +45,25 @@
 		$device: if($device, $device, 'screen');
 		$logical-operator: unquote('#{$operator}#{$value}');
 
-		@if $operator { //Only output media-queries with operators
-			@media only #{$device} and #{$logical-operator} {
-				@content;
+		@if length($media-query-map) > 1 {
+			$media-query-store: str-append($media-query-store,
+				'#{$device} and #{$logical-operator}');
+
+			@if $media-query != length($media-query-map) {
+				$media-query-store: $media-query-store + ', ';
+			}@else {
+				@media only #{$media-query-store}  {
+					@content;
+				}
 			}
 		}@else {
-			@warn "the media-query mixin requires a logical-operator and a value (min-width 2px). You will have to write your own media query if you'd like something else";
+			@if $operator { //Only output media-queries with operators
+				@media only #{$device} and #{$logical-operator} {
+					@content;
+				}
+			}@else {
+				@warn "the media-query mixin requires a logical-operator and a value (min-width 2px). You will have to write your own media query if you'd like something else";
+			}
 		}
 	}
 
@@ -91,6 +105,7 @@
 	@return $arg-map;
 }
 
+// Test each argument for its type and match it up to a proper map key
 @function parse-query-args($argument, $call: 0, $check: null){
 	$query-map: ();
 	//Check global $breakpoints config variable for matches

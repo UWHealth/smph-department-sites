@@ -1453,8 +1453,8 @@ h6 a:hover {
 }
 
 .footer .linkImage {
-  display: block;
-  float: left;
+  display: table-cell;
+  position: relative;
   width: 47%;
   height: 44px;
   -moz-border-radius: 4px;
@@ -1468,7 +1468,7 @@ h6 a:hover {
   padding: 0.41364rem 0.45455rem;
   margin: 13px 0 6.5px;
   margin: 1.18182rem 0 0.59091rem;
-  margin-left: 6%;
+  left: 3%;
   background-color: #fff;
   background: #fff -webkit-gradient(linear, left top, left bottom, color-stop(25%, #fff), color-stop(95%, #d2d0c9), to(#afab9f));
   background: #fff -webkit-linear-gradient(top, #fff 25%, #d2d0c9 95%, #afab9f 100%);
@@ -1478,10 +1478,11 @@ h6 a:hover {
      -moz-box-shadow:  0 1.5px 3px 0.2px rgba(0, 0, 0, 0.125);
           box-shadow:  0 1.5px 3px 0.2px rgba(0, 0, 0, 0.125);
   font-size: 0.1em;
+  vertical-align: middle;
 }
 
 .footer .linkImage:first-child {
-  margin-left: 0;
+  left: 0;
 }
 
 .footer .linkImage:hover, .footer .linkImage:focus {
@@ -1504,17 +1505,6 @@ h6 a:hover {
      -moz-box-shadow:  0 1.5px 3px 0.2px rgba(0, 0, 0, 0.125);
           box-shadow:  0 1.5px 3px 0.2px rgba(0, 0, 0, 0.125);
   border-color: #9b8331;
-}
-
-.footer .linkImage:before {
-  content: '';
-  display: inline-block;
-  vertical-align: middle;
-  height: 100%;
-  width: 1em;
-  font-size: 0.01em;
-  margin-right: -1.5em;
-  overflow: hidden;
 }
 
 .linkImage-logo {

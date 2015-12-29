@@ -55,8 +55,8 @@ $color-footer-button: darken(desaturate($color-footer-light, 30%), 8%);
 
 .footer .linkImage {
 	@extend %border-box;
-	display: block;
-	float: left;
+	display: table-cell;
+	position: relative;
 	width: 47%;
 	height: 44px;
 	border-radius: 4px;
@@ -67,7 +67,7 @@ $color-footer-button: darken(desaturate($color-footer-light, 30%), 8%);
 	border-top-color: lighten($color-footer-button, 10%);
 	@include type-space(padding, .35 .25);
 	@include type-space(margin, 1 0 .5);
-	margin-left: 6%;
+	left: 3%;
 	background-color: #fff;
 	background: #fff linear-gradient(to bottom, #fff 25%,
 		$color-footer-button 95%,
@@ -75,11 +75,10 @@ $color-footer-button: darken(desaturate($color-footer-light, 30%), 8%);
 	background-position-y: top;
 	@include shadow(.5);
 	font-size: 0.1em;
-
-
+	vertical-align: middle;
 
 	&:first-child {
-		margin-left: 0;
+		left: 0;
 	}
 
 	&:hover,
@@ -98,17 +97,6 @@ $color-footer-button: darken(desaturate($color-footer-light, 30%), 8%);
 	&:active {
 		@include shadow(.5);
 		border-color: darken($color-footer, 3%);
-	}
-
-	&:before {
-		content: '';
-		display: inline-block;
-		vertical-align: middle;
-		height: 100%;
-		width: 1em;
-		font-size: 0.01em;
-		margin-right: -1.5em;
-		overflow: hidden;
 	}
 }
 

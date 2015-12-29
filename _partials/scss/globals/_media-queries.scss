@@ -34,37 +34,63 @@
 //* Passing a value like (min-width 120em) or (max-height 30px) allows for arbitrary breakpoints.
 
 @mixin media-query($mq...) {
-	//format arglist into maps with key-value pairs
-	$media-query-map: arglist-to-map($mq);
-	$media-query-store: '';
 
-	@each $media-query, $group in $media-query-map {
-		$operator: map-get($group, 'operator');
-		$value: map-get($group, 'value');
-		$device: map-get($group, 'device');
-		$device: if($device, $device, 'screen');
+	//format arglist into maps with key-value pairs
+	//Should return (1:(operator:...,value:...,'device':...), 2:(...));
+	$arguments-map: arglist-to-map($mq);
+
+	//Use a string storage for multiple media-queries
+	$media-query-string: '';
+
+	@each $mq-id, $mq-group in $arguments-map {
+
+		//Extract each value from the arguments map
+		$operator: map-get($mq-group, 'operator');
+
+		$value: map-get($mq-group, 'value');
+
+		$device: map-get($mq-group, 'device');
+
+		$device: if($device, $device, 'screen'); //Default to screen if no device specified
+
 		$logical-operator: unquote('#{$operator}#{$value}');
 
-		@if length($media-query-map) > 1 {
-			$media-query-store: str-append($media-query-store,
-				'#{$device} and #{$logical-operator}');
+		//Multiple media-queries in the map indicates an 'or' media-query
+		// So let's concatenate those media-queries together
+		@if length($arguments-map) > 1 {
 
-			@if $media-query != length($media-query-map) {
-				$media-query-store: $media-query-store + ', ';
+			$media-query-string: $media-query-string + '#{$device} and #{$logical-operator}';
+
+			//Use the IDs assigned to each media-query as a way to compare length
+			// (Libsass has an issue with indexes in maps)
+			@if $mq-id != length($arguments-map) {
+
+				//Add a comma to the end of all but the last query
+				$media-query-string: $media-query-string + ', ';
+
 			}@else {
-				@media only #{$media-query-store}  {
+
+				@media only #{$media-query-string}  {
 					@content;
 				}
+
 			}
-		}@else {
+
+		}
+		@else {
+
 			@if $operator { //Only output media-queries with operators
+
 				@media only #{$device} and #{$logical-operator} {
 					@content;
 				}
+
 			}@else {
 				@warn "the media-query mixin requires a logical-operator and a value (min-width 2px). You will have to write your own media query if you'd like something else";
 			}
+
 		}
+
 	}
 
 }

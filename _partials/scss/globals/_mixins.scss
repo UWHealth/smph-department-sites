@@ -87,12 +87,12 @@
 //Create multiples based on the base-font-size with an upper limit
 // Different from type-space() where all values are based on the grid
 // Upper limit used to prevent crazy scales for larger font-sizes
-@mixin type-scale($properties, $multipliers, $upper-limit: 0) {
+@mixin type-scale($properties, $multipliers, $upper-limit: false) {
 
 	@if unit($upper-limit) == "" {
 		$upper-limit: $base-font-size * $upper-limit;
 	}
-	$upper-limit: if($upper-limit = 0, 10000, $upper-limit);
+	$upper-limit: if(! $upper-limit, 10000, $upper-limit);
 
 	@each $property in $properties {
 		$values: null;
@@ -100,8 +100,8 @@
 
 		@each $multiple in $multipliers {
 			$value: $base-font-size * $multiple;
-			$value: min($upper-limit, $value);
-			$values: append($values, $value);
+			$clamped-value: min($upper-limit, $value);
+			$values: append($values, $clamped-value);
 			$multiple-index: $multiple-index + 1;
 		}
 		@include rems($property, $values);

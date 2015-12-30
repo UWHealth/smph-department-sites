@@ -3,6 +3,7 @@
 	@extend %three_elevenths;
 	@extend %smalls_one_whole;
 	@include type-space(padding-bottom, 2);
+
 	@include media-query(smalls) {
 		@include type-space(padding-right, 1);
 	}
@@ -11,7 +12,8 @@
 .leftNav-items {
 	font-family: $font-secondary;
 	@include type-space(padding-left, 1);
-	@include media-query('smalls'){
+
+	@include media-query('smalls') {
 		display: flex;
 		align-items: top;
 		justify-content: space-between;
@@ -55,7 +57,7 @@
 .leftNav-items a {
 	padding: .9em .25em;
 	font-weight: bold;
-	font-size: 1.1em;
+	@include type-scale(font-size, 1.1, 13px);
 	@extend %border-box;
 
 	&:hover,

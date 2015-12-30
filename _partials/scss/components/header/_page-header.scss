@@ -1,15 +1,153 @@
 .pageHeader {
-	position: relative;
-	z-index: 1;
 	clear: both;
 	@include type-space(margin-left, 1);
 	@include shadow(1, inset);
+	position: relative;
+	z-index: 2;
 }
 
 .sectionTitle {
-	font-size: 3.8em;
-	@include type-space(padding, 2 1 0);
 	font-family: $font-serif;
-	color: $badger-red;
+	font-size: 3.8em;
 	font-weight: normal;
+	line-height: 1.1;
+	white-space: normal;
+	color: $badger-red;
+}
+
+/* Standalone title, with no banner background
+   Should be used for most pages
+*/
+.pageHeader > .sectionTitle {
+	@include type-space(padding, 2 1 0);
+}
+
+.banner {
+	background-color: $smph-tan;
+	@include type-space(margin-bottom, 2);
+	overflow: hidden;
+	box-shadow: none;
+}
+
+.banner-dark {
+	background-color: #504b4e;
+}
+
+.banner-body {
+	@extend %border-box;
+	@include type-space(padding, 1 1.25);
+	@include shadow(1, inset);
+	position: relative;
+	white-space: nowrap; /*prevents line-breaks caused by ::before element */
+
+	@include media-query('smalls') {
+		@include type-space((padding-left, padding-right), 1);
+	}
+}
+
+/* Allows for text to start on the right, but sit flush left */
+.banner-rev .banner-body {
+	direction: rtl;
+
+	@include media-query('smalls') {
+		direction: ltr;
+	}
+}
+
+.banner-body:before {
+	content: "";
+	/* Sets the height of the banner responsively; also allows vertical-alignment */
+	@include type-scale(height, 21, 235px);
+	width: 1px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: -1em;
+
+	@include media-query('small') {
+		margin-left: -1.5em;
+	}
+}
+
+.banner-short .banner-body:before {
+	@include type-scale(height, 11.5, 180px);
+}
+
+.bannerImg {
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: -1;
+	height: 100%;
+	max-width: none;
+
+	@include media-query('smalls') {
+		opacity: 0.1;
+	}
+}
+
+.banner-rev .bannerImg {
+	left: 0;
+	right: auto;
+}
+
+.banner-short .bannerImg {
+	height: auto;
+	min-height: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.lt-ie9 .banner-short .bannerImg {
+	top: 0;
+}
+
+/* Banner text */
+.banner .sectionTitle {
+	letter-spacing: .35px;
+	direction: ltr;
+	min-width: 45%;
+	max-width: 55%;
+	display: inline-block;
+	vertical-align: middle;
+	text-shadow: 0 2px 0 rgba(#000, 0.1);
+
+	@include media-query('smalls') {
+		max-width: none;
+	}
+}
+
+.banner-dark .sectionTitle {
+	color: #fff;
+	text-shadow: 0 2px 0 rgba(#000, 0.25);
+}
+
+.sectionTitle-indent {
+	display: block;
+	padding-left: .5em;
+
+	@include media-query('smalls') {
+		padding-left: .25em;
+	}
+	@include media-query('small') {
+		padding-left: 0;
+	}
+}
+
+.sectionTitle-small {
+	font-size: .8em;
+}
+
+.sectionTitle-sub {
+	letter-spacing: 0;
+	font-family: $font-default;
+	font-size: .32em;
+	line-height: 1.5;
+	color: darken($smph-gold, 28%);
+	text-shadow: none;
+	display: block;
+	@include type-space(padding-top, .5);
+
+	@include media-query('smalls') {
+		max-width: none;
+	}
 }

@@ -4,6 +4,7 @@ $color-footer-light: mix(white, $color-footer, 80%);
 .footer {
 	background-color: $color-footer;
 	@include type-space(padding, .5 1 1);
+	@include type-scale(font-size, 1, 12px);
 	overflow: auto;
 	color: $color-footer-light;
 	@extend %border-box;
@@ -55,10 +56,11 @@ $color-footer-button: darken(desaturate($color-footer-light, 30%), 8%);
 
 .footer .linkImage {
 	@extend %border-box;
-	display: table-cell;
+	display: inline-block;
+	white-space: nowrap;
 	position: relative;
 	width: 47%;
-	height: 44px;
+	height: 46px;
 	border-radius: 4px;
 	color: $badger-red;
 	text-decoration: none;
@@ -66,7 +68,7 @@ $color-footer-button: darken(desaturate($color-footer-light, 30%), 8%);
 	border: 1px solid $color-footer-button;
 	border-top-color: lighten($color-footer-button, 10%);
 	@include type-space(padding, .35 .25);
-	@include type-space(margin, 1 0 .5);
+	@include type-space(margin, .75 0);
 	left: 3%;
 	background-color: #fff;
 	background: #fff linear-gradient(to bottom, #fff 25%,
@@ -77,10 +79,26 @@ $color-footer-button: darken(desaturate($color-footer-light, 30%), 8%);
 	font-size: 0.1em;
 	vertical-align: middle;
 
-	&:first-child {
-		left: 0;
+	&:before {
+		content: '';
+		height: 100%;
+		width: .1em;
+		margin-left: -.5em;
+		vertical-align: middle;
+		display: inline-block;
 	}
 
+	@include media-query('small'){
+		display: table;
+		width: 100%;
+		left: 0;
+		top: 0;
+		@include type-space(margin-top, .75);
+	}
+
+}
+
+.footer .linkImage {
 	&:hover,
 	&:focus {
 		text-decoration: none;
@@ -90,7 +108,7 @@ $color-footer-button: darken(desaturate($color-footer-light, 30%), 8%);
 		background-size: 100% 110%;
 
 		.linkImage-logo {
-			opacity: 0.9;
+			opacity: 0.85;
 		}
 	}
 
@@ -98,10 +116,15 @@ $color-footer-button: darken(desaturate($color-footer-light, 30%), 8%);
 		@include shadow(.5);
 		border-color: darken($color-footer, 3%);
 	}
+
+	&:first-child {
+		left: 0;
+	}
 }
 
 .linkImage-logo {
 	display: inline-block;
 	width: 100%;
+	max-width: 140px;
 	vertical-align: middle;
 }

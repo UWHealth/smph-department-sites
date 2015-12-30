@@ -7,6 +7,10 @@ html {
 	overflow-y: scroll; /* All browsers without overlaying scrollbars */
 	-webkit-text-size-adjust: 100%;
 	font-size: percentage($type-font-size/16);
+
+	@include media-query('smalls') {
+		font-size: percentage(11.8/16);
+	}
 }
 
 a {

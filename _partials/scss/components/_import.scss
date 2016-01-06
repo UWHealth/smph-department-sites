@@ -3,6 +3,7 @@
 @import 'layouts';
 
 //General components
+@import 'images';
 @import 'lists';
 @import 'left-nav';
 @import 'pods';
@@ -12,4 +13,6 @@
 @import 'header/top-nav';
 @import 'header/main-nav';
 @import 'header/page-header';
+@import 'header/banner-widget';
+@import 'news-ticker';
 @import 'footer';

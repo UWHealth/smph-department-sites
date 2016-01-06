@@ -6,10 +6,10 @@ html {
 	-ms-overflow-style: -ms-autohiding-scrollbar; /* Edge 12+, Internet Explorer 11- */
 	overflow-y: scroll; /* All browsers without overlaying scrollbars */
 	-webkit-text-size-adjust: 100%;
-	font-size: percentage($type-font-size/16);
+	font-size: percentage($type-font-size / 16);
 
 	@include media-query('smalls') {
-		font-size: percentage(11.8/16);
+		font-size: percentage(11.25 / 16);
 	}
 }
 
@@ -38,9 +38,10 @@ body {
 	@include type-space(padding, 0 .5);
 	min-height: 100%; /* this is the key! */
 	font-family: Verdana, Helvetica, Arial, sans-serif;
-	@include rems('font-size', $base-font-size);
+	@include rems(font-size, $base-font-size);
 	line-height: ($base-line-height / $base-font-size);
-	background: #c6aa53 url("../images/bg_diagonal.gif");
+	background: $color-main-bg url("../images/bg_pattern_honeycomb_2.png");
+	color: #000;
 
 	@include media-query('small') {
 		padding: 0;
@@ -115,13 +116,3 @@ select::-ms-value {
 img {
 	max-width: 100%;
 }
-
-//ul {
-//	list-style: none;
-//}
-//
-//ul,
-//li {
-//	margin: 0;
-//	padding: 0;
-//}

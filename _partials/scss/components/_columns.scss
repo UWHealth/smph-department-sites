@@ -32,6 +32,20 @@
 	@extend %border-box;
 }
 
+//Column-row combination
+// Useful for starting a new set of columns and rows
+// Combines two divs into one
+.columnRow {
+	@extend %border-box;
+	@include type-space(padding-left, 1);
+	letter-spacing:-0.4em;
+
+	.o:-o-prefocus, //Opera hack
+	& {
+		word-spacing:-0.43em;
+	}
+}
+
 // Columns
 // default to 100% width.
 // All column widths must be accompanied by the "column" class

@@ -1,0 +1,152 @@
+.bannerWidget {
+	position: relative;
+	@include type-space(margin, 0 0 1 1);
+	@include type-space(max-height, 24);
+	overflow: hidden;
+
+	@include media-query('smalls') {
+		max-height: none;
+	}
+}
+
+.banner-img {
+	position: relative;
+	z-index: 1;
+}
+
+.banner-img a {
+	display: block;
+	line-height: 0;
+	box-shadow: inset 25px 0 15px -3px rgba(#000, .5);
+
+	@include media-query('smalls') {
+		box-shadow: none;
+	}
+}
+
+.banner-display img {
+	@include shadow(1, inset);
+	width: 100%;
+	position: relative;
+	z-index: -1;
+}
+
+$color-banner-caption: desaturate(darken($smph-gold, 35%), 50%);
+
+.banner-caption {
+	position: absolute;
+	bottom: 0;
+	z-index: 2;
+	@include type-space(padding-top, .5);
+	@include type-space(padding-bottom, 1);
+	@include type-space(padding-right, 2);
+	padding-left: 135px;
+	@include type-space(margin-bottom, 1.5);
+	background-color: $color-banner-caption;
+	background-color: rgba($color-banner-caption, 0.85);
+	max-width: 65%;
+
+	@include media-query('smalls') {
+		background-color: $color-banner-caption;
+		position: relative;
+		@include type-space((padding-left, padding-right), .75);
+		max-width: none;
+		margin-bottom: 0;
+	}
+}
+
+.capt {
+	@include media-query('smalls') {
+		height: 124px;
+		overflow: hidden;
+	}
+}
+
+.capt a {
+	font-size: 1.1em;
+	line-height: 1.5;
+	color: #fff;
+	text-decoration: none;
+}
+
+.capt-title {
+	color: $smph-tan;
+	display: block;
+	font-family: $font-serif;
+	@include rems(font-size, 28px);
+	line-height: 1.2;
+}
+
+.capt-more {
+	display: block;
+	font-weight: bold;
+	color: mix(white, $badger-red, 30%);
+	text-decoration: underline;
+}
+
+.banner-nav {
+	width: 120px;
+	top: 5px;
+	bottom: 0;
+	position: absolute;
+	left: -10px;
+	z-index: 2;
+	font-size: 12px;
+	color: #010101;
+	letter-spacing:.5;
+
+	@include media-query('smalls') {
+		position: static;
+		display: table;
+		width: 100%;
+	}
+}
+
+.banner-nav-item {
+	position: relative;
+	height: 25%;
+	width: 25%; /* fallbacks - width and height is assigned via JS */
+	cursor: pointer;
+	left: -30px;
+	transition: all 100ms;
+
+	@include media-query('smalls') {
+		height: 65px !important;
+		display: table-cell;
+		position: static;
+	}
+}
+
+.banner-nav-item-text {
+	@extend %border-box;
+	font-size: 0;
+	background-size: cover;
+	width: 120px;
+	float: left;
+	height: 90%;
+	border: 4px solid #fff;
+	@include shadow(1.25);
+
+	@include media-query('smalls') {
+		box-shadow: none;
+		width: 100%;
+		border-color: $smph-tan;
+	}
+}
+
+.banner-nav-item:hover {
+	left: -15px;
+}
+
+.banner-nav [class*="active"] {
+	left: -8px;
+	cursor: default;
+
+	@include media-query('smalls') {
+		.banner-nav-item-text {
+			border-top-width: 0;
+			border-bottom-width: 8px;
+			border-color: $color-banner-caption;
+		}
+	}
+}

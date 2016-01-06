@@ -3,55 +3,53 @@
 //========================================================
 // While the row-column grid is useful for general compositions,
 // the following are meant for more specific, but still re-useable layouts
+// These classes can be considered a super-set of the grid ( _columns.scss )
 
 /* Responsive wrapper
  * Change max-width to increase your site's total width
- * Only change if you have image headers that support a width higher than 840px
+ * Only change if you have image headers that support a width larger than 840px
  */
 .wrapper {
+	@extend %border_box;
 	max-width: $site-width;
 	margin: 0 auto;
-	@extend %border_box;
 }
 
+/* Fixed width for non-responsive browsers */
 .lt-ie9 .wrapper{
-	width: 840px;
+	width: $site-width;
 }
 
 /* Page wrapper for side shadows and white background */
 .page {
 	@extend %border-box;
 	background-color: #fff;
-	@include shadow();
+	@include shadow(1);
 }
 
-/* Standard padding for content sections */
-.content {
-	@include type-space(padding, 0 1 1 0);
+.page-inner {
+	@include type-space(padding-right, 1);
 }
 
 /* Main article content, used next to a left nav */
-.content-main {
+.bodyContent {
 	@extend %eight_elevenths;
 	@extend %smalls_one_whole;
-	@include type-space(padding, 0 1 2 1);
-
-	@include media-query('smalls') {
-		@include type-space(padding-left, 2);
-	}
+	@include type-space(padding-bottom, 2);
 }
 
 /* Main article content for use next to a right sidebar */
-.content-article {
+.bodyContent-article {
 	@extend %seven_elevenths;
 	@extend %smalls_one_whole;
 	@include type-space(padding-bottom, 2);
 }
 
 /* Sidebar content (usually filled with primaryPods)*/
-.content-aside {
+.bodyContent-aside {
 	@extend %four_elevenths;
 	@extend %smalls_one_whole;
+	@include type-space(padding-bottom, 2);
 }
 
 /* Media object
@@ -71,6 +69,14 @@
 
 .media-img {
 	float: left;
+
+	@include media-query(small) {
+		max-width: 25%;
+	}
+}
+
+.media-spaced > .media-body{
+	@include type-space(margin-left, 1);
 }
 
 /* Arrangement object

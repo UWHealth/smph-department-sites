@@ -42,36 +42,27 @@
 //Creates rem values based on the base-line-height and the grid-gutters
 // $multipliers can be a space-separated list
 // adding
-@mixin type-space($properties, $multipliers.../*important*/) {
+@mixin type-space($properties, $multipliers, $important: false) {
 
-	$important: false;
 	$multiplier: nth($multipliers, 1);
 	$m-length: length($multipliers);
-
-	//Check if multiple arguments have been passed
-	@if $m-length > 1 {
-		//If so, see if the last argument is $important
-		$important_check: nth($multipliers, -1);
-
-		//If last value is $important, then set the $multiplier and $important accordingly
-		@if (type-of($important_check) != number) {
-			$important: if($important_check, true, false);
-			$multiplier: nth($multipliers, 1);
-			$m-length: 1;
-		}
-	}
+	$important: if($important, true, false); //Allow for strings, convert to boolean
 
 	@each $property in $properties {
 		$values: null;
 		$multiple-index: 1;
 
-		@each $multiple in $multiplier {
+		@each $multiple in $multipliers {
 
 			$value: $type-magic-number * $multiple;
 			//If it's the second or fourth value in a list, give it left/right treatment
 			// (multiply by gutter)
 			@if ($multiple-index % 2 == 0) or
-			(str-contains($property, 'right') or str-contains($property, 'left')) {
+			(
+				str-contains($property, 'right') or
+				str-contains($property, 'left') or
+				str-contains($property, 'width')
+			) {
 				$value: $grid-gutter * $multiple;
 			}
 			$values: append($values, $value);
@@ -89,10 +80,11 @@
 // Upper limit used to prevent crazy scales for larger font-sizes
 @mixin type-scale($properties, $multipliers, $upper-limit: false) {
 
+	$upper-limit: if($upper-limit == false, 10000, $upper-limit);
+
 	@if unit($upper-limit) == "" {
 		$upper-limit: $base-font-size * $upper-limit;
 	}
-	$upper-limit: if(! $upper-limit, 10000, $upper-limit);
 
 	@each $property in $properties {
 		$values: null;

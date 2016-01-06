@@ -9,17 +9,23 @@
 	<meta name="description" content="Page Description">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><!--$pageTitle-->, <!--$deptName--></title>
+
+	<!-- !!Remove this script!! Only exists for demonstration purposes (github pages) -->
+	<script>var _urlHost=window.location.host,_urlPath=window.location.pathname.split('/')[0]; document.write('<base href="http://'+_urlHost+'/'+_urlPath+'">');</script>
+
 	<!-- <link rel="stylesheet" href="style/stylesheet.css" media="screen"> -->
-	<link rel="stylesheet" href="style/main.css" media="screen">
-	<link rel="stylesheet" href="style/print.css" type="text/css" media="print">
+	<link rel="stylesheet" href="/style/main.css" media="screen">
+	<link rel="stylesheet" href="/style/print.css" type="text/css" media="print">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
 	<!-- Print Logo (invisible) -->
 	<div class="printLogo">
-		<img src="images/your_print_logo.gif" alt="">
+		<img src="/images/your_print_logo.gif" alt="">
 	</div>
 	<!-- End Print Logo -->
 	<!-- Skip to Content Link (invisible) -->
-	<a class="skipToContent visuallyHidden focusable" href="#mainContent">Skip to Content</a>
+
+	<div class="skipToContent"><a class="skipToContent visuallyHidden focusable" href="#mainContent">Skip to Content</a></div>
+	<!-- End Skip to Content Link -->

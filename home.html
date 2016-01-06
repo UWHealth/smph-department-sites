@@ -11,7 +11,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="description" content="Page Description">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Section, Your Department</title>
+  <title>Home, Your Department</title>
   <!-- !!Remove this script!! Only exists for demonstration purposes (github pages) -->
   <script>
     var _urlHost = window.location.host,
@@ -92,106 +92,51 @@
     </div>
     <div class="//margin10 row">
       <!--<div id="navBarShadow"></div>-->
-      <!--Page-header banner with dark background and text and image swapped-->
-      <div id="//pageHeader" class="pageHeader banner banner-dark banner-rev">
-        <div class="banner-body"> <img src="/images/bnr_img_left.jpg" class="bannerImg" role="presentation" alt="Surgeon">
-          <h1 class="sectionTitle">
-      Section Title
-
-      <!--Start Optional Styling-->
-      <span class="sectionTitle-indent sectionTitle-small">
-        with Special Formatting
-      </span>
-      <!--end optional styling-->
-      
-    </h1> </div>
-      </div>
+      <!-- Banner Widget Holder <div> -->
+      <div id="bannerwidget" class="bannerWidget"></div>
+      <!-- End Banner Widget Holder <div> -->
       <!-- Main Page Content Container (content + left nav) -->
       <div id="mainContent" class="columnRow page-inner">
-        <div id="//leftNavContainer" class="leftNav column">
-          <!-- Left Navigation List -->
-          <ul class="leftNav-items list-nav">
-            <li><a href="home.htm">Home Page</a></li>
-            <li><a href="home_widget.htm">Home Page w/Widget and News</a></li>
-            <li><a href="landing.htm">Landing Page</a></li>
-            <li class="hlnav"><a href="destination.htm">Destination Page</a></li>
-            <li><a href="content.htm">Content Page</a></li>
-            <li><a href="content_right_nav.htm">Content Page w/Pod</a></li>
-            <li><a href="content_drop_menus.htm">Content Page w/Dropdown Menus</a></li>
-          </ul>
-          <!-- End Left Navigation List -->
+        <div id="//newsTickerWrapper" class="newsTicker column">
+          <h1 class="newsTicker-head">Current News</h1>
+          <div id="newsTicker" class="newsTicker-body">
+            <ul id="newsTickerContainer" class="list-nav list-inline newsTicker-items">
+              <li class="newsTicker-item" style="display:none;"></li>
+            </ul>
+            <div class="newsTicker-foot"> <a title="News" href="#">All News</a> </div>
+          </div>
         </div>
-        <div class="column bodyContent">
+        <div class="column">
           <div class="row">
             <div class="column bodyContent-article">
-              <p>Aenean at eros orci, id varius nibh. Quisque lacinia lacinia tortor malesuada tempor. Integer sit amet mauris urna. Cras vel nibh cursus quam tempus tincidunt quis sit amet velit. Proin consequat urna non lectus tincidunt convallis. Nam
-                justo enim, porttitor nec interdum at, vehicula vitae dolor. Nam vel risus odio, at hendrerit libero.</p>
-              <p>&nbsp;</p>
-              <p>Sed vel magna lectus, quis scelerisque massa. Duis interdum adipiscing ultricies. Etiam venenatis lacus in nulla auctor et cursus ipsum fringilla. Mauris id urna metus, a commodo eros. Aliquam mattis fermentum tellus, ac fermentum mi lacinia
-                ut. Nullam tincidunt lorem in mi feugiat luctus.</p>
-              <p>&nbsp;</p>
-              <p>Aenean at eros orci, id varius nibh. Quisque lacinia lacinia tortor malesuada tempor. Integer sit amet mauris urna. Cras vel nibh cursus quam tempus tincidunt quis sit amet velit. Proin consequat urna non <a href="#">lectus tincidunt convalli</a>s.
-                Nam justo enim, porttitor nec interdum at, vehicula vitae dolor. Nam vel risus odio, at hendrerit libero. Vivamus interdum feugiat magna sed tristique:</p>
-              <ul>
-                <li><a href="http://www.cancer.wisc.edu/uwccc/index.asp" target="_blank">UW Carbone&nbsp;Cancer Center</a></li>
-                <li><a href="http://ictr.wisc.edu" target="_blank">UW Institute for Clinical and Translational Research</a></li>
-                <li><a href="http://mcardle.oncology.wisc.edu/" target="_blank">McArdle Laboratory for Cancer Research</a></li>
-                <li><a href="http://stemcells.wisc.edu/" target="_blank">UW Stem Cell and Regenerative Medicine Center</a></li>
-                <li><a href="http://www.waisman.wisc.edu/" target="_blank">Waisman Center</a></li>
-                <li><a href="/research/institutes-and-centers/557">View All Institutes and Centers</a></li>
-              </ul>
-              <p>Sed vel magna lectus, quis scelerisque massa. Duis interdum adipiscing ultricies. Etiam venenatis lacus in nulla auctor et cursus ipsum fringilla. Mauris id urna metus, a commodo eros. Aliquam mattis fermentum tellus, ac fermentum mi lacinia
-                ut. Nullam tincidunt lorem in mi feugiat luctus..</p>
-              <p>&nbsp;</p>
-              <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla facilisi. Nullam porta posuere tellus et feugiat. Sed molestie tempor elementum. Donec id consectetur ante. Phasellus pharetra porta fringilla.
-                Donec ultrices, eros blandit sagittis dapibus, lacus odio pellentesque quam, at faucibus metus mi ac turpis:</p>
-              <ul>
-                <li>Sed molestie tempor elementum. Donec id consectetur ante</li>
-                <li>Etiam venenatis lacus in nulla auctor et cursus ipsum fringilla.</li>
-                <li>Quisque lacinia lacinia tortor malesuada tempor. Integer sit amet mauris urna. Cras vel nibh cursus quam tempus tincidunt quis sit amet velit</li>
-                <li>Nullam porta posuere tellus et feugiat. Sed molestie tempor elementum. Donec id consectetur ante.</li>
-              </ul>
-              <div class="row form-grid">
-                <label class="column c-3" for="Name">Name:</label>
-                <div class="column c-8">
-                  <input id="Name" name="Name" type="text" /> </div>
-                <label class="column c-3" for="Email">E-mail:</label>
-                <div class="column c-8">
-                  <input id="Email" name="Email" type="email" /> </div>
-                <label class="column c-3" for="Phone">Phone (optional):</label>
-                <div class="column c-8">
-                  <input id="Phone" name="Phone" type="telephone" /> </div>
-                <label class="column c-3" for="Message">Message:</label>
-                <div class="column c-8">
-                  <p>Please include any information that will help us assist you, such as the URLs of specific pages.</p>
-                  <br>
-                  <textarea id="Message" rows="5" name="Message"></textarea>
-                </div>
-                <div class="column c-8 p-3">
-                  <input id="_submit" name="_submit" size="30" type="submit" value="Submit" /> </div>
+              <div class="media padB10">
+                <a class="media-img" href="#"> <img class="imgMatte" src="/images/img_sample-1.jpg" alt="Anthony M. D'Allessandro, MD"> </a>
+                <div class="media-body padL10">
+                  <h6>Anthony M. D'Allessandro, MD</h6> Dr. D'Allessandro is certified by the American Board of Surgery in general surgery and surgical critical care. His clinical specialties are small bowel and multi-organ transplants. <a href="#">Read more...</a> </div>
+              </div>
+              <div class="media padT10">
+                <a class="media-img" href="#"> <img class="imgMatte" src="/images/img_sample-2.jpg" alt="Lung Transplant Procedure"> </a>
+                <div class="media-body padL10">
+                  <h6>Lung Transplant Procedure</h6> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate nunc non lacus tincidunt eleifend. Sed ut risus velit. In urna dolor, tristique a pellentesque ut, porta ac felis. Integer ullamcorper, enim at luctus condimentum,
+                  nunc ligula placerat ligula, a viverra justo metus non diam. <a href="#">Read more...</a> </div>
               </div>
             </div>
             <div class="column bodyContent-aside">
               <div class="primaryPod">
-                <h2 class="primaryPod-head">Research &amp; News</h2>
-                <ul class="primaryPod-body">
-                  <li><a href='#'>New Approach to Wound Healing Easy on Skin, Tough on Bacteria</a></li>
-                  <li><a href='#'>Brain Scan Shows Uncertainty Fuels Anxiety</a></li>
-                  <br>
-                  <li><a href="#">More Research News</a></li>
-                  <li><a href="#">Research Digest</a></li>
-                </ul>
-              </div>
-              <div class="primaryPod">
-                <h2 class="primaryPod-head">Upcoming Seminars</h2>
+                <h2 class="primaryPod-head">Sample Pages</h2>
                 <div class="primaryPod-body">
-                  <div class="row date-grid">
-                    <div class="column c-4"> 8/26/2009 </div>
-                    <div class='column c-7'><a href='#'>The Wisconsin WAHTER Study: A Community Intervention Trial to Estimate Illness Risk from Municipal Drinking Water</a></div>
-                    <div class="column c-4"> 8/27/2009 </div>
-                    <div class='column c-7'><a href='#'>Department of Population Health Sciences 50th Anniversary Symposium</a></div>
-                    <div class="column c-4"> 9/18/2009 </div>
-                    <div class="column c-7"><a href='#'>Beyond Nature Versus Nurture: Changing Views of Infant Language Acquisition</a></div>
+                  <div class="row">
+                    <div class="c-half column">
+                      <p><a href="home.htm">Home Page</a></p>
+                      <p><a href="home_widget.htm">Home Page w/Widget and News</a></p>
+                      <p><a href="landing.htm">Landing Page</a></p>
+                    </div>
+                    <div class="c-half column">
+                      <p><a href="destination.htm">Destination Page</a></p>
+                      <p><a href="content.htm">Content Page</a></p>
+                      <p><a href="content_right_nav.htm">Content Page w/Pod</a></p>
+                      <p><a href="content_drop_menus.htm">Content Page w/Dropdown Menus</a></p>
+                    </div>
                   </div>
                 </div>
               </div>

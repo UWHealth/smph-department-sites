@@ -31,6 +31,11 @@
 	@include type-space(padding-right, 1);
 }
 
+/* Item groups that should be separated from the previous group */
+.group {
+	@include type-space(margin-top, 1.5);
+}
+
 /* Main article content, used next to a left nav */
 .bodyContent {
 	@extend %eight_elevenths;

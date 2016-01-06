@@ -31,8 +31,6 @@
 	z-index: -1;
 }
 
-$color-banner-caption: desaturate(darken($smph-gold, 35%), 50%);
-
 .banner-caption {
 	position: absolute;
 	bottom: 0;
@@ -42,12 +40,12 @@ $color-banner-caption: desaturate(darken($smph-gold, 35%), 50%);
 	@include type-space(padding-right, 2);
 	padding-left: 135px;
 	@include type-space(margin-bottom, 1.5);
-	background-color: $color-banner-caption;
-	background-color: rgba($color-banner-caption, 0.85);
+	background-color: $smph-slate;
+	background-color: rgba($smph-slate, 0.925);
 	max-width: 65%;
 
 	@include media-query('smalls') {
-		background-color: $color-banner-caption;
+		background-color: $smph-slate;
 		position: relative;
 		@include type-space((padding-left, padding-right), .75);
 		max-width: none;
@@ -80,7 +78,7 @@ $color-banner-caption: desaturate(darken($smph-gold, 35%), 50%);
 .capt-more {
 	display: block;
 	font-weight: bold;
-	color: mix(white, $badger-red, 30%);
+	color: mix(white, $badger-red, 40%);
 	text-decoration: underline;
 }
 
@@ -146,7 +144,7 @@ $color-banner-caption: desaturate(darken($smph-gold, 35%), 50%);
 		.banner-nav-item-text {
 			border-top-width: 0;
 			border-bottom-width: 8px;
-			border-color: $color-banner-caption;
+			border-color: $smph-slate;
 		}
 	}
 }

@@ -45,10 +45,12 @@
 	display: block;
 	@include rems(padding, 11px 8px 9px);
 	letter-spacing: 0.03em;
+	background-color: transparent;
+	transition: background-color 100ms ease-out;
 
 	&:hover,
 	&:focus {
-		background-color: mix(white, $color-main-nav, 20%)
+		background-color: mix(white, $color-main-nav, 20%);
 	}
 
 	&:active {
@@ -68,6 +70,21 @@
 	text-align: center;
 }
 
+@include media-query('desk') {
+	/* Arrow indicating a drop down */
+	.navBar-item.with-drop > a:after {
+        content: '';
+		position: absolute;
+		margin-top: .5em;
+		margin-left: .5em;
+		width: 0;
+		height: 0;
+		border-top: .4em solid rgba(#fff, 0.25);
+		border-left: .25em solid transparent;
+		border-right: .25em solid transparent;
+	}
+}
+
 .navDrop {
 	background-color: $color-main-nav;
 	position: absolute;
@@ -82,7 +99,7 @@
 		display: none;
 	}
 
-	@include media-query(('smalls', 'lap')) {
+	@include media-query('smalls', 'lap') {
 		display: none !important;
 	}
 }
@@ -133,7 +150,7 @@
 }
 
 .goog {
-	color: #000;
+	color: $smph-slate;
 }
 
 .searchButton {

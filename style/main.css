@@ -140,53 +140,43 @@ img {
   max-width: 100%;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
 h1 {
   font-size: 140%;
-  padding: 0;
-  margin: 0 0 13px 0;
-  margin: 0 0 1.18182rem 0;
-  font-weight: bold;
+  margin-bottom: 13px;
+  margin-bottom: 1.18182rem;
 }
 
 h2 {
   font-size: 130%;
   color: #604D25;
-  padding: 0;
-  margin: 0;
-  font-weight: bold;
 }
 
 h3 {
   font-size: 120%;
-  color: #000000;
-  padding: 0;
-  margin: 0;
-  font-weight: bold;
   display: inline;
 }
 
 h4 {
   font-size: 110%;
   color: #604D25;
-  padding: 0;
-  margin: 0;
-  font-weight: bold;
 }
 
 h5 {
   text-transform: capitalize;
   font-size: 110%;
   color: #604D25;
-  margin: 0 0 6.5px 0;
-  margin: 0 0 0.59091rem 0;
-  font-weight: bold;
+  margin-bottom: 6.5px;
+  margin-bottom: 0.59091rem;
 }
 
 h6 {
   font-size: 110%;
-  color: #000000;
-  padding: 0;
-  margin: 0;
   font-weight: bold;
 }
 
@@ -493,7 +483,7 @@ h6 a:hover {
   }
 }
 
-.row, .row-middle, .row-skinny, .columnRow, .column, .page, .imgMatte, .leftNav-items a, .rightPod, .form-grid input,
+.row, .row-middle, .row-skinny, .columnRow, .column, .page, .imgMatte, .leftNav-items a, .promo-body, .rightPod, .form-grid input,
 .form-grid textarea,
 .form-grid select, .top-nav-button, .searchBox, .banner-body, .banner-nav-item-text, .footer, .footerColumn, .footer .linkImage {
   -webkit-box-sizing: border-box;
@@ -536,6 +526,12 @@ h6 a:hover {
 .page-inner {
   padding-right: 20px;
   padding-right: 1.81818rem;
+}
+
+/* Item groups that should be separated from the previous group */
+.group {
+  margin-top: 19.5px;
+  margin-top: 1.77273rem;
 }
 
 /* Main article content, used next to a left nav */
@@ -790,6 +786,147 @@ h6 a:hover {
   cursor: default;
 }
 
+/*Promo buttons */
+.promo {
+  background-color: #EDE9D4;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  color: #970D0E;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 6.5px;
+  margin-bottom: 0.59091rem;
+}
+
+.promo:hover {
+  border-bottom-color: #510707;
+  border-top-color: #ae0f10;
+}
+
+.promo-dark {
+  background-color: #504b4e;
+}
+
+.promo-img {
+  position: absolute;
+  right: 0;
+  height: auto;
+  min-height: 100%;
+  max-width: none;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+     -moz-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+@media only screen and (max-width: 674px), screen and (max-width: 775px) {
+  .promo-img {
+    opacity: 0.25;
+  }
+}
+
+.lt-ie9 .promo-img {
+  top: 0;
+}
+
+.promo-rev .promo-img {
+  left: 0;
+  right: auto;
+}
+
+.promo-body {
+  position: relative;
+  white-space: nowrap;
+  text-decoration: none;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  border-color: #fff;
+  border-color: rgba(255, 255, 255, 0.7);
+  display: block;
+  -webkit-box-shadow: inset 0 2px 1px transparent;
+     -moz-box-shadow: inset 0 2px 1px transparent;
+          box-shadow: inset 0 2px 1px transparent;
+  -webkit-transition: -webkit-box-shadow .1s ease-out;
+          transition: -moz-box-shadow .1s ease-out;
+          transition: box-shadow .1s ease-out;
+}
+
+.promo-body:hover,
+.promo-body:focus {
+  border-color: #fff;
+  -webkit-box-shadow: inset 0 10px 13px -2px rgba(255, 255, 255, 0.35), inset 0 1px 1px 1px rgba(255, 255, 255, 0.25);
+     -moz-box-shadow: inset 0 10px 13px -2px rgba(255, 255, 255, 0.35), inset 0 1px 1px 1px rgba(255, 255, 255, 0.25);
+          box-shadow: inset 0 10px 13px -2px rgba(255, 255, 255, 0.35), inset 0 1px 1px 1px rgba(255, 255, 255, 0.25);
+}
+
+.promo-body:active {
+  -webkit-box-shadow: inset 0 40px 40px rgba(0, 0, 0, 0.07);
+     -moz-box-shadow: inset 0 40px 40px rgba(0, 0, 0, 0.07);
+          box-shadow: inset 0 40px 40px rgba(0, 0, 0, 0.07);
+}
+
+.promo-body:before {
+  content: "";
+  /* Sets the height of the banner responsively; also allows vertical-alignment */
+  height: 81.25px;
+  height: 7.38636rem;
+  width: 1em;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: -1em;
+}
+
+.promo-body-title {
+  font-family: "oswald", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-size: 1.63636rem;
+  text-transform: uppercase;
+  letter-spacing: .025em;
+  color: #970D0E;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+  white-space: normal;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 4.55px 5px;
+  padding: 0.41364rem 0.45455rem;
+  max-width: 55%;
+}
+
+@media only screen and (max-width: 674px), screen and (max-width: 775px) {
+  .promo-body-title {
+    max-width: 80%;
+  }
+}
+
+.promo-dark .promo-body-title,
+.promo-dark .promo-body-sub {
+  color: #fff;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.promo-body-sub {
+  display: block;
+  font-family: Helvetica, Arial, sans-serif;
+  text-transform: none;
+  font-weight: normal;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.35);
+  color: #b14f49;
+  font-size: .65em;
+  line-height: 1.2;
+  padding-top: .3em;
+  opacity: 0.8;
+}
+
+/* Right facing arrow */
+.promo-body-sub:after {
+  content: "\25B6";
+  font-size: 7px;
+  padding-top: 2px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
 .primaryPod {
   clear: both;
   overflow: auto;
@@ -811,11 +948,10 @@ h6 a:hover {
   font-size: 14.3px;
   font-size: 1.3rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: .05em;
   background-color: #970D0E;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.8)), color-stop(5%, rgba(255, 255, 255, 0.3)), color-stop(40%, transparent));
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 5%, transparent 40%);
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 5%, transparent 40%);
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 1.5px, transparent 40%);
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 1.5px, transparent 40%);
   padding: .65em .5em;
   -moz-border-radius: 4px 4px 0 0;
        border-radius: 4px 4px 0 0;
@@ -1072,7 +1208,7 @@ h6 a:hover {
 
 .top-nav li a {
   font-weight: bold;
-  color: #675028;
+  color: #604D25;
   padding: 11px 3.85px;
   padding: 1rem 0.35rem;
   font-size: 11px;
@@ -1183,9 +1319,9 @@ h6 a:hover {
   color: rgba(255, 255, 255, 0.5);
   background-color: #800b0c;
   border-color: #9c0d0e;
-  -webkit-box-shadow: inset 0 10px 10px rgba(64, 63, 63, 0.2);
-     -moz-box-shadow: inset 0 10px 10px rgba(64, 63, 63, 0.2);
-          box-shadow: inset 0 10px 10px rgba(64, 63, 63, 0.2);
+  -webkit-box-shadow: inset 0 10px 10px rgba(80, 75, 78, 0.2);
+     -moz-box-shadow: inset 0 10px 10px rgba(80, 75, 78, 0.2);
+          box-shadow: inset 0 10px 10px rgba(80, 75, 78, 0.2);
 }
 
 @media only screen and (max-width: 460px) {
@@ -1310,6 +1446,9 @@ h6 a:hover {
   padding: 11px 8px 9px;
   padding: 1rem 0.72727rem 0.81818rem;
   letter-spacing: 0.03em;
+  background-color: transparent;
+  -webkit-transition: background-color 100ms ease-out;
+          transition: background-color 100ms ease-out;
 }
 
 .navBar-item a:hover, .navBar-item a:focus {
@@ -1336,6 +1475,21 @@ h6 a:hover {
   text-align: center;
 }
 
+@media only screen and (min-width: 776px) {
+  /* Arrow indicating a drop down */
+  .navBar-item.with-drop > a:after {
+    content: '';
+    position: absolute;
+    margin-top: .5em;
+    margin-left: .5em;
+    width: 0;
+    height: 0;
+    border-top: 0.4em solid rgba(255, 255, 255, 0.25);
+    border-left: .25em solid transparent;
+    border-right: .25em solid transparent;
+  }
+}
+
 .navDrop {
   background-color: #970D0E;
   position: absolute;
@@ -1355,7 +1509,7 @@ h6 a:hover {
   display: none;
 }
 
-@media only screen and (max-width: 775px) {
+@media only screen and (max-width: 674px), screen and (max-width: 775px) {
   .navDrop {
     display: none !important;
   }
@@ -1412,7 +1566,7 @@ h6 a:hover {
 }
 
 .goog {
-  color: #000;
+  color: #504b4e;
 }
 
 .searchButton {
@@ -1681,14 +1835,14 @@ h6 a:hover {
   padding-left: 135px;
   margin-bottom: 19.5px;
   margin-bottom: 1.77273rem;
-  background-color: #31312f;
-  background-color: rgba(49, 49, 47, 0.85);
+  background-color: #504b4e;
+  background-color: rgba(80, 75, 78, 0.925);
   max-width: 65%;
 }
 
 @media only screen and (max-width: 674px) {
   .banner-caption {
-    background-color: #31312f;
+    background-color: #504b4e;
     position: relative;
     padding-left: 15px;
     padding-left: 1.36364rem;
@@ -1725,7 +1879,7 @@ h6 a:hover {
 .capt-more {
   display: block;
   font-weight: bold;
-  color: #b65656;
+  color: #c16e6e;
   text-decoration: underline;
 }
 
@@ -1804,14 +1958,14 @@ h6 a:hover {
   .banner-nav [class*="active"] .banner-nav-item-text {
     border-top-width: 0;
     border-bottom-width: 8px;
-    border-color: #31312f;
+    border-color: #504b4e;
   }
 }
 
 .newsTicker {
   overflow: hidden;
-  margin-bottom: 26px;
-  margin-bottom: 2.36364rem;
+  margin-bottom: 19.5px;
+  margin-bottom: 1.77273rem;
 }
 
 .newsTicker-head {
@@ -1829,9 +1983,8 @@ h6 a:hover {
   -moz-border-radius: 5px 0 0 5px;
        border-radius: 5px 0 0 5px;
   background-color: #970D0E;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.8)), color-stop(5%, rgba(255, 255, 255, 0.3)), color-stop(40%, transparent));
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 5%, transparent 40%);
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 5%, transparent 40%);
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 1.5px, transparent 40%);
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 1.5px, transparent 40%);
 }
 
 .newsTicker-body {
@@ -1849,6 +2002,12 @@ h6 a:hover {
   position: relative;
 }
 
+@media only screen and (max-width: 674px) {
+  .newsTicker-body {
+    padding-right: 1em;
+  }
+}
+
 .newsTicker-items {
   float: left;
   max-width: 100%;
@@ -1864,6 +2023,12 @@ h6 a:hover {
   text-align: center;
   background-color: #EDE9D4;
   z-index: 1;
+}
+
+@media only screen and (max-width: 674px) {
+  .newsTicker-foot {
+    display: none;
+  }
 }
 
 .footer {

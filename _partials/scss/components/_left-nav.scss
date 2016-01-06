@@ -3,15 +3,10 @@
 	@extend %three_elevenths;
 	@extend %smalls_one_whole;
 	@include type-space(padding-bottom, 2);
-
-	@include media-query(smalls) {
-		@include type-space(padding-right, 1);
-	}
 }
 
 .leftNav-items {
 	font-family: $font-secondary;
-	@include type-space(padding-left, 1);
 
 	@include media-query('smalls') {
 		display: flex;

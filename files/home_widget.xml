@@ -28,6 +28,6 @@
         <param name="delay">8000</param>
         <param name="captions">true</param>
         <param name="navdirection">horizontal</param>
-        <param name="navposition">left</param>
+        <param name="navposition">bottom</param>
     </settings>
 </items>

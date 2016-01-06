@@ -142,9 +142,9 @@ function search(value) {
 	if ((value == "Search" || value == "") || (value == "Enter Search Term" || value == "")) {
 		return false;
 	}
-		else {
-			return true;
-		}
+	else {
+		return true;
+	}
 }
 
 // Mobile menu toggles
@@ -167,21 +167,29 @@ $(function(){
         $(this).click(function(e){
             e.preventDefault();
             //slide up and remove the class from the other toggle target indexes
+
             $(toggleTargets.join(',')).not(toggleTargets[i])
                 .slideUp(150, function(){
                     //Remove redundant style attribute applied by slideup()
                     $(this).removeClass('active').attr('style','');
-                });
-            //toggle the target with this same index
-            $(toggleTargets[i]).slideToggle(150, function(){
-                //Remove redundant style attribute applied by slideup()
-                $(this).toggleClass('active').css('display','');
-
-                //Trigger custom event so we can focus the searchbox when necessary
-                if($(this).hasClass('active')){
-                    $(this).trigger('item:active');
                 }
-            });
+            );
+
+            //toggle the target with this same index
+            $(toggleTargets[i]).slideToggle(
+                {
+                    duration: 150,
+                    complete: function(){
+                        //Remove redundant style attribute applied by slideup()
+                        $(this).toggleClass('active').css('display','');
+
+                        //Trigger custom event so we can focus the searchbox when necessary
+                        if($(this).hasClass('active')){
+                            $(this).trigger('item:active');
+                        }
+                    }
+                }
+            );
 
             //Check the aria-expaned state
             var ariaState = $(this).attr('aria-expanded');

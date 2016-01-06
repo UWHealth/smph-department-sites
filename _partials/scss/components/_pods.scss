@@ -16,9 +16,9 @@
 	background-color: $badger-red;
 	background-image: linear-gradient(
 		to bottom,
-		mix($badger-red, white, 20%),
-		mix($badger-red, white, 70%) 5%,
-		$badger-red 40%
+		rgba(#fff, .8),
+		rgba(#fff, .3) 5%,
+		transparent 40%
 	);
 	padding: .65em .5em;
 	border-radius: 4px 4px 0 0;
@@ -29,6 +29,10 @@
 	margin: 0;
 	list-style: none;
 	background-color: $smph-tan;
+}
+
+.primaryPod p {
+	@include type-space(margin-bottom, .5);
 }
 
 .date-grid {

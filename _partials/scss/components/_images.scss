@@ -1,0 +1,19 @@
+/* Images with a white and gray border,
+ * like a framed photo with a matte around it
+ */
+.imgMatte {
+	@extend %border-box;
+	padding: 4px;
+	border: 1px solid #cbcbcb;
+	background-color: #fff;
+}
+
+.imgRight {
+    float: right;
+    @include type-space(margin-left, .5);
+}
+
+.imgLeft {
+    float: left;
+    @include type-space(margin-right, .5);
+}

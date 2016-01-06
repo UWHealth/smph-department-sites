@@ -1,6 +1,6 @@
 .pageHeader {
 	clear: both;
-	@include type-space(margin-left, 1);
+	@include rems(margin-left, $grid-gutter);
 	@include shadow(1, inset);
 	position: relative;
 	z-index: 2;

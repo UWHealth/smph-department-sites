@@ -35,17 +35,6 @@
     width: auto;
 }
 
-
-.imgRight {
-    float: right;
-    @include type-space(margin-left, .5);
-}
-
-.imgLeft {
-    float: left;
-    @include type-space(margin-right, .5);
-}
-
 .clearFloat {
     clear: both !important;
 }
@@ -70,16 +59,16 @@
 }
 
 .padL10 {
-	@include type-space(padding-left, 1, important);
+	@include type-space(padding-left, .5, important);
 }
 .padR10 {
-    @include type-space(padding-right, 1, important);
+    @include type-space(padding-right, .5, important);
 }
 .padT10 {
-    @include type-space(padding-top, 1, important);
+    @include type-space(padding-top, .5, important);
 }
 .padB10 {
-    @include type-space(padding-bottom, 1, important);
+    @include type-space(padding-bottom, .5, important);
 }
 .padN {
     padding: 0 !important;
@@ -103,16 +92,16 @@
 	}
 
     .bigs-padL10 {
-    	@include type-space(padding-left, 1, important);
+    	@include type-space(padding-left, .5, important);
     }
     .bigs-padR10 {
-        @include type-space(padding-right, 1, important);
+        @include type-space(padding-right, .5, important);
     }
     .bigs-padT10 {
-        @include type-space(padding-top, 1, important);
+        @include type-space(padding-top, .5, important);
     }
     .bigs-padB10 {
-        @include type-space(padding-bottom, 1, important);
+        @include type-space(padding-bottom, .5, important);
     }
     .bigs-padN {
         padding: 0 !important;
@@ -137,16 +126,16 @@
 	}
 
     .smalls-padL10 {
-    	@include type-space(padding-left, 1, important);
+    	@include type-space(padding-left, .5, important);
     }
     .smalls-padR10 {
-        @include type-space(padding-right, 1, important);
+        @include type-space(padding-right, .5, important);
     }
     .smalls-padT10 {
-        @include type-space(padding-top, 1, important);
+        @include type-space(padding-top, .5, important);
     }
     .smalls-padB10 {
-        @include type-space(padding-bottom, 1, important);
+        @include type-space(padding-bottom, .5, important);
     }
     .smalls-padN {
         padding: 0 !important;

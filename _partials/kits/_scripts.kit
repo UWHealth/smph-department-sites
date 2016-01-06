@@ -1,0 +1,44 @@
+<script src="javascript/jquery-1.3.1.min.js"></script>
+<script src="javascript/utility.js"></script>
+<!-- Dropdown Menu Script -->
+<script src="javascript/hoverIntent.js"></script>
+<!-- End Dropdown Menu Script -->
+<!-- Script for Initializing Search Box -->
+<script>initSearch();</script>
+<!-- End Script for Initializing Search Box -->
+<!-- Banner widget script -->
+<script src="javascript/jquery.bannerwidget.js"></script>
+<!-- End Banner widget script -->
+<!-- News Ticker script -->
+<script src="javascript/newsTicker.js"></script>
+<!-- End Ticker script -->
+<script>
+$(function(){
+
+	//DropDown Menu init code
+	dropDownMenu('.navBar-item');
+	// End DropDown Menu init code
+
+	var $bannerwidget = $('#bannerwidget');
+	var $newsticker = $('#newsTickerContainer');
+	// Home Page Widget init Code
+	if($bannerwidget.length > 0){
+		$bannerwidget.bannerwidget({settingsFile:"files/home_widget.xml", bannertext:"false" });
+	}
+	// End Home Page Widget Code
+	// News Ticker init Code
+	if($newsticker.length > 0){
+		$.getJSON("files/news.json", function(data) {
+			for (var i=0; i < data.length; i++){
+				if (data[i].title) {
+					$newsticker
+						.append("<li class='newsTicker-item'><a href=" + data[i].pageUrl + ">" + data[i].title + "</a></li>");
+				}
+			}
+
+			$newsticker.newsTicker();
+		});
+	}
+	// End News Ticker Code
+});
+</script>

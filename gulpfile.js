@@ -3,7 +3,7 @@ var utility 	 = require('gulp-util');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync  = require('browser-sync');
 var chalk        = utility.colors;
-var changed 	 = require('gulp-changed');
+var changed 	 = require('gulp-changed-in-place');
 var flatten 	 = require('gulp-flatten');
 var gIf 		 = require('gulp-if');
 var include 	 = require('gulp-include');
@@ -26,7 +26,7 @@ var uglify 		 = require('gulp-uglify');
 //See autoprefixer's documentation for notation style:
 // https://github.com/ai/browserslist#queries
 
-var autoprefixer_browsers = [
+var AUTOPREFIXER_BROWSERS = [
 	'> 1%',
 	'last 2 version',
 	'ff >= 16',
@@ -36,7 +36,7 @@ var autoprefixer_browsers = [
 ];
 
 // Paths for watching and outputting
-var paths = {
+var PATHS = {
 	scss: {
 		watch:	['./_partials/**/*.scss'],
 		main:	'./_partials/scss/*.scss',
@@ -57,7 +57,12 @@ var paths = {
 };
 
 //Files to watch to keep browser preview up to date
-var browser_sync_watch = ['./style/*.css', './javascript/**/*.js', './*.html'];
+var BROWSER_SYNC_WATCH = [
+	'./style/*.css',
+	'./javascript/**/*.js',
+	'./*.html',
+	'./images/*.{png|}'
+];
 
 
 /******************************/
@@ -65,12 +70,12 @@ var browser_sync_watch = ['./style/*.css', './javascript/**/*.js', './*.html'];
 /******************************/
 
 /** File Watch **/
-//Watch file paths for changes (as defined in the paths variable)
+//Watch file paths for changes (as defined in the PATHS variable)
 gulp.task('watch', function(){
-	gulp.watch(	paths.scss.watch,   ['sass']);
-	gulp.watch(	paths.js.watch,     ['js']);
-	gulp.watch(	paths.kits.watch,   ['kits']);
-	gulp.watch(	paths.images.watch, ['images']);
+	gulp.watch(	PATHS.scss.watch,   ['sass']);
+	gulp.watch(	PATHS.js.watch,     ['js']);
+	gulp.watch(	PATHS.kits.watch,   ['kits']);
+	gulp.watch(	PATHS.images.watch, ['images']);
 });
 
 /** Browser-sync **/
@@ -78,7 +83,7 @@ gulp.task('watch', function(){
 // and syncs actions across browsers
 gulp.task('browserSync', function() {
 	browserSync.init({
-		files: browser_sync_watch,
+		files: BROWSER_SYNC_WATCH,
 		port: 3000,
 		ui: {
 			port: 3030
@@ -93,7 +98,7 @@ gulp.task('browserSync', function() {
 			forms: true,
 			scroll: false
 		},
-		logPrefix: 'Browser',
+		logPrefix: 'BrowserS',
 		scrollThrottle: 100,
 		open: false //True if you want the browser to automatically open
 	});
@@ -103,7 +108,7 @@ gulp.task('browserSync', function() {
 // Converts sass to CSS, minifies, and adds vendor prefixes where necessary
 gulp.task('sass', function() {
 
-	return gulp.src(paths.scss.main)
+	return gulp.src(PATHS.scss.main)
 		.pipe(plumber({errorHandler: _error}))
 		.pipe(sass({
 			outputStyle: _sass_output,
@@ -113,10 +118,10 @@ gulp.task('sass', function() {
 			}
 		}))
 		.pipe(autoprefixer({
-			browsers: autoprefixer_browsers
+			browsers: AUTOPREFIXER_BROWSERS
 		}))
 		.pipe(size({title: 'CSS', gzip: true, showFiles: true}))
-		.pipe(gulp.dest(paths.scss.dest));
+		.pipe(gulp.dest(PATHS.scss.dest));
 });
 
 /** Javascript Processing **/
@@ -124,18 +129,16 @@ gulp.task('sass', function() {
 gulp.task('js', function(){
 
 	//Files beginning with an underscore shouldn't be processed on their own
-	var _js_src = paths.js.watch.concat(['!./_partials/**/_*.js']);
+	var _js_src = PATHS.js.watch.concat(['!./_partials/**/_*.js']);
 
 	return gulp.src(_js_src)
 		.pipe(plumber({errorHandler: _error}))
 		.pipe(include())
-		//Check if files are changed only if minification is not required
-		.pipe(gIf(! _minify,
-			changed(paths.js.dest)
-		))
 		.pipe(gIf( _minify,
 			uglify({preserveComments: 'some'})
 		))
+		//Check if files are changed only if minification is not required
+		.pipe(gIf(! _minify, changed() ))
 		.pipe(gIf( _minify,
 			rename(function(path){
 				// Add .min to uglified files
@@ -145,7 +148,7 @@ gulp.task('js', function(){
 			})
 		))
 		.pipe(size({title: 'JS', showFiles: true, gzip: true}))
-		.pipe(gulp.dest(paths.js.dest));
+		.pipe(gulp.dest(PATHS.js.dest));
 });
 
 /** Kit Processing **/
@@ -153,7 +156,7 @@ gulp.task('js', function(){
 gulp.task('kits', function(){
 
 	//Files beginning with an underscore shouldn't be processed on their own
-	var _kits_src = paths.kits.watch.concat(['!./_partials/**/_*.kit']);
+	var _kits_src = PATHS.kits.watch.concat(['!./_partials/**/_*.kit']);
 
 	return gulp.src(_kits_src)
 		.pipe(plumber({errorHandler: _error}))
@@ -162,20 +165,22 @@ gulp.task('kits', function(){
 				indent_char: ' ',
 				indent_size: _indent_size,
 				indent_inner_html: false,
-				end_with_newline: false
+				end_with_newline: false,
+				brace_style: "collapse"
 			})
 		)
 		.pipe(flatten()) //Force files into root folder regardless of nesting
 		.pipe(size({title: 'HTML', showFiles: true, gzip: true}))
-		.pipe(gulp.dest(paths.kits.dest));
+		.pipe(gulp.dest(PATHS.kits.dest));
 });
 
 /** Image Optimization **/
 //Runs images through image-min and puts them into their destination folder
 gulp.task('images', function(){
 
-	return gulp.src(paths.images.watch)
+	return gulp.src(PATHS.images.watch)
 		.pipe(plumber({errorHandler: _error}))
+		.pipe(changed())
 		.pipe(imgmin({
 			progressive: true,
 			svgoPlugins:[
@@ -192,7 +197,7 @@ gulp.task('images', function(){
 			],
 			multipass: true
 		}))
-		.pipe(gulp.dest(paths.images.dest));
+		.pipe(gulp.dest(PATHS.images.dest));
 });
 
 /** Default Task **/
@@ -214,19 +219,8 @@ gulp.task('...', function(){
 gulp.task('serve', ['default', 'browserSync']);
 
 /** Compile and minify **/
-gulp.task('prod', ['switchVars', 'images', 'sass', 'js', 'kits']);
-
-/** Production variable switch **/
-// Tells gulp tasks to minify output correctly
-gulp.task('switchVars', function(){
-	//Change sass output to compressed
-	_sass_output = 'compressed';
-	//Change html indent size to 1
-	_indent_size = 1;
-	//general minification indicator
-	_minify = true;
-});
-
+gulp.task('prod', ['default']);
+gulp.task('production', ['prod']);
 
 /******************************/
 /******** Private *************/
@@ -238,6 +232,21 @@ var
 	_sass_output = 'expanded',
 	_minify = false,
 	_indent_size = 2;
+
+/** Production variable switch **/
+// Tells gulp tasks to minify output correctly
+
+if(utility.env._[0] === 'prod' || utility.env._[0] === 'production') {
+	console.log('compressing all files');
+	//Change sass output to compressed
+    _sass_output = 'compressed';
+    //Change html indent size to 1
+    _indent_size = 1;
+    //general minification indicator
+    _minify = true;
+}
+
+
 
 //Extracts filenames from a path
 function _filename(path) {

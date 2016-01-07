@@ -12,21 +12,15 @@
   <meta name="description" content="Page Description">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home, Your Department</title>
-  <!-- !!Remove this script!! Only exists for demonstration purposes (github pages) -->
-  <script>
-    var _urlHost = window.location.host,
-      _urlPath = window.location.pathname.split('/')[0];
-    document.write('<base href="http://' + _urlHost + '/' + _urlPath + '">');
-  </script>
   <!-- <link rel="stylesheet" href="style/stylesheet.css" media="screen"> -->
-  <link rel="stylesheet" href="/style/main.css" media="screen">
-  <link rel="stylesheet" href="/style/print.css" type="text/css" media="print">
+  <link rel="stylesheet" href="style/main.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="style/print.css" type="text/css" media="print">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon"> </head>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"> </head>
 
 <body>
   <!-- Print Logo (invisible) -->
-  <div class="printLogo"> <img src="/images/your_print_logo.gif" alt=""> </div>
+  <div class="printLogo"> <img src="images/your_print_logo.gif" alt=""> </div>
   <!-- End Print Logo -->
   <!-- Skip to Content Link (invisible) -->
   <div class="skipToContent"><a class="skipToContent visuallyHidden focusable" href="#mainContent">Skip to Content</a></div>
@@ -111,12 +105,12 @@
           <div class="row">
             <div class="column bodyContent-article">
               <div class="media">
-                <a class="media-img" href="#"> <img class="imgMatte" src="/images/img_sample-1.jpg" alt="Anthony M. D'Allessandro, MD"> </a>
+                <a class="media-img" href="#"> <img class="imgMatte" src="images/img_sample-1.jpg" alt="Anthony M. D'Allessandro, MD"> </a>
                 <div class="media-body padL10">
                   <h6>Anthony M. D'Allessandro, MD</h6> Dr. D'Allessandro is certified by the American Board of Surgery in general surgery and surgical critical care. His clinical specialties are small bowel and multi-organ transplants. <a href="#">Read more...</a> </div>
               </div>
               <div class="media padT10">
-                <a class="media-img" href="#"> <img class="imgMatte" src="/images/img_sample-2.jpg" alt="Lung Transplant Procedure"> </a>
+                <a class="media-img" href="#"> <img class="imgMatte" src="images/img_sample-2.jpg" alt="Lung Transplant Procedure"> </a>
                 <div class="media-body padL10">
                   <h6>Lung Transplant Procedure</h6> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate nunc non lacus tincidunt eleifend. Sed ut risus velit. In urna dolor, tristique a pellentesque ut, porta ac felis. Integer ullamcorper, enim at luctus condimentum,
                   nunc ligula placerat ligula, a viverra justo metus non diam. <a href="#">Read more...</a> </div>
@@ -255,11 +249,6 @@
   <!-- Dropdown Menu Script -->
   <script src="javascript/hoverIntent.js"></script>
   <!-- End Dropdown Menu Script -->
-  <!-- Script for Initializing Search Box -->
-  <script>
-    initSearch();
-  </script>
-  <!-- End Script for Initializing Search Box -->
   <!-- Banner widget script -->
   <script src="javascript/jquery.bannerwidget.js"></script>
   <!-- End Banner widget script -->
@@ -268,23 +257,19 @@
   <!-- End Ticker script -->
   <script>
     $(function() {
-      //DropDown Menu init code
-      dropDownMenu('.navBar-item');
-      // End DropDown Menu init code
-      var $bannerwidget = $('#bannerwidget');
-      var $newsticker = $('#newsTickerContainer');
       // Home Page Widget init Code
+      var $bannerwidget = $('#bannerwidget');
       if ($bannerwidget.length > 0) {
         $bannerwidget.bannerwidget({
           settingsFile: "files/home_widget.xml",
           bannertext: "false"
         });
       }
-      // End Home Page Widget Code
       // News Ticker init Code
+      var $newsticker = $('#newsTickerContainer');
       if ($newsticker.length > 0) {
         $.getJSON("files/news.json", function(data) {
-          for (var i = 0; i < data.length; i++) {
+          for (var i = 0, dataLen = data.length; i < dataLen; i++) {
             if (data[i].title) {
               $newsticker.append("<li class='newsTicker-item'><a href=" + data[i].pageUrl + ">" + data[i].title + "</a></li>");
             }
@@ -292,7 +277,10 @@
           $newsticker.newsTicker();
         });
       }
-      // End News Ticker Code
+      //Search init code
+      initSearch();
+      //DropDown Menu init code
+      dropDownMenu('.navBar-item');
     });
   </script>
 </body>

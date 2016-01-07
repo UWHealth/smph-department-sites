@@ -6,8 +6,8 @@
 .form-grid input,
 .form-grid textarea,
 .form-grid select {
-	width: 100%;
 	@extend %border-box;
+	width: 100%;
 }
 
 #form_body {

@@ -4,7 +4,7 @@
  * will keep these from adding too many bytes to your overall css payload
  */
 
-@include grid-init(); //Create silent classes
+@include grid-init; //Create silent classes
 
 %border-box {
 	box-sizing: border-box;
@@ -38,11 +38,12 @@
 .columnRow {
 	@extend %border-box;
 	@include type-space(padding-left, 1);
-	letter-spacing:-0.4em;
+	letter-spacing: -.4em;
 
-	.o:-o-prefocus, //Opera hack
+	//Opera hack
+	.o:-o-prefocus,
 	& {
-		word-spacing:-0.43em;
+		word-spacing: -.43em;
 	}
 }
 

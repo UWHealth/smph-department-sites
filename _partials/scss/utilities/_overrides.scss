@@ -8,14 +8,14 @@
  * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
  */
 .visuallyHidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    width: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
     position: absolute;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
 	transition: all .15s ease-out;
 }
 
@@ -27,12 +27,12 @@
 
 .visuallyHidden.focusable:active,
 .visuallyHidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
     position: static;
+    margin: 0;
     width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
 }
 
 .clearFloat {
@@ -40,18 +40,22 @@
 }
 
 .hide,
-[aria-hidden="true"] {
+[aria-hidden='true'] {
 	display: none !important;
 }
+
 .inline {
 	display: inline !important;
 }
+
 .table {
 	display: table !important;
 }
+
 .block {
 	display: block !important;
 }
+
 .inline-block {
 	display: inline-block !important;
     *display: inline !important; /* IE 7 fix */
@@ -61,15 +65,19 @@
 .padL10 {
 	@include type-space(padding-left, .5, important);
 }
+
 .padR10 {
     @include type-space(padding-right, .5, important);
 }
+
 .padT10 {
     @include type-space(padding-top, .5, important);
 }
+
 .padB10 {
     @include type-space(padding-bottom, .5, important);
 }
+
 .padN {
     padding: 0 !important;
 }
@@ -78,15 +86,19 @@
 	.bigs-hide {
 		display: none !important;
 	}
+
 	.bigs-inline {
 		display: inline !important;
 	}
+
 	.bigs-table {
 		display: table !important;
 	}
+
 	.bigs-block {
 		display: block !important;
 	}
+
 	.bigs-inline-block {
 		display: inline-block !important;
 	}
@@ -94,17 +106,25 @@
     .bigs-padL10 {
     	@include type-space(padding-left, .5, important);
     }
+
     .bigs-padR10 {
         @include type-space(padding-right, .5, important);
     }
+
     .bigs-padT10 {
         @include type-space(padding-top, .5, important);
     }
+
     .bigs-padB10 {
         @include type-space(padding-bottom, .5, important);
     }
+
     .bigs-padN {
         padding: 0 !important;
+    }
+
+    .whatever10-whatever {
+        color: #000;
     }
 }
 
@@ -112,15 +132,19 @@
 	.smalls-hide {
 		display: none !important;
 	}
+
 	.smalls-inline {
 		display: inline !important;
 	}
+
 	.smalls-table {
 		display: table !important;
 	}
+
 	.smalls-block {
 		display: block !important;
 	}
+
 	.smalls-inline-block {
 		display: inline-block !important;
 	}
@@ -128,15 +152,19 @@
     .smalls-padL10 {
     	@include type-space(padding-left, .5, important);
     }
+
     .smalls-padR10 {
         @include type-space(padding-right, .5, important);
     }
+
     .smalls-padT10 {
         @include type-space(padding-top, .5, important);
     }
+
     .smalls-padB10 {
         @include type-space(padding-bottom, .5, important);
     }
+
     .smalls-padN {
         padding: 0 !important;
     }
@@ -147,35 +175,45 @@
     .bigs-hide {
 		display: none !important;
 	}
+
 	.bigs-inline {
 		display: inline !important;
 	}
+
 	.bigs-table {
 		display: table !important;
 	}
+
 	.bigs-block {
 		display: block !important;
 	}
+
 	.bigs-inline-block {
 		display: inline-block !important;
         *display: inline !important; /* IE 7 fix */
         *zoom: 1;
 	}
+
     .bigs-hide {
     	display: none !important;
     }
+
     .bigs-padL10 {
     	padding-left: $grid-gutter/2 !important;
     }
+
     .bigs-padR10 {
         padding-right: $grid-gutter/2 !important;
     }
+
     .bigs-padT10 {
         padding-top: $grid-gutter/2 !important;
     }
+
     .bigs-padB10 {
         padding-bottom: $grid-gutter/2 !important;
     }
+
     .bigs-padN {
         padding: 0 !important;
     }

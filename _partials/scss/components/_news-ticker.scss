@@ -5,16 +5,8 @@
 
 .newsTicker-head {
 	display: table-cell;
-	vertical-align: middle;
-	color: #fff;
-	font-family: $font-condensed;
-	@include type-scale(font-size, 1.3, 15px);
-	line-height: 1;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	white-space: nowrap;
-	padding: 0 .35em;
 	border-radius: 5px 0 0 5px;
+	padding: 0 .35em;
 	background-color: $badger-red;
 	background-image: linear-gradient(
 		to bottom,
@@ -22,20 +14,28 @@
 		rgba(#fff, .3) 1.5px,
 		transparent 40%
 	);
+	vertical-align: middle;
+	color: #fff;
+	line-height: 1;
+	letter-spacing: .05em;
+	white-space: nowrap;
+	@include type-scale(font-size, 1.3, 15px);
+	font-family: $font-condensed;
+	text-transform: uppercase;
 }
 
 .newsTicker-body {
-	width: 100%;
 	display: table-cell;
-	vertical-align: middle;
-	padding: .5em .75em;
-	padding-right: 6em;
-	background-color: $smph-tan;
+	position: relative;
 	border: solid $smph-tan-dark;
 	border-width: 1px 1px 1px 0;
 	border-radius: 0 5px 5px 0;
+	padding: .5em .75em;
+	padding-right: 6em;
+	width: 100%;
 	overflow: hidden;
-	position: relative;
+	background-color: $smph-tan;
+	vertical-align: middle;
 
 	@include media-query('smalls') {
 		padding-right: 1em;
@@ -52,11 +52,11 @@
 .newsTicker-foot {
 	position: absolute;
 	right: 1em;
+	z-index: 1;
 	min-width: 6em;
 	overflow: hidden;
-	text-align: center;
 	background-color: $smph-tan;
-	z-index: 1;
+	text-align: center;
 
 	@include media-query('smalls') {
 		display: none;

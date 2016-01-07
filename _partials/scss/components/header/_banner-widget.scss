@@ -25,10 +25,10 @@
 }
 
 .banner-display img {
-	@include shadow(1, inset);
-	width: 100%;
 	position: relative;
 	z-index: -1;
+	width: 100%;
+	@include shadow(1, inset);
 }
 
 .banner-caption {
@@ -36,20 +36,20 @@
 	bottom: 0;
 	z-index: 2;
 	@include type-space(padding-top, .5);
-	@include type-space(padding-bottom, 1);
 	@include type-space(padding-right, 2);
+	@include type-space(padding-bottom, 1);
 	padding-left: 135px;
 	@include type-space(margin-bottom, 1.5);
-	background-color: $smph-slate;
-	background-color: rgba($smph-slate, 0.925);
 	max-width: 65%;
+	background-color: $smph-slate;
+	background-color: rgba($smph-slate, .925);
 
 	@include media-query('smalls') {
-		background-color: $smph-slate;
 		position: relative;
+		margin-bottom: 0;
 		@include type-space((padding-left, padding-right), .75);
 		max-width: none;
-		margin-bottom: 0;
+		background-color: $smph-slate;
 	}
 }
 
@@ -61,74 +61,74 @@
 }
 
 .capt a {
-	font-size: 1.1em;
-	line-height: 1.5;
 	color: #fff;
+	line-height: 1.5;
+	font-size: 1.1em;
 	text-decoration: none;
 }
 
 .capt-title {
-	color: $smph-tan;
 	display: block;
+	color: $smph-tan;
+	line-height: 1.2;
 	font-family: $font-serif;
 	@include rems(font-size, 28px);
-	line-height: 1.2;
 }
 
 .capt-more {
 	display: block;
+	color: mix(#fff, $badger-red, 40%);
 	font-weight: bold;
-	color: mix(white, $badger-red, 40%);
 	text-decoration: underline;
 }
 
 .banner-nav {
-	width: 120px;
+	position: absolute;
 	top: 5px;
 	bottom: 0;
-	position: absolute;
 	left: -10px;
 	z-index: 2;
-	font-size: 12px;
+	width: 120px;
 	color: #010101;
-	letter-spacing:.5;
+	letter-spacing: .5;
+	font-size: 12px;
 
 	@include media-query('smalls') {
-		position: static;
 		display: table;
+		position: static;
 		width: 100%;
 	}
 }
 
 .banner-nav-item {
 	position: relative;
-	height: 25%;
-	width: 25%; /* fallbacks - width and height is assigned via JS */
-	cursor: pointer;
 	left: -30px;
+	width: 25%; /* fallbacks - width and height is assigned via JS */
+	height: 25%;
+	cursor: pointer;
 	transition: all 100ms;
 
 	@include media-query('smalls') {
-		height: 65px !important;
 		display: table-cell;
 		position: static;
+		height: 65px !important;
 	}
 }
 
 .banner-nav-item-text {
 	@extend %border-box;
-	font-size: 0;
-	background-size: cover;
-	width: 120px;
 	float: left;
-	height: 90%;
 	border: 4px solid #fff;
+	width: 120px;
+	height: 90%;
+	background-size: cover;
+	font-size: 0;
 	@include shadow(1.25);
 
 	@include media-query('smalls') {
-		box-shadow: none;
-		width: 100%;
 		border-color: $smph-tan;
+		width: 100%;
+		box-shadow: none;
 	}
 }
 
@@ -136,7 +136,7 @@
 	left: -15px;
 }
 
-.banner-nav [class*="active"] {
+.banner-nav [class*='active'] {
 	left: -8px;
 	cursor: default;
 

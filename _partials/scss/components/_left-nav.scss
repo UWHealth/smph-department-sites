@@ -1,7 +1,7 @@
 .leftNav {
-	display: inline-block;
 	@extend %three_elevenths;
 	@extend %smalls_one_whole;
+	display: inline-block;
 	@include type-space(padding-bottom, 2);
 }
 
@@ -10,33 +10,33 @@
 
 	@include media-query('smalls') {
 		display: flex;
-		align-items: top;
-		justify-content: space-between;
-		flex-wrap: wrap;
 		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: top;
 	}
 }
 
 .leftNav-items > li {
+	margin: 0;
 	border-bottom: 1px solid $smph-tan-dark;
 	padding: 0;
-	margin: 0;
 
 	@include media-query('smalls') {
 		display: inline-block;
 		display: flex;
+		flex: 2 1 32.5%;
 		flex-direction: column;
 		flex-wrap: nowrap;
 		align-items: center;
-		flex: 2 1 32.5%;
+		margin-bottom: -1px;
+		border-top: 1px solid $smph-tan-dark;
+		max-width: 32.5%;
+		min-height: 44px;
 		overflow: hidden;
+		text-overflow: ellipsis;
 		word-wrap: break-word;
 		overflow-wrap: break-word;
-		text-overflow: ellipsis;
-		max-width: 32.5%;
-		border-top: 1px solid $smph-tan-dark;
-		margin-bottom: -1px;
-		min-height: 44px;
 	}
 
 	@include media-query('small') {
@@ -50,26 +50,26 @@
 }
 
 .leftNav-items a {
+	@extend %border-box;
 	padding: .9em .25em;
 	font-weight: bold;
 	@include type-scale(font-size, 1.1, 13px);
-	@extend %border-box;
 
 	&:hover,
 	&:focus {
-		color: lighten($badger-red, 2%);
 		background-color: lighten($smph-tan, 8%);
+		color: lighten($badger-red, 2%);
 	}
 
 	&:active {
-		color: darken($badger-red, 3%);
 		background-color: lighten($smph-tan, 5%);
+		color: darken($badger-red, 3%);
 	}
 
-	@include media-query('smalls'){
+	@include media-query('smalls') {
+		flex-grow: 1;
 		width: 100%;
 		min-height: 100%;
-		flex-grow: 1;
 	}
 }
 

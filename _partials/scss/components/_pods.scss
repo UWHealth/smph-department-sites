@@ -1,18 +1,15 @@
 .primaryPod {
+	@extend %border-box;
 	clear: both;
-	overflow: auto;
 	border-radius: 4px;
-	box-sizing: border-box;
-	box-shadow: 0 2px 2px -1px rgba(darken($uw-gold, 60%), .4);
+	overflow: auto;
 	@include type-space(margin-bottom, 1);
+	box-shadow: 0 2px 2px -1px rgba(darken($uw-gold, 60%), .4);
 }
 
 .primaryPod-head {
-	color: #fff;
-	font-family: $font-condensed;
-	@include type-scale(font-size, 1.3, 15px);
-	text-transform: uppercase;
-	letter-spacing: .05em;
+	border-radius: 4px 4px 0 0;
+	padding: .65em .5em;
 	background-color: $badger-red;
 	background-image: linear-gradient(
 		to bottom,
@@ -20,15 +17,18 @@
 		rgba(#fff, .3) 1.5px,
 		transparent 40%
 	);
-	padding: .65em .5em;
-	border-radius: 4px 4px 0 0;
+	color: #fff;
+	letter-spacing: .05em;
+	font-family: $font-condensed;
+	text-transform: uppercase;
+	@include type-scale(font-size, 1.3, 15px);
 }
 
 .primaryPod-body {
-	@include type-space(padding, 1 .5 1.5);
 	margin: 0;
-	list-style: none;
 	background-color: $smph-tan;
+	@include type-space(padding, 1 .5 1.5);
+	list-style: none;
 }
 
 .primaryPod p {
@@ -46,21 +46,20 @@
 
 .rightPod {
 	@extend %border-box;
-	float: right;
-	min-width: 189px;
 	@extend %one_third;
+	float: right;
 	@include type-space(margin, 0 0 1 .5);
-	@include type-scale(padding, 1, 12px);
 	border: 1px solid $smph-tan-dark;
+	@include type-scale(padding, 1, 12px);
+	min-width: 189px;
 
 	@include media-query('max-width' 330px) {
-		width: 100%;
 		float: none;
-		margin-left: auto;
 		margin-right: auto;
+		margin-left: auto;
+		width: 100%;
 		min-width: none;
 	}
-
 }
 
 .rightPod p,
@@ -69,6 +68,6 @@
 }
 
 .rightPod ul {
-	list-style: none;
 	margin: 0;
+	list-style: none;
 }

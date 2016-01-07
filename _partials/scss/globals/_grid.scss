@@ -3,11 +3,21 @@
 //========================================================
 // Creates classes or silent classes for the grid
 
-$grid-push-type: 			if($grid-margin-adjustments, unquote('margin-left'), unquote('left'));
-$grid-pull-type: 			if($grid-margin-adjustments, unquote('margin-left'), unquote('right'));
-$grid-pulls: 				if($grid-margin-adjustments, unquote(''), unquote('-'));
+$grid-push-type: 			if($grid-margin-adjustments,
+                                unquote('margin-left'), unquote('left')
+                            );
 
-$grid-class-type:           if($grid-silent-classes, unquote("%"), unquote("."));
+$grid-pull-type: 			if($grid-margin-adjustments,
+                                unquote('margin-left'), unquote('right')
+                            );
+
+$grid-pulls: 				if($grid-margin-adjustments,
+                                unquote(''), unquote('-')
+                            );
+
+$grid-class-type:           if($grid-silent-classes,
+                                unquote("%"), unquote(".")
+                            );
 
 //Grid class words
 $human-readable-numerators: one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty;

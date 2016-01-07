@@ -11,12 +11,12 @@
  */
 .wrapper {
 	@extend %border_box;
-	max-width: $site-width;
 	margin: 0 auto;
+	max-width: $site-width;
 }
 
 /* Fixed width for non-responsive browsers */
-.lt-ie9 .wrapper{
+.lt-ie9 .wrapper {
 	width: $site-width;
 }
 
@@ -80,7 +80,7 @@
 	}
 }
 
-.media-spaced > .media-body{
+.media-spaced > .media-body {
 	@include type-space(margin-left, 1);
 }
 

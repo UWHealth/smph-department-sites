@@ -3,51 +3,54 @@
 }
 
 .skipToContent:focus {
-	position: absolute !important;
-	left: 0;
-	top: 0;
-	background-color: #fff;
-	@include type-space(padding, 2);
 	display: block !important;
+	position: absolute !important;
+	top: 0;
+	left: 0;
+	@include type-space(padding, 2);
+	background-color: #fff;
 }
 
 /* Site header and "Utility" navigation */
 .top {
-	border-top: 1px solid #f0f0f0;
-	background-color: rgba(248,248,248, 1);
-	background-image: linear-gradient(to bottom,
-		#fff 60%, #f2f2f2 90%,
-		#c0c0c0 100%);
-	@include type-space(padding, 1 1 0);
 	position: relative;
 	z-index: 3;
+	border-top: 1px solid #f0f0f0;
+	background-color: rgba(#f9f9f9, 1);
+	background-image: linear-gradient(to bottom,
+		#fff 60%,
+		#f2f2f2 90%,
+		#c0c0c0 100%
+	);
+	@include type-space(padding, 1 1 0);
 
 	@include media-query('smalls') {
-		box-shadow: 0px 1px 4px rgba(#000, .2);
+		box-shadow: 0 1px 4px rgba(#000, .2);
 	}
+
 }
 
 /* links to uwhealth.org and med.wisc.edu */
 .topLinks {
+	position: relative;
 	width: 100%;
 	text-align: right;
-	position: relative;
 	@include type-space(padding, .25 1 .5);
 	@include type-space(margin, -1 0 -.5 -1);
 
-	@include media-query('small'){
-		text-align: center;
+	@include media-query('small') {
 		@include type-space(margin-bottom, .75);
 		background-color: #eee;
+		text-align: center;
 	}
 }
 
 .topLinks a {
-	@include type-scale(font-size, 1, 12px);
-	text-decoration: none;
-	line-height: 2;
 	display: inline-block;
 	padding-left: 23px;
+	@include type-scale(font-size, 1, 12px);
+	line-height: 2;
+	text-decoration: none;
 
 	&:focus {
 		text-decoration: underline;
@@ -55,12 +58,12 @@
 }
 
 .smphLink {
-	background:url(../images/topLink_smph.png) left center no-repeat;
+	background: url('../images/topLink_smph.png') left center no-repeat;
 	@include type-space(margin-left, .5);
 }
 
 .uwhcLink {
-	background:url(../images/topLink_uwhealth.png) left center no-repeat;
+	background: url('../images/topLink_uwhealth.png') left center no-repeat;
 }
 
 /* Main logo */
@@ -68,21 +71,21 @@
 /* Uses relative font sizing to scale items together   */
 .logo {
 	@include type-scale(font-size, 2.9, 34px);
-	line-height: 1;
-	text-decoration: none;
 	position: relative;
 	top: .2em;
 	left: -5px;
 	z-index: 1;
+	line-height: 1;
+	text-decoration: none;
 
 	&:hover,
 	&:focus {
-		opacity: 0.8;
+		opacity: .8;
 	}
 
 	@include media-query('smalls') {
-		left: -1%;
 		top: 0;
+		left: -1%;
 		font-size: 2.54em;
 		@include type-space(margin, .5 0);
 	}
@@ -104,10 +107,10 @@
 
 .logo-crest-media {
 	display: block;
-	max-width: 2em;
-	height: auto;
 	position: relative;
 	top: -.05em; //optical alignment
+	max-width: 2em;
+	height: auto;
 
 	@include media-query(max-width 330px) {
 		max-width: 2.15em;
@@ -119,22 +122,22 @@
 	margin: 0;
 	padding-left: .4em;
 	color: $badger-red;
+	letter-spacing: 1px;
 	font-family: Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, serif;
 	font-size: 1em;
 	font-weight: normal;
-	letter-spacing: 1px;
 }
 
 .logo-type-addon {
-	text-indent: 0;
 	display: block;
-	text-transform: uppercase;
 	font-size: .34375em; //relative font-size to the base logo
+	text-indent: 0;
+	text-transform: uppercase;
 }
 
 .logo-type-top {
-	font-weight: bold;
 	letter-spacing: .5px;
+	font-weight: bold;
 }
 
 .logo-type-bottom {
@@ -146,46 +149,51 @@
 
 /* "Utility" Navigation, sits below logo */
 .top-nav {
+	border-top: 1px solid #fff;
 	width: 100%;
+	background-color: rgba(#fff, .65);
 	text-align: right;
 	@include type-space(padding, 0 1);
 	@include type-space(margin-left, -1);
-	border-top: 1px solid #fff;
-	background-color: rgba(white, .65);
 }
 
 .top-nav li a {
-	font-weight: bold;
 	color: $smph-copper;
+	font-weight: bold;
 	@include type-scale(padding, 1 .35, 15px);
 	@include type-scale(font-size, 1, 12px);
 
 	&:hover {
 		color: $badger-red;
 	}
+
 	&:active {
 		color: darken($color-main-nav, 5%);
 	}
+
 	&:focus {
 		text-decoration: underline;
 	}
 }
 
 @include media-query('smalls') {
+
+	$color-light-nav: lighten($color-main-nav, 10%);
+
 	.top-nav {
-		box-shadow: inset 0 3px 4px rgba(#000, .2);
+		border-bottom: 1px solid rgba($color-light-nav, .3);
 		background-color: $color-main-nav;
-		border-bottom: 1px solid rgba(lighten($color-main-nav, 10%), 0.3);
 		text-align: center;
+		box-shadow: inset 0 3px 4px rgba(#000, .2);
 	}
 
 	.top-nav-items {
-		border-top: 1px solid rgba(darken($color-main-nav, 10%), 0.5);
+		display: none;
+		border-top: 1px solid rgba($color-light-nav, .5);
 		width: 100%;
 		@include type-space(padding, 0 1);
 		@include type-space(margin-left, -1);
 		@include type-space(margin-top, .5);
-		display: none;
 
 		&.active {
 			display: table;
@@ -206,7 +214,7 @@
 		word-break: break-word;
 
 		&:hover {
-			background-color: rgba(white, 0.2);
+			background-color: rgba(#fff, .2);
 		}
 
 		&:active {
@@ -218,51 +226,51 @@
 /* Mobile-only buttons for toggling nav and search */
 .top-nav-buttons {
 	@include type-space(padding, .5 0);
-	letter-spacing: -0.4em;
+	letter-spacing: -.4em;
 	white-space: nowrap;
 }
 
 .top-nav-button {
 	@extend %border-box;
-	font-family: $font-condensed;
-	text-transform: uppercase;
-	font-size: 14px;
-	line-height: 1;
-	letter-spacing: 0.06em;
-	font-weight: normal;
-	padding: .9em 1.5%;
-	margin: 0 4%;
-	text-decoration: none;
-	color: rgba(#fff, 0.9);
 	display: inline-block;
-	background: transparent;
-	border: 2px solid rgba(#fff, 0.35);
+	position: relative;
+	margin: 0 4%;
+	border: 2px solid rgba(#fff, .35);
 	border-radius: 4px;
+	padding: .9em 1.5%;
 	width: 45%;
 	max-width: 130px;
-	position: relative;
-	box-shadow: inset 0 15px 0 rgba(#fff, 0.1);
+	background: transparent;
+	color: rgba(#fff, .9);
+	line-height: 1;
+	letter-spacing: .06em;
+	font-family: $font-condensed;
+	font-size: 14px;
+	font-weight: normal;
+	text-transform: uppercase;
+	text-decoration: none;
+	box-shadow: inset 0 15px 0 rgba(#fff, .1);
 	transition: box-shadow .1s ease-out;
 
 	&:hover,
 	&:focus {
-		color: #fff;
 		outline: none;
-    	background-color: rgba(#fff, 0.15);
-		box-shadow: inset 0 13px 3px -1px rgba(#fff, 0.15),
-			0 2px 3px -1px rgba(#000, 0.2),
-			0 4px 4px 0px rgba(#000, 0.1);
+		background-color: rgba(#fff, .15);
+		color: #fff;
+		box-shadow: inset 0 13px 3px -1px rgba(#fff, .15),
+			0 2px 3px -1px rgba(#000, .2),
+			0 4px 4px 0 rgba(#000, .1);
 	}
 
-	&[aria-expanded="true"],
+	&[aria-expanded='true'],
 	&:active {
-		color: rgba(#fff, 0.5);
-		background-color: darken($color-main-nav, 5%);
 		border-color: lighten($color-main-nav, 1%);
-		box-shadow: inset 0 10px 10px rgba($smph-slate, 0.2);
+		background-color: darken($color-main-nav, 5%);
+		color: rgba(#fff, .5);
+		box-shadow: inset 0 10px 10px rgba($smph-slate, .2);
 	}
 
-	@include media-query('small'){
+	@include media-query('small') {
 		margin: 0 2.5%;
 	}
 }
@@ -279,35 +287,37 @@
  * SVG or icon-fonts create blurred edges when scaled
  */
 .icon-menu {
+	position: absolute;
+	top: 1.15em;
+	margin-top: .55em;
+	margin-bottom: .55em;
+	color: currentColor;
 	font-size: percentage(10/14);
-    color: currentColor;
-    position: relative;
-    margin-top: .55em;
-    margin-bottom: .55em;
-    user-select: none;
-    position: absolute;
-    top: 1.15em;
+	user-select: none;
 }
 
 .icon-menu,
 .icon-menu:before,
 .icon-menu:after {
 	display: block;
+	border-radius: 1px;
 	width: 2em;
 	height: .3em;
 	background-color: currentColor;
-	border-radius: 1px;
 	transition-property: background-color, transform;
-	transition-duration: 0.3s;
+	transition-duration: .3s;
 }
+
 .icon-menu:before,
 .icon-menu:after {
-  position: absolute;
-  content: "";
+	content: '';
+	position: absolute;
 }
+
 .icon-menu:before {
   top: -.55em;
 }
+
 .icon-menu:after {
   top: .6em;
 }

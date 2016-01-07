@@ -3,10 +3,10 @@
 //========================================================
 
 html {
+	font-size: percentage($type-font-size / 16);
 	-ms-overflow-style: -ms-autohiding-scrollbar; /* Edge 12+, Internet Explorer 11- */
 	overflow-y: scroll; /* All browsers without overlaying scrollbars */
 	-webkit-text-size-adjust: 100%;
-	font-size: percentage($type-font-size / 16);
 
 	@include media-query('smalls') {
 		font-size: percentage(11.25 / 16);
@@ -14,14 +14,14 @@ html {
 }
 
 a {
+	outline: none; /* FireFox link outline fix */
 	color: $badger-red;
 	text-decoration: underline;
-	outline: none; /* FireFox link outline fix */
 
 	&:hover,
 	&:focus {
-		text-decoration: none;
 		color: lighten($badger-red, 8%);
+		text-decoration: none;
 	}
 
 	&:active {
@@ -37,11 +37,11 @@ body {
 	margin: 0;
 	@include type-space(padding, 0 .5);
 	min-height: 100%; /* this is the key! */
-	font-family: Verdana, Helvetica, Arial, sans-serif;
-	@include rems(font-size, $base-font-size);
-	line-height: ($base-line-height / $base-font-size);
-	background: $color-main-bg url("../images/bg_pattern_honeycomb_2.png");
+	background: $color-main-bg url('../images/bg_pattern_honeycomb_2.png');
 	color: #000;
+	line-height: ($base-line-height / $base-font-size);
+	@include rems(font-size, $base-font-size);
+	font-family: Verdana, Helvetica, Arial, sans-serif;
 
 	@include media-query('small') {
 		padding: 0;
@@ -60,31 +60,31 @@ img {
 input,
 select,
 textarea {
-	-webkit-border-radius: 0; /* iOS 8+ */
-	border: 1px solid #999999;
-	font-family: Verdana, Helvetica, Arial, sans-serif;
-	font-size: 100%;
+	border: 1px solid #999;
 	vertical-align: middle;
-	@include type-space(padding, .25);
 	@include type-space(min-height, 1.25);
+	@include type-space(padding, .25);
+	font-family: $font-default;
+	font-size: 100%;
+	-webkit-border-radius: 0; /* iOS 8+ */
 }
 
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
 	-webkit-appearance: button;/* iOS 8+ */
 }
 
-input[type="number"] {
+input[type='number'] {
 	width: auto;/* Firefox 36+ */
 }
 
-input[type="search"] {
+input[type='search'] {
 	-webkit-appearance: textfield;/* Chrome 45+, Safari 9+ */
 }
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
 	-webkit-appearance: none;/* Chrome 45+, Safari 9+ */
 }
 
@@ -93,16 +93,16 @@ textarea {
 }
 
 label {
-	margin: 0;
-	font-weight: bold;
-	color: #444444;
 	display: inline-block;
+	margin: 0;
 	vertical-align: middle;
+	color: $smph-slate;
+	font-weight: bold;
 }
 
 select {
 	-moz-appearance: none;    /* Firefox 40+ */
-	-webkit-appearance: none /* Chrome 45+ */
+	-webkit-appearance: none; /* Chrome 45+ */
 }
 
 select::-ms-expand {

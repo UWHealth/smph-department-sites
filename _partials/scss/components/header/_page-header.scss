@@ -23,9 +23,9 @@
 }
 
 .banner {
+	overflow: hidden;
 	background-color: $smph-tan;
 	@include type-space(margin-bottom, 2);
-	overflow: hidden;
 	box-shadow: none;
 }
 
@@ -55,13 +55,13 @@
 }
 
 .banner-body:before {
-	content: "";
+	content: '';
+	display: inline-block;
 	/* Sets the height of the banner responsively; also allows vertical-alignment */
 	@include type-scale(height, 21, 235px);
-	width: 1px;
-	display: inline-block;
-	vertical-align: middle;
 	margin-left: -1em;
+	width: 1px;
+	vertical-align: middle;
 
 	@include media-query('small') {
 		margin-left: -1.5em;
@@ -74,27 +74,27 @@
 
 .bannerImg {
 	position: absolute;
-	right: 0;
 	top: 0;
+	right: 0;
 	z-index: -1;
-	height: 100%;
 	max-width: none;
+	height: 100%;
 
 	@include media-query('smalls') {
-		opacity: 0.1;
+		opacity: .1;
 	}
 }
 
 .banner-rev .bannerImg {
-	left: 0;
 	right: auto;
+	left: 0;
 }
 
 .banner-short .bannerImg {
-	height: auto;
-	min-height: 100%;
 	top: 50%;
 	transform: translateY(-50%);
+	height: auto;
+	min-height: 100%;
 }
 
 .lt-ie9 .banner-short .bannerImg {
@@ -103,13 +103,13 @@
 
 /* Banner text */
 .banner .sectionTitle {
-	letter-spacing: .35px;
-	direction: ltr;
+	display: inline-block;
 	min-width: 45%;
 	max-width: 55%;
-	display: inline-block;
 	vertical-align: middle;
-	text-shadow: 0 2px 0 rgba(#000, 0.1);
+	direction: ltr;
+	letter-spacing: .35px;
+	text-shadow: 0 2px 0 rgba(#000, .1);
 
 	@include media-query('smalls') {
 		max-width: none;
@@ -118,7 +118,7 @@
 
 .banner-dark .sectionTitle {
 	color: #fff;
-	text-shadow: 0 2px 0 rgba(#000, 0.25);
+	text-shadow: 0 2px 0 rgba(#000, .25);
 }
 
 .sectionTitle-indent {
@@ -138,13 +138,14 @@
 }
 
 .sectionTitle-sub {
+	display: block;
+	color: darken($smph-gold, 28%);
+	line-height: 1.5;
 	letter-spacing: 0;
 	font-family: $font-default;
 	font-size: .32em;
-	line-height: 1.5;
-	color: darken($smph-gold, 28%);
 	text-shadow: none;
-	display: block;
+
 	@include type-space(padding-top, .5);
 
 	@include media-query('smalls') {

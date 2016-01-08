@@ -125,6 +125,10 @@
 	}
 }
 
+.searchBox form {
+	position: relative;
+}
+
 .searchBox.active {
 	display: block;
 }
@@ -143,6 +147,10 @@
 	padding: 2px;
 	width: 100%;
 	@include type-scale(font-size, 1, 12px);
+
+	@include mq('smalls') {
+		@include type-space(padding, .25);
+	}
 }
 
 .googlite {
@@ -155,15 +163,17 @@
 
 .searchButton {
 	position: absolute;
-	right: 0;
-	bottom: 0;
+	bottom: -3px;
+	@include rems(right, -10px);
 	border: 0;
-	@include rems(padding, 10px $grid-gutter 12px 10px);
+	@include rems(padding, 3px $grid-gutter 3px 5px);
 	width: auto;
+	height: 100%;
 	/*Ensure active state keeps background color*/
 	background-color: $color-main-nav !important;
 
-	@include media-query('lap') {
-		@include type-space(padding-bottom, 1.2);
+	@include media-query('smalls') {
+		@include rems(right, -$grid-gutter);
+		@include rems(padding-left, ($grid-gutter/2));
 	}
 }

@@ -9,11 +9,11 @@
 @import 'promos';
 @import 'pods';
 @import 'forms';
-
-//Specific page sections
-@import 'header/top-nav';
-@import 'header/main-nav';
 @import 'header/page-header';
 @import 'header/banner-widget';
 @import 'news-ticker';
+
+//Specific page sections
+@import 'header/top-nav';
+@import 'header/nav-bar';
 @import 'footer';

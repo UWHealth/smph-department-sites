@@ -24,11 +24,21 @@
 	}
 }
 
+/* Necessary for over-hanging navbar shadow */
+.banner-display:before {
+	content: '';
+	display: block;
+	position: absolute;
+	z-index: 2;
+	width: 100%;
+	height: 32px;
+	@include shadow(1, inset);
+}
+
 .banner-display img {
 	position: relative;
 	z-index: -1;
 	width: 100%;
-	@include shadow(1, inset);
 }
 
 .banner-caption {

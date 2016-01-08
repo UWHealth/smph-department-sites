@@ -69,7 +69,25 @@ var BROWSER_SYNC_WATCH = [
 /******** Gulp Tasks **********/
 /******************************/
 
-/** File Watch **/
+
+/**------ Main Tasks --------**/
+
+/* Start local server and watch files for changes */
+gulp.task('serve', ['default', 'browserSync']);
+
+/** Compile and minify **/
+gulp.task('prod', ['default']);
+gulp.task('production', ['prod']);
+
+/* Default Task */
+// Gulp watching and processing without the local server
+// This task is called by others, but can be called on its own by just using `gulp`
+gulp.task('default', ['...', 'images', 'sass', 'js', 'kits', 'watch']);
+
+
+/**-- Single-purpose Tasks --**/
+
+/* File Watch */
 //Watch file paths for changes (as defined in the PATHS variable)
 gulp.task('watch', function(){
 	gulp.watch(	PATHS.scss.watch,   ['sass']);
@@ -78,7 +96,7 @@ gulp.task('watch', function(){
 	gulp.watch(	PATHS.images.watch, ['images']);
 });
 
-/** Browser-sync **/
+/* Browser-sync */
 //Spins up local http server
 // and syncs actions across browsers
 gulp.task('browserSync', function() {
@@ -90,7 +108,7 @@ gulp.task('browserSync', function() {
 		},
 		server: {
 			baseDir: ['./'],
-			directory: false
+			directory: false //true to provide folder navigation view
 		},
 		ghostMode: {
 			clicks: true,
@@ -98,13 +116,13 @@ gulp.task('browserSync', function() {
 			forms: true,
 			scroll: false
 		},
-		logPrefix: 'BrowserS',
+		logPrefix: 'Browser ',
 		scrollThrottle: 100,
-		open: false //True if you want the browser to automatically open
+		open: false //true if you want the browser to automatically open
 	});
 });
 
-/** Sass Processing **/
+/* Sass Processing */
 // Converts sass to CSS, minifies, and adds vendor prefixes where necessary
 gulp.task('sass', function() {
 
@@ -124,7 +142,7 @@ gulp.task('sass', function() {
 		.pipe(gulp.dest(PATHS.scss.dest));
 });
 
-/** Javascript Processing **/
+/* Javascript Processing */
 //Javascript concatenating, uglifying, minifying, and renaming
 gulp.task('js', function(){
 
@@ -151,7 +169,7 @@ gulp.task('js', function(){
 		.pipe(gulp.dest(PATHS.js.dest));
 });
 
-/** Kit Processing **/
+/* Kit Processing */
 //Compile .kit files into html
 gulp.task('kits', function(){
 
@@ -174,13 +192,12 @@ gulp.task('kits', function(){
 		.pipe(gulp.dest(PATHS.kits.dest));
 });
 
-/** Image Optimization **/
+/* Image Optimization */
 //Runs images through image-min and puts them into their destination folder
 gulp.task('images', function(){
 
 	return gulp.src(PATHS.images.watch)
 		.pipe(plumber({errorHandler: _error}))
-		.pipe(changed())
 		.pipe(imgmin({
 			progressive: true,
 			svgoPlugins:[
@@ -197,15 +214,11 @@ gulp.task('images', function(){
 			],
 			multipass: true
 		}))
+		.pipe(changed())
 		.pipe(gulp.dest(PATHS.images.dest));
 });
 
-/** Default Task **/
-// Gulp watching and processing without the local server
-// This task is called by others, but can be called on its own by just using `gulp`
-gulp.task('default', ['...', 'images', 'sass', 'js', 'kits', 'watch']);
-
-/** Friendly message task **/
+/** Friendly message **/
 gulp.task('...', function(){
 	console.log(
 		chalk.dim(' -------------------------------------') +
@@ -215,27 +228,20 @@ gulp.task('...', function(){
 	);
 });
 
-/** Start local server and watch files for changes **/
-gulp.task('serve', ['default', 'browserSync']);
-
-/** Compile and minify **/
-gulp.task('prod', ['default']);
-gulp.task('production', ['prod']);
-
 /******************************/
 /******** Private *************/
 /******************************/
 
-// Development variables
+/* Development variables */
 // Changed via gulp tasks, shouldn't be changed by user
 var
 	_sass_output = 'expanded',
 	_minify = false,
 	_indent_size = 2;
 
-/** Production variable switch **/
-// Tells gulp tasks to minify output correctly
 
+/* Production variable switch */
+// Tells gulp tasks to minify output correctly
 if(utility.env._[0] === 'prod' || utility.env._[0] === 'production') {
 	console.log('compressing all files');
 	//Change sass output to compressed
@@ -246,14 +252,8 @@ if(utility.env._[0] === 'prod' || utility.env._[0] === 'production') {
     _minify = true;
 }
 
-
-
-//Extracts filenames from a path
-function _filename(path) {
-	return path.substr(path.lastIndexOf('/') + 1);
-}
-
-//Error handler
+/* Error handler */
+// All errors get pushed here
 function _error(err) {
 
 	notify.onError({

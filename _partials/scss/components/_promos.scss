@@ -33,6 +33,10 @@
 	}
 }
 
+.promo-faded .promo-img {
+	opacity: .25;
+}
+
 .lt-ie9 .promo-img {
 	top: 0;
 }
@@ -82,12 +86,10 @@
 	max-width: 55%;
 	vertical-align: middle;
 	color: $badger-red;
-	letter-spacing: .025em;
 	white-space: normal;
 	@include type-space(padding, .35 .25);
-	@include rems(font-size, 18px);
+	@include rems(font-size, 20px);
 	font-family: $font-condensed;
-	text-transform: uppercase;
 	text-shadow: 0 2px 0 rgba(#000, .1);
 
 	@include media-query('smalls', 'lap') {

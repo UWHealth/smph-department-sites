@@ -1,0 +1,135 @@
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+    border: 0; /* 1 */
+    padding: 0; /* 2 */
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+input[type='text'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+input,
+select,
+textarea {
+    border-width: 1px;
+    border-style: solid;
+	border-color: #b9b3b3;
+    border-radius: 2px;
+	vertical-align: middle;
+	@include type-space(min-height, 1.25);
+	@include type-space(padding, .25);
+	font-family: $font-default;
+	font-size: 100%;
+	-webkit-border-radius: 2px; /* iOS 8+ */
+}
+
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+	-webkit-appearance: button;/* iOS 8+ */
+}
+
+input[type='number'] {
+	width: auto;/* Firefox 36+ */
+}
+
+input[type='search'] {
+	-webkit-appearance: textfield;/* Chrome 45+, Safari 9+ */
+}
+
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
+	-webkit-appearance: none;/* Chrome 45+, Safari 9+ */
+}
+
+textarea {
+	overflow: auto;
+	resize: vertical;
+}
+
+label {
+	display: inline-block;
+	margin: 0;
+	vertical-align: middle;
+	color: $smph-slate;
+	font-weight: bold;
+}
+
+select {
+    border-radius: 0;
+    padding: .25em 2em .25em .5em;
+    max-width: 100%;
+    background-color: #efefef;
+    -webkit-appearance: menulist-button;
+    -moz-appearance: menulist-button;
+}
+
+option {
+    font-size: inherit;
+}
+
+select::-ms-expand {
+	display: none;/* Edge 12+, Internet Explorer 11- */
+}
+
+select::-ms-value {
+	color: currentColor;/* Edge 12+, Internet Explorer 11- */
+}
+
+input[type='radio'] {
+	margin: 0 .35em 0 .5em;
+	padding: 0;
+	vertical-align: top;
+}
+
+input[type='checkbox'] {
+	margin: 0 .5em 0 .2em;
+	vertical-align: baseline;
+}
+
+button,
+[type='button'],
+input[type='submit'],
+.button {
+	@extend %border-box;
+	display: inline-block;
+	border: .1em solid darken($badger-red, 3%);
+	border-radius: 3px;
+	background: $badger-red;
+	cursor: pointer;
+	color: rgba(#fff, .9);
+	letter-spacing: .03em;
+	font-family: $font-condensed;
+	font-size: 1.2em;
+	box-shadow: inset 0 .9em 0 rgba(#fff, .15);
+
+	&:hover,
+	&:focus {
+		outline: none;
+		border-color: $badger-red;
+		background-color: lighten($badger-red, 5%);
+		box-shadow: inset 0 .7em 0 rgba(#fff, .2);
+	}
+
+	&:active {
+		border-color: lighten($badger-red, 1%);
+		background-color: darken($badger-red, 2%);
+		box-shadow: inset 0 .5em .6em rgba($smph-slate, .15),
+			inset 0 .5em 0 rgba(#fff, .1);
+	}
+
+	@include media-query('smalls') {
+		font-size: 1.5em;
+	}
+}

@@ -7,13 +7,7 @@
 	display: table-cell;
 	border-radius: 5px 0 0 5px;
 	padding: 0 .35em;
-	background-color: $badger-red;
-	background-image: linear-gradient(
-		to bottom,
-		rgba(#fff, .8),
-		rgba(#fff, .3) 1.5px,
-		transparent 40%
-	);
+	background: $color-pod-top url('../images/bg_grad-white.png') repeat-x top;
 	vertical-align: middle;
 	color: #fff;
 	line-height: 1;

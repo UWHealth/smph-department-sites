@@ -49,70 +49,117 @@ body {
 }
 
 p {
-	margin: 0;
+	@include type-space(margin, 0 0 1);
 	padding: 0;
 }
 
 img {
 	border: 0;
-}
-
-input,
-select,
-textarea {
-	border: 1px solid #999;
+	max-width: 100%;
 	vertical-align: middle;
-	@include type-space(min-height, 1.25);
-	@include type-space(padding, .25);
-	font-family: $font-default;
-	font-size: 100%;
-	-webkit-border-radius: 0; /* iOS 8+ */
 }
 
-input[type='button'],
-input[type='reset'],
-input[type='submit'] {
-	-webkit-appearance: button;/* iOS 8+ */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+	display: block;
 }
 
-input[type='number'] {
-	width: auto;/* Firefox 36+ */
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+	display: inline-block; /* 1 */
+	vertical-align: baseline; /* 2 */
 }
 
-input[type='search'] {
-	-webkit-appearance: textfield;/* Chrome 45+, Safari 9+ */
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
 }
 
-input[type='search']::-webkit-search-cancel-button,
-input[type='search']::-webkit-search-decoration {
-	-webkit-appearance: none;/* Chrome 45+, Safari 9+ */
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+	display: none;
 }
 
-textarea {
-	resize: vertical;
-}
 
-label {
-	display: inline-block;
-	margin: 0;
-	vertical-align: middle;
-	color: $smph-slate;
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
 	font-weight: bold;
 }
 
-select {
-	-moz-appearance: none;    /* Firefox 40+ */
-	-webkit-appearance: none; /* Chrome 45+ */
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+	font-style: italic;
 }
 
-select::-ms-expand {
-	display: none;/* Edge 12+, Internet Explorer 11- */
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+	position: relative;
+	vertical-align: baseline;
+	line-height: 0;
+	font-size: 75%;
 }
 
-select::-ms-value {
-	color: currentColor;/* Edge 12+, Internet Explorer 11- */
+sup {
+	top: -.5em;
 }
 
-img {
-	max-width: 100%;
+sub {
+	bottom: -.25em;
 }
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+

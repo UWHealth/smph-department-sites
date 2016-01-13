@@ -1,16 +1,22 @@
-.form-grid > .column {
-	@include type-space((padding-top, padding-bottom), .5);
-	vertical-align: middle;
-}
+/* Full-width form inputs
+ * Use on the wrapping parent of any form
+ * to make sure all input fields fill the entire width of their parent
+ */
 
-.form-grid input,
-.form-grid textarea,
-.form-grid select {
+.form-full input,
+.form-full textarea,
+.finfo-grid select {
 	@extend %border-box;
 	width: 100%;
 }
 
-#form_body {
+.form-full input[type='radio'],
+.form-full input[type='checkbox'],
+.form-full input[type="number"] {
+	width: auto;
+}
+
+.form-body {
 	@include type-space(margin, 0 0 2 0);
 	padding: 0;
 }

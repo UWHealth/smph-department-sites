@@ -206,10 +206,12 @@ rules:
 
             - 'font'
             - 'font-family'
+            - 'src'
             - 'font-size'
             - 'font-weight'
             - 'font-smoothing'
             - 'font-style'
+            - 'font-variant'
 
             - 'text-indent'
             - 'text-transform'

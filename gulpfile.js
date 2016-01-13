@@ -61,7 +61,7 @@ var BROWSER_SYNC_WATCH = [
 	'./style/*.css',
 	'./javascript/**/*.js',
 	'./*.html',
-	'./images/*.{png|}'
+	'./images/**/*.{png|jpg|jpeg|gif|svg}'
 ];
 
 

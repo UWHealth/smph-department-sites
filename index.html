@@ -19,6 +19,12 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon"> </head>
 
 <body>
+  <!--[if lt IE 9]>
+	<script>
+		//HTML 5 pollyfill
+		!function(a,b){function c(a,b){var c=a.createElement("p"),d=a.getElementsByTagName("head")[0]||a.documentElement;return c.innerHTML="x<style>"+b+"</style>",d.insertBefore(c.lastChild,d.firstChild)}function d(){var a=t.elements;return"string"==typeof a?a.split(" "):a}function e(a,b){var c=t.elements;"string"!=typeof c&&(c=c.join(" ")),"string"!=typeof a&&(a=a.join(" ")),t.elements=c+" "+a,j(b)}function f(a){var b=s[a[q]];return b||(b={},r++,a[q]=r,s[r]=b),b}function g(a,c,d){if(c||(c=b),l)return c.createElement(a);d||(d=f(c));var e;return e=d.cache[a]?d.cache[a].cloneNode():p.test(a)?(d.cache[a]=d.createElem(a)).cloneNode():d.createElem(a),!e.canHaveChildren||o.test(a)||e.tagUrn?e:d.frag.appendChild(e)}function h(a,c){if(a||(a=b),l)return a.createDocumentFragment();c=c||f(a);for(var e=c.frag.cloneNode(),g=0,h=d(),i=h.length;i>g;g++)e.createElement(h[g]);return e}function i(a,b){b.cache||(b.cache={},b.createElem=a.createElement,b.createFrag=a.createDocumentFragment,b.frag=b.createFrag()),a.createElement=function(c){return t.shivMethods?g(c,a,b):b.createElem(c)},a.createDocumentFragment=Function("h,f","return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&("+d().join().replace(/[\w\-:]+/g,function(a){return b.createElem(a),b.frag.createElement(a),'c("'+a+'")'})+");return n}")(t,b.frag)}function j(a){a||(a=b);var d=f(a);return!t.shivCSS||k||d.hasCSS||(d.hasCSS=!!c(a,"article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")),l||i(a,d),a}var k,l,m="3.7.3",n=a.html5||{},o=/^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i,p=/^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i,q="_html5shiv",r=0,s={};!function(){try{var a=b.createElement("a");a.innerHTML="<xyz></xyz>",k="hidden"in a,l=1==a.childNodes.length||function(){b.createElement("a");var a=b.createDocumentFragment();return"undefined"==typeof a.cloneNode||"undefined"==typeof a.createDocumentFragment||"undefined"==typeof a.createElement}()}catch(c){k=!0,l=!0}}();var t={elements:n.elements||"abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video",version:m,shivCSS:n.shivCSS!==!1,supportsUnknownElements:l,shivMethods:n.shivMethods!==!1,type:"default",shivDocument:j,createElement:g,createDocumentFragment:h,addElements:e};a.html5=t,j(b),"object"==typeof module&&module.exports&&(module.exports=t)}("undefined"!=typeof window?window:this,document);
+	</script>
+	<![endif]-->
   <!-- Print Logo (invisible) -->
   <div class="printLogo"> <img src="images/your_print_logo.gif" alt=""> </div>
   <!-- End Print Logo -->
@@ -85,7 +91,7 @@
       </div>
       <!-- End Search Box & Button -->
     </div>
-    <div class="//margin10 row">
+    <main class="//margin10 row" role="main">
       <!--<div id="navBarShadow"></div>-->
       <!--Page-header banner with dark background and text and image swapped-->
       <div id="//pageHeader" class="pageHeader banner banner-dark banner-rev">
@@ -106,9 +112,9 @@
         <div id="//leftNavContainer" class="leftNav column">
           <!-- Left Navigation List -->
           <ul class="leftNav-items list-nav">
-            <li><a href="home.html">Home Page</a></li>
+            <li class="hlnav"><a href="index.html">Section Home</a></li>
             <li><a href="landing.htm">Landing Page</a></li>
-            <li class="hlnav"><a href="destination.htm">Destination Page</a></li>
+            <li><a href="destination.htm">Destination Page</a></li>
             <li><a href="content.htm">Content Page</a></li>
           </ul>
           <!-- End Left Navigation List -->
@@ -118,10 +124,8 @@
             <div class="column bodyContent-article">
               <p>Aenean at eros orci, id varius nibh. Quisque lacinia lacinia tortor malesuada tempor. Integer sit amet mauris urna. Cras vel nibh cursus quam tempus tincidunt quis sit amet velit. Proin consequat urna non lectus tincidunt convallis. Nam
                 justo enim, porttitor nec interdum at, vehicula vitae dolor. Nam vel risus odio, at hendrerit libero.</p>
-              <p>&nbsp;</p>
               <p>Sed vel magna lectus, quis scelerisque massa. Duis interdum adipiscing ultricies. Etiam venenatis lacus in nulla auctor et cursus ipsum fringilla. Mauris id urna metus, a commodo eros. Aliquam mattis fermentum tellus, ac fermentum mi lacinia
                 ut. Nullam tincidunt lorem in mi feugiat luctus.</p>
-              <p>&nbsp;</p>
               <p>Aenean at eros orci, id varius nibh. Quisque lacinia lacinia tortor malesuada tempor. Integer sit amet mauris urna. Cras vel nibh cursus quam tempus tincidunt quis sit amet velit. Proin consequat urna non <a href="#">lectus tincidunt convalli</a>s.
                 Nam justo enim, porttitor nec interdum at, vehicula vitae dolor. Nam vel risus odio, at hendrerit libero. Vivamus interdum feugiat magna sed tristique:</p>
               <ul>
@@ -134,7 +138,6 @@
               </ul>
               <p>Sed vel magna lectus, quis scelerisque massa. Duis interdum adipiscing ultricies. Etiam venenatis lacus in nulla auctor et cursus ipsum fringilla. Mauris id urna metus, a commodo eros. Aliquam mattis fermentum tellus, ac fermentum mi lacinia
                 ut. Nullam tincidunt lorem in mi feugiat luctus..</p>
-              <p>&nbsp;</p>
               <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla facilisi. Nullam porta posuere tellus et feugiat. Sed molestie tempor elementum. Donec id consectetur ante. Phasellus pharetra porta fringilla.
                 Donec ultrices, eros blandit sagittis dapibus, lacus odio pellentesque quam, at faucibus metus mi ac turpis:</p>
               <ul>
@@ -143,25 +146,42 @@
                 <li>Quisque lacinia lacinia tortor malesuada tempor. Integer sit amet mauris urna. Cras vel nibh cursus quam tempus tincidunt quis sit amet velit</li>
                 <li>Nullam porta posuere tellus et feugiat. Sed molestie tempor elementum. Donec id consectetur ante.</li>
               </ul>
-              <div class="row form-grid">
-                <label class="column c-3" for="Name">Name:</label>
+              <form class="row info-grid form-full">
+                <label class="column c-3" for="name">Name</label>
                 <div class="column c-8">
-                  <input id="Name" name="Name" type="text" /> </div>
-                <label class="column c-3" for="Email">E-mail:</label>
+                  <input id="name" name="name" type="text" autocomplete="name" required> </div>
+                <label class="column c-3" for="email">E-mail</label>
                 <div class="column c-8">
-                  <input id="Email" name="Email" type="email" /> </div>
-                <label class="column c-3" for="Phone">Phone (optional):</label>
+                  <input id="email" name="email" type="email" autocomplete="email" required> </div>
+                <label class="column c-3" for="phone">Phone (optional)</label>
                 <div class="column c-8">
-                  <input id="Phone" name="Phone" type="telephone" /> </div>
-                <label class="column c-3" for="Message">Message:</label>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel"> </div>
+                <label class="column c-3" for="topic">Topic</label>
+                <div class="column c-8">
+                  <select name="topic" id="topic" required>
+                    <option value="lorem" selected>Lorem</option>
+                    <option value="ipsum">Ipsum</option>
+                    <option value="dolor">Dolor</option>
+                  </select>
+                </div>
+                <label class="column c-3" for="urgent">Urgent?</label>
+                <div class="column c-8">
+                  <input type="radio" name="urgent" value="no" checked id="Urgent">No
+                  <input type="radio" name="urgent" value="yes">Yes </div>
+                <label class="column c-3" for="quantity">Quantity (optional)</label>
+                <div class="column c-8">
+                  <input id="quantity" name="quantity" min="0" max="10" step="1" type="number"> </div>
+                <label class="column c-3" for="message">Message</label>
                 <div class="column c-8">
                   <p>Please include any information that will help us assist you, such as the URLs of specific pages.</p>
-                  <br>
-                  <textarea id="Message" rows="5" name="Message"></textarea>
+                  <textarea id="message" rows="5" name="Message"></textarea>
                 </div>
+                <label class="column c-8 p-3 smalls-p-0" for="reply">
+                  <input type="checkbox" id="reply" name="reply">I'd like a reply about this </label>
+                <br>
                 <div class="column c-8 p-3">
-                  <input id="_submit" name="_submit" size="30" type="submit" value="Submit" /> </div>
-              </div>
+                  <input id="_submit" name="_submit" type="submit" value="Submit" /> </div>
+              </form>
             </div>
             <div class="column bodyContent-aside">
               <div class="primaryPod">
@@ -177,7 +197,7 @@
               <div class="primaryPod">
                 <h2 class="primaryPod-head">Upcoming Seminars</h2>
                 <div class="primaryPod-body">
-                  <div class="row date-grid">
+                  <div class="row info-grid">
                     <div class="column c-4"> 8/26/2009 </div>
                     <div class='column c-7'><a href='#'>The Wisconsin WAHTER Study: A Community Intervention Trial to Estimate Illness Risk from Municipal Drinking Water</a></div>
                     <div class="column c-4"> 8/27/2009 </div>
@@ -215,82 +235,82 @@
         </div>
       </div>
       <!-- End Main Page Content Cotnainer -->
-    </div>
-    <!-- Footer -->
-    <div id="//footer" class="footer wrapper" role="navigation">
-      <div class="row">
-        <div class="footerColumn column">
-          <ul class="list-nav">
-            <li class="header"><a href="#">Education</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-          </ul>
-          <ul class="list-nav">
-            <li class="header"><a href="#">Research</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-          </ul>
-        </div>
-        <div class="footerColumn column">
-          <ul class="list-nav">
-            <li class="header"><a href="#">Specialties</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-          </ul>
-          <ul class="list-nav">
-            <li class="header"><a href="#">Patient Care</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-          </ul>
-        </div>
-        <div class="footerColumn column">
-          <ul class="list-nav">
-            <li class="header"><a href="#">Education</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-          </ul>
-          <ul class="list-nav">
-            <li class="header"><a href="#">Graduate Programs</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-          </ul>
-        </div>
-        <div class="footerColumn column">
-          <a href="http://www.wisc.edu" target="_blank" class="linkImage c-5" title="University of Wisconsin - Madison"> <img class="linkImage-logo" src="images/logo_uw_small.png" alt="UW Madison"> </a>
-          <a href="http://www.uwhealth.org/" target="_blank" class="linkImage c-5" title="UW Health"> <img class="linkImage-logo" src="images/logo_uwhealth_small.png" alt="UW Health"> </a>
-          <br class="clearFloat">
-          <ul class="list-nav">
-            <li class="header"><a href="#">Departments, Institutes and Centers</a></li>
-            <li class="header"><a href="#">Faculty Directory</a></li>
-            <li class="header"><a href="#">Contact Us</a></li>
-            <li class="header"><a href="#">For Faculty and Staff</a></li>
-          </ul>
-          <ul class="list-nav">
-            <li class="header"><a href="#">Our Campus</a></li>
-            <li><a href="#">Link Example</a></li>
-            <li><a href="#">Link Example</a></li>
-          </ul>
-        </div>
+  </div>
+  <!-- Footer -->
+  <div id="//footer" class="footer wrapper" role="navigation">
+    <div class="row">
+      <div class="footerColumn column">
+        <ul class="list-nav">
+          <li class="footer-head"><a href="#">Education</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+        </ul>
+        <ul class="list-nav">
+          <li class="footer-head"><a href="#">Research</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+        </ul>
       </div>
-      <div class="footerCopyright" role="contentinfo"> <span class="lastUpdated"> Last updated: 01/01/1900<br>
-  	<a href="mailto:support@yoursite.wisc.edu">suppoprt@yoursite.wisc.edu</a></span>Copyright &copy; 2016 The Board of Regents of the University of Wisconsin System</div>
+      <div class="footerColumn column">
+        <ul class="list-nav">
+          <li class="footer-head"><a href="#">Specialties</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+        </ul>
+        <ul class="list-nav">
+          <li class="footer-head"><a href="#">Patient Care</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+        </ul>
+      </div>
+      <div class="footerColumn column">
+        <ul class="list-nav">
+          <li class="footer-head"><a href="#">Education</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+        </ul>
+        <ul class="list-nav">
+          <li class="footer-head"><a href="#">Graduate Programs</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+        </ul>
+      </div>
+      <div class="footerColumn column">
+        <a href="http://www.wisc.edu" target="_blank" class="linkImage c-5" title="University of Wisconsin - Madison"> <img class="linkImage-logo" src="images/logo_uw_small.png" alt="UW Madison"> </a>
+        <a href="http://www.uwhealth.org/" target="_blank" class="linkImage c-5" title="UW Health"> <img class="linkImage-logo" src="images/logo_uwhealth_small.png" alt="UW Health"> </a>
+        <br class="clearFloat">
+        <ul class="list-nav">
+          <li class="footer-head"><a href="#">Departments, Institutes and Centers</a></li>
+          <li class="footer-head"><a href="#">Faculty Directory</a></li>
+          <li class="footer-head"><a href="#">Contact Us</a></li>
+          <li class="footer-head"><a href="#">For Faculty and Staff</a></li>
+        </ul>
+        <ul class="list-nav">
+          <li class="footer-head"><a href="#">Our Campus</a></li>
+          <li><a href="#">Link Example</a></li>
+          <li><a href="#">Link Example</a></li>
+        </ul>
+      </div>
     </div>
-    <!-- End Footer -->
+    <div class="footerCopyright" role="contentinfo"> <span class="lastUpdated"> Last updated: 01/01/1900<br>
+  	<a href="mailto:support@yoursite.wisc.edu">suppoprt@yoursite.wisc.edu</a></span>Copyright &copy; 2016 The Board of Regents of the University of Wisconsin System</div>
+  </div>
+  <!-- End Footer -->
   </div>
   </div>
   <!-- End Master Container -->

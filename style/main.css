@@ -6,6 +6,211 @@
   font-style: normal;
 }
 
+/* Icon Font
+ * Uncomment to include in your site
+/*
+
+@font-face {
+    font-family: 'smph-icon';
+    src: url('fonts/icon.eot');
+    src: url('fonts/icon.eot?#iefix') format('embedded-opentype'),
+         url('fonts/icon.woff') format('woff'),
+         url('fonts/icon.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Recommended icon font markup
+ * <span class="icon icon-error"></span>
+ * OR
+ * <span data-icon="&#xe000"></span>
+ * (converting a css unicode value to html requires replacing the \ with &#x )
+/*
+
+[data-icon]:before {
+    content: attr(data-icon);
+}
+
+.icon:before,
+[data-icon]:before {
+    display: inline;
+    vertical-align: baseline;
+    color: inherit;
+    letter-spacing: 0 !important;
+    direction: ltr;
+    font-family: 'smph-icon' !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    fill: inherit;
+    font-feature-setting: 'liga' on;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-error:before {
+    content: '\e000';
+}
+
+.icon-warn:before {
+    content: '\e001';
+}
+
+.icon-cancel:before {
+    content: '\e005';
+}
+
+.icon-external:before {
+    content: '\e007';
+}
+
+.icon-email:before {
+    content: '\e008';
+}
+
+.icon-phone:before {
+    content: '\e009';
+}
+
+.icon-mobile:before {
+    content: '\e00a';
+}
+
+.icon-x:before {
+    content: '\e00b';
+}
+
+.icon-plus:before {
+    content: '\e00c';
+}
+
+.icon-edit:before {
+    content: '\e00d';
+}
+
+.icon-down:before {
+    content: '\e00e';
+}
+
+.icon-left:before {
+    content: '\e00f';
+}
+
+.icon-right:before {
+    content: '\e010';
+}
+
+.icon-up:before {
+    content: '\e011';
+}
+
+.icon-desktop:before {
+    content: '\e012';
+}
+
+.icon-laptop:before {
+    content: '\e015';
+}
+
+.icon-rx:before {
+    content: '\e016';
+}
+
+.icon-camera:before {
+    content: '\e017';
+}
+
+.icon-location:before {
+    content: '\e018';
+}
+
+.icon-tri-down:before {
+    content: '\e019';
+}
+
+.icon-tri-up:before {
+    content: '\e01a';
+}
+
+.icon-building:before {
+    content: '\e01b';
+}
+
+.icon-car:before {
+    content: '\e01c';
+}
+
+.icon-updown:before {
+    content: '\e01d';
+}
+
+.icon-check:before {
+    content: '\e01e';
+}
+
+.icon-print:before {
+    content: '\e01f';
+}
+
+.icon-folder:before {
+    content: '\e020';
+}
+
+.icon-top:before {
+    content: '\e023';
+}
+
+.icon-bottom:before {
+    content: '\e024';
+}
+
+.icon-user:before {
+    content: '\e025';
+}
+
+.icon-download:before {
+    content: '\e026';
+}
+
+.icon-message:before {
+    content: '\e027';
+}
+
+.icon-education:before {
+    content: '\e028';
+}
+
+.icon-east:before {
+    content: '\e029';
+}
+
+.icon-west:before {
+content: '\e02a';
+}
+
+.icon-stop:before {
+    content: '\e02b';
+}
+
+.icon-people:before {
+    content: '\e02c';
+}
+
+.icon-menu:before {
+    content: '\e02d';
+}
+
+.icon-help:before {
+    content: '\e02e';
+}
+
+.icon-search:before {
+    content: '\e02f';
+}
+
+/**/
 html {
   font-size: 68.75%;
   -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -62,83 +267,113 @@ body {
 }
 
 p {
-  margin: 0;
+  margin: 0 0 13px;
+  margin: 0 0 1.18182rem;
   padding: 0;
 }
 
 img {
   border: 0;
-}
-
-input,
-select,
-textarea {
-  border: 1px solid #999;
+  max-width: 100%;
   vertical-align: middle;
-  min-height: 16.25px;
-  min-height: 1.47727rem;
-  padding: 3.25px;
-  padding: 0.29545rem;
-  font-family: Verdana, Helvetica, Arial, sans-serif;
-  font-size: 100%;
-  -webkit-border-radius: 0;
-  /* iOS 8+ */
 }
 
-input[type='button'],
-input[type='reset'],
-input[type='submit'] {
-  -webkit-appearance: button;
-  /* iOS 8+ */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
 }
 
-input[type='number'] {
-  width: auto;
-  /* Firefox 36+ */
-}
-
-input[type='search'] {
-  -webkit-appearance: textfield;
-  /* Chrome 45+, Safari 9+ */
-}
-
-input[type='search']::-webkit-search-cancel-button,
-input[type='search']::-webkit-search-decoration {
-  -webkit-appearance: none;
-  /* Chrome 45+, Safari 9+ */
-}
-
-textarea {
-  resize: vertical;
-}
-
-label {
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
   display: inline-block;
-  margin: 0;
-  vertical-align: middle;
-  color: #504b4e;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
   font-weight: bold;
 }
 
-select {
-  -moz-appearance: none;
-  /* Firefox 40+ */
-  -webkit-appearance: none;
-  /* Chrome 45+ */
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic;
 }
 
-select::-ms-expand {
-  display: none;
-  /* Edge 12+, Internet Explorer 11- */
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  position: relative;
+  vertical-align: baseline;
+  line-height: 0;
+  font-size: 75%;
 }
 
-select::-ms-value {
-  color: currentColor;
-  /* Edge 12+, Internet Explorer 11- */
+sup {
+  top: -.5em;
 }
 
-img {
-  max-width: 100%;
+sub {
+  bottom: -.25em;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
 }
 
 h1,
@@ -194,6 +429,172 @@ h6 a:hover {
   text-decoration: underline;
 }
 
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input[type='text'] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+input,
+select,
+textarea {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #b9b3b3;
+  -moz-border-radius: 2px;
+       border-radius: 2px;
+  vertical-align: middle;
+  min-height: 16.25px;
+  min-height: 1.47727rem;
+  padding: 3.25px;
+  padding: 0.29545rem;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  -webkit-border-radius: 2px;
+  /* iOS 8+ */
+}
+
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+  -webkit-appearance: button;
+  /* iOS 8+ */
+}
+
+input[type='number'] {
+  width: auto;
+  /* Firefox 36+ */
+}
+
+input[type='search'] {
+  -webkit-appearance: textfield;
+  /* Chrome 45+, Safari 9+ */
+}
+
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+  /* Chrome 45+, Safari 9+ */
+}
+
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+
+label {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+  color: #504b4e;
+  font-weight: bold;
+}
+
+select {
+  -moz-border-radius: 0;
+       border-radius: 0;
+  padding: .25em 2em .25em .5em;
+  max-width: 100%;
+  background-color: #efefef;
+  -webkit-appearance: menulist-button;
+  -moz-appearance: menulist-button;
+}
+
+option {
+  font-size: inherit;
+}
+
+select::-ms-expand {
+  display: none;
+  /* Edge 12+, Internet Explorer 11- */
+}
+
+select::-ms-value {
+  color: currentColor;
+  /* Edge 12+, Internet Explorer 11- */
+}
+
+input[type='radio'] {
+  margin: 0 .35em 0 .5em;
+  padding: 0;
+  vertical-align: top;
+}
+
+input[type='checkbox'] {
+  margin: 0 .5em 0 .2em;
+  vertical-align: baseline;
+}
+
+button,
+[type='button'],
+input[type='submit'],
+.button {
+  display: inline-block;
+  border: 0.1em solid #890c0d;
+  -moz-border-radius: 3px;
+       border-radius: 3px;
+  background: #970d0e;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: .03em;
+  font-family: "oswald", Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  -webkit-box-shadow: inset 0 0.9em 0 rgba(255, 255, 255, 0.15);
+     -moz-box-shadow: inset 0 0.9em 0 rgba(255, 255, 255, 0.15);
+          box-shadow: inset 0 0.9em 0 rgba(255, 255, 255, 0.15);
+}
+
+button:hover, button:focus,
+[type='button']:hover,
+[type='button']:focus,
+input[type='submit']:hover,
+input[type='submit']:focus,
+.button:hover,
+.button:focus {
+  outline: none;
+  border-color: #970d0e;
+  background-color: #ae0f10;
+  -webkit-box-shadow: inset 0 0.7em 0 rgba(255, 255, 255, 0.2);
+     -moz-box-shadow: inset 0 0.7em 0 rgba(255, 255, 255, 0.2);
+          box-shadow: inset 0 0.7em 0 rgba(255, 255, 255, 0.2);
+}
+
+button:active,
+[type='button']:active,
+input[type='submit']:active,
+.button:active {
+  border-color: #9c0d0e;
+  background-color: #8e0c0d;
+  -webkit-box-shadow: inset 0 0.5em 0.6em rgba(80, 75, 78, 0.15), inset 0 0.5em 0 rgba(255, 255, 255, 0.1);
+     -moz-box-shadow: inset 0 0.5em 0.6em rgba(80, 75, 78, 0.15), inset 0 0.5em 0 rgba(255, 255, 255, 0.1);
+          box-shadow: inset 0 0.5em 0.6em rgba(80, 75, 78, 0.15), inset 0 0.5em 0 rgba(255, 255, 255, 0.1);
+}
+
+@media only screen and (max-width: 674px) {
+  button,
+  [type='button'],
+  input[type='submit'],
+  .button {
+    font-size: 1.5em;
+  }
+}
+
 /* Responsive grid
  * While there may be many classes,
  * sever compression (gzip), which uses repetition as a means of compression,
@@ -231,12 +632,12 @@ h6 a:hover {
   vertical-align: middle;
 }
 
-.row-skinny, .date-grid {
+.row-skinny, .info-grid {
   margin-left: -9.5px;
   margin-left: -0.86364rem;
 }
 
-.row-skinny > .column, .date-grid > .column {
+.row-skinny > .column, .info-grid > .column {
   padding-left: 9.5px;
   padding-left: 0.86364rem;
 }
@@ -489,9 +890,12 @@ h6 a:hover {
   }
 }
 
-.row, .row-middle, .row-skinny, .columnRow, .column, .page, .imgMatte, .leftNav-items a, .promo-body, .primaryPod, .rightPod, .form-grid input,
-.form-grid textarea,
-.form-grid select, .banner-body, .banner-nav-item-text, .top-nav-button, .searchBox, .footer, .footerColumn, .footer .linkImage {
+button,
+[type='button'],
+input[type='submit'],
+.button, .row, .row-middle, .row-skinny, .columnRow, .column, .page, .imgMatte, .leftNav-items a, .promo-body, .primaryPod, .rightPod, .form-full input,
+.form-full textarea,
+.finfo-grid select, .banner-body, .banner-nav-item-text, .top-nav-button, .searchBox, .footer, .footerColumn, .footer .linkImage {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
@@ -612,6 +1016,32 @@ h6 a:hover {
 
 .arrange-fill {
   width: 100%;
+}
+
+/* Info Grid
+ * Useful as a wrapper for a grid of information where information is formatted as:
+ * Label    Information about
+ *			the label to the left
+ *
+ * Should be used in conjunction with .row and .column
+ */
+.info-grid > .column {
+  padding-bottom: 13px;
+  padding-bottom: 1.18182rem;
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: 674px) {
+  .info-grid > .column {
+    left: 0;
+    padding-bottom: 6.5px;
+    padding-bottom: 0.59091rem;
+    width: 100%;
+  }
+  .info-grid > .column:nth-child(2n+1) {
+    margin-top: 13px;
+    margin-top: 1.18182rem;
+  }
 }
 
 /* Images with a white and gray border,
@@ -832,6 +1262,10 @@ h6 a:hover {
   }
 }
 
+.promo-faded .promo-img {
+  opacity: .25;
+}
+
 .lt-ie9 .promo-img {
   top: 0;
 }
@@ -888,14 +1322,12 @@ h6 a:hover {
   max-width: 55%;
   vertical-align: middle;
   color: #970d0e;
-  letter-spacing: .025em;
   white-space: normal;
   padding: 4.55px 4.75px;
   padding: 0.41364rem 0.43182rem;
-  font-size: 18px;
-  font-size: 1.63636rem;
+  font-size: 20px;
+  font-size: 1.81818rem;
   font-family: "oswald", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -949,9 +1381,7 @@ h6 a:hover {
   -moz-border-radius: 4px 4px 0 0;
        border-radius: 4px 4px 0 0;
   padding: .65em .5em;
-  background-color: #970d0e;
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 1.5px, transparent 40%);
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 1.5px, transparent 40%);
+  background: #970d0e url("../images/bg_grad-white.png") repeat-x top;
   color: #fff;
   letter-spacing: .05em;
   font-family: "oswald", Helvetica, Arial, sans-serif;
@@ -971,12 +1401,6 @@ h6 a:hover {
 .primaryPod p {
   margin-bottom: 6.5px;
   margin-bottom: 0.59091rem;
-}
-
-.date-grid > .column {
-  padding-bottom: 13px;
-  padding-bottom: 1.18182rem;
-  vertical-align: middle;
 }
 
 .rightPod {
@@ -1010,21 +1434,23 @@ h6 a:hover {
   list-style: none;
 }
 
-.form-grid > .column {
-  padding-top: 6.5px;
-  padding-top: 0.59091rem;
-  padding-bottom: 6.5px;
-  padding-bottom: 0.59091rem;
-  vertical-align: middle;
-}
-
-.form-grid input,
-.form-grid textarea,
-.form-grid select {
+/* Full-width form inputs
+ * Use on the wrapping parent of any form
+ * to make sure all input fields fill the entire width of their parent
+ */
+.form-full input,
+.form-full textarea,
+.finfo-grid select {
   width: 100%;
 }
 
-#form_body {
+.form-full input[type='radio'],
+.form-full input[type='checkbox'],
+.form-full input[type="number"] {
+  width: auto;
+}
+
+.form-body {
   margin: 0 0 26px 0;
   margin: 0 0 2.36364rem 0;
   padding: 0;
@@ -1426,9 +1852,7 @@ h6 a:hover {
   -moz-border-radius: 5px 0 0 5px;
        border-radius: 5px 0 0 5px;
   padding: 0 .35em;
-  background-color: #970d0e;
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 1.5px, transparent 40%);
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3) 1.5px, transparent 40%);
+  background: #970d0e url("../images/bg_grad-white.png") repeat-x top;
   vertical-align: middle;
   color: #fff;
   line-height: 1;
@@ -1776,9 +2200,9 @@ h6 a:hover {
   border-color: #9c0d0e;
   background-color: #800b0c;
   color: rgba(255, 255, 255, 0.5);
-  -webkit-box-shadow: inset 0 10px 10px rgba(80, 75, 78, 0.2);
-     -moz-box-shadow: inset 0 10px 10px rgba(80, 75, 78, 0.2);
-          box-shadow: inset 0 10px 10px rgba(80, 75, 78, 0.2);
+  -webkit-box-shadow: inset 0 10px 10px rgba(80, 75, 78, 0.2), inset 0 -1.3em 1px rgba(255, 255, 255, 0.05);
+     -moz-box-shadow: inset 0 10px 10px rgba(80, 75, 78, 0.2), inset 0 -1.3em 1px rgba(255, 255, 255, 0.05);
+          box-shadow: inset 0 10px 10px rgba(80, 75, 78, 0.2), inset 0 -1.3em 1px rgba(255, 255, 255, 0.05);
 }
 
 @media only screen and (max-width: 460px) {
@@ -2014,7 +2438,7 @@ h6 a:hover {
 }
 
 #q {
-  border: 1px solid #800b0c;
+  border: 1px solid #c61112;
   padding: 2px;
   width: 100%;
   font-size: 11px;
@@ -2060,6 +2484,12 @@ h6 a:hover {
 }
 
 .footer {
+  position: relative;
+  top: 4px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -moz-border-radius: 0 0 5px 5px;
+       border-radius: 0 0 5px 5px;
   overflow: auto;
   padding: 6.5px 19px 13px;
   padding: 0.59091rem 1.72727rem 1.18182rem;
@@ -2079,12 +2509,21 @@ h6 a:hover {
   text-decoration: underline;
 }
 
-.footer .header a {
+.footer a:active {
+  color: #e1d8ba;
+}
+
+.footer-head a {
   border-bottom: 1px solid #d2bb6f;
   padding-top: 13px;
   padding-top: 1.18182rem;
   color: #fff;
   font-weight: bold;
+}
+
+.footer-head a:hover, .footer-head a:focus, .footer-head a:active {
+  border-bottom-color: currentColor;
+  text-decoration: none;
 }
 
 .footerColumn {
@@ -2119,16 +2558,14 @@ h6 a:hover {
   display: inline-block;
   position: relative;
   left: 3%;
-  border: 1px solid #d2d0c9;
-  border-top-color: #e9e8e4;
+  border: 1px solid #f0efed;
+  border-top-color: white;
   -moz-border-radius: 4px;
        border-radius: 4px;
   min-height: 46px;
-  background-color: #fff;
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(25%, #fff), color-stop(95%, #d2d0c9), to(#afab9f));
-  background-image: -webkit-linear-gradient(top, #fff 25%, #d2d0c9 95%, #afab9f 100%);
-  background-image: linear-gradient(to bottom, #fff 25%, #d2d0c9 95%, #afab9f 100%);
-  background-position-y: top;
+  background: #f0efed url("../images/bg_grad-white.png") repeat-x top left;
+  -webkit-background-size: auto 100%;
+          background-size: auto 100%;
   vertical-align: middle;
   text-align: center;
   color: #970d0e;
@@ -2145,6 +2582,7 @@ h6 a:hover {
 }
 
 .footer .linkImage:before {
+  /* Vertically centers images by creating a taller 'ghost' element */
   content: '';
   display: inline-block;
   margin-left: -.5em;
@@ -2164,19 +2602,20 @@ h6 a:hover {
   }
 }
 
-.footer .linkImage:first-child {
+.linkImage:first-child {
   left: 0;
 }
 
 .footer .linkImage:hover, .footer .linkImage:focus {
-  border-color: #d6d4ce;
+  border-color: #fff;
   border-top-color: #fff;
+  background-color: #fff;
   -webkit-background-size: 100% 110%;
           background-size: 100% 110%;
   text-decoration: none;
-  -webkit-box-shadow:  0 2.25px 4.5px 0.25px rgba(0, 0, 0, 0.1875);
-     -moz-box-shadow:  0 2.25px 4.5px 0.25px rgba(0, 0, 0, 0.1875);
-          box-shadow:  0 2.25px 4.5px 0.25px rgba(0, 0, 0, 0.1875);
+  -webkit-box-shadow: inset 0 -0.5em 3px rgba(0, 0, 0, 0.08), 0 2px 5px 0.25px rgba(0, 0, 0, 0.19);
+     -moz-box-shadow: inset 0 -0.5em 3px rgba(0, 0, 0, 0.08), 0 2px 5px 0.25px rgba(0, 0, 0, 0.19);
+          box-shadow: inset 0 -0.5em 3px rgba(0, 0, 0, 0.08), 0 2px 5px 0.25px rgba(0, 0, 0, 0.19);
 }
 
 .footer .linkImage:hover .linkImage-logo, .footer .linkImage:focus .linkImage-logo {
@@ -2184,10 +2623,11 @@ h6 a:hover {
 }
 
 .footer .linkImage:active {
-  border-color: #9b8331;
-  -webkit-box-shadow:  0 1.5px 3px 0.2px rgba(0, 0, 0, 0.125);
-     -moz-box-shadow:  0 1.5px 3px 0.2px rgba(0, 0, 0, 0.125);
-          box-shadow:  0 1.5px 3px 0.2px rgba(0, 0, 0, 0.125);
+  border-color: #fff;
+  background-color: #e6e5e2;
+  -webkit-box-shadow: inset 0 5px 5.5px -3.75px rgba(0, 0, 0, 0.35);
+     -moz-box-shadow: inset 0 5px 5.5px -3.75px rgba(0, 0, 0, 0.35);
+          box-shadow: inset 0 5px 5.5px -3.75px rgba(0, 0, 0, 0.35);
 }
 
 .linkImage-logo {

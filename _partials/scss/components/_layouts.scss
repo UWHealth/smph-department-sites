@@ -110,3 +110,30 @@
 .arrange-fill {
 	width: 100%;
 }
+
+/* Info Grid
+ * Useful as a wrapper for a grid of information where information is formatted as:
+ * Label    Information about
+ *			the label to the left
+ *
+ * Should be used in conjunction with .row and .column
+ */
+
+.info-grid {
+	@extend %grid_narrow;
+}
+
+.info-grid > .column {
+	@include type-space(padding-bottom, 1);
+	vertical-align: middle;
+
+	@include media-query('smalls') {
+		left: 0;
+		@include type-space(padding-bottom, .5);
+		width: 100%;
+
+		&:nth-child(2n+1) {
+			@include type-space(margin-top, 1);
+		}
+	}
+}

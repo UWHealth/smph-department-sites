@@ -1,9 +1,9 @@
 var gulp		 = require('gulp');
 var utility 	 = require('gulp-util');
 var autoprefixer = require('gulp-autoprefixer');
-var browserSync  = require('browser-sync');
+var browserSync  = require('browser-sync').create();
 var chalk        = utility.colors;
-var changed 	 = require('gulp-changed-in-place');
+var changed 	 = require('gulp-newer');
 var flatten 	 = require('gulp-flatten');
 var gIf 		 = require('gulp-if');
 var include 	 = require('gulp-include');
@@ -72,17 +72,22 @@ var BROWSER_SYNC_WATCH = [
 
 /**------ Main Tasks --------**/
 
-/* Start local server and watch files for changes */
-gulp.task('serve', ['default', 'browserSync']);
+/* gulp serve */
+/* Local server and file watcher */
+gulp.task('serve', ['...', 'watch', 'browserSync']);
 
-/** Compile and minify **/
+/* gulp prod */
+/* Compile and minify
+/* Function looks for this task, and turns on minification variables */
 gulp.task('prod', ['default']);
-gulp.task('production', ['prod']);
 
+/* gulp */
 /* Default Task */
-// Gulp watching and processing without the local server
-// This task is called by others, but can be called on its own by just using `gulp`
-gulp.task('default', ['...', 'images', 'sass', 'js', 'kits', 'watch']);
+/* Gulp processing without the local server or minification
+/* This task is called by others, but can be called on its own by just using `gulp`*/
+gulp.task('default', ['images', 'sass', 'js', 'kits'], function(){
+	_first_run = false;
+});
 
 
 /**-- Single-purpose Tasks --**/
@@ -138,8 +143,15 @@ gulp.task('sass', function() {
 		.pipe(autoprefixer({
 			browsers: AUTOPREFIXER_BROWSERS
 		}))
+		.pipe(gIf( _minify,
+			rename(function(path){
+				// Add .min to minified files
+				path.basename = path.basename + '.min';
+			})
+		))
 		.pipe(size({title: 'CSS', gzip: true, showFiles: true}))
-		.pipe(gulp.dest(PATHS.scss.dest));
+		.pipe(gulp.dest(PATHS.scss.dest))
+		.pipe(browserSync.stream({match: PATHS.scss.dest+'*.css'}));
 });
 
 /* Javascript Processing */
@@ -147,7 +159,7 @@ gulp.task('sass', function() {
 gulp.task('js', function(){
 
 	//Files beginning with an underscore shouldn't be processed on their own
-	var _js_src = PATHS.js.watch.concat(['!./_partials/**/_*.js']);
+	var _js_src = PATHS.js.watch.concat(['!./**/_*.js']);
 
 	return gulp.src(_js_src)
 		.pipe(plumber({errorHandler: _error}))
@@ -155,8 +167,9 @@ gulp.task('js', function(){
 		.pipe(gIf( _minify,
 			uglify({preserveComments: 'some'})
 		))
-		//Check if files are changed only if minification is not required
-		.pipe(gIf(! _minify, changed() ))
+		//On first run through, don't check for changes in files
+		// This makes sure new files are checked
+		.pipe(changed(PATHS.js.dest))
 		.pipe(gIf( _minify,
 			rename(function(path){
 				// Add .min to uglified files
@@ -174,7 +187,7 @@ gulp.task('js', function(){
 gulp.task('kits', function(){
 
 	//Files beginning with an underscore shouldn't be processed on their own
-	var _kits_src = PATHS.kits.watch.concat(['!./_partials/**/_*.kit']);
+	var _kits_src = PATHS.kits.watch.concat(['!./**/_*.kit']);
 
 	return gulp.src(_kits_src)
 		.pipe(plumber({errorHandler: _error}))
@@ -198,6 +211,7 @@ gulp.task('images', function(){
 
 	return gulp.src(PATHS.images.watch)
 		.pipe(plumber({errorHandler: _error}))
+		.pipe(changed(PATHS.images.dest))
 		.pipe(imgmin({
 			progressive: true,
 			svgoPlugins:[
@@ -214,11 +228,10 @@ gulp.task('images', function(){
 			],
 			multipass: true
 		}))
-		.pipe(changed())
 		.pipe(gulp.dest(PATHS.images.dest));
 });
 
-/** Friendly message **/
+/* Friendly message */
 gulp.task('...', function(){
 	console.log(
 		chalk.dim(' -------------------------------------') +
@@ -238,12 +251,17 @@ var
 	_sass_output = 'expanded',
 	_minify = false,
 	_indent_size = 2;
+	_first_run = true;
 
 
 /* Production variable switch */
-// Tells gulp tasks to minify output correctly
-if(utility.env._[0] === 'prod' || utility.env._[0] === 'production') {
-	console.log('compressing all files');
+// Tells gulp tasks to minify production files (html, js, images, css)
+if(utility.env._.indexOf('prod') !== -1) {
+	console.log(
+		chalk.cyan('\nProduction Mode ---------------------') +
+		chalk.white('\n Compressing JS, CSS, and Images \n') +
+		chalk.cyan('-------------------------------------\n')
+	);
 	//Change sass output to compressed
     _sass_output = 'compressed';
     //Change html indent size to 1

@@ -1,4 +1,5 @@
-/* Images with a white and gray border,
+/* Matte Image
+ * Images with a white and gray border,
  * like a framed photo with a matte around it
  */
 .imgMatte {
@@ -16,4 +17,44 @@
 .imgLeft {
     float: left;
     @include type-space(margin-right, .5);
+}
+
+
+
+.imgCard {
+	border: 1px solid transparent;
+	text-align: center;
+
+	&:hover {
+		border-color: $smph-tan;
+	}
+}
+
+.imgCard-media {
+	max-height: 200px;
+	@include type-space(padding, .25);
+}
+
+.imgCard-media > img {
+	position: relative;
+}
+
+.imgCard-head {
+	display: block;
+	@include type-space(padding, .5 .25 0);
+	color: $badger-red;
+	letter-spacing: .03em;
+	font-family: $font-condensed;
+	font-size: 1.4em;
+}
+
+.imgCard-body {
+	@extend %border-box;
+	margin: 0;
+	@include type-space(margin-bottom, 1.5);
+	overflow: hidden;
+	@include type-space(padding, .5 .25 0);
+	color: $smph-slate;
+	font-size: .9em;
+	text-overflow: ellipsis;
 }

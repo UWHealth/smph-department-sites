@@ -10,8 +10,7 @@
 }
 
 /* Icon Font
- * Uncomment to include in your site
-/*
+/* Delete this line to include in your site
 
 @font-face {
     font-family: 'smph-icon';
@@ -24,9 +23,9 @@
 }
 
 /* Recommended icon font markup
- * <span class="icon icon-error"></span>
+ * <span class="icon icon-error" aria-hidden="true"></span>
  * OR
- * <span data-icon="&#xe000"></span>
+ * <span data-icon="&#xe000" aria-hidden="true"></span>
  * (converting a css unicode value to html requires replacing the \ with &#x )
 /*
 

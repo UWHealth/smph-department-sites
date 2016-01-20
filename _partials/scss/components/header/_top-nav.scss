@@ -16,11 +16,10 @@
 	position: relative;
 	z-index: 3;
 	border-top: 1px solid #f0f0f0;
-	background-color: rgba(#f9f9f9, 1);
+	background-color: rgba(#f9f9f9, 1); /* IE9 */
 	background-image: linear-gradient(to bottom,
 		#fff 60%,
-		#f2f2f2 90%,
-		#c0c0c0 100%
+		#f2f2f2 100%
 	);
 	@include type-space(padding, 1 1 0);
 
@@ -33,10 +32,10 @@
 /* links to uwhealth.org and med.wisc.edu */
 .topLinks {
 	position: relative;
-	width: 100%;
-	text-align: right;
-	@include type-space(padding, .25 1 .5);
 	@include type-space(margin, -1 0 -.5 -1);
+	width: 100%;
+	@include type-space(padding, .25 1 .5);
+	text-align: right;
 
 	@include media-query('small') {
 		@include type-space(margin-bottom, .75);
@@ -48,7 +47,7 @@
 .topLinks a {
 	display: inline-block;
 	padding-left: 23px;
-	@include type-scale(font-size, 1, 12px);
+	@include rems(font-size, 11px);
 	line-height: 2;
 	text-decoration: none;
 
@@ -151,17 +150,27 @@
 .top-nav {
 	border-top: 1px solid #fff;
 	width: 100%;
-	background-color: rgba(#fff, .65);
+	background: transparent url('../images/bg_grad-white.png') repeat-x top left;
+	background-size: auto 100%;
+	// background-color: rgba(#fff, .65);
 	text-align: right;
 	@include type-space(padding, 0 1);
 	@include type-space(margin-left, -1);
+
+	@include media-query('smalls') {
+		background-image: none;
+	}
+}
+
+.top-nav li {
+	margin-bottom: 0;
 }
 
 .top-nav li a {
+	padding: 1em .35em;
 	color: $smph-copper;
 	font-weight: bold;
-	@include type-scale(padding, 1 .35, 15px);
-	@include type-scale(font-size, 1, 12px);
+	@include rems(font-size, 11px);
 
 	&:hover {
 		color: $badger-red;

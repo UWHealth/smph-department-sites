@@ -32,6 +32,9 @@ $grid-markup-fix:        false;
 // Default: 12
 $grid-columns:          12;
 
+//Store rem-px-fallback setting so we can switch it on or off
+$rem-px-default: $rem-px-fallback;
+
 //Media Query mixin variables
 //-----------------------------
 // See globals/_media-quries.scss for more

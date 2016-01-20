@@ -1,18 +1,18 @@
 .pageHeader {
+	position: relative;
 	clear: both;
+	z-index: 2;
 	@include rems(margin-left, $grid-gutter);
 	@include shadow(1, inset);
-	position: relative;
-	z-index: 2;
 }
 
 .sectionTitle {
+	color: $badger-red;
+	line-height: 1.1;
+	white-space: normal;
 	font-family: $font-serif;
 	font-size: 3.8em;
 	font-weight: normal;
-	line-height: 1.1;
-	white-space: normal;
-	color: $badger-red;
 }
 
 /* Standalone title, with no banner background
@@ -104,16 +104,21 @@
 /* Banner text */
 .banner .sectionTitle {
 	display: inline-block;
+	margin-bottom: 0;
 	min-width: 45%;
 	max-width: 55%;
 	vertical-align: middle;
-	direction: ltr;
 	letter-spacing: .35px;
+	direction: ltr;
 	text-shadow: 0 2px 0 rgba(#000, .1);
 
 	@include media-query('smalls') {
 		max-width: none;
 	}
+}
+
+.banner-short .sectionTitle {
+	font-size: 3.3em;
 }
 
 .banner-dark .sectionTitle {
@@ -137,6 +142,10 @@
 	font-size: .8em;
 }
 
+.sectionTitle-large {
+	font-size: 1.1em;
+}
+
 .sectionTitle-sub {
 	display: block;
 	color: darken($smph-gold, 28%);
@@ -151,4 +160,8 @@
 	@include media-query('smalls') {
 		max-width: none;
 	}
+}
+
+#TESTING {
+	what: what;
 }

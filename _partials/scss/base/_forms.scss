@@ -14,6 +14,11 @@ input::-moz-focus-inner {
     padding: 0;
 }
 
+button[disabled],
+html input[disabled] {
+	cursor: default;
+}
+
 input[type='text'] {
     -webkit-appearance: textfield;
     -moz-appearance: textfield;

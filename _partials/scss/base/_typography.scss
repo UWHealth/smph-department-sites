@@ -10,34 +10,34 @@ h6 {
 }
 
 h1 {
-	font-size: 140%;
+	font-size: 1.4em;
 	@include type-space(margin-bottom, 1);
 }
 
 h2 {
 	color: $smph-copper;
-	font-size: 130%;
+	font-size: 1.3em;
 }
 
 h3 {
-	display: inline;
-	font-size: 120%;
+	display: inline-block;
+	font-size: 1.25em;
 }
 
 h4 {
 	color: $smph-copper;
-	font-size: 110%;
+	font-size: 1.1em;
 }
 
 h5 {
 	@include type-space(margin-bottom, .5);
 	color: $smph-copper;
-	font-size: 110%;
+	font-size: 1.1em;
 	text-transform: capitalize;
 }
 
 h6 {
-	font-size: 110%;
+	font-size: 1.1em;
 	font-weight: bold;
 }
 
@@ -48,4 +48,14 @@ h6 a {
 		text-decoration: underline;
 	}
 
+}
+
+
+p {
+	@include type-space(margin, 0 0 1);
+	padding: 0;
+}
+
+li {
+	@include type-space(margin-bottom, .5);
 }

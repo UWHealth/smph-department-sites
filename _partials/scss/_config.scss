@@ -6,8 +6,8 @@
 //---------------------
 // Typography
 //---------------------
-$base-font-size:            11px;
-$base-line-height:          13px;
+$base-font-size:            12px;
+$base-line-height:          15px;
 
 //Make IE8 compatible by including pixel fallbacks for REM values?
 $rem-px-fallback: true;
@@ -25,7 +25,7 @@ $smph-gold: #c7ab4c;
 $smph-copper: #604d25;
 $smph-slate: #504b4e;
 
-//Themes
+//Theme colors
 $color-main-bg: $smph-gold;
 $color-main-nav: $badger-red;
 $color-pod-top: $badger-red;
@@ -37,10 +37,10 @@ $color-pod-top: $badger-red;
 //Maximum width of your site
 // If you make heavy-use of image headers, 840px is recommended
 // Recommendation: Wider sites should use a larger base-font-size for a better reading experience
-$site-width: 			840px;
+$site-width: 			940px;
 
 //Space between columns
-$grid-gutter:           19px;
+$grid-gutter:           24px;
 //Silent grid (requires extending)
 $grid-silent-classes:	true;
 //Include push and pull classes?
@@ -62,18 +62,18 @@ $grid-margin-adjustments: false;
 
 //breakpoint values available via the media-query() mixin
 $breakpoints: (
-	// Everything up to 674px. Mostly phones.
-    'smalls': '(max-width:674px)',
+	// Everything up to 684px. Mostly phones.
+    'smalls': '(max-width:684px)',
 	// Up to 480px. Overrides Smalls. Small Phones, including iPhone.
     'small': '(max-width: 460px)',
 	// Between 480 and 675px. Overrides Smalls. Large phones/phablets.
-    'smallish': '(min-width: 481px) and (max-width: 674px)',
+    'smallish': '(min-width: 481px) and (max-width: 684px)',
 	// 675-940px. Overrides Bigs. Mostly Tablets and small laptops.
-    'lap': '(max-width: 775px)',
+    'lap': '(max-width: 799px)',
 	// 940 and Up. Overrides Bigs. Large Tablets and Desktops.
-    'desk': '(min-width: 776px)',
+    'desk': '(min-width: 800px)',
 	// Everything larger than 675px. Tablets and Desktops.
-	'bigs': '(min-width: 675px)'
+	'bigs': '(min-width: 685px)'
 );
 
 // Give grid ability to span breakpoints

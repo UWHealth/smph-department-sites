@@ -3,7 +3,7 @@
 //========================================================
 // While the row-column grid is useful for general compositions,
 // the following are meant for more specific, but still re-useable layouts
-// These classes can be considered a super-set of the grid ( _columns.scss )
+// These classes can be considered a super-set of the column grid ( _columns.scss )
 
 /* Responsive wrapper
  * Change max-width to increase your site's total width
@@ -113,17 +113,19 @@
 
 /* Info Grid
  * Useful as a wrapper for a grid of information where information is formatted as:
- * Label    Information about
- *			the label to the left
+ *
+ *			Information about
+ * Label    the label to the left
+ *			of this column
  *
  * Should be used in conjunction with .row and .column
  */
 
-.info-grid {
+.infoGrid {
 	@extend %grid_narrow;
 }
 
-.info-grid > .column {
+.infoGrid > .column {
 	@include type-space(padding-bottom, 1);
 	vertical-align: middle;
 
@@ -136,4 +138,25 @@
 			@include type-space(margin-top, 1);
 		}
 	}
+}
+
+/* Image Grid
+ * Simple column layout meant for laying out photos
+ */
+
+.imgGrid {
+	@include type-space(margin-left, -.5);
+	@include type-space(padding-bottom, 2);
+	width: 100%;
+	text-align: justify;
+}
+
+.imgGrid-item {
+	@extend %border-box;
+	display: inline-block;
+	height: 100%;
+	@include type-space(padding-left, .5);
+	vertical-align: top;
+	text-align: center;
+	text-decoration: none;
 }

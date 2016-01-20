@@ -11,7 +11,7 @@
  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
  <meta name="description" content="Page Description">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>Destination Page, Your Department</title>
+ <title>Faculty Directory, Your Department</title>
  <!-- <link rel="stylesheet" href="style/stylesheet.css" media="screen"> -->
  <link rel="stylesheet" href="style/main.min.css" type="text/css" media="screen">
  <link rel="stylesheet" href="style/print.css" type="text/css" media="print">
@@ -90,13 +90,16 @@
   </div>
   <main class="//margin10 row" role="main">
    <!--<div id="navBarShadow"></div>-->
-   <!--Page-header banner with dark background and text and image swapped-->
-   <div id="//pageHeader" class="pageHeader banner banner-dark banner-rev">
-    <div class="banner-body"> <img src="images/bnr_img_left.jpg" class="bannerImg" role="presentation" alt="Surgeon">
+   <!--Page-head banner with "short" attribute-->
+   <div id="//pageHeader" class="pageHeader banner banner-short">
+    <div class="banner-body"> <img src="images/bnr_img_right.jpg" class="bannerImg" role="presentation" alt="Campus Building">
      <h1 class="sectionTitle">
-        Destination Page
 
-        <small class="sectionTitle-sub" style="display:none"> </small>
+      Faculty
+	<span class="sectionTitle-indent sectionTitle-large">Directory</span>
+
+      <small class="sectionTitle-sub" style="display:none"> </small>
+
     </h1> </div>
    </div>
    <!-- Main Page Content Container (content + left nav) -->
@@ -113,110 +116,74 @@
     </div>
     <div class="column bodyContent">
      <div class="row">
-      <div class="column bodyContent-article">
-       <p>Aenean at eros orci, id varius nibh. Quisque lacinia lacinia tortor malesuada tempor. Integer sit amet mauris urna. Cras vel nibh cursus quam tempus tincidunt quis sit amet velit. Proin consequat urna non lectus tincidunt convallis. Nam justo enim,
-        porttitor nec interdum at, vehicula vitae dolor. Nam vel risus odio, at hendrerit libero.</p>
-       <p>Sed vel magna lectus, quis scelerisque massa. Duis interdum adipiscing ultricies. Etiam venenatis lacus in nulla auctor et cursus ipsum fringilla. Mauris id urna metus, a commodo eros. Aliquam mattis fermentum tellus, ac fermentum mi lacinia ut.
-        Nullam tincidunt lorem in mi feugiat luctus.</p>
-       <p>Aenean at eros orci, id varius nibh. Quisque lacinia lacinia tortor malesuada tempor. Integer sit amet mauris urna. Cras vel nibh cursus quam tempus tincidunt quis sit amet velit. Proin consequat urna non <a href="#">lectus tincidunt convalli</a>s.
-        Nam justo enim, porttitor nec interdum at, vehicula vitae dolor. Nam vel risus odio, at hendrerit libero. Vivamus interdum feugiat magna sed tristique:</p>
-       <ul>
-        <li><a href="http://www.cancer.wisc.edu/uwccc/index.asp" target="_blank">UW Carbone&nbsp;Cancer Center</a></li>
-        <li><a href="http://ictr.wisc.edu" target="_blank">UW Institute for Clinical and Translational Research</a></li>
-        <li><a href="http://mcardle.oncology.wisc.edu/" target="_blank">McArdle Laboratory for Cancer Research</a></li>
-        <li><a href="http://stemcells.wisc.edu/" target="_blank">UW Stem Cell and Regenerative Medicine Center</a></li>
-        <li><a href="http://www.waisman.wisc.edu/" target="_blank">Waisman Center</a></li>
-        <li><a href="/research/institutes-and-centers/557">View All Institutes and Centers</a></li>
-       </ul>
-       <p>Sed vel magna lectus, quis scelerisque massa. Duis interdum adipiscing ultricies. Etiam venenatis lacus in nulla auctor et cursus ipsum fringilla. Mauris id urna metus, a commodo eros. Aliquam mattis fermentum tellus, ac fermentum mi lacinia ut.
-        Nullam tincidunt lorem in mi feugiat luctus..</p>
-       <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla facilisi. Nullam porta posuere tellus et feugiat. Sed molestie tempor elementum. Donec id consectetur ante. Phasellus pharetra porta fringilla.
-        Donec ultrices, eros blandit sagittis dapibus, lacus odio pellentesque quam, at faucibus metus mi ac turpis:</p>
-       <form class="row infoGrid form-full">
-        <label class="column c-3" for="name">Name</label>
-        <div class="column c-8">
-         <input id="name" name="name" type="text" autocomplete="name" required> </div>
-        <label class="column c-3" for="email">E-mail</label>
-        <div class="column c-8">
-         <input id="email" name="email" type="email" autocomplete="email" required> </div>
-        <label class="column c-3" for="phone">Phone (optional)</label>
-        <div class="column c-8">
-         <input id="phone" name="phone" type="tel" autocomplete="tel"> </div>
-        <label class="column c-3" for="topic">Topic</label>
-        <div class="column c-8">
-         <select name="topic" id="topic" required>
-          <option value="lorem" selected>Lorem</option>
-          <option value="ipsum">Ipsum</option>
-          <option value="dolor">Dolor</option>
-         </select>
-        </div>
-        <label class="column c-3" for="urgent">Urgent?</label>
-        <div class="column c-8">
-         <input type="radio" name="urgent" value="no" checked id="Urgent">No
-         <input type="radio" name="urgent" value="yes">Yes </div>
-        <label class="column c-3" for="quantity">Quantity (optional)</label>
-        <div class="column c-8">
-         <input id="quantity" name="quantity" min="0" max="10" step="1" type="number"> </div>
-        <label class="column c-3" for="message">Message</label>
-        <div class="column c-8">
-         <p>Please include any information that will help us assist you, such as the URLs of specific pages.</p>
-         <textarea id="message" rows="5" name="Message"></textarea>
-        </div>
-        <label class="column c-8 p-3 smalls-p-0" for="reply">
-         <input type="checkbox" id="reply" name="reply">I'd like a reply about this </label>
-        <br>
-        <div class="column c-8 p-3">
-         <input id="_submit" name="_submit" type="submit" value="Submit" /> </div>
-       </form>
-      </div>
-      <div class="column bodyContent-aside">
-       <div class="primaryPod">
-        <h2 class="primaryPod-head">Research &amp; News</h2>
-        <ul class="primaryPod-body">
-         <li><a href='#'>New Approach to Wound Healing Easy on Skin, Tough on Bacteria</a></li>
-         <li><a href='#'>Brain Scan Shows Uncertainty Fuels Anxiety</a></li>
-         <br>
-         <li><a href="#">More Research News</a></li>
-         <li><a href="#">Research Digest</a></li>
-        </ul>
-       </div>
-       <div class="primaryPod">
-        <h2 class="primaryPod-head">Upcoming Seminars</h2>
-        <div class="primaryPod-body">
-         <div class="row infoGrid">
-          <div class="column c-4"> 8/26/2009 </div>
-          <div class='column c-7'><a href='#'>The Wisconsin WAHTER Study: A Community Intervention Trial to Estimate Illness Risk from Municipal Drinking Water</a></div>
-          <div class="column c-4"> 8/27/2009 </div>
-          <div class='column c-7'><a href='#'>Department of Population Health Sciences 50th Anniversary Symposium</a></div>
-          <div class="column c-4"> 9/18/2009 </div>
-          <div class="column c-7"><a href='#'>Beyond Nature Versus Nurture: Changing Views of Infant Language Acquisition</a></div>
-         </div>
-        </div>
-       </div>
-      </div>
-      <br>
-      <div class="column c-half">
-       <div class="promo"> <img class="promo-img" src="images/promo_sample-1.jpg" alt="Two graduating students">
-        <a href="#" class="promo-body">
-         <h3 class="promo-body-title">
-			MD Program Admissions
-			<small class="promo-body-sub">
-				Learn More
-			</small>
-		</h3> </a>
-       </div>
-      </div>
-      <div class="column c-half">
-       <div class="promo"> <img class="promo-img" src="images/promo_sample-1.jpg" alt="Two graduating students">
-        <a href="#" class="promo-body">
-         <h3 class="promo-body-title">
-			MD Program Admissions
-			<small class="promo-body-sub">
-				Learn More
-			</small>
-		</h3> </a>
-       </div>
-      </div>
+      <p class="column"> Intro Paragraph lorem sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Aenean eu leo quam. Pellentesque
+       ornare sem lacinia quam venenatis vestibulum. </p>
+     </div>
+     <div class="row imgGrid">
+      <a class="imgGrid-item c-quarter smalls-c-half" href="#">
+       <figure class="imgCard">
+        <div class="imgCard-media"> <img src="http://placehold.it/120x120" alt="Rebecca Broering"> </div>
+        <h3 class="imgCard-head">Rebecca Broering</h3>
+        <p class="imgCard-body"> <strong>Director</strong>
+         <br> Web Center </p>
+       </figure>
+      </a>
+      <a class="imgGrid-item c-quarter smalls-c-half" href="#">
+       <figure class="imgCard">
+        <div class="imgCard-media"> <img src="http://placehold.it/120x120" alt="Chris Lee"> </div>
+        <h3 class="imgCard-head">Chris Lee</h3>
+        <p class="imgCard-body"> <strong>UI Designer</strong>
+         <br> Web Center </p>
+       </figure>
+      </a>
+      <a class="imgGrid-item c-quarter smalls-c-half" href="#">
+       <figure class="imgCard">
+        <div class="imgCard-media"> <img src="http://placehold.it/120x120" alt="Staff Member"> </div>
+        <h3 class="imgCard-head">Eric Klister</h3>
+        <p class="imgCard-body"> <strong>Senior Web Editor</strong>
+         <br> Web Center </p>
+       </figure>
+      </a>
+      <a class="imgGrid-item c-quarter smalls-c-half" href="#">
+       <figure class="imgCard">
+        <div class="imgCard-media"> <img src="http://placehold.it/120x120" alt="Staff Member"> </div>
+        <h3 class="imgCard-head">Noah Locke</h3>
+        <p class="imgCard-body"> <strong>Technical and Project Manager</strong>
+         <br> Web Center </p>
+       </figure>
+      </a>
+      <a class="imgGrid-item c-quarter smalls-c-half" href="#">
+       <figure class="imgCard">
+        <div class="imgCard-media"> <img src="http://placehold.it/120x120" alt="Staff Member"> </div>
+        <h3 class="imgCard-head">Noah Locke</h3>
+        <p class="imgCard-body"> <strong>Technical and Project Manager</strong>
+         <br> Web Center </p>
+       </figure>
+      </a>
+      <a class="imgGrid-item c-quarter smalls-c-half" href="#">
+       <figure class="imgCard">
+        <div class="imgCard-media"> <img src="http://placehold.it/120x120" alt="Staff Member"> </div>
+        <h3 class="imgCard-head">Lorem Ipsum</h3>
+        <p class="imgCard-body"> <strong>Malesuada Mollis</strong>
+         <br> Mattis Pharetra </p>
+       </figure>
+      </a>
+      <a class="imgGrid-item c-quarter smalls-c-half" href="#">
+       <figure class="imgCard">
+        <div class="imgCard-media"> <img src="http://placehold.it/120x120" alt="Staff Member"> </div>
+        <h3 class="imgCard-head">Dolor Est</h3>
+        <p class="imgCard-body"> <strong>Faucibus Mollis</strong>
+         <br> Quam venenatis </p>
+       </figure>
+      </a>
+      <a class="imgGrid-item c-quarter smalls-c-half" href="#">
+       <figure class="imgCard">
+        <div class="imgCard-media"> <img src="http://placehold.it/120x120" alt="Staff Member"> </div>
+        <h3 class="imgCard-head">Ligula Amet</h3>
+        <p class="imgCard-body"> <strong>Fusce</strong>
+         <br> Fusce Bibendum Justo </p>
+       </figure>
+      </a>
      </div>
     </div>
    </div>
@@ -298,7 +265,7 @@
  </div>
  <!-- End Footer -->
  </div>
- </div>
+ </main>
  <!-- End Master Container -->
  <!--JQuery (version 1.12 for IE8-, and 2.2 for IE9+)-->
  <!--[if lte IE 8]>

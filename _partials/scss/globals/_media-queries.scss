@@ -42,6 +42,10 @@
 	//Use a string storage for multiple media-queries
 	$media-query-string: '';
 
+	//Turn off px-fallback inside media-queries
+	// since 99% of mobile browsers support rems
+	$rem-px-fallback: false !global;
+
 	@each $mq-id, $mq-group in $arguments-map {
 
 		//Extract each value from the arguments map
@@ -92,6 +96,9 @@
 		}
 
 	}
+
+	//Change back to user setting
+	$rem-px-fallback: $rem-px-default !global;
 
 }
 

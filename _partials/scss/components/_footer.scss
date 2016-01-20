@@ -12,7 +12,7 @@ $color-footer-light: mix(#fff, $color-footer, 80%);
 	overflow: auto;
 	@include type-space(padding, .5 1 1);
 	background-color: $color-footer;
-	@include type-scale(font-size, 1, 12px);
+	@include rems(font-size, 11px);
 	color: $color-footer-light;
 }
 
@@ -49,6 +49,10 @@ $color-footer-light: mix(#fff, $color-footer, 80%);
 	@extend %one_quarter;
 	@extend %smalls_one_half;
 	@include type-space(margin-bottom, 2);
+}
+
+.footerColumn li {
+	margin-bottom: 0;
 }
 
 .footerCopyright {

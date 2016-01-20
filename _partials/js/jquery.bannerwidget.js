@@ -29,13 +29,12 @@
 			//Default options
 			b.opts={imgdir:"files/bannerwidget/"};
 			$.extend(b.opts,uopts);
+			var $this = $(this);
 
-			b.settings=$.ajax({url:b.opts.settingsFile,
-				async:false,
+			b.settings=$.ajax({
+				url:b.opts.settingsFile,
+				async: true,
 				dataType:"xml",
-				success:function(d){
-					parseSettings(d,b);
-				},
 				error:function(xhr,s){}
 			});
 			//If $.ajax() returns status of 404, stop here.
@@ -46,22 +45,27 @@
 				.append($("<div class='banner-img'>"))
 				.append($("<div class='banner-caption'/>"));
 
-			//Preaload the images.
-			banner.preloadObjects(b,$(img).find(".banner-img"));
+			b.settings.success(function(c,t,d){
 
-			//Build the banner.
-			var nav = banner.buildNav(b);
+				parseSettings(d.responseXML ,b, function(){
+					//Preaload the images.
+					banner.preloadObjects(b,$(img).find(".banner-img"));
 
-			//Append banner to the source element.
-			if((b.opts.navposition=="top")||(b.opts.navposition=="left")) {
-				$(this).append(nav).append(img);
-			} else {
-				$(this).append(img).append(nav);
-			}
+					//Build the banner.
+					var nav = banner.buildNav(b);
 
-			//Create the player & start
-			b.player = new player(b.items,$(".banner-img"),b);
-			b.player.play();
+					//Append banner to the source element.
+					if((b.opts.navposition=="top")||(b.opts.navposition=="left")) {
+						$this.append(nav).append(img);
+					} else {
+						$this.append(img).append(nav);
+					}
+
+					//Create the player & start
+					b.player = new player(b.items,$(".banner-img"),b);
+					b.player.play();
+				});
+			});
 
 			return true;
 		});
@@ -143,8 +147,12 @@
 				$(b.domelm).find("*[id='object-"+ic+"']").show();
 
 				//Check for caption. Hides the box if there isn't text.
-				if(b.opts.captions=="true") banner.hasCaption(ic,b);
-				else $(b.domelm).find(".banner-caption").hide();
+				if(b.opts["captions"]) {
+					banner.hasCaption(ic,b);
+				}
+				else {
+					$(b.domelm).find(".banner-caption").hide();
+				}
 
 				//Give the user control
 				b.player.stop();
@@ -251,8 +259,9 @@
 	//
 	//@param XmlDoc - xml document returned by $.ajax()
 	//@param DomNode - the banner element
+	//@param callBack - what to do after settings have been parsed
 	//////////////////////////////////////////////////////
-	function parseSettings(d,b){
+	function parseSettings(d,b, callback){
 		b.items=[];
 		$(d).find("item").each(function(){
 			var it={};
@@ -264,6 +273,8 @@
 		$(d).find("settings > param").each(function(){
 			b.opts[$(this).attr("name")]=$(this).text();
 		});
+
+		callback();
 	};
 	//////////////////////////////////////////////////////
 	//Player Class used for basic control of the banner

@@ -5,8 +5,9 @@
 
 .newsTicker-head {
 	display: table-cell;
+	margin-bottom: 0;
 	border-radius: 5px 0 0 5px;
-	padding: 0 .35em;
+	padding: 2px .35em 0;
 	background: $color-pod-top url('../images/bg_grad-white.png') repeat-x top;
 	vertical-align: middle;
 	color: #fff;

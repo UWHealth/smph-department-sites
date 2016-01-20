@@ -37,6 +37,24 @@ function search(value) {
 	}
 }
 
+//Add script tag to page (usually used for scripts)
+
+function loadScript(file, callback) {
+    var _head = document.getElementsByTagName("head")[0];
+    var _script = document.createElement('script');
+    //Internet explorer
+    _script.onreadystatechange = function() {
+        if (this.readyState == 'complete') {
+            callback();
+        }
+    }
+	//Other browsers
+    _script.onload = callback;
+    _script.src = file;
+    _head.appendChild(_script);
+}
+
+
 // Mobile menu toggles
 $(function(){
     var

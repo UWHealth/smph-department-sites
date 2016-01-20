@@ -140,3 +140,4 @@
 	function drops_hide(){ $(this).removeClass('show').addClass('with-js'); }
 }
 
+// @codekit-append "_parseMenu.js";

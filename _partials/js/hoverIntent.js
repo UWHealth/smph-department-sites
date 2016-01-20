@@ -84,3 +84,4 @@
 })(jQuery);
 
 /*=include _parseMenu.js */
+// @codekit-append "_parseMenu.js";

@@ -1,0 +1,54 @@
+<form class="row infoGrid form-full">
+
+		<label class="column c-3" for="name">Name</label>
+		<div class="column c-8">
+			<input id="name" name="name" type="text" autocomplete="name" required>
+		</div>
+
+		<label class="column c-3" for="email">E-mail</label>
+		<div class="column c-8">
+			<input id="email" name="email" type="email" autocomplete="email" required>
+		</div>
+
+		<label class="column c-3" for="phone">Phone (optional)</label>
+		<div class="column c-8">
+			<input id="phone" name="phone" type="tel" autocomplete="tel">
+		</div>
+
+		<label class="column c-3" for="topic">Topic</label>
+		<div class="column c-8">
+			<select name="topic" id="topic" required>
+				<option value="lorem" selected>Lorem</option>
+				<option value="ipsum">Ipsum</option>
+				<option value="dolor">Dolor</option>
+			</select>
+		</div>
+
+		<label class="column c-3" for="urgent">Urgent?</label>
+		<div class="column c-8">
+			<input type="radio" name="urgent" value="no" checked id="Urgent">No
+			<input type="radio" name="urgent" value="yes">Yes
+		</div>
+
+		<label class="column c-3" for="quantity">Quantity (optional)</label>
+		<div class="column c-8">
+			<input id="quantity" name="quantity" min="0" max="10" step="1" type="number">
+		</div>
+
+		<label class="column c-3" for="message">Message</label>
+		<div class="column c-8">
+			<p>Please include any information that will help us assist you, such as the URLs of specific pages.</p>
+			<textarea id="message" rows="5" name="Message"></textarea>
+		</div>
+
+		<label class="column c-8 p-3 smalls-p-0" for="reply">
+			<input type="checkbox" id="reply" name="reply">I'd like a reply about this
+		</label>
+
+		<br>
+
+		<div class="column c-8 p-3">
+			<input id="_submit" name="_submit" type="submit" value="Submit" />
+		</div>
+
+</form>

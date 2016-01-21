@@ -1,0 +1,134 @@
+//========================================================
+// General Mixins
+//========================================================
+
+// REM generator
+// Used to create a property with a rem value and PX fallback
+@mixin rems($property, $sizes, $important:false, $base-font: $base-font-size) {
+	$important_val: '';
+	$rem_sizes: null;
+	$px_sizes: null;
+
+	@if $important {
+		$important_val: ' !important';
+	}
+
+	@each $size in $sizes {
+
+		@if $size == '' or $size == null {
+			$size: null;
+			$px_sizes: join($px_sizes, $size, space);
+
+		}@else {
+
+			@if $size == 0px{
+				$size: 0;
+			}
+
+			$px_sizes: join($px_sizes, $size, space);
+			$size: px-to-rems($size, $base-font);
+		}
+		$rem_sizes: join($rem_sizes, $size, space);
+	}
+
+	@if $rem-px-fallback {
+		#{$property}: #{$px_sizes}#{$important_val};
+	}
+	#{$property}: #{$rem_sizes}#{$important_val};
+
+}
+
+//Space and sizing mixin
+//Creates rem values based on the base-line-height and the grid-gutters
+// $multipliers can be a space-separated list
+// adding
+@mixin type-space($properties, $multipliers, $important: false) {
+
+	$multiplier: nth($multipliers, 1);
+	$m-length: length($multipliers);
+	$important: if($important, true, false); //Allow for strings, convert to boolean
+
+	@each $property in $properties {
+		$values: null;
+		$multiple-index: 1;
+
+		@each $multiple in $multipliers {
+
+			$value: $type-magic-number * $multiple;
+			//If it's the second or fourth value in a list, give it left/right treatment
+			// (multiply by gutter)
+			@if ($multiple-index % 2 == 0) or
+			(
+				str-contains($property, 'right') or
+				str-contains($property, 'left') or
+				str-contains($property, 'width')
+			) {
+				$value: $grid-gutter * $multiple;
+			}
+			$values: append($values, $value);
+			$multiple-index: $multiple-index + 1;
+		}
+
+		@include rems($property, $values, $important);
+
+	}
+}
+
+//Sizing mixin
+//Create multiples based on the base-font-size with an upper limit
+// Different from type-space() where all values are based on the grid
+// Upper limit used to prevent crazy scales for larger font-sizes
+@mixin type-scale($properties, $multipliers, $upper-limit: false, $important: false) {
+
+	$upper-limit: if($upper-limit == false, 10000, $upper-limit);
+
+	@if unit($upper-limit) == "" {
+		$upper-limit: $base-font-size * $upper-limit;
+	}
+
+	@each $property in $properties {
+		$values: null;
+		$multiple-index: 1;
+
+		@each $multiple in $multipliers {
+			$value: $base-font-size * $multiple;
+			$clamped-value: min($upper-limit, $value);
+			$values: append($values, $clamped-value);
+			$multiple-index: $multiple-index + 1;
+		}
+		@include rems($property, $values, $important);
+	}
+
+}
+
+//Modern clearfix
+@mixin clearfix(){
+	*zoom: 1;
+
+	&:after {
+		content: "";
+		height: 0.1px;
+		display: table;
+		clear: both;
+	}
+}
+
+//Standard theme box-shadow
+//larger numbers imply more depth
+//$z accepts decimals for more incremental depth
+@mixin shadow($z: 1, $inset: false) {
+	$inset: 	if($inset, 'inset', null);
+	$base:		if($inset, 5, 3);
+	$offset: 	$base * $z * 1px;
+	$blur: 		if($inset, (abs($offset) * 1.1), (abs($offset) * 2));
+	$spread: 	if($inset, ($offset * -.75), ((abs($z)/5) + .1px));
+	$darkness: 	if($inset, ($z * .25) + ($z * .1), ($z * .15) + ($z * .1));
+	$darkness: 	rgba(0,0,0, $darkness);
+
+	box-shadow: #{$inset}
+		0
+		#{$offset}
+		#{$blur}
+		#{$spread}
+		#{$darkness};
+}

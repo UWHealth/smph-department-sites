@@ -1,0 +1,84 @@
+//========================================================
+// Sass Configuration
+//========================================================
+// All length values should be defined in pixels. These will be converted to rems on compilation
+
+//---------------------
+// Typography
+//---------------------
+$base-font-size:            12px;
+$base-line-height:          15px;
+
+//Make IE8 compatible by including pixel fallbacks for REM values?
+$rem-px-fallback: true;
+
+//---------------------
+// Colors
+//---------------------
+
+//Base colors
+$badger-red: #970d0e;
+$uw-gold: #e7d9c1;
+$smph-tan: #ede9d4;
+$smph-tan-dark: darken($smph-tan, 15%);
+$smph-gold: #c7ab4c;
+$smph-copper: #604d25;
+$smph-slate: #504b4e;
+
+//Theme colors
+$color-main-bg: $smph-gold;
+$color-main-nav: $badger-red;
+$color-pod-top: $badger-red;
+
+//---------------------
+// Grid
+//---------------------
+
+//Maximum width of your site
+// If you make heavy-use of image headers, 840px is recommended
+// Recommendation: Wider sites should use a larger base-font-size for a better reading experience
+$site-width: 			940px;
+
+//Space between columns
+$grid-gutter:           24px;
+//Silent grid (requires extending)
+$grid-silent-classes:	true;
+//Include push and pull classes?
+$grid-push:             true;
+$grid-pull:             true;
+
+//Use a float-based grid?
+// if false, grid items will be 'inline-block', requiring no clearing.
+// Default: false
+$grid-floats:            false;
+
+// Use margins for pushes and pulls (instead of left or right relative positioning)?
+// Default: false
+$grid-margin-adjustments: false;
+
+//---------------------
+// Media Queries
+//---------------------
+
+//breakpoint values available via the media-query() mixin
+$breakpoints: (
+	// Everything up to 684px. Mostly phones.
+    'smalls': '(max-width:684px)',
+	// Up to 480px. Overrides Smalls. Small Phones, including iPhone.
+    'small': '(max-width: 460px)',
+	// Between 480 and 675px. Overrides Smalls. Large phones/phablets.
+    'smallish': '(min-width: 481px) and (max-width: 684px)',
+	// 675-940px. Overrides Bigs. Mostly Tablets and small laptops.
+    'lap': '(max-width: 799px)',
+	// 940 and Up. Overrides Bigs. Large Tablets and Desktops.
+    'desk': '(min-width: 800px)',
+	// Everything larger than 675px. Tablets and Desktops.
+	'bigs': '(min-width: 685px)'
+);
+
+// Give grid ability to span breakpoints
+// If $grid-silent-classes = false, more css will be created as more breakpoints are defined.
+// (After gzip and minify this will add ~7kb per 6 breakpoints)
+$breakpoint-has-widths: ('smalls', 'small', 'smallish', 'bigs', 'lap', 'desk');
+$breakpoint-has-push:   ('smalls', 'small', 'smallish', 'bigs', 'lap', 'desk');
+$breakpoint-has-pull:   ('smalls', 'small', 'smallish', 'bigs', 'lap', 'desk');

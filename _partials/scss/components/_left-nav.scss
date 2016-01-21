@@ -1,0 +1,83 @@
+.leftNav {
+	@extend %three_elevenths;
+	@extend %smalls_one_whole;
+	display: inline-block;
+	@include type-space(padding-bottom, 2);
+}
+
+.leftNav-items {
+	font-family: $font-secondary;
+
+	@include media-query('smalls') {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: top;
+	}
+}
+
+.leftNav-items > li {
+	margin: 0;
+	border-bottom: 1px solid $smph-tan-dark;
+	padding: 0;
+
+	@include media-query('smalls') {
+		display: inline-block;
+		display: flex;
+		flex: 2 1 32.5%;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-items: center;
+		margin-bottom: -1px;
+		border-top: 1px solid $smph-tan-dark;
+		max-width: 32.5%;
+		min-height: 44px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+	}
+
+	@include media-query('small') {
+		flex: 2 1 49%;
+		max-width: 49.5%;
+	}
+}
+
+.leftNav-items > li:first-child {
+	border-top: 1px solid $smph-tan-dark;
+}
+
+.leftNav-items a {
+	@extend %border-box;
+	padding: .9em .25em;
+	font-weight: bold;
+	@include type-scale(font-size, 1.1, 13px);
+
+	&:hover,
+	&:focus {
+		background-color: lighten($smph-tan, 8%);
+		color: lighten($badger-red, 2%);
+	}
+
+	&:active {
+		background-color: lighten($smph-tan, 5%);
+		color: darken($badger-red, 3%);
+	}
+
+	@include media-query('smalls') {
+		flex-grow: 1;
+		width: 100%;
+		min-height: 100%;
+	}
+}
+
+/*Current page Highlight
+ * Important BG color to prevent hover effects
+ * Default cursor to prevent indication of click-ability
+ */
+.hlnav a {
+	background-color: lighten($uw-gold, 9%) !important;
+	cursor: default;
+}

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-XML Format 
+XML Format
 
 <menus>
 	<menu>
@@ -20,11 +20,11 @@ XML Format
 !!NOTE:	If you are using dropdown menus and do not want
  	 	a main nav item to have a dropdown you will need
   		to add an empty menu like so
-  
+
   		<menu>
 			<item>empty</item>
-		</menu>	
-		
+		</menu>
+
 -->
 <menus>
 	<!-- Main nav item #1 -->
@@ -35,46 +35,20 @@ XML Format
 	<!-- Main nav item #2 -->
 	<menu>
 		<item>
-			<label>Menu Item 2 Link 1</label>
-			<link>http://www.yahoo.com</link>
+			<label>Content Page</label>
+			<link>content.html</link>
 		</item>
 		<item>
-			<label>Menu Item 2 Link 2</label>
-			<link>http://www.yahoo.com</link>
-		</item>
-		<item>
-			<label>Menu Item 2 Link 3</label>
-			<link>http://www.yahoo.com</link>
+			<label>Content w/ Right Nav</label>
+			<link>content_right_nav.html</link>
 		</item>
     </menu>
 	<!-- Main nav item #3 -->
 	<menu>
-		<item>
-			<label>Menu Item 3 Link 1</label>
-			<link>http://www.yahoo.com</link>
-		</item>
-		<item>
-			<label>Menu Item 3 Link 2</label>
-			<link>http://www.yahoo.com</link>
-		</item>
-		<item>
-			<label>Menu Item 3 Link 3</label>
-			<link>http://www.yahoo.com</link>
-		</item>
+		<item>empty</item>
     </menu>
 	<!-- Main nav item #4 -->
     <menu>
-		<item>
-			<label>Menu Item 4 Link 1</label>
-			<link>http://www.yahoo.com</link>
-		</item>
-		<item>
-			<label>Menu Item 4 Link 2</label>
-			<link>http://www.yahoo.com</link>
-		</item>
-		<item>
-			<label>Menu Item 4 Link 3</label>
-			<link>http://www.yahoo.com</link>
-		</item>
+		<item>empty</item>
     </menu>
 </menus>

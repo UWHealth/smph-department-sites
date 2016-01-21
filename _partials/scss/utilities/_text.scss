@@ -1,0 +1,94 @@
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.p {
+	color: #333;
+}
+
+.h1 {
+	@include type-scale(font-size, 2.5, $important: true);
+	line-height: 1.25;
+}
+
+.h2 {
+	@include type-scale(font-size, 1.8, $important: true);
+	line-height: 1.4;
+}
+
+.h3 {
+	@include type-scale(font-size, 1.6, $important: true);
+	line-height: 1.325;
+}
+
+.h4 {
+	@include type-scale(font-size, 1.425, $important: true);
+	line-height: 1.375;
+}
+
+.h5 {
+	@include type-scale(font-size, 1.25, $important: true);
+	line-height: 1.5;
+}
+
+.h6 {
+	@include type-scale(font-size, 1.1, $important: true);
+	line-height: 1.6;
+}
+
+.p {
+	@include type-scale(font-size, 1, $important: true);
+	line-height: $base-line-height / $base-font-size;
+}
+
+.p-tight {
+	@include type-space(margin-bottom, .5, '!important');
+}
+
+.fntNormal {
+	font-weight: normal !important;
+}
+
+.fntBold {
+	font-weight: bold !important;
+}
+
+.fntItalic {
+	font-style: italic !important;
+}
+
+.fntCondensed {
+	font-family: $font-condensed !important;
+	font-weight: 400 !important;
+	font-style: normal !important;
+}
+
+.fntSerif {
+	font-family: $font-secondary !important;
+}
+
+.clrBlack {
+	color: #333 !important;
+}
+
+.clrWhite {
+	color: #fff !important;
+}
+
+.clrGray {
+	color: lighten($smph-slate, 15%) !important;
+}
+
+.clrRed {
+	color: $badger-red !important;
+}
+
+.clrTan {
+	color: $smph-tan-dark !important;
+}
+
+.clrCopper {
+	color: $smph-copper !important;
+}

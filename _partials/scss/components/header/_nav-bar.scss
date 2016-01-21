@@ -1,0 +1,179 @@
+.navBar {
+	@include clearfix;
+	background-color: $color-main-nav;
+}
+
+.navBar-items {
+	@extend %eight_elevenths;
+	display: table;
+	float: left;
+	table-layout: auto;
+	letter-spacing: -.4em;
+
+	@include media-query('lap') {
+		float: none;
+		@include type-space(padding, 0 1);
+		margin: auto;
+		min-width: 85%;
+	}
+
+	@include media-query('smalls') {
+		display: none;
+		@include type-space(padding, .5 1);
+	}
+
+}
+
+.navBar-items.active {
+	display: table;
+}
+
+.navBar-item {
+	display: table-cell;
+	position: relative;
+	vertical-align: middle;
+
+	@include media-query('lap') {
+		display: inline-block;
+		width: 50%;
+	}
+}
+
+.navBar-item a {
+	display: block;
+	background-color: transparent;
+	color: #fff;
+	letter-spacing: .03em;
+	text-decoration: none;
+	@include rems(padding, 11px 8px 9px);
+	transition: background-color 100ms ease-out;
+
+	&:hover,
+	&:focus {
+		background-color: mix(#fff, $color-main-nav, 20%);
+	}
+
+	&:active {
+		background-color: darken($color-main-nav, 5%);
+	}
+
+	@include media-query('smalls') {
+		@include type-space(padding, .75);
+	}
+}
+
+.navBar-item > a {
+	@include type-scale(font-size, 1.5, 18px);
+	min-width: 110px;
+	text-align: center;
+	font-family: $font-condensed;
+	text-transform: uppercase;
+}
+
+@include media-query('desk') {
+	/* Arrow indicating a drop down */
+	.navBar-item.with-drop > a:after {
+        content: '';
+		position: absolute;
+		margin-top: .5em;
+		margin-left: .5em;
+		border-top: .4em solid rgba(#fff, .25);
+		border-right: .25em solid transparent;
+		border-left: .25em solid transparent;
+		width: 0;
+		height: 0;
+	}
+}
+
+.navDrop {
+	position: absolute;
+	top: 100%;
+	z-index: 2000;
+	border-radius: 0 0 3px 3px;
+	min-width: 100%;
+	background-color: $color-main-nav;
+	@include type-space(padding, .25 0 .5);
+	@include shadow(1.2);
+
+	.with-js & {
+		display: none;
+	}
+
+	@include media-query('smalls', 'lap') {
+		display: none !important;
+	}
+}
+
+.navDrop a {
+	border-top: 1px solid rgba(#fff, .2);
+}
+
+.searchBox {
+	@extend %border-box;
+	@extend %three_elevenths;
+	@include rems(padding, 10px);
+	position: relative;
+	float: left;
+
+	@include media-query('lap') {
+		@include type-space(padding, 1 1);
+		width: 100%;
+	}
+
+	@include media-query('smalls') {
+		display: none;
+	}
+}
+
+.searchBox form {
+	position: relative;
+}
+
+.searchBox.active {
+	display: block;
+}
+
+.searchBox > input {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.searchBox label {
+	position: absolute;
+}
+
+#q {
+	border: 1px solid lighten($color-main-nav, 10%);
+	padding: 2px;
+	width: 100%;
+	@include type-scale(font-size, 1, 12px);
+
+	@include mq('smalls') {
+		@include type-space(padding, .25);
+	}
+}
+
+.googlite {
+	color: #aaa;
+}
+
+.goog {
+	color: $smph-slate;
+}
+
+.searchButton {
+	position: absolute;
+	bottom: -3px;
+	@include rems(right, -10px);
+	border: 0;
+	@include rems(padding, 3px $grid-gutter 3px 5px);
+	width: auto;
+	height: 100%;
+	/*Ensure active state keeps background color*/
+	background-color: $color-main-nav !important;
+
+	@include media-query('smalls') {
+		@include rems(right, -$grid-gutter);
+		@include rems(padding-left, ($grid-gutter/2));
+	}
+}

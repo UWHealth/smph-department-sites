@@ -1,0 +1,59 @@
+<!--JQuery (version 1.12 for IE8-, and 2.2 for IE9+)-->
+<!--[if lte IE 8]>
+	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<![endif]-->
+<!--[if gt IE 8]><!-->
+	<script src="javascript/jquery-2.2.0.min.js"></script>
+<!--<![endif]-->
+
+<script src="javascript/utility.min.js"></script>
+
+<script>
+	// Home Page Widget init Code
+	var $bannerwidget = $('#bannerwidget');
+	if($bannerwidget.length > 0) {
+		loadScript('javascript/jquery.bannerwidget.min.js', function(){
+			$bannerwidget.bannerwidget({settingsFile:"files/home_widget.xml", bannertext:"false" });
+		});
+	}
+
+	// News Ticker init Code
+	var $newsticker = $('#newsTickerContainer');
+	if($newsticker.length > 0) {
+		loadScript('javascript/newsTicker.min.js', function(){
+			$.getJSON("files/news.json", function(data) {
+				for (var i=0, dataLen = data.length; i < dataLen; i++){
+					if (data[i].title) {
+						$newsticker
+							.append("<li class='newsTicker-item'><a href=" + data[i].pageUrl + ">" + data[i].title + "</a></li>");
+					}
+				}
+
+				$newsticker.newsTicker();
+
+			}).error(function(data){
+				$newsticker.hide();
+				try{$.parseJSON(data.responseText);}catch(err){
+					console.log(data);
+					console.log("ERROR: Unable to parse newsticker json.");
+					console.log(err);
+				}
+			});
+		});
+	}
+
+	//Search init code
+	initSearch();
+
+	//DropDown Menu init code
+	loadScript("javascript/hoverIntent.min.js", function(){
+		dropDownMenu('.navBar-item')
+	});
+
+</script>
+
+<!--No JS fallbacks for mobile navigation-->
+<noscript><style>@media only screen and (max-width: 700px) {
+	.top-nav-buttons {display: none;}#searchBox,#main-nav{display: block;}
+	#top-nav {display: table;}
+}</style></noscript>

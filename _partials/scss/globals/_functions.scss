@@ -1,0 +1,95 @@
+//========================================================
+// Sass Functions
+//========================================================
+
+// String contains check
+// Outputs true/false based on inputs
+@function str-contains($string, $value, $pos: 0) {
+
+	$string: str-slice($string, $pos);
+
+	@if str-index($string, $value) != null {
+		@return true;
+	}
+	@else {
+		@return false;
+	}
+}
+
+//String replace
+// Replaces a value in a string with another
+@function str-replace($string, $search, $replace: '') {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+//String Append
+// Adds string to end of another string
+@function str-append($string, $insert) {
+	$string: if($string == null, "", $string);
+
+	@return str-insert($string, $insert, str-length($string) + 1);
+}
+
+//List Join
+//Convert a list to a string
+@function list-to-string($list, $separator: ",") {
+	$string: "";
+
+	@for $i from 1 through length($list) {
+		$string: str-append($string, #{nth($list, $i)});
+
+		@if $i != length($list) {
+			$string: str-append($string, $separator);
+		}
+	}
+
+	@return $string;
+}
+
+//Stripped REM generator
+//Useful if you just need the rem value
+@function px-to-rems($pixels, $base-size:$base-font-size) {
+
+	@if (unitless($pixels)){
+		$pixels: $pixels * 1px;
+	}
+
+	//If 0, don't include rems
+	@if $pixels == 0px {
+		@return 0;
+	}
+	$pixels: ($pixels / $base-size) * 1rem;
+	@return $pixels;
+
+}
+
+//Strip values from a list
+@function remove($list, $value: 'and') {
+	$result: ();
+	$test-value: '';
+
+	@if type-of($list) == arglist {
+		$list: nth($list, 1);
+	}
+
+	@for $i from 1 through length($list) {
+
+		$item: nth($list, $i);
+
+		@if type-of($item) == 'string' {
+			$test-value: to-lower-case($item);
+		}
+
+		@if $test-value != $value {
+			$result: append($result, $item);
+		}
+	}
+
+	@return $result;
+}

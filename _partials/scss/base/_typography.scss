@@ -1,0 +1,60 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 1.4em;
+	@include type-space(margin-bottom, 1);
+}
+
+h2 {
+	color: $smph-copper;
+	font-size: 1.3em;
+}
+
+h3 {
+	font-size: 1.25em;
+}
+
+h4 {
+	color: $smph-copper;
+	font-size: 1.1em;
+}
+
+h5 {
+	@include type-space(margin-bottom, .5);
+	color: $smph-copper;
+	font-size: 1.1em;
+	text-transform: capitalize;
+}
+
+h6 {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+h6 a {
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+}
+
+
+p {
+	@include type-space(margin, 0 0 1);
+	padding: 0;
+}
+
+li {
+	@include type-space(margin-bottom, .5);
+}

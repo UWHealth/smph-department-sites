@@ -1,0 +1,172 @@
+.pageHeader {
+	position: relative;
+	clear: both;
+	z-index: 2;
+	@include rems(margin-left, $grid-gutter);
+	@include shadow(1, inset);
+}
+
+.sectionTitle {
+	color: $badger-red;
+	line-height: 1.1;
+	white-space: normal;
+	font-family: $font-serif;
+	font-size: 3em;
+	font-weight: normal;
+}
+
+/* Standalone title, with no banner background
+   Should be used for most pages
+*/
+.pageHeader > .sectionTitle {
+	@include type-space(padding, 1.5 1 1);
+}
+
+.banner {
+	overflow: hidden;
+	background-color: $smph-tan;
+	font-size: 1.25em;
+	@include type-space(margin-bottom, 2);
+	box-shadow: none;
+}
+
+.banner-dark {
+	background-color: #504b4e;
+}
+
+.banner-short {
+	font-size: 1em;
+}
+
+.banner-body {
+	@extend %border-box;
+	@include type-space(padding, 1 1.25);
+	@include shadow(1, inset);
+	position: relative;
+	white-space: nowrap; /*prevents line-breaks caused by ::before element */
+
+	@include media-query('smalls') {
+		@include type-space((padding-left, padding-right), 1);
+	}
+}
+
+/* Allows for text to start on the right, but sit flush left */
+.banner-rev .banner-body {
+	direction: rtl;
+
+	@include media-query('smalls') {
+		direction: ltr;
+	}
+}
+
+.banner-body:before {
+	content: '';
+	display: inline-block;
+	/* Sets the height of the banner responsively; also allows vertical-alignment */
+	@include type-scale(height, 21, 235px);
+	margin-left: -1em;
+	width: 1px;
+	vertical-align: middle;
+
+	@include media-query('small') {
+		margin-left: -1.5em;
+	}
+}
+
+.banner-short .banner-body:before {
+	@include type-scale(height, 11.5, 180px);
+}
+
+.bannerImg {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: -1;
+	max-width: none;
+	height: 100%;
+
+	@include media-query('smalls') {
+		opacity: .1;
+	}
+}
+
+.banner-rev .bannerImg {
+	right: auto;
+	left: 0;
+}
+
+.banner-short .bannerImg {
+	top: 50%;
+	transform: translateY(-50%);
+	height: auto;
+	min-height: 100%;
+}
+
+.lt-ie9 .banner-short .bannerImg {
+	top: 0;
+}
+
+/* Banner text */
+.banner .sectionTitle {
+	display: inline-block;
+	margin-bottom: 0;
+	min-width: 45%;
+	max-width: 55%;
+	vertical-align: middle;
+	letter-spacing: .35px;
+	direction: ltr;
+	text-shadow: 0 2px 0 rgba(#000, .1);
+
+	@include media-query('smalls') {
+		max-width: none;
+	}
+}
+
+.banner-short .sectionTitle {
+	font-size: 3.3em;
+}
+
+.banner-dark .sectionTitle {
+	color: #fff;
+	text-shadow: 0 2px 0 rgba(#000, .25);
+}
+
+.sectionTitle-indent {
+	display: block;
+	padding-left: .5em;
+
+	@include media-query('smalls') {
+		padding-left: .25em;
+	}
+	@include media-query('small') {
+		padding-left: 0;
+	}
+}
+
+.sectionTitle-small {
+	font-size: .8em;
+}
+
+.sectionTitle-large {
+	font-size: 1.1em;
+}
+
+.sectionTitle-sub {
+	display: block;
+	color: darken($smph-gold, 28%);
+	line-height: 1.5;
+	letter-spacing: 0;
+	font-family: $font-default;
+	font-size: .32em;
+	text-shadow: none;
+
+	@include type-space(padding-top, .5);
+
+	@include media-query('smalls') {
+		max-width: none;
+	}
+}
+
+#TESTING {
+	what: what;
+}

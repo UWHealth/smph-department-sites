@@ -1,0 +1,215 @@
+@font-face {
+    font-family: 'oswald';
+    src: url('fonts/oswald.eot');
+    src: url('fonts/oswald.eot?#iefix') format('embedded-opentype'),
+         url('fonts/oswald.woff2') format('woff2'),
+         url('fonts/oswald.woff') format('woff'),
+         url('fonts/oswald.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Icon Font
+/* Delete this line to include in your site
+
+@font-face {
+    font-family: 'smph-icon';
+    src: url('fonts/icon.eot');
+    src: url('fonts/icon.eot?#iefix') format('embedded-opentype'),
+         url('fonts/icon.woff') format('woff'),
+         url('fonts/icon.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Recommended icon font markup
+ * <span class="icon icon-error" aria-hidden="true"></span>
+ * OR
+ * <span data-icon="&#xe000" aria-hidden="true"></span>
+ * (converting a css unicode value to html requires replacing the \ with &#x )
+/*
+
+[data-icon]:before {
+    content: attr(data-icon);
+}
+
+.icon:before,
+[data-icon]:before {
+    display: inline;
+    vertical-align: baseline;
+    color: inherit;
+    letter-spacing: 0 !important;
+    direction: ltr;
+    font-family: 'smph-icon' !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    fill: inherit;
+    font-feature-setting: 'liga' on;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-error:before {
+    content: '\e000';
+}
+
+.icon-warn:before {
+    content: '\e001';
+}
+
+.icon-cancel:before {
+    content: '\e005';
+}
+
+.icon-external:before {
+    content: '\e007';
+}
+
+.icon-email:before {
+    content: '\e008';
+}
+
+.icon-phone:before {
+    content: '\e009';
+}
+
+.icon-mobile:before {
+    content: '\e00a';
+}
+
+.icon-x:before {
+    content: '\e00b';
+}
+
+.icon-plus:before {
+    content: '\e00c';
+}
+
+.icon-edit:before {
+    content: '\e00d';
+}
+
+.icon-down:before {
+    content: '\e00e';
+}
+
+.icon-left:before {
+    content: '\e00f';
+}
+
+.icon-right:before {
+    content: '\e010';
+}
+
+.icon-up:before {
+    content: '\e011';
+}
+
+.icon-desktop:before {
+    content: '\e012';
+}
+
+.icon-laptop:before {
+    content: '\e015';
+}
+
+.icon-rx:before {
+    content: '\e016';
+}
+
+.icon-camera:before {
+    content: '\e017';
+}
+
+.icon-location:before {
+    content: '\e018';
+}
+
+.icon-tri-down:before {
+    content: '\e019';
+}
+
+.icon-tri-up:before {
+    content: '\e01a';
+}
+
+.icon-building:before {
+    content: '\e01b';
+}
+
+.icon-car:before {
+    content: '\e01c';
+}
+
+.icon-updown:before {
+    content: '\e01d';
+}
+
+.icon-check:before {
+    content: '\e01e';
+}
+
+.icon-print:before {
+    content: '\e01f';
+}
+
+.icon-folder:before {
+    content: '\e020';
+}
+
+.icon-top:before {
+    content: '\e023';
+}
+
+.icon-bottom:before {
+    content: '\e024';
+}
+
+.icon-user:before {
+    content: '\e025';
+}
+
+.icon-download:before {
+    content: '\e026';
+}
+
+.icon-message:before {
+    content: '\e027';
+}
+
+.icon-education:before {
+    content: '\e028';
+}
+
+.icon-east:before {
+    content: '\e029';
+}
+
+.icon-west:before {
+content: '\e02a';
+}
+
+.icon-stop:before {
+    content: '\e02b';
+}
+
+.icon-people:before {
+    content: '\e02c';
+}
+
+.icon-menu:before {
+    content: '\e02d';
+}
+
+.icon-help:before {
+    content: '\e02e';
+}
+
+.icon-search:before {
+    content: '\e02f';
+}
+
+/**/

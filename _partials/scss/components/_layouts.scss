@@ -1,0 +1,174 @@
+//========================================================
+// Common Layouts
+//========================================================
+// While the row-column grid is useful for general compositions,
+// the following are meant for more specific, but still re-useable layouts
+// These classes can be considered a super-set of the column grid ( _columns.scss )
+
+/* Responsive wrapper
+ * Change max-width to increase your site's total width
+ * Only change if you have image headers that support a width larger than 840px
+ */
+.wrapper {
+	@extend %border_box;
+	margin: 0 auto;
+	max-width: $site-width;
+}
+
+/* Fixed width for non-responsive browsers */
+.lt-ie9 .wrapper {
+	width: $site-width;
+}
+
+/* Page wrapper for side shadows and white background */
+.page {
+	@extend %border-box;
+	background-color: #fff;
+	@include shadow(1);
+}
+
+.page-inner {
+	@include type-space(padding-right, 1);
+}
+
+/* Item groups that should be separated from the previous group */
+.group {
+	@include type-space(margin-top, 1.5);
+}
+
+/* Main article content, used next to a left nav */
+.bodyContent {
+	@extend %eight_elevenths;
+	@extend %smalls_one_whole;
+	@include type-space(padding-bottom, 2);
+}
+
+/* Main article content for use next to a right sidebar */
+.bodyContent-article {
+	@extend %seven_elevenths;
+	@extend %smalls_one_whole;
+	@include type-space(padding-bottom, 2);
+}
+
+.bodyContent-article-wide {
+	@extend %eight_elevenths;
+	@extend %smalls_one_whole;
+	@include type-space(padding-bottom, 2);
+}
+
+/* Sidebar content (usually filled with primaryPods)*/
+.bodyContent-aside {
+	@extend %four_elevenths;
+	@extend %smalls_one_whole;
+	@include type-space(padding-bottom, 2);
+}
+
+.bodyContent-aside-thin {
+	@extend %three_elevenths;
+	@extend %smalls_one_whole;
+	@include type-space(padding-bottom, 2);
+}
+
+/* Media object
+ * Keeps media and adjoining text from wrapping, while staying connected
+ * Useful for bios, icons, or comment formatting
+ * example:
+ * +---+
+ * |___| text text text text text
+ *       text text text text
+ */
+.media,
+.media-body {
+	overflow: hidden;
+	_overflow: visible;
+	zoom: 1;
+}
+
+.media-img {
+	float: left;
+
+	@include media-query(small) {
+		max-width: 25%;
+	}
+}
+
+.media-spaced > .media-body {
+	@include type-space(margin-left, 1);
+}
+
+/* Arrangement object
+ * Advanced media object that allows vertical alignment(top, middle, bottom)
+ * Useful for logos and columns of unequal width.
+ * Can be used with multiple arrange -fit and -fill objects.
+ * .arrange-fit scales to the width of its content (cannot be absolutely positioned).
+ * .arrange-fill takes up the remaining space left over from other -fit modules.
+ * vertical-align: middle|bottom|top; must be applied to -fit and -fill modules.
+ * example:
+ * +---+
+ * |   | text text text text text
+ * +---+
+**/
+
+.arrange {
+	display: table;
+	table-layout: auto;
+}
+
+.arrange-fit,
+.arrange-fill {
+	display: table-cell;
+}
+
+.arrange-fill {
+	width: 100%;
+}
+
+/* Info Grid
+ * Useful as a wrapper for a grid of information where information is formatted as:
+ *
+ *			Information about
+ * Label    the label to the left
+ *			of this column
+ *
+ * Should be used in conjunction with .row and .column
+ */
+
+.infoGrid {
+	@extend %grid_narrow;
+}
+
+.infoGrid > .column {
+	@include type-space(padding-bottom, 1);
+	vertical-align: middle;
+
+	@include media-query('smalls') {
+		left: 0;
+		@include type-space(padding-bottom, .5);
+		width: 100%;
+
+		&:nth-child(2n+1) {
+			@include type-space(margin-top, 1);
+		}
+	}
+}
+
+/* Image Grid
+ * Simple column layout meant for laying out photos
+ */
+
+.imgGrid {
+	@include type-space(margin-left, -.5);
+	@include type-space(padding-bottom, 2);
+	width: 100%;
+	text-align: justify;
+}
+
+.imgGrid-item {
+	@extend %border-box;
+	display: inline-block;
+	height: 100%;
+	@include type-space(padding-left, .5);
+	vertical-align: top;
+	text-align: center;
+	text-decoration: none;
+}

@@ -1,0 +1,175 @@
+//========================================================
+// Standard CSS resets
+//========================================================
+
+html {
+	font-size: percentage($type-font-size / 16);
+	-ms-overflow-style: -ms-autohiding-scrollbar; /* Edge 12+, Internet Explorer 11- */
+	overflow-y: scroll; /* All browsers without overlaying scrollbars */
+	-webkit-text-size-adjust: 100%;
+
+	@include media-query('smalls') {
+		font-size: percentage(11.25 / 16);
+	}
+}
+
+body {
+	margin: 0;
+	@include type-space(padding, 0 .5);
+	min-height: 100%; /* this is the key! */
+	background: $color-main-bg url('../images/backgrounds/bg_pattern_honeycomb_2.png');
+	color: #333;
+	line-height: ($base-line-height / $base-font-size);
+	@include rems(font-size, $base-font-size);
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+
+	@include media-query('small') {
+		padding: 0;
+	}
+}
+
+a {
+	outline: none; /* FireFox link outline fix */
+	color: $badger-red;
+	text-decoration: underline;
+
+	&:hover,
+	&:focus {
+		color: lighten($badger-red, 8%);
+		text-decoration: none;
+	}
+
+	&:active {
+		color: darken($badger-red, 5%);
+	}
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+img {
+	border: 0;
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+	display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+	display: inline-block; /* 1 */
+	vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+	display: none;
+}
+
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+	font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn,
+em,
+i {
+	font-style: italic;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+	position: relative;
+	vertical-align: baseline;
+	line-height: 0;
+	font-size: 75%;
+}
+
+sup {
+	top: -.5em;
+}
+
+sub {
+	bottom: -.25em;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+/* Normalize figure margins for all browsers */
+
+figure {
+	@include type-space(margin, 0 0 1);
+}
+
+hr {
+	@include type-space(margin, 1 0);
+	border: 0;
+	border-top: 1px solid $smph-tan-dark;
+	padding: 0;
+	height: 1px;
+}

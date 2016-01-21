@@ -11,7 +11,7 @@
 	line-height: 1.1;
 	white-space: normal;
 	font-family: $font-serif;
-	font-size: 3.8em;
+	font-size: 3em;
 	font-weight: normal;
 }
 
@@ -19,18 +19,23 @@
    Should be used for most pages
 */
 .pageHeader > .sectionTitle {
-	@include type-space(padding, 2 1 0);
+	@include type-space(padding, 1.5 1 1);
 }
 
 .banner {
 	overflow: hidden;
 	background-color: $smph-tan;
+	font-size: 1.25em;
 	@include type-space(margin-bottom, 2);
 	box-shadow: none;
 }
 
 .banner-dark {
 	background-color: #504b4e;
+}
+
+.banner-short {
+	font-size: 1em;
 }
 
 .banner-body {

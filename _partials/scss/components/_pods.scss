@@ -14,6 +14,7 @@
 	color: #fff;
 	letter-spacing: .05em;
 	font-family: $font-condensed;
+	font-weight: normal;
 	text-transform: uppercase;
 	@include type-scale(font-size, 1.3, 15px);
 }
@@ -23,10 +24,6 @@
 	background-color: $smph-tan;
 	@include type-space(padding, 1 .5 1.5);
 	list-style: none;
-}
-
-.primaryPod p {
-	@include type-space(margin-bottom, .5);
 }
 
 .rightPod {
@@ -47,12 +44,22 @@
 	}
 }
 
-.rightPod p,
-.rightPod li {
-	@include type-space(padding-bottom, .5);
+.rightPod-full {
+	float: none;
+	margin-left: 0;
+	width: 100%;
 }
 
-.rightPod ul {
+.rightPod,
+.primaryPod {
+	p,
+	li {
+		@include type-space(margin-bottom, .5);
+	}
+}
+
+.rightPod ul,
+.primaryPod ul {
 	margin: 0;
 	list-style: none;
 }

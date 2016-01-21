@@ -231,7 +231,7 @@ body {
   padding: 0 1rem;
   min-height: 100%;
   /* this is the key! */
-  background: #c7ab4c url("../images/bg_pattern_honeycomb_2.png");
+  background: #c7ab4c url("../images/backgrounds/bg_pattern_honeycomb_2.png");
   color: #333;
   line-height: 1.25;
   font-size: 12px;

@@ -17,7 +17,7 @@ body {
 	margin: 0;
 	@include type-space(padding, 0 .5);
 	min-height: 100%; /* this is the key! */
-	background: $color-main-bg url('../images/bg_pattern_honeycomb_2.png');
+	background: $color-main-bg url('../images/backgrounds/bg_pattern_honeycomb_2.png');
 	color: #333;
 	line-height: ($base-line-height / $base-font-size);
 	@include rems(font-size, $base-font-size);

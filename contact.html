@@ -11,7 +11,7 @@
  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
  <meta name="description" content="Page Description">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>Home, Your Department</title>
+ <title>Contact Us, Your Department</title>
  <!-- <link rel="stylesheet" href="style/stylesheet.css" media="screen"> -->
  <link rel="stylesheet" href="style/main.min.css" type="text/css" media="screen">
  <link rel="stylesheet" href="style/print.css" type="text/css" media="print">
@@ -88,64 +88,90 @@
    <!-- End Search Box & Button -->
   </div>
   <main class="//margin10 row" role="main">
-   <!--<div id="navBarShadow"></div>-->
-   <!-- Banner Widget Holder <div> -->
-   <div id="bannerwidget" class="bannerWidget"> </div>
-   <!-- End Banner Widget Holder <div> -->
+   <div id="//pageHeader" class="pageHeader">
+    <h1 class="sectionTitle">Contact Us</h1> </div>
    <!-- Main Page Content Container (content + left nav) -->
    <div id="mainContent" class="columnRow page-inner">
-    <div id="//newsTickerWrapper" class="newsTicker column">
-     <h1 class="newsTicker-head">Current News</h1>
-     <div id="newsTicker" class="newsTicker-body">
-      <ul id="newsTickerContainer" class="list-nav list-inline newsTicker-items">
-       <li class="newsTicker-item" style="display:none;"></li>
-      </ul>
-      <div class="newsTicker-foot"> <a title="News" href="#">All News</a> </div>
+    <div class="column bodyContent-article bigs-padR10">
+     <!-- <div style="background-image: url(http://basehold.it/i/15);">
+	<p class="h1">Maecenas faucibus mollis interdum sit amet non magna interdum sit amet non </p>
+	<p class="h2">Maecenas faucibus mollis interdum sit amet non magnai nterdum sit amet non </p>
+	<p class="h3">Maecenas faucibus mollis interdum sit amet non magna interdum sit amet non Maecenas faucibus mollis interdum sit amet non magna interdum sit amet non curabitur blandit tempus porttitor</p>
+	<p class="h4">Maecenas faucibus mollis interdum sit amet non magna interdum sit amet non Maecenas faucibus mollis interdum sit amet non magna interdum sit amet non curabitur blandit tempus porttitor</p>
+	<p class="h5">Maecenas faucibus mollis interdum sit amet non magna interdum sit amet non curabitur blandit tempus porttitor aucibus mollis interdum non Maecenas faucibus</p>
+	<p class="h6">Maecenas faucibus mollis interdum sit amet non magna interdum sit amet non Maecenas faucibus mollis interdum sit amet non magna interdum sit amet non curabitur blandit tempus porttitor aucibus mollis interdum  non Maecenas faucibus</p>
+	<p class="p">Maecenas faucibus mollis interdum sit amet non magna interdum sit amet non Maecenas faucibus mollis interdum sit amet non magna interdum sit amet non curabitur blandit tempus porttitor</p>
+	</div>-->
+     <h3 class="h6">
+		How Can We Assist You?
+	</h3>
+     <p>General contact information about medical school and education programs at the University of Wisconsin School of Medicine and Public Health in Madison is listed below.</p>
+     <div class="group">
+      <form class="row infoGrid form-full">
+       <label class="column c-3" for="name">Name</label>
+       <div class="column c-8">
+        <input id="name" name="name" type="text" autocomplete="name" required> </div>
+       <label class="column c-3" for="email">E-mail</label>
+       <div class="column c-8">
+        <input id="email" name="email" type="email" autocomplete="email" required> </div>
+       <label class="column c-3" for="phone">Phone (optional)</label>
+       <div class="column c-8">
+        <input id="phone" name="phone" type="tel" autocomplete="tel"> </div>
+       <label class="column c-3" for="topic">Topic</label>
+       <div class="column c-8">
+        <select name="topic" id="topic" required>
+         <option value="lorem" selected>Lorem</option>
+         <option value="ipsum">Ipsum</option>
+         <option value="dolor">Dolor</option>
+        </select>
+       </div>
+       <label class="column c-3" for="urgent">Urgent?</label>
+       <div class="column c-8">
+        <input type="radio" name="urgent" value="no" checked id="Urgent">No
+        <input type="radio" name="urgent" value="yes">Yes </div>
+       <label class="column c-3" for="quantity">Quantity (optional)</label>
+       <div class="column c-8">
+        <input id="quantity" name="quantity" min="0" max="10" step="1" type="number"> </div>
+       <label class="column c-3" for="message">Message</label>
+       <div class="column c-8">
+        <p>Please include any information that will help us assist you, such as the URLs of specific pages.</p>
+        <textarea id="message" rows="5" name="Message"></textarea>
+       </div>
+       <label class="column c-8 p-3 smalls-p-0" for="reply">
+        <input type="checkbox" id="reply" name="reply">I'd like a reply about this </label>
+       <br>
+       <div class="column c-8 p-3">
+        <input id="_submit" name="_submit" type="submit" value="Submit" /> </div>
+      </form>
      </div>
     </div>
-    <!--Fallback for no JS (hide newsticker) -->
-    <noscript>
-     <style>
-      .newsTicker {
-       display: none !important;
-      }
-     </style>
-    </noscript>
-    <div class="column">
-     <div class="row">
-      <div class="column bodyContent-article">
-       <div class="media">
-        <a class="media-img" href="#"> <img class="imgMatte" src="images/img_sample-1.jpg" alt="Anthony M. D'Allessandro, MD"> </a>
-        <div class="media-body padL10">
-         <h6>Anthony M. D'Allessandro, MD</h6> Dr. D'Allessandro is certified by the American Board of Surgery in general surgery and surgical critical care. His clinical specialties are small bowel and multi-organ transplants. <a href="#">Read more...</a> </div>
-       </div>
-       <div class="media padT10">
-        <a class="media-img" href="#"> <img class="imgMatte" src="images/img_sample-2.jpg" alt="Lung Transplant Procedure"> </a>
-        <div class="media-body padL10">
-         <h6>Lung Transplant Procedure</h6> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate nunc non lacus tincidunt eleifend. Sed ut risus velit. In urna dolor, tristique a pellentesque ut, porta ac felis. Integer ullamcorper, enim at luctus condimentum, nunc ligula
-         placerat ligula, a viverra justo metus non diam. <a href="#">Read more...</a> </div>
-       </div>
-      </div>
-      <div class="column bodyContent-aside">
-       <div class="primaryPod">
-        <h2 class="primaryPod-head">Sample Pages</h2>
-        <div class="primaryPod-body">
-         <div class="row">
-          <ul class="c-half column">
-           <li><a href="home.htm">Home Page</a></li>
-           <li><a href="home_widget.htm">Home Page w/Widget and News</a></li>
-           <li><a href="landing.htm">Landing Page</a></li>
-          </ul>
-          <ul class="c-half column">
-           <li><a href="destination.htm">Destination Page</a></li>
-           <li><a href="content.htm">Content Page</a></li>
-           <li><a href="content_right_nav.htm">Content Page w/Pod</a></li>
-           <li><a href="content_drop_menus.htm">Content Page w/Dropdown Menus</a></li>
-          </ul>
-         </div>
-        </div>
-       </div>
-      </div>
+    <div class="column bodyContent-aside">
+     <div class="rightPod rightPod-full">
+      <h3 class="h6">Main Contact Information</h3>
+      <p class="h6">(608) 263-4900</p>
+      <hr>
+      <h3 class="p">
+			<a href="//med.wisc.edu/education/md/admissions/main/102">MD Program Admissions Information</a>
+		</h3>
+      <p>(608) 263-4925
+       <br> <a href="mailto:medadmissions@med.wisc.edu">medadmissions@med.wisc.edu</a> </p>
+      <br>
+      <h3 class="p"><a href="http://med.wisc.edu/">University of Wisconsin School of Medicine and Public Health</a></h3>
+      <p> Health Sciences Learning Center
+       <br>750 Highland Ave.
+       <br>Madison, WI&nbsp; 53705
+       <br> <a href="/health-sciences-learning-center/765">View a Map</a>
+       <br> <a href="http://www.wisc.edu/directories/?name=Search%E2%80%A6" target="_blank">UW-Madison People Search</a> </p>
+     </div>
+     <br>
+     <div class="promo"> <img class="promo-img" src="images/promo_sample-1.jpg" alt="Two graduating students">
+      <a href="#" class="promo-body">
+       <h3 class="promo-body-title">
+			Faculty Directory
+			<small class="promo-body-sub">
+				Learn More
+			</small>
+		</h3> </a>
      </div>
     </div>
    </div>

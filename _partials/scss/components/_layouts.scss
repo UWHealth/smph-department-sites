@@ -50,9 +50,21 @@
 	@include type-space(padding-bottom, 2);
 }
 
+.bodyContent-article-wide {
+	@extend %eight_elevenths;
+	@extend %smalls_one_whole;
+	@include type-space(padding-bottom, 2);
+}
+
 /* Sidebar content (usually filled with primaryPods)*/
 .bodyContent-aside {
 	@extend %four_elevenths;
+	@extend %smalls_one_whole;
+	@include type-space(padding-bottom, 2);
+}
+
+.bodyContent-aside-thin {
+	@extend %three_elevenths;
 	@extend %smalls_one_whole;
 	@include type-space(padding-bottom, 2);
 }

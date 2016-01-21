@@ -1,7 +1,7 @@
 var gulp		 = require('gulp');
 var utility 	 = require('gulp-util');
 var autoprefixer = require('gulp-autoprefixer');
-var browserSync  = require('browser-sync').create();
+var browserSync  = require('browser-sync');
 var chalk        = utility.colors;
 var changed 	 = require('gulp-newer');
 var flatten 	 = require('gulp-flatten');
@@ -74,7 +74,9 @@ var BROWSER_SYNC_WATCH = [
 
 /* gulp serve */
 /* Local server and file watcher */
-gulp.task('serve', ['...', 'watch', 'browserSync']);
+gulp.task('serve', ['...', 'watch', 'browserSync'], function(){
+	_first_run = false;
+});
 
 /* gulp prod */
 /* Compile and minify

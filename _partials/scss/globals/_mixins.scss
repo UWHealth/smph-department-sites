@@ -9,7 +9,7 @@
 	$rem_sizes: null;
 	$px_sizes: null;
 
-	@if $important{
+	@if $important {
 		$important_val: ' !important';
 	}
 
@@ -78,7 +78,7 @@
 //Create multiples based on the base-font-size with an upper limit
 // Different from type-space() where all values are based on the grid
 // Upper limit used to prevent crazy scales for larger font-sizes
-@mixin type-scale($properties, $multipliers, $upper-limit: false) {
+@mixin type-scale($properties, $multipliers, $upper-limit: false, $important: false) {
 
 	$upper-limit: if($upper-limit == false, 10000, $upper-limit);
 
@@ -96,7 +96,7 @@
 			$values: append($values, $clamped-value);
 			$multiple-index: $multiple-index + 1;
 		}
-		@include rems($property, $values);
+		@include rems($property, $values, $important);
 	}
 
 }

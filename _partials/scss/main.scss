@@ -1,4 +1,4 @@
-@charset "utf-8";
+@charset 'utf-8';
 
 //Sass helper functions
 @import 'globals/functions';
@@ -17,4 +17,5 @@
 @import 'components/import';
 
 //Singleton utility classes
+@import 'utilities/text';
 @import 'utilities/overrides';

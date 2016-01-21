@@ -377,6 +377,15 @@ figure {
   margin: 0 0 1.25rem;
 }
 
+hr {
+  margin: 15px 0;
+  margin: 1.25rem 0;
+  border: 0;
+  border-top: 1px solid #d6cd9e;
+  padding: 0;
+  height: 1px;
+}
+
 h1,
 h2,
 h3,
@@ -400,7 +409,6 @@ h2 {
 }
 
 h3 {
-  display: inline-block;
   font-size: 1.25em;
 }
 
@@ -519,18 +527,17 @@ label {
   display: inline-block;
   margin: 0;
   vertical-align: middle;
-  color: #504b4e;
+  color: #5d575b;
   font-weight: bold;
 }
 
 select {
-  -moz-border-radius: 0;
-       border-radius: 0;
+  -moz-border-radius: 2px;
+       border-radius: 2px;
   padding: .25em 2em .25em .5em;
   max-width: 100%;
   background-color: #efefef;
   -webkit-appearance: menulist-button;
-  -moz-appearance: menulist-button;
 }
 
 option {
@@ -667,7 +674,7 @@ input[type='submit']:active,
   width: 18.18182%;
 }
 
-.c-3, .leftNav, .searchBox {
+.c-3, .bodyContent-aside-thin, .leftNav, .searchBox {
   width: 27.27273%;
 }
 
@@ -687,7 +694,7 @@ input[type='submit']:active,
   width: 63.63636%;
 }
 
-.c-8, .bodyContent, .navBar-items {
+.c-8, .bodyContent, .bodyContent-article-wide, .navBar-items {
   width: 72.72727%;
 }
 
@@ -765,7 +772,7 @@ input[type='submit']:active,
   .smalls-c-half, .footerColumn {
     width: 50%;
   }
-  .smalls-c-11, .bodyContent, .bodyContent-article, .bodyContent-aside, .leftNav {
+  .smalls-c-11, .bodyContent, .bodyContent-article, .bodyContent-article-wide, .bodyContent-aside, .bodyContent-aside-thin, .leftNav {
     width: 100%;
   }
 }
@@ -973,8 +980,18 @@ input[type='submit'],
   padding-bottom: 2.5rem;
 }
 
+.bodyContent-article-wide {
+  padding-bottom: 30px;
+  padding-bottom: 2.5rem;
+}
+
 /* Sidebar content (usually filled with primaryPods)*/
 .bodyContent-aside {
+  padding-bottom: 30px;
+  padding-bottom: 2.5rem;
+}
+
+.bodyContent-aside-thin {
   padding-bottom: 30px;
   padding-bottom: 2.5rem;
 }
@@ -1083,6 +1100,27 @@ input[type='submit'],
   text-decoration: none;
 }
 
+figure {
+  display: table;
+  width: 1px;
+}
+
+figure img,
+figure figcaption {
+  display: table-row;
+  vertical-align: bottom;
+}
+
+figure img {
+  max-width: none;
+  margin-bottom: 11.25px;
+  margin-bottom: 0.9375rem;
+}
+
+figure figcaption {
+  font-size: .9em;
+}
+
 /* Matte Image
  * Images with a white and gray border,
  * like a framed photo with a matte around it
@@ -1106,7 +1144,9 @@ input[type='submit'],
 }
 
 .imgCard {
+  display: block;
   border: 1px solid transparent;
+  width: 100%;
   text-align: center;
 }
 
@@ -1121,6 +1161,7 @@ input[type='submit'],
 }
 
 .imgCard-media > img {
+  display: inline-block;
   position: relative;
 }
 
@@ -1466,6 +1507,7 @@ input[type='submit'],
   color: #fff;
   letter-spacing: .05em;
   font-family: "oswald", Helvetica, Arial, sans-serif;
+  font-weight: normal;
   text-transform: uppercase;
   font-size: 15px;
   font-size: 1.25rem;
@@ -1477,11 +1519,6 @@ input[type='submit'],
   padding: 15px 12px 22.5px;
   padding: 1.25rem 1rem 1.875rem;
   list-style: none;
-}
-
-.primaryPod p {
-  margin-bottom: 7.5px;
-  margin-bottom: 0.625rem;
 }
 
 .rightPod {
@@ -1504,13 +1541,22 @@ input[type='submit'],
   }
 }
 
-.rightPod p,
-.rightPod li {
-  padding-bottom: 7.5px;
-  padding-bottom: 0.625rem;
+.rightPod-full {
+  float: none;
+  margin-left: 0;
+  width: 100%;
 }
 
-.rightPod ul {
+.rightPod p,
+.rightPod li,
+.primaryPod p,
+.primaryPod li {
+  margin-bottom: 7.5px;
+  margin-bottom: 0.625rem;
+}
+
+.rightPod ul,
+.primaryPod ul {
   margin: 0;
   list-style: none;
 }
@@ -1553,7 +1599,7 @@ input[type='submit'],
   line-height: 1.1;
   white-space: normal;
   font-family: Times, serif;
-  font-size: 3.8em;
+  font-size: 3em;
   font-weight: normal;
 }
 
@@ -1561,13 +1607,14 @@ input[type='submit'],
    Should be used for most pages
 */
 .pageHeader > .sectionTitle {
-  padding: 30px 24px 0;
-  padding: 2.5rem 2rem 0;
+  padding: 22.5px 24px 15px;
+  padding: 1.875rem 2rem 1.25rem;
 }
 
 .banner {
   overflow: hidden;
   background-color: #ede9d4;
+  font-size: 1.25em;
   margin-bottom: 30px;
   margin-bottom: 2.5rem;
   -webkit-box-shadow: none;
@@ -1577,6 +1624,10 @@ input[type='submit'],
 
 .banner-dark {
   background-color: #504b4e;
+}
+
+.banner-short {
+  font-size: 1em;
 }
 
 .banner-body {
@@ -1952,6 +2003,7 @@ input[type='submit'],
   font-size: 15px;
   font-size: 1.25rem;
   font-family: "oswald", Helvetica, Arial, sans-serif;
+  font-weight: normal;
   text-transform: uppercase;
 }
 
@@ -2729,6 +2781,109 @@ input[type='submit'],
   vertical-align: middle;
 }
 
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.p {
+  color: #333;
+}
+
+.h1 {
+  font-size: 30px !important;
+  font-size: 2.5rem !important;
+  line-height: 1.25;
+}
+
+.h2 {
+  font-size: 21.6px !important;
+  font-size: 1.8rem !important;
+  line-height: 1.4;
+}
+
+.h3 {
+  font-size: 19.2px !important;
+  font-size: 1.6rem !important;
+  line-height: 1.325;
+}
+
+.h4 {
+  font-size: 17.1px !important;
+  font-size: 1.425rem !important;
+  line-height: 1.375;
+}
+
+.h5 {
+  font-size: 15px !important;
+  font-size: 1.25rem !important;
+  line-height: 1.5;
+}
+
+.h6 {
+  font-size: 13.2px !important;
+  font-size: 1.1rem !important;
+  line-height: 1.6;
+}
+
+.p {
+  font-size: 12px !important;
+  font-size: 1rem !important;
+  line-height: 1.25;
+}
+
+.p-tight {
+  margin-bottom: 7.5px !important;
+  margin-bottom: 0.625rem !important;
+}
+
+.fntNormal {
+  font-weight: normal !important;
+}
+
+.fntBold {
+  font-weight: bold !important;
+}
+
+.fntItalic {
+  font-style: italic !important;
+}
+
+.fntCondensed {
+  font-family: "oswald", Helvetica, Arial, sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+.fntSerif {
+  font-family: Helvetica, Arial, sans-serif !important;
+}
+
+.clrBlack {
+  color: #333 !important;
+}
+
+.clrWhite {
+  color: #fff !important;
+}
+
+.clrGray {
+  color: #777074 !important;
+}
+
+.clrRed {
+  color: #970d0e !important;
+}
+
+.clrTan {
+  color: #d6cd9e !important;
+}
+
+.clrCopper {
+  color: #604d25 !important;
+}
+
 /*
  * Hide only visually, but have it available for screen readers:
  * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
@@ -2813,6 +2968,10 @@ input[type='submit'],
   padding: 0 !important;
 }
 
+.marginN {
+  margin: 0 !important;
+}
+
 @media only screen and (min-width: 685px) {
   .bigs-hide {
     display: none !important;
@@ -2844,8 +3003,8 @@ input[type='submit'],
   .bigs-padN {
     padding: 0 !important;
   }
-  .whatever10-whatever {
-    color: #000;
+  .bigs-marginN {
+    margin: 0 !important;
   }
 }
 
@@ -2879,6 +3038,9 @@ input[type='submit'],
   }
   .smalls-padN {
     padding: 0 !important;
+  }
+  .smalls-marginN {
+    margin: 0 !important;
   }
 }
 
@@ -2928,4 +3090,8 @@ input[type='submit'],
 
 .lt-ie9 .bigs-padN {
   padding: 0 !important;
+}
+
+.lt-ie9 .bigs-marginN {
+  margin: 0 !important;
 }

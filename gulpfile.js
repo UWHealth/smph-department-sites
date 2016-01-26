@@ -72,6 +72,15 @@ var BROWSER_SYNC_WATCH = [
 
 /**------ Main Tasks --------**/
 
+// Add a task to render the output
+gulp.task('help', taskListing);
+
+/* gulp serve */
+/* Local server and file watcher */
+gulp.task('serve', ['...', 'watch', 'browserSync'], function(){
+	_first_run = false;
+});
+
 /* gulp serve */
 /* Local server and file watcher */
 gulp.task('serve', ['...', 'watch', 'browserSync'], function(){
